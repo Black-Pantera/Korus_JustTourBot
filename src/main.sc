@@ -6,7 +6,7 @@ theme: /
         q!: $regex</start>
         q!: старт
         script:
-            $context.session = {};
+            //$context.session = {};
             //$context.client = {};
             $session.stateCounterInARow = 0
             
