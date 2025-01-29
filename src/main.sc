@@ -68,6 +68,12 @@ theme: /
                     
                 go!: /SomethingElse
                 
+    state: WeatherForecast
+        a: Погода
+          
+    state: OfferTour
+        a: Тур
+              
     state: DontHaveQuestions
         q!: * вопросов нет *
         q!: * нет *
@@ -76,13 +82,7 @@ theme: /
             a: Вас понял!
             a: Хорошо!
             a: Понял!
-        go!: /GoodBye        
-          
-    state: WeatherForecast
-        a: Погода
-          
-    state: OfferTour
-        a: Тур
+        go!: /GoodBye               
               
     state: SomethingElse  
         random:
