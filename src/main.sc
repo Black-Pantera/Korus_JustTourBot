@@ -27,7 +27,7 @@ theme: /
             state: GetName
                 q: * @pymorthy.name *
                 script:
-                    $jsapi.startSession();
+                    //$jsapi.startSession();
                     log("///////// MY LOG "+toPrettyString($parseTree));
                     $client.name = $parseTree._Name.name;
                 go!: /HowCanIHelpYou
