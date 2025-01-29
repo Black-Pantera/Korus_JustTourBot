@@ -81,7 +81,7 @@ theme: /
             "Узнать прогноз погоды" -> /WeatherForecast
             "Оформить заявку на подбор тура" -> /OfferTour
             
-        tate: LocalCatchAll || noContex = true
+        state: LocalCatchAll || noContex = true
             event: noMatch
             
             script:
