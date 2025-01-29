@@ -23,15 +23,17 @@ theme: /
                 a: Здравствуйте! Меня зовут Артур, бот-помощник компании Just Tour. Расскажу все о погоде в городах мира и помогу с оформлением заявки на подбор тура.
                 a: Приветствую вас! Я Артур, работаю виртуальным ассистентом в Just Tour, лучшем туристическом агентстве. Проинформирую вас о погоде в разных городах и соберу все необходимые данные для запроса на подбор путевки.
             a: Как к вам лучше обращаться?
-            q: * @pymorthy.name *
-            script:
-                $jsapi.startSession();
-                $client.name = $parseTree._Name.name;
-            go!: /HowCanIHelpYou
+            
+            state: GetName
+                q: * @pymorthy.name *
+                script:
+                    $jsapi.startSession();
+                    $client.name = $parseTree._Name.name;
+                go!: /HowCanIHelpYou
             
             state: ErrorName
                 event: noMatch
-                a: Пожалуйста, введите корректное имя
+                a: Аожалуйста, введите корректное имя
                 go!: /GetName
         
     state: HowCanIHelpYou
