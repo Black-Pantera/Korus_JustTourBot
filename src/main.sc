@@ -45,6 +45,11 @@ theme: /
         buttons:
             "Узнать прогноз погоды" -> /WeatherForecast
             "Оформить заявку на подбор тура" -> /OfferTour
+            
+        state: CatchAll
+            event: noMatch
+            a: Кажется, этот вопрос не в моей компетенции. Но я постоянно учусь новому, и, надеюсь скоро научусь отвечать и на него.
+            go!: /SomethingElse
           
     state: WeatherForecast
         a: Погода
@@ -52,6 +57,15 @@ theme: /
      
     state: OfferTour
         a: Тур
+              
+    state: SomethingElse  
+        random:
+            a: Хотите спросить что-то ещё?
+            a: Могу ли я помочь чем-то ещё?
+            a: Подскажите, у вас остались ещё вопросы?
+        buttons:
+            "Узнать прогноз погоды" -> /WeatherForecast
+            "Оформить заявку на подбор тура" -> /OfferTour
               
     state: GoodBye
         random:
