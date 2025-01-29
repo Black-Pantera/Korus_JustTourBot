@@ -25,7 +25,7 @@ theme: /
             a: Как к вам лучше обращаться?
             
             state: GetName
-                q: * @pymorthy.name *
+                q: * *
                 script:
                     //$jsapi.startSession();
                     log("///////// MY LOG "+toPrettyString($parseTree));
