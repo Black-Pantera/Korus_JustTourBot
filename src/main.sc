@@ -12,7 +12,6 @@ theme: /
             random:
                 a: {{ capitalize($client.name) }}, здравствуйте! Артур из Just Tour на связи. Рад снова видеть вас в чате!
                 a: {{ capitalize($client.name) }}, приветствую! На связи Артур из Just Tour, лучшей в мире туристической компании. Рад снова пообщаться с вами!
-        
             go!: /HowCanIHelpYou
         else
             go!: /GetName/InputName
