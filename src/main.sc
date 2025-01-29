@@ -68,9 +68,8 @@ theme: /
                     
                 go!: /SomethingElse
                 
-                
     state: DontHaveQuestions
-        q: * вопрсов нет *
+        q: * вопросов нет *
         q: * У мнея больше нет вопросов *
         random:
             a: Вас понял!
