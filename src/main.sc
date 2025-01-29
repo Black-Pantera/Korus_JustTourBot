@@ -33,7 +33,7 @@ theme: /
             
             state: ErrorName
                 event: noMatch
-                a: Аожалуйста, введите корректное имя
+                a: Пожалуйста, введите корректное имя
                 go!: /GetName
         
     state: HowCanIHelpYou
