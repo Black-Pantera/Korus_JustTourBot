@@ -51,6 +51,12 @@ theme: /
      
     state: OfferTour
         a: Тур
+              
+    state: GoodBye
+        random:
+            a: Всего доброго!
+            a: Всего вам доброго!
+            a: Всего доброго, до свидания!
                
     state: Match
         event!: match
