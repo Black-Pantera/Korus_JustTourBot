@@ -29,6 +29,7 @@ theme: /
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
                     $client.name = $parseTree._Root;
+                a: Будем знакомы, {{ capitalize($client.name) }}.
                 go!: /HowCanIHelpYou
             
             state: ErrorName
