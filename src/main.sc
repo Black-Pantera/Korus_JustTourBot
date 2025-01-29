@@ -28,6 +28,11 @@ theme: /
                 $jsapi.startSession();
                 $client.name = $parseTree._Name.name;
             go!: /HowCanIHelpYou
+            
+            state: ErrorName
+                event: noMatch
+                a: Аожалуйста, введите корректное имя
+                go!: /GetName
         
     state: HowCanIHelpYou
         random:
