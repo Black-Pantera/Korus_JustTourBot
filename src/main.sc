@@ -80,6 +80,24 @@ theme: /
         buttons:
             "Узнать прогноз погоды" -> /WeatherForecast
             "Оформить заявку на подбор тура" -> /OfferTour
+            
+        tate: LocalCatchAll || noContex = true
+            event: noMatch
+            
+            script:
+                $session.stateCounterInARow++
+                
+            if: $session.stateCounterInARow < 3
+                random: 
+                    a: Извините, не совсем понял. Пожалуйста, подскажите, могу ли я чем-то вам помочь?
+                    a: К сожалению, не смог понять, что вы имеете в виду. Подскажите, что вас интересует?
+                    
+                buttons:
+                    "Узнать прогноз погоды" -> /WeatherForecast
+                    "Оформить заявку на подбор тура" -> /OfferTour
+            else:
+                a: Простите, так и не смог понят, что вы имели ввиду.
+                go!: /GoodBye
               
     state: GoodBye
         random:
