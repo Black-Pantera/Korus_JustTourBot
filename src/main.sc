@@ -46,15 +46,26 @@ theme: /
             "Узнать прогноз погоды" -> /WeatherForecast
             "Оформить заявку на подбор тура" -> /OfferTour
             
-        state: CatchAll
+        state: LocalCatchAll || noContex = true
             event: noMatch
-            a: Кажется, этот вопрос не в моей компетенции. Но я постоянно учусь новому, и, надеюсь скоро научусь отвечать и на него.
-            go!: /SomethingElse
+            script:
+                $session.stateCounterInARow++
+                
+            if: $session.stateCounterInARow < 3
+                random: 
+                    a: Извините, не совсем понял. Пожалуйста, подскажите, могу ли я чем-то вам помочь?
+                    a: К сожалению, не смог понять, что вы имеете в виду. Подскажите, что вам интересует?
+            else:
+                a: Кажется, этот вопрос не в моей компетенции. Но я постоянно учусь новому, и, надеюсь скоро научусь отвечать и на него.
+                
+                script: 
+                    $session.stateCounterInARow = 0
+                    
+                go!: /SomethingElse
           
     state: WeatherForecast
         a: Погода
           
-     
     state: OfferTour
         a: Тур
               
