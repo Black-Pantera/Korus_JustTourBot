@@ -42,6 +42,13 @@ theme: /
             buttons:
                 "Узнать прогноз погоды" -> /WeatherForecast
                 "Оформить заявку на подбор тура" -> /OfferTour
+          
+    state: WeatherForecast
+        a: Погода
+          
+     
+    state: OfferTour
+        a: Тур
                
     state: Match
         event!: match
