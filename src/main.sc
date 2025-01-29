@@ -27,9 +27,8 @@ theme: /
             state: GetName
                 q: * *
                 script:
-                    //$jsapi.startSession();
                     log("///////// MY LOG "+toPrettyString($parseTree));
-                    $client.name = $parseTree._Name.name;
+                    $client.name = $parseTree._Root;
                 go!: /HowCanIHelpYou
             
             state: ErrorName
