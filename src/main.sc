@@ -38,9 +38,9 @@ theme: /
             a: Чем могу помочь?
             a: Что вас интересует?
             a: Подскажите, какой у вас вопрос?
-            buttons:
-                "Узнать прогноз погоды" -> /WeatherForecast
-                "Оформить заявку на подбор тура" -> /OfferTour
+        buttons:
+            "Узнать прогноз погоды" -> /WeatherForecast
+            "Оформить заявку на подбор тура" -> /OfferTour
           
     state: WeatherForecast
         a: Погода
