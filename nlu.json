@@ -104,15 +104,15 @@
     "records" : [ {
       "type" : "synonyms",
       "rule" : [ "Казань" ],
-      "value" : "{\nname: Казань,\nlon: 10,\nlat: 20\n}"
+      "value" : "{\"name\":\"Казань\",\"lon\":\"49.12214\",\"lat\":\"55.78874\"}"
     }, {
       "type" : "synonyms",
-      "rule" : [ "Самара" ],
-      "value" : ""
+      "rule" : [ "Москва" ],
+      "value" : "{\"name\":\"Москва\",\"lon\":\"37.61556\",\"lat\":\"55.75222\"}"
     }, {
       "type" : "synonyms",
       "rule" : [ "Питер", "Санкт-Петербург" ],
-      "value" : ""
+      "value" : "{\n  \"name\": \"Санкт-Петербург\",\n  \"lon\": \"30.31413\",\n  \"lat\": \"59.93863\"\n}"
     } ]
   } ],
   "enabledSystemEntities" : [ "pymorphy.name", "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
