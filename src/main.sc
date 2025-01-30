@@ -119,7 +119,7 @@ theme: /
                 
     state: GetDate
         script:
-            var answer = "Итак, ваш город " + $session.userCity + " ("+$session.lat + " " +$session.lon "). ";
+            var answer = "Итак, ваш город " + $session.userCity + " ("+$session.lat + " " +$session.lon +"). ";
             $reactions.answer(answer);
           
     state: OfferTour
