@@ -125,14 +125,15 @@ theme: /
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_duckling.date"]) {
                     $session.date = $parseTree["_duckling.date"].value;
+                    $session.userDate = new Date($parseTree["_duckling.date"].value.year, $parseTree["_duckling.date"].value.month, $parseTree["_duckling.date"].value.day);
                     
                     $reactions.transition("/CheсkDate");
                     }
           
     state: CheсkDate
         script:
-            var date = new Date().setHours(0, 0, 0, 0);
-            var userDate = $session.date;
+            var date = new Date();
+            var userDate = $session.userDate;
             var answer = "Итак, нужен прогноз на " + userDate + ", а сегодня "+date+". ";
             $reactions.answer(answer);
           
