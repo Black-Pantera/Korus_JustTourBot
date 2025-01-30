@@ -104,7 +104,7 @@
     "records" : [ {
       "type" : "synonyms",
       "rule" : [ "Казань" ],
-      "value" : ""
+      "value" : "{\nname: Казань,\nlon: 10,\nlat: 20\n}"
     }, {
       "type" : "synonyms",
       "rule" : [ "Самара" ],
