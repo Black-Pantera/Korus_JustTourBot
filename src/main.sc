@@ -125,12 +125,12 @@ theme: /
             script:
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_duckling.date"]) {
-                    $session.date = $parseTree["_duckling.date"];
+                    $session.date = $parseTree["_duckling.date"].value;
                     
-                    $reactions.transition("/ChekDate");
+                    $reactions.transition("/CheсkDate");
                     }
           
-    state: ChekDate
+    state: CheсkDate
         script:
             var answer = "Итак, " + $session.date +". ";
             $reactions.answer(answer);
