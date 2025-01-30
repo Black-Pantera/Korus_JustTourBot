@@ -34,10 +34,12 @@ theme: /
                  q!: * *
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
-                    if ($parseTree._Names)
+                    if ($parseTree._Names) {
                         $client.name = $parseTree._Names.name;
-                a: Будем знакомы, {{ capitalize($client.name) }}.
-                go!: /HowCanIHelpYou
+                        a: Будем знакомы, {{ capitalize($client.name) }}.
+                        
+                        $reactions.transition("/HowCanIHelpYou");
+                    }
             
             state: ErrorName
                 event: noMatch
