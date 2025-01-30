@@ -33,7 +33,7 @@ theme: /
                  q!: * @Names *
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
-                    $client.name = $parseTree._Root;
+                    $client.name = $parseTree._Names.name;
                 a: Будем знакомы, {{ capitalize($client.name) }}.
                 go!: /HowCanIHelpYou
             
