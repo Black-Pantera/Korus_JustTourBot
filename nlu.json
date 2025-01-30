@@ -160,6 +160,10 @@
       "type" : "synonyms",
       "rule" : [ "Наталья", "Наташа", "Ната" ],
       "value" : "{\"name\":\"Наталья\",\"diminutive\":\"Наташа\",\"sex\":\"ж\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Лариса", "Лора", "Лара", "Ларочка" ],
+      "value" : "{\n  \"name\": \"Лариса\",\n  \"diminutive\": \"\",\n  \"sex\": \"ж\"\n}"
     } ]
   } ],
   "enabledSystemEntities" : [ "pymorphy.name", "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
