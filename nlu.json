@@ -45,6 +45,24 @@
     },
     "priority" : 0
   }, {
+    "path" : "/City",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Казань"
+    }, {
+      "text" : "Москва"
+    }, {
+      "text" : "Пенза"
+    }, {
+      "text" : "Самара"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
     "path" : "/weather",
     "enabled" : true,
     "shared" : false,

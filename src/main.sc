@@ -81,7 +81,16 @@ theme: /
             a: Прогноз для какого города хотите получить?
             
         state: UserCity
-            q!: (* $City *|* @Cities *)
+            q!: (* $City *)
+            
+            scriptEs6:
+                if ($parseTree._City) {
+                    $session.userCity = $parseTree._City.name;
+                    $session.lon = $parseTree._City.lon;
+                    $session.lat = $parseTree._City.lat;
+                    
+                    $reactions.transition("/GetDate");
+                }
         
         state: LocalCatchAll || noContex = true
             event: noMatch
