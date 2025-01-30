@@ -82,7 +82,7 @@ theme: /
             
         state: UserCity
             intent!: /City 
-            
+            q!: * @Cities *
             script:
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree._City) {

@@ -87,7 +87,34 @@
     } ],
     "priority" : 0
   } ],
-  "entities" : [ ],
+  "entities" : [ {
+    "entity" : {
+      "name" : "Cities",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Казань" ],
+      "value" : ""
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Самара" ],
+      "value" : ""
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Питер", "Санкт-Петербург" ],
+      "value" : ""
+    } ]
+  } ],
   "enabledSystemEntities" : [ "pymorphy.name", "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
   "spellerDictionary" : [ ],
   "systemEntities" : [ {
