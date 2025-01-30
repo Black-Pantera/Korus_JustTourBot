@@ -131,8 +131,9 @@ theme: /
           
     state: CheсkDate
         script:
-            var date = new Date().toLocaleString("en-US", {timeZone: 'Europe/Moscow'});
-            var answer = "Итак, нужен прогноз на " + $session.date + ", а сегодня "+date+". ";
+            var date = new Date().setHours(0, 0, 0, 0);
+            var userDate = $session.date..setHours(0, 0, 0, 0);
+            var answer = "Итак, нужен прогноз на " + $userDate + ", а сегодня "+date+". ";
             $reactions.answer(answer);
           
     state: OfferTour
