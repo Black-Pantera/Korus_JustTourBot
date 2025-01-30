@@ -114,6 +114,53 @@
       "rule" : [ "Питер", "Санкт-Петербург" ],
       "value" : "{\n  \"name\": \"Санкт-Петербург\",\n  \"lon\": \"30.31413\",\n  \"lat\": \"59.93863\"\n}"
     } ]
+  }, {
+    "entity" : {
+      "name" : "Names",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Анна", "Анюта", "Нюра" ],
+      "value" : "{\"Анна\":\"Игорь\",\"diminutive\":\"Анюта\",\"sex\":\"ж\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Алла" ],
+      "value" : "{\"name\":\"Алла\",\"diminutive\":\"\",\"sex\":\"ж\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Виктория", "Вика" ],
+      "value" : "{\"name\":\"Виктория\",\"diminutive\":\"Вика\",\"sex\":\"ж\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ирина", "Ира", "Ирочка", "Ирка" ],
+      "value" : "{\"name\":\"Ирина\",\"diminutive\":\"Ирочка\",\"sex\":\"ж\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Игорь", "Игорек" ],
+      "value" : "{\"name\":\"Игорь\",\"diminutive\":\"Игорек\",\"sex\":\"м\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Инна" ],
+      "value" : "{\"name\":\"Инна\",\"diminutive\":\"\",\"sex\":\"ж\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Иннокентий", "Кеша" ],
+      "value" : "{\"name\":\"Иннокентий\",\"diminutive\":\"Кеша\",\"sex\":\"м\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Наталья", "Наташа", "Ната" ],
+      "value" : "{\"name\":\"Наталья\",\"diminutive\":\"Наташа\",\"sex\":\"ж\"}"
+    } ]
   } ],
   "enabledSystemEntities" : [ "pymorphy.name", "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
   "spellerDictionary" : [ ],
