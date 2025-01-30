@@ -111,7 +111,9 @@ theme: /
                 go!: /SomethingElse
                 
     state: GetDate
-        a: 
+        script:
+            var answer = "Итак, ваш город " + $session.userCity + ". ";
+            $reactions.answer(answer);
           
     state: OfferTour
         a: Тур
