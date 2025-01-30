@@ -36,7 +36,7 @@ theme: /
                     log("///////// MY LOG "+toPrettyString($parseTree));
                     if ($parseTree._Names) {
                         $client.name = $parseTree._Names.name;
-                        a: Будем знакомы, {{ capitalize($client.name) }}.
+                        //a: Будем знакомы, {{ capitalize($client.name) }}.
                         
                         $reactions.transition("/HowCanIHelpYou");
                     }
