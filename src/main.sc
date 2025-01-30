@@ -109,6 +109,9 @@ theme: /
                     $session.stateCounterInARow = 0
                     
                 go!: /SomethingElse
+                
+    state: GetDate
+        a: 
           
     state: OfferTour
         a: Тур
