@@ -124,8 +124,8 @@ theme: /
             q!: @ducling.date
             script:
                 log("///////// MY LOG "+toPrettyString($parseTree));
-                if ($parseTree["_ducling.date"]) {
-                    $session.date = $parseTree["_ducling.date"];
+                if ($parseTree["_duckling.date"]) {
+                    $session.date = $parseTree["_duckling.date"];
                     
                     $reactions.transition("/ChekDate");
                     }
