@@ -83,7 +83,7 @@ theme: /
         state: UserCity
             intent!: /City 
             
-            scriptEs6:
+            script:
                 if ($parseTree._City) {
                     $session.userCity = $parseTree._City.name;
                     $session.lon = $parseTree._City.lon;
