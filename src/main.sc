@@ -132,7 +132,7 @@ theme: /
     state: CheсkDate
         script:
             var date = new Date().setHours(0, 0, 0, 0);
-            var userDate = $session.date..setHours(0, 0, 0, 0);
+            var userDate = $session.date;
             var answer = "Итак, нужен прогноз на " + $userDate + ", а сегодня "+date+". ";
             $reactions.answer(answer);
           
