@@ -131,15 +131,15 @@
     "records" : [ {
       "type" : "synonyms",
       "rule" : [ "Анна", "Анюта", "Нюра" ],
-      "value" : "{\"Анна\":\"Игорь\",\"diminutive\":\"Анюта\",\"sex\":\"ж\"}"
+      "value" : "{\n  \"name\": \"Анна\",\n  \"diminutive\": \"Анюта\",\n  \"sex\": \"ж\"\n}"
     }, {
       "type" : "synonyms",
       "rule" : [ "Алла" ],
-      "value" : "{\"name\":\"Алла\",\"diminutive\":\"\",\"sex\":\"ж\"}"
+      "value" : "{\n  \"name\": \"Алла\",\n  \"diminutive\": \"Аллочка\",\n  \"sex\": \"ж\"\n}"
     }, {
       "type" : "synonyms",
       "rule" : [ "Виктория", "Вика" ],
-      "value" : "{\"name\":\"Виктория\",\"diminutive\":\"Вика\",\"sex\":\"ж\"}"
+      "value" : "{\n  \"name\": \"Виктория\",\n  \"diminutive\": \"Вика\",\n  \"sex\": \"ж\"\n}"
     }, {
       "type" : "synonyms",
       "rule" : [ "Ирина", "Ира", "Ирочка", "Ирка" ],
@@ -147,15 +147,15 @@
     }, {
       "type" : "synonyms",
       "rule" : [ "Игорь", "Игорек" ],
-      "value" : "{\"name\":\"Игорь\",\"diminutive\":\"Игорек\",\"sex\":\"м\"}"
+      "value" : "{\n  \"name\": \"Игорь\",\n  \"diminutive\": \"Игорек\",\n  \"sex\": \"м\"\n}"
     }, {
       "type" : "synonyms",
       "rule" : [ "Инна" ],
-      "value" : "{\"name\":\"Инна\",\"diminutive\":\"\",\"sex\":\"ж\"}"
+      "value" : "{\n  \"name\": \"Инна\",\n  \"diminutive\": \"\",\n  \"sex\": \"ж\"\n}"
     }, {
       "type" : "synonyms",
       "rule" : [ "Иннокентий", "Кеша" ],
-      "value" : "{\"name\":\"Иннокентий\",\"diminutive\":\"Кеша\",\"sex\":\"м\"}"
+      "value" : "{\n  \"name\": \"Иннокентий\",\n  \"diminutive\": \"Кеша\",\n  \"sex\": \"м\"\n}"
     }, {
       "type" : "synonyms",
       "rule" : [ "Наталья", "Наташа", "Ната" ],
@@ -164,6 +164,10 @@
       "type" : "synonyms",
       "rule" : [ "Лариса", "Лора", "Лара", "Ларочка" ],
       "value" : "{\n  \"name\": \"Лариса\",\n  \"diminutive\": \"\",\n  \"sex\": \"ж\"\n}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Андрей", "Андрюша", "Андрон" ],
+      "value" : "{\n  \"name\": \"Андрей\",\n  \"diminutive\": \"Андрюша\",\n  \"sex\": \"м\"\n}"
     } ]
   } ],
   "enabledSystemEntities" : [ "pymorphy.name", "duckling.number", "duckling.time", "duckling.date", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],

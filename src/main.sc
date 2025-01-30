@@ -134,7 +134,7 @@ theme: /
         script:
             var date = new Date();
             var userDate = $session.userDate;
-            var answer = "Итак, нужен прогноз на " + userDate + ", а сегодня "+date+". ";
+            var answer = "Итак, нужен прогноз на " + userDate.toLocaleDateString("en-US") + ", а сегодня "+date.toLocaleDateString("en-US")+". ";
             $reactions.answer(answer);
           
     state: OfferTour
