@@ -81,6 +81,7 @@ theme: /
             a: Прогноз для какого города хотите получить?
             
         state: UserCity
+            q!: (* $City *|* @Cities *)
         
         state: LocalCatchAll || noContex = true
             event: noMatch
@@ -95,7 +96,7 @@ theme: /
                 a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
                 script: 
-                    $session.date = null
+                    $session.useDate = null
                     $session.stateCounterInARow = 0
                     
                 go!: /SomethingElse
