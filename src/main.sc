@@ -30,14 +30,12 @@ theme: /
             a: Как к вам лучше обращаться?
             
             state: SetName
-                 q!: * @Names *
-                 q!: * *
+                q!: * @Names *
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
                     if ($parseTree._Names) {
                         $client.name = $parseTree._Names.name;
-                        //a: Будем знакомы, {{ capitalize($client.name) }}.
-                        
+                      
                         $reactions.transition("/HowCanIHelpYou");
                     }
             
@@ -123,7 +121,7 @@ theme: /
                 
     state: GetDate
         script:
-            var answer = "Итак, ваш город - " + $session.userCity + " ("+$session.lat + ":" +$session.lon +"). ";
+            var answer = "Итак, " + capitalize($client.name) +", ваш город - " + $session.userCity + " ("+$session.lat + ":" +$session.lon +"). ";
             $reactions.answer(answer);
           
     state: OfferTour
