@@ -120,7 +120,7 @@ theme: /
             a: Прогноз погоды на какую дату вам нужен?
             
         state: UserDate
-            q!: @ducling.date
+            q!: @duckling.date
             script:
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_duckling.date"]) {
