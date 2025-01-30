@@ -81,7 +81,7 @@ theme: /
             a: Прогноз для какого города хотите получить?
             
         state: UserCity
-            q!: (* $City *)
+            intent!: /City 
             
             scriptEs6:
                 if ($parseTree._City) {
