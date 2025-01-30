@@ -31,6 +31,7 @@ theme: /
             
             state: SetName
                  q!: * @Names *
+                 q!: * *
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
                     if ($parseTree._Names)
