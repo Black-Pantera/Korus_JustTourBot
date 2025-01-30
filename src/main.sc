@@ -72,7 +72,6 @@ theme: /
                 
     state: WeatherForecast
         intent!: /weather
-        a: Погода
         go!: /GetCity
         
     state: GetCity
