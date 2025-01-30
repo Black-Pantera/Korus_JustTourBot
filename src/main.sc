@@ -92,7 +92,7 @@ theme: /
                     
                     $reactions.transition("/GetDate");
                 } else if ($parseTree._Cities) {
-                    $session.userCity = $parseTree._Cities.text;
+                    $session.userCity = $parseTree._Cities.name;
                     $session.lon = $parseTree._Cities.lon;
                     $session.lat = $parseTree._Cities.lat;
                     
