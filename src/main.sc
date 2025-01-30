@@ -131,7 +131,7 @@ theme: /
           
     state: CheсkDate
         script:
-            var answer = "Итак, " + $session.date +". ";
+            var answer = "Итак, нужен прогноз на " + $session.date + ", а сегодня"+currentDate()". ";
             $reactions.answer(answer);
           
     state: OfferTour
