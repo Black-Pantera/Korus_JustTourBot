@@ -116,6 +116,24 @@ theme: /
         script:
             var answer = "Итак, " + capitalize($client.name) +", ваш город - " + $session.userCity + " ("+$session.lat + ":" +$session.lon +"), страна "+$session.country+". ";
             $reactions.answer(answer);
+        random:
+            a: На какую дату требуется прогноз?
+            a: Прогноз погоды на какую дату вам нужен?
+            
+        state: UserDate
+            q!: @ducling.date
+            script:
+                log("///////// MY LOG "+toPrettyString($parseTree));
+                if ($parseTree["_ducling.date"]) {
+                    $session.date = $parseTree["_ducling.date"];
+                    
+                    $reactions.transition("/ChekDate");
+                    }
+          
+    state: ChekDate
+        script:
+            var answer = "Итак, " + $session.date +". ";
+            $reactions.answer(answer);
           
     state: OfferTour
         a: Тур
