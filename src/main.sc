@@ -84,6 +84,7 @@ theme: /
             intent!: /City 
             
             script:
+                log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree._City) {
                     $session.userCity = $parseTree._City.name;
                     $session.lon = $parseTree._City.lon;
