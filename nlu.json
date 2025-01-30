@@ -44,6 +44,18 @@
       "refs" : [ ]
     },
     "priority" : 0
+  }, {
+    "path" : "/weather",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "прогноз погоды"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ ],
   "enabledSystemEntities" : [ "pymorphy.name", "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],

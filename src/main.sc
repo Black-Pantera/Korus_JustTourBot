@@ -69,6 +69,7 @@ theme: /
                 go!: /SomethingElse
                 
     state: WeatherForecast
+        intent!: /weather
         a: Погода
           
     state: OfferTour
