@@ -71,6 +71,16 @@ theme: /
     state: WeatherForecast
         intent!: /weather
         a: Погода
+        go!: /GetCity
+        
+    state: GetCity
+        intent!: /weather
+        random:
+            a: Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.
+            a: Скажите, пожалуйста, для какого города вы хотетие получить прогноз?
+            a: Прогноз для какого города хотите получить?
+            
+        state: UserCity
           
     state: OfferTour
         a: Тур

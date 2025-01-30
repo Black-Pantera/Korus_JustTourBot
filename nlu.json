@@ -50,11 +50,23 @@
     "shared" : false,
     "phrases" : [ {
       "text" : "прогноз погоды"
+    }, {
+      "text" : "узнать прогноз погоды"
+    }, {
+      "text" : "погода в"
+    }, {
+      "text" : "что сейчас с погодой в Казани"
     } ],
     "classificationRules" : {
       "refs" : [ ]
     },
     "patterns" : [ ],
+    "slots" : [ {
+      "name" : "pymorphy.name",
+      "entity" : "pymorphy.name",
+      "required" : true,
+      "prompts" : [ ]
+    } ],
     "priority" : 0
   } ],
   "entities" : [ ],
