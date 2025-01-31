@@ -190,7 +190,7 @@ theme: /
         state: LocalCatchAll || noContex = true
             event: noMatch
             script:
-                $session.stateCounterInARow++
+                $session.stateCounterInARow ++
                 
             if: $session.stateCounterInARow < 3
                 random: 
@@ -224,7 +224,7 @@ theme: /
         
     state: ThisDayHasPassed
         script:
-            $session.stateCounter++
+            $session.stateCounter ++
                 
         if: $session.stateCounter < 3
             random: 
