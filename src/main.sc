@@ -154,12 +154,12 @@ theme: /
           
     state: CheсkDate
         script:
-            var date = new Date().setHours(0,0,0,0);
+            var date = new Date();
             var userDate = $session.userDate;
             var answer = "Итак, нужен прогноз на " + userDate.toLocaleDateString("en-US") + ", а сегодня "+date.toLocaleDateString("en-US")+". ";
             $reactions.answer(answer);
             
-            if (userDate < date) {
+            if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
                 $reactions.transition("/ThisDayHasPassed");
                 } else if (getWeekNumber(userDate) > 1) {
                     $reactions.transition("/ThisDayIsNotComingSoon");
