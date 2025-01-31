@@ -89,6 +89,36 @@ theme: /
         q!: @duckling.date
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
+            
+            if (($parseTree._Cities) && ($parseTree["_duckling.date"])) {
+                $session.userCity = $parseTree._Cities.name;
+                $session.lon = $parseTree._Cities.lon;
+                $session.lat = $parseTree._Cities.lat;
+                $session.country = $parseTree._Cities.country;   
+                $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                $reactions.transition("/CheсkDate");
+                }
+            else {
+                if ($parseTree["_duckling.date"]) {
+                    $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                    $reactions.transition("/GetCity");
+                    }
+                else {
+                    if ($parseTree._Cities) {
+                        $session.userCity = $parseTree._Cities.name;
+                        $session.lon = $parseTree._Cities.lon;
+                        $session.lat = $parseTree._Cities.lat;
+                        $session.country = $parseTree._Cities.country; 
+                        
+                        $reactions.transition("/GetDate");
+                        }
+                    }
+                    else {
+                        $reactions.transition("/GetCity");
+                        }
+                }
+            
+            
         go!: /GetCity
         
     state: GetCity
