@@ -90,7 +90,7 @@ theme: /
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
             
-            if (($parseTree._Cities) && ($parseTree["_duckling.date"])) {
+            if ($parseTree._Cities) && ($parseTree["_duckling.date"]) {
                 $session.userCity = $parseTree._Cities.name;
                 $session.lon = $parseTree._Cities.lon;
                 $session.lat = $parseTree._Cities.lat;
@@ -112,9 +112,9 @@ theme: /
                         
                         $reactions.transition("/GetDate");
                         }
-                    else {
+                    else 
                         $reactions.transition("/GetCity");
-                        }
+                        
                     
             
     state: GetCity
