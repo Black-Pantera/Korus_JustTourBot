@@ -35,7 +35,6 @@ theme: /
             state: SetName
                 q!: * @Names *
                 script:
-                    log("///////// MY LOG "+toPrettyString($parseTree));
                     if ($parseTree._Names) {
                         $client.name = $parseTree._Names.name;
                       
