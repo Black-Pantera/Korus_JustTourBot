@@ -1,5 +1,8 @@
 require: slotfilling/slotFilling.sc
   module = sys.zb-common
+  
+require: funcs.js
+  
 theme: /
 
     state: Start
@@ -141,7 +144,12 @@ theme: /
             
             if (userDate < date) {
                 $reactions.transition("/ThisDayHasPassed");
-                } else if (userDate > date.)
+                } else if (getWeekNumber(userDate) > 1) {
+                    $reactions.transition("/ThisDayIsNotComingSoon");
+                    }
+            else 
+                $reactions.transition("/TellWeather");
+                
           
     state: OfferTour
         a: Тур
