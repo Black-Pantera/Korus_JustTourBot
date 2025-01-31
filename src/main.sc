@@ -166,7 +166,6 @@ theme: /
             $reactions.answer(answer);
             
             if (userDate < date) {
-                $session.stateCounter = 0;
                 $reactions.transition("/ThisDayHasPassed");
                 } else if (getWeekNumber(userDate) > 1) {
                     $reactions.transition("/ThisDayIsNotComingSoon");
