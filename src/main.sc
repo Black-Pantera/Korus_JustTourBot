@@ -215,6 +215,7 @@ theme: /
             var userDate = $session.userDate;
             
             if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
+                
                 $reactions.transition("/ThisDayHasPassed");
                 } 
                 else if (getWeekNumber(userDate) > 1) {
@@ -313,6 +314,4 @@ theme: /
             a: Всего вам доброго!
             a: Всего доброго, до свидания!
                
-    state: Match
-        event!: match
-        a: {{$context.intent.answer}}
+    
