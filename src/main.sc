@@ -237,15 +237,7 @@ theme: /
     state: TellWeather
         a: Уточняю для вас запрос...
         script:
-            $temp.response = $http.get("https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${appid}&units=${units}", {
-                timeout: 10000,
-                query: {
-                    lat: $session.lat,
-                    lon: $session.lon,
-                    appid: "106ad0548ad7d7b7eb02682ec63886b4",
-                    units: "metric"
-                }
-            });
+            $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
             $reactions.answer($temp.response);
         if: $temp.response.isOk
             random:
