@@ -252,6 +252,8 @@ theme: /
                 a: Смог узнать для вас прогноз: {{$session.userCity}} {{Math.floor($temp.response.data.main.temp)}} °C.
         else:
             a: У меня не получилось узнать погоду. Попробуйте ещё раз.
+            script:
+                $reactions.answer($temp.response);
                
     state: OfferTour
         a: Тур
