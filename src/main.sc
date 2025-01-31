@@ -239,6 +239,7 @@ theme: /
         a: Уточняю для вас запрос...
         script:
             $temp.response = $http.get("https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${appid}&units=${units}", {
+                timeout: 10000,
                 query: {
                     lat: $session.lat,
                     lon: $session.lon,
