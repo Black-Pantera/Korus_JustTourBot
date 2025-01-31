@@ -126,8 +126,7 @@ theme: /
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 
                 if ($parseTree["_duckling.date"]) {
-                    //$session.date = $parseTree["_duckling.date"].value;
-                    $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day)setHours(0,0,0,0);
+                    $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day).setHours(0,0,0,0);
                     
                     $reactions.transition("/CheсkDate");
                     }
