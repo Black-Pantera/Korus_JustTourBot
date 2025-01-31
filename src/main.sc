@@ -80,6 +80,13 @@ theme: /
             buttons:
                 "Узнать прогноз погоды" -> /WeatherForecast
                 "Оформить заявку на подбор тура" -> /OfferTour
+                
+        state: GetState
+            event: telegramCallbackQuery
+            if: ($request.data == "1")
+                go!: /WeatherForecast
+            elseif: ($request.data == "2")
+                go!: /OfferTour   
             
         state: LocalCatchAll || noContex = true
             event: noMatch
@@ -98,17 +105,11 @@ theme: /
                     
                 go!: /SomethingElse
            
-    state: GetState
-        event: telegramCallbackQuery
-        if: ($request.data == "1")
-            go!: /WeatherForecast
-        elseif: ($request.data == "2")
-            go!: /OfferTour      
+       
                 
     state: WeatherForecast
         intent!: /weather
         q!: * {@Cities * * @duckling.date} *
-        event: telegramCallbackQuery
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
             
@@ -268,7 +269,6 @@ theme: /
                
     state: OfferTour
         intent!: /tour
-        event: telegramCallbackQuery
         a: Тур
               
     state: DontHaveQuestions
