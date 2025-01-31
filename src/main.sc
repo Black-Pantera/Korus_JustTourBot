@@ -17,15 +17,24 @@ theme: /
         image: https://media.istockphoto.com/id/511095951/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%BE%D0%BD-%D0%B7%D0%B4%D0%B5%D1%81%D1%8C-%D1%87%D1%82%D0%BE%D0%B1%D1%8B-%D0%BF%D0%BE%D0%BC%D0%BE%D1%87%D1%8C.jpg?s=2048x2048&w=is&k=20&c=86_eS2vtvuPqNIFl04rO9yg1N7bv9yQMpqIrM0SNOH4=
         go!: /GetName
         
-    state: CatchAll || noContext = true
+    state: GlobalCatchAll || noContext = true
         event!: noMatch
-        random:
-            a: Простите, я вас не понял!
-            a: Извините, я вас не понимаю.
-        random:
-            a: Попробуйте ответить по-другому.
-            a: Переформулируйте, пожалуйста, ваш вопрос.
-        go!: {{$session.lastState}}
+        script:
+            $session.stateCounterInARow++
+                
+        if: $session.stateCounterInARow < 3
+            random: 
+                a: Прошу прощения, не совсем вам понял. Попробуйте, пожалуйста, переформулировать ваш вопрос.
+                a: Простите, не совсем понял. Что именно вас интересует?
+                a: Простите, не получилось вас понять. Переформулируйте, пожалуйста.
+                a: Не совсем понял вас. Пожалуйста, попробуйте задать вопрос по-другому.
+        else:
+            a: Кажется, этот вопрос не в моей компетенции. Но я постоянно учусь новому, и, надеюсь скоро научусь отвечать и на него.
+                
+            script: 
+                $session.stateCounterInARow = 0
+                    
+            go!: /SomethingElse
         
     state: GetName
         if: $client.name
