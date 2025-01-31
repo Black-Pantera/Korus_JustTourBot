@@ -110,7 +110,7 @@ theme: /
                         $session.lat = $parseTree._Cities.lat;
                         $session.country = $parseTree._Cities.country; 
                         
-                        $reactions.transition("/GetDate");
+                        $reactions.transition("/CheсkDate");
                         }
                     else 
                         $reactions.transition("/GetCity");
@@ -133,8 +133,12 @@ theme: /
                     $session.lon = $parseTree._Cities.lon;
                     $session.lat = $parseTree._Cities.lat;
                     $session.country = $parseTree._Cities.country;                    
-                    $reactions.transition("/GetDate");
                     }
+                    
+                if ($session.userDate != null)
+                    $reactions.transition("/GetDate");
+                else
+                    $reactions.transition("/GetDate");
         
         state: LocalCatchAll || noContex = true
             event: noMatch
