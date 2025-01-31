@@ -192,6 +192,11 @@ theme: /
                 $session.country = null;
                     
             go!: /SomethingElse
+            
+    state: TellWeather
+        random:
+            a: У меня получилось уточнить:
+            a: Смог узнать для вас прогноз:
           
     state: OfferTour
         a: Тур
