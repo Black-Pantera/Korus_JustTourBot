@@ -236,13 +236,19 @@ theme: /
             
     state: TellWeather
         script:
-            var answer = getForecast($session.lat,$session.lon);
-            $reactions.answer(answer);
-          
-        random:
-            a: У меня получилось уточнить: 
-            a: Смог узнать для вас прогноз: 
-          
+            $temp.response = $http.get("https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${appid}&units=${units}", {
+                query: {
+                    lat: $session.lat,
+                    lon: $session.lon,
+                    appid: $secrets.get("OPENWEATHER_API_KEY"),
+                    units: "metric"
+                }
+            });
+        if: $temp.response.isOk
+            random:
+                a: У меня получилось уточнить: {{$parseTree._City.name}} {{Math.floor($temp.response.data.main.temp)}} °C.
+                a: Смог узнать для вас прогноз: {{$parseTree._City.name}} {{Math.floor($temp.response.data.main.temp)}} °C.
+               
     state: OfferTour
         a: Тур
               
