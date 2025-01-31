@@ -237,10 +237,11 @@ theme: /
     state: TellWeather
         script:
             var answer = getForecast($session.lat,$session.lon);
+            $reactions.answer(answer);
           
         random:
-            a: У меня получилось уточнить: {{answer}}
-            a: Смог узнать для вас прогноз: {{answer}}
+            a: У меня получилось уточнить: 
+            a: Смог узнать для вас прогноз: 
           
     state: OfferTour
         a: Тур
