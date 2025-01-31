@@ -28,10 +28,13 @@
     "shared" : false,
     "phrases" : [ {
       "text" : "пока"
+    }, {
+      "text" : "до свидания"
     } ],
     "classificationRules" : {
       "refs" : [ ]
     },
+    "patterns" : [ ],
     "priority" : 0
   }, {
     "path" : "/привет",
@@ -43,24 +46,6 @@
     "classificationRules" : {
       "refs" : [ ]
     },
-    "priority" : 0
-  }, {
-    "path" : "/City",
-    "enabled" : true,
-    "shared" : false,
-    "phrases" : [ {
-      "text" : "Казань"
-    }, {
-      "text" : "Москва"
-    }, {
-      "text" : "Пенза"
-    }, {
-      "text" : "Самара"
-    } ],
-    "classificationRules" : {
-      "refs" : [ ]
-    },
-    "patterns" : [ ],
     "priority" : 0
   }, {
     "path" : "/weather",
@@ -80,6 +65,14 @@
     },
     "patterns" : [ ],
     "slots" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/Новый интент",
+    "enabled" : true,
+    "shared" : false,
+    "classificationRules" : {
+      "refs" : [ ]
+    },
     "priority" : 0
   } ],
   "entities" : [ {
