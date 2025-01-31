@@ -79,12 +79,7 @@
       "refs" : [ ]
     },
     "patterns" : [ ],
-    "slots" : [ {
-      "name" : "pymorphy.name",
-      "entity" : "pymorphy.name",
-      "required" : true,
-      "prompts" : [ ]
-    } ],
+    "slots" : [ ],
     "priority" : 0
   } ],
   "entities" : [ {
