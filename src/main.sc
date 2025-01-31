@@ -74,7 +74,7 @@ theme: /
             
         if: $request.channelType === "telegram"
             inlineButtons:
-                { text: "Узнать прогноз погоды"}
+                { text: "Узнать прогноз погоды" }
                 { text: "Оформить заявку на подбор тура" }
         else:
             buttons:
@@ -261,6 +261,7 @@ theme: /
                
     state: OfferTour
         intent!: /tour
+        event: telegramCallbackQuery
         a: Тур
               
     state: DontHaveQuestions
