@@ -32,3 +32,9 @@ function openWeatherMapCurrent(units, lang, lat, lon){
             }
         });
 }
+
+function queryNominatim(address){
+    return $http.query(
+        encodeURI("https://nominatim.openstreetmap.org/search?q="+address+"&limit=1&format=json")
+    )
+}
