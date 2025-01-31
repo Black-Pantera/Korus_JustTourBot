@@ -227,15 +227,12 @@ theme: /
             $session.stateCounter ++
                 
         if: $session.stateCounter < 3
+            script:
+                $session.userDate = null;
             random: 
                 a: К сожалению, я не могу узнать прогноз погоды на период времени в прошлом.
                 a: Я не смогу посмотреть прогноз для прошедшего периода.
-                
-                script:
-                    $session.userDate = null;
-                    $reactions.transition("/GetDate");
-                    
-                go!: /GetDate
+            go!: /GetDate
         else:
             a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
