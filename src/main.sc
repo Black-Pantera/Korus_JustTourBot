@@ -235,7 +235,6 @@ theme: /
             go!: /SomethingElse
             
     state: TellWeather
-        a: Уточняю для вас запрос...
         script:
             $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
         if: $temp.response.isOk
