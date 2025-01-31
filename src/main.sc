@@ -74,8 +74,8 @@ theme: /
             
         if: $request.channelType === "telegram"
             script:
-                $reactions.inlineButtons({ text: "Узнать прогноз погоды", transition: " /WeatherForecast" });
-                $reactions.inlineButtons({ text: "Оформить заявку на подбор тура", transition: " /OfferTour" });
+                $reactions.inlineButtons({ text: "Узнать прогноз погоды", transition: "/WeatherForecast" });
+                $reactions.inlineButtons({ text: "Оформить заявку на подбор тура", transition: "/OfferTour" });
         else:
             buttons:
                 "Узнать прогноз погоды" -> /WeatherForecast
@@ -261,6 +261,7 @@ theme: /
                
     state: OfferTour
         intent!: /tour
+        event: telegramCallbackQuery
         a: Тур
               
     state: DontHaveQuestions
