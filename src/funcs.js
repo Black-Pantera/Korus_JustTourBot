@@ -8,7 +8,13 @@ function getWeekNumber(d) {
 
 
 function getForecast(lat,lon) {
-    var url = 'https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon={lon}&appid=106ad0548ad7d7b7eb02682ec63886b4';
-    var response = await fetch(url);
-    var text = await response.text();
+    var settings = {
+        "url": "https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=106ad0548ad7d7b7eb02682ec63886b4",
+        "method": "GET",
+        "timeout": 0,
+    };
+
+    $.ajax(settings).done(function (response) {
+        return response;
+    });
 }
