@@ -164,9 +164,6 @@ theme: /
                 go!: /SomethingElse
                 
     state: GetDate
-        script:
-            var answer = "Итак, " + capitalize($client.name) +", ваш город - " + $session.userCity + " ("+$session.lat + ":" +$session.lon +"), страна "+$session.country+". ";
-            //$reactions.answer(answer);
         random:
             a: На какую дату требуется прогноз?
             a: Прогноз погоды на какую дату вам нужен?
@@ -272,9 +269,15 @@ theme: /
             a: Хотите спросить что-то ещё?
             a: Могу ли я помочь чем-то ещё?
             a: Подскажите, у вас остались ещё вопросы?
-        buttons:
-            "Узнать прогноз погоды" -> /WeatherForecast
-            "Оформить заявку на подбор тура" -> /OfferTour
+            
+        if: $request.channelType === "telegram"
+            inlineButtons:
+                { text: "Узнать прогноз погоды", callback_data: "WeatherForecast" }
+                { text: "Оформить заявку на подбор тура", callback_data: "OfferTour" }
+        else:
+            buttons:
+                "Узнать прогноз погоды" -> /WeatherForecast
+                "Оформить заявку на подбор тура" -> /OfferTour
             
         state: LocalCatchAll || noContex = true
             event: noMatch
