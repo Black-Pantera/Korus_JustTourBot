@@ -112,7 +112,6 @@ theme: /
                         
                         $reactions.transition("/GetDate");
                         }
-                    }
                     else {
                         $reactions.transition("/GetCity");
                         }
