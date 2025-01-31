@@ -117,9 +117,6 @@ theme: /
                         }
                 }
             
-            
-        go!: /GetCity
-        
     state: GetCity
         intent!: /weather
         random:
@@ -239,9 +236,12 @@ theme: /
             go!: /SomethingElse
             
     state: TellWeather
+        script:
+            var answer = getForecast($session.lat,$session.lon);
+          
         random:
-            a: У меня получилось уточнить:
-            a: Смог узнать для вас прогноз:
+            a: У меня получилось уточнить: {{answer}}
+            a: Смог узнать для вас прогноз: {{answer}}
           
     state: OfferTour
         a: Тур

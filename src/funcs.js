@@ -6,19 +6,15 @@ function getWeekNumber(d) {
     return [d.getUTCFullYear(), weekNo];
 }
 
-/*
-function getForecast(lat,lon, date) {
-    return $http.query("https://api.stormglass.io/v2/weather/point?lat=${lat}&lng={lon}&start=${date}&params=${params}", {
+
+function getForecast(lat,lon) {
+    return $http.query("https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon={lon}&appid=106ad0548ad7d7b7eb02682ec63886b4", {
         method: "GET",
         timeout: 10000,
         query: {
             lat: lat,
-            lng: lon,
-            start: date,
-            params: params
+            lng: lon
         },
-        header: {'Authorization': },
         dataType: "json"
     })
 }
-*/
