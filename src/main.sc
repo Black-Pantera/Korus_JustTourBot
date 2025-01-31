@@ -260,6 +260,7 @@ theme: /
                 $reactions.answer($temp.response);
                
     state: OfferTour
+        intent!: /tour
         event: telegramCallbackQuery
         a: Тур
               
