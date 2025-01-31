@@ -85,12 +85,12 @@ theme: /
                 
     state: WeatherForecast
         intent!: /weather
-        q!: * @Cities *
+        q!: * (@Cities | @duckling.date) *
         q!: @duckling.date
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
             
-            if ($parseTree._Cities) && ($parseTree["_duckling.date"]) {
+            if (($parseTree._Cities) && ($parseTree["_duckling.date"])) {
                 $session.userCity = $parseTree._Cities.name;
                 $session.lon = $parseTree._Cities.lon;
                 $session.lat = $parseTree._Cities.lat;
@@ -103,7 +103,7 @@ theme: /
                     $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                     $reactions.transition("/GetCity");
                     }
-                else {
+                else 
                     if ($parseTree._Cities) {
                         $session.userCity = $parseTree._Cities.name;
                         $session.lon = $parseTree._Cities.lon;
