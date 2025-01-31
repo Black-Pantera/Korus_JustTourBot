@@ -123,15 +123,12 @@ theme: /
         state: UserDate
             q!: @duckling.date
             script:
-                $session.stateCounterInARow = 0;
                 log("///////// MY LOG "+toPrettyString($parseTree));
+                
                 if ($parseTree["_duckling.date"]) {
-                    $session.date = $parseTree["_duckling.date"].value;
-                    $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                    //$session.date = $parseTree["_duckling.date"].value;
+                    $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day)setHours(0,0,0,0);
                     
-                    var answer = $parseTree["_duckling.date"].year +"-" + $parseTree["_duckling.date"].month + "-"+$parseTree["_duckling.date"].day+". ";
-                    $reactions.answer(answer);
-          
                     $reactions.transition("/CheсkDate");
                     }
                     
@@ -159,7 +156,7 @@ theme: /
           
     state: CheсkDate
         script:
-            var date = new Date();
+            var date = new Date().setHours(0,0,0,0);
             var userDate = $session.userDate;
             var answer = "Итак, нужен прогноз на " + userDate.toLocaleDateString("en-US") + ", а сегодня "+date.toLocaleDateString("en-US")+". ";
             $reactions.answer(answer);
