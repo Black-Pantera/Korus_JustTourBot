@@ -136,7 +136,7 @@ theme: /
                     }
                     
                 if ($session.userDate != null)
-                    $reactions.transition("/GetDate");
+                    $reactions.transition("/CheсkDate");
                 else
                     $reactions.transition("/GetDate");
         
