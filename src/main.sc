@@ -198,16 +198,13 @@ theme: /
         script:
             var date = new Date();
             var userDate = $session.userDate;
-            var answer = "Итак, нужен прогноз на " + userDate.toLocaleDateString("en-US") + ", а сегодня "+date.toLocaleDateString("en-US")+". ";
-            $reactions.answer(answer);
             
             if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
                 $reactions.transition("/ThisDayHasPassed");
-                } else if (getWeekNumber(userDate) > 1) {
+                } 
+                else if (getWeekNumber(userDate) > 1) {
                     $reactions.transition("/ThisDayIsNotComingSoon");
-                    }
-            else 
-                $reactions.transition("/TellWeather");
+                    } else $reactions.transition("/TellWeather");
         
     state: ThisDayHasPassed
         script:
@@ -246,8 +243,8 @@ theme: /
             });
         if: $temp.response.isOk
             random:
-                a: У меня получилось уточнить: {{$parseTree._City.name}} {{Math.floor($temp.response.data.main.temp)}} °C.
-                a: Смог узнать для вас прогноз: {{$parseTree._City.name}} {{Math.floor($temp.response.data.main.temp)}} °C.
+                a: У меня получилось уточнить: {{$session.userCity}} {{Math.floor($temp.response.data.main.temp)}} °C.
+                a: Смог узнать для вас прогноз: {{$session.userCity}} {{Math.floor($temp.response.data.main.temp)}} °C.
                
     state: OfferTour
         a: Тур
