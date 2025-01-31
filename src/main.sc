@@ -282,8 +282,8 @@ theme: /
             
         if: $request.channelType === "telegram"
             inlineButtons:
-                { text: "Узнать прогноз погоды", callback_data: "прогноз погоды" }
-                { text: "Оформить заявку на подбор тура", callback_data: "подбор тура" }
+                { text: "Узнать прогноз погоды" }
+                { text: "Оформить заявку на подбор тура" }
         else:
             buttons:
                 "Узнать прогноз погоды" -> /WeatherForecast
