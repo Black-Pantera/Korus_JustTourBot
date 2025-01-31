@@ -85,7 +85,7 @@ theme: /
                 
     state: WeatherForecast
         intent!: /weather
-        q!: * {@Cities * | * @duckling.date} *
+        q!: * {@Cities * * @duckling.date} *
         q!: @duckling.date
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
