@@ -221,6 +221,8 @@ theme: /
                 script:
                     $session.userDate = null;
                     $reactions.transition("/GetDate");
+                    
+                go!: /GetDate
         else:
             a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
