@@ -124,7 +124,7 @@ theme: /
                         $session.lat = $parseTree._Cities.lat;
                         $session.country = $parseTree._Cities.country; 
                         
-                        $reactions.transition("/CheсkDate");
+                        $reactions.transition("/GetDate");
                         }
                     else 
                         $reactions.transition("/GetCity");
