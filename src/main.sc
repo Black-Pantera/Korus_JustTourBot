@@ -105,8 +105,6 @@ theme: /
                     
                 go!: /SomethingElse
            
-       
-                
     state: WeatherForecast
         intent!: /weather
         q!: * {@Cities * * @duckling.date} *
