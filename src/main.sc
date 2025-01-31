@@ -86,6 +86,9 @@ theme: /
     state: WeatherForecast
         intent!: /weather
         q!: * @Cities *
+        q!: @duckling.date
+        script:
+            log("///////// MY LOG "+toPrettyString($parseTree));
         go!: /GetCity
         
     state: GetCity
@@ -97,7 +100,6 @@ theme: /
             
         state: UserCity
             q!: * @Cities *
-            q!: @duckling.date
             script:
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 
