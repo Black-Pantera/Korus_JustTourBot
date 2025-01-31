@@ -88,8 +88,7 @@ theme: /
                     $session.userCity = $parseTree._Cities.name;
                     $session.lon = $parseTree._Cities.lon;
                     $session.lat = $parseTree._Cities.lat;
-                    $session.country = $parseTree._Cities.country;
-                    
+                    $session.country = $parseTree._Cities.country;                    
                     $reactions.transition("/GetDate");
                     }
         
@@ -130,7 +129,6 @@ theme: /
                     var answer = $parseTree["_duckling.date"].year +"-" + $parseTree["_duckling.date"].month + "-"+$parseTree["_duckling.date"].day+". ";
                     $reactions.answer(answer);
           
-                    
                     $reactions.transition("/CheсkDate");
                     }
           
@@ -140,6 +138,10 @@ theme: /
             var userDate = $session.userDate;
             var answer = "Итак, нужен прогноз на " + userDate.toLocaleDateString("en-US") + ", а сегодня "+date.toLocaleDateString("en-US")+". ";
             $reactions.answer(answer);
+            
+            if (userDate < date) {
+                $reactions.transition("/ThisDayHasPassed");
+                } else if (userDate > date.)
           
     state: OfferTour
         a: Тур
