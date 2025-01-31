@@ -74,6 +74,24 @@
       "refs" : [ ]
     },
     "priority" : 0
+  }, {
+    "path" : "/tour",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "тур"
+    }, {
+      "text" : "подбор тура"
+    }, {
+      "text" : "заявка на тур"
+    }, {
+      "text" : "оформить заявку на подбор тура"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {

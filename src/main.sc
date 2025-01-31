@@ -75,7 +75,7 @@ theme: /
         if: $request.channelType === "telegram"
             inlineButtons:
                 { text: "Узнать прогноз погоды", callback_data: "прогноз погоды" }
-                { text: "Оформить заявку на подбор тура", callback_data: "OfferTour" }
+                { text: "Оформить заявку на подбор тура", callback_data: "подбор тура" }
         else:
             buttons:
                 "Узнать прогноз погоды" -> /WeatherForecast
@@ -260,6 +260,7 @@ theme: /
                 $reactions.answer($temp.response);
                
     state: OfferTour
+        event: telegramCallbackQuery
         a: Тур
               
     state: DontHaveQuestions
@@ -280,8 +281,8 @@ theme: /
             
         if: $request.channelType === "telegram"
             inlineButtons:
-                { text: "Узнать прогноз погоды", callback_data: "WeatherForecast" }
-                { text: "Оформить заявку на подбор тура", callback_data: "OfferTour" }
+                { text: "Узнать прогноз погоды", callback_data: "прогноз погоды" }
+                { text: "Оформить заявку на подбор тура", callback_data: "подбор тура" }
         else:
             buttons:
                 "Узнать прогноз погоды" -> /WeatherForecast
