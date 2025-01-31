@@ -74,20 +74,13 @@ theme: /
             
         if: $request.channelType === "telegram"
             inlineButtons:
-                { text: "Узнать прогноз погоды", callback_data: "1" }
-                { text: "Оформить заявку на подбор тура", callback_data: "2" }
+                { text: "Узнать прогноз погоды"}
+                { text: "Оформить заявку на подбор тура" }
         else:
             buttons:
                 "Узнать прогноз погоды" -> /WeatherForecast
                 "Оформить заявку на подбор тура" -> /OfferTour
                 
-        state: TelegramCallbackQuery
-            event: telegramCallbackQuery
-            if: ($request.data == "1")
-                go!: /WeatherForecast
-            elseif: ($request.data == "2")
-                go!: /OfferTour   
-            
         state: LocalCatchAll || noContex = true
             event: noMatch
             script:
