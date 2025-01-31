@@ -115,7 +115,7 @@ theme: /
                     else {
                         $reactions.transition("/GetCity");
                         }
-                }
+                    }
             
     state: GetCity
         intent!: /weather
