@@ -143,13 +143,39 @@ theme: /
             $reactions.answer(answer);
             
             if (userDate < date) {
+                $session.stateCounter = 0;
                 $reactions.transition("/ThisDayHasPassed");
                 } else if (getWeekNumber(userDate) > 1) {
                     $reactions.transition("/ThisDayIsNotComingSoon");
                     }
             else 
                 $reactions.transition("/TellWeather");
+        
+    state: ThisDayHasPassed
+        script:
+            $session.stateCounter++
                 
+        if: $session.stateCounter < 3
+            random: 
+                a: К сожалению, я не могу узнать прогноз погоды на период времени в прошлом.
+                a: Я не смогу посмотреть прогноз для прошедшего периода.
+                
+                script:
+                    $session.userDate = null;
+                go!: /GetDate
+                    
+        else:
+                a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
+                
+                script: 
+                    $session.stateCounter = 0;
+                    $session.userDate = null;
+                    $session.userCity = null;
+                    $session.lat = null;
+                    $session.lon = null;
+                    $session.country = null;
+                    
+                go!: /SomethingElse
           
     state: OfferTour
         a: Тур
