@@ -240,7 +240,7 @@ theme: /
                 query: {
                     lat: $session.lat,
                     lon: $session.lon,
-                    appid: $secrets.get("OPENWEATHER_API_KEY"),
+                    appid: 106ad0548ad7d7b7eb02682ec63886b4
                     units: "metric"
                 }
             });
