@@ -5,3 +5,11 @@ function getWeekNumber(d) {
     var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
     return [d.getUTCFullYear(), weekNo];
 }
+
+function getForecast(lat,lon, date) {
+    return $http.query("https://api.stormglass.io/v2/weather/point?lat=${lat}&lng={lon}&start=${start}&params=${params}", {
+        method: "GET",
+        timeout: 10000,
+    })
+    
+}
