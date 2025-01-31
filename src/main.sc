@@ -157,7 +157,7 @@ theme: /
     state: GetDate
         script:
             var answer = "Итак, " + capitalize($client.name) +", ваш город - " + $session.userCity + " ("+$session.lat + ":" +$session.lon +"), страна "+$session.country+". ";
-            $reactions.answer(answer);
+            //$reactions.answer(answer);
         random:
             a: На какую дату требуется прогноз?
             a: Прогноз погоды на какую дату вам нужен?
