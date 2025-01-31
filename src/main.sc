@@ -238,7 +238,6 @@ theme: /
         a: Уточняю для вас запрос...
         script:
             $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
-            $reactions.answer($temp.response);
         if: $temp.response.isOk
             random:
                 a: У меня получилось уточнить: {{$session.userCity}} {{Math.floor($temp.response.data.main.temp)}} °C.
