@@ -124,6 +124,7 @@ theme: /
         state: UserDate
             q!: @duckling.date
             script:
+                $session.stateCounterInARow = 0;
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_duckling.date"]) {
                     $session.date = $parseTree["_duckling.date"].value;
@@ -134,6 +135,28 @@ theme: /
           
                     $reactions.transition("/CheсkDate");
                     }
+                    
+        state: LocalCatchAll || noContex = true
+            event: noMatch
+            script:
+                $session.stateCounterInARow++
+                
+            if: $session.stateCounterInARow < 3
+                random: 
+                    a: Извините, не совсем понял вас. Напишите, пожалуйста, нужную вам дату.
+                    a: К сожалению, не понял вас. Введите, пожалуйста, дату, которая вам нужна.
+            else:
+                a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
+                
+                script: 
+                    $session.stateCounterInARow = 0
+                    $session.userDate = null
+                    $session.userCity = null;
+                    $session.lat = null;
+                    $session.lon = null;
+                    $session.country = null;
+                    
+                go!: /SomethingElse
           
     state: CheсkDate
         script:
@@ -163,19 +186,18 @@ theme: /
                 script:
                     $session.userDate = null;
                     $reactions.transition("/GetDate");
-                
         else:
-                a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
+            a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
-                script: 
-                    $session.stateCounter = 0;
-                    $session.userDate = null;
-                    $session.userCity = null;
-                    $session.lat = null;
-                    $session.lon = null;
-                    $session.country = null;
+            script: 
+                $session.stateCounter = 0;
+                $session.userDate = null;
+                $session.userCity = null;
+                $session.lat = null;
+                $session.lon = null;
+                $session.country = null;
                     
-                go!: /SomethingElse
+            go!: /SomethingElse
           
     state: OfferTour
         a: Тур
