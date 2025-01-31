@@ -81,7 +81,7 @@ theme: /
                 "Узнать прогноз погоды" -> /WeatherForecast
                 "Оформить заявку на подбор тура" -> /OfferTour
                 
-        state: GetState
+        state: TelegramCallbackQuery
             event: telegramCallbackQuery
             if: ($request.data == "1")
                 go!: /WeatherForecast
