@@ -127,7 +127,7 @@ theme: /
                 
                 if ($parseTree["_duckling.date"]) {
                     $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day).setHours(0,0,0,0);
-                    
+                    $reactions.answer($session.userDate);
                     $reactions.transition("/CheсkDate");
                     }
                     
