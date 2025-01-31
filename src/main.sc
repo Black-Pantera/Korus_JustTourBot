@@ -98,7 +98,7 @@ theme: /
                 $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                 $reactions.transition("/CheсkDate");
                 }
-            else {
+            else 
                 if ($parseTree["_duckling.date"]) {
                     $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                     $reactions.transition("/GetCity");
@@ -115,7 +115,7 @@ theme: /
                     else {
                         $reactions.transition("/GetCity");
                         }
-                    }
+                    
             
     state: GetCity
         intent!: /weather
