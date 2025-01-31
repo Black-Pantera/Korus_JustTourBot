@@ -135,7 +135,7 @@ theme: /
                     $session.country = $parseTree._Cities.country;                    
                     }
                     
-                if ($session.userDate != null)
+                if ($parseTree["_duckling.date"])
                     $reactions.transition("/CheсkDate");
                 else
                     $reactions.transition("/GetDate");
