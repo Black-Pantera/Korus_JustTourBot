@@ -264,10 +264,10 @@ theme: /
             $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
         if: $temp.response.isOk
             random:
-                a: У меня получилось уточнить: на {{ new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(new Date($session.userDate)) }} в городе {{$session.userCity}} температура воздуха составит {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
-                a: Смог узнать для вас прогноз: на {{ new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(new Date($session.userDate)) }} в городе {{$session.userCity}} будет {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
-                //a: У меня получилось уточнить: на {{ new Date($session.userDate).toLocaleDateString("ru-RU", {year: "numeric", month: "long", day: "numeric"}) }} в {{$session.userCity}} температура воздуха составит {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
-                //a: Смог узнать для вас прогноз: на {{ new Date($session.userDate).toLocaleDateString("ru-RU", { year: 'numeric',  month: '2-digit',  day: '2-digit'}) }} в {{$session.userCity}} будет {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
+                //a: У меня получилось уточнить: на {{ new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(new Date($session.userDate)) }} в городе {{$session.userCity}} температура воздуха составит {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
+                //a: Смог узнать для вас прогноз: на {{ new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(new Date($session.userDate)) }} в городе {{$session.userCity}} будет {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
+                a: У меня получилось уточнить: на {{ new Date($session.userDate).toLocaleDateString("ru-RU", {year: "numeric", month: "long", day: "numeric"}) }} в {{$session.userCity}} температура воздуха составит {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
+                a: Смог узнать для вас прогноз: на {{ new Date($session.userDate).toLocaleDateString("ru-RU", { year: 'numeric',  month: '2-digit',  day: '2-digit'}) }} в {{$session.userCity}} будет {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
         else:
             a: У меня не получилось узнать погоду. Попробуйте ещё раз.
             script:
