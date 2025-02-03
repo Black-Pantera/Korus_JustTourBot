@@ -6,6 +6,18 @@ require: moment.js
 require: moment-with-locales.js
   
 theme: /
+    
+    init: 
+        bind("onAnyError", function($context) {
+            var answers = [
+                "Извините, произошла техническая ошибка. Специалисты обязательно изучат её и возьмут в работу. Пожалуйста, напишите в чат позже.",
+                "Простите, произошла ошибка в системе. Наши специалисты обязательно её исправят."
+            ];
+            var randomAnswer = answers[$reactions.random(answers.length)];
+            $reactions.answer(randomAnswer);
+            
+            $reactions.buttons({ text: "В главное меню", transition: "/Start" })
+        });     
 
     state: Start
         q!: $regex</start>
