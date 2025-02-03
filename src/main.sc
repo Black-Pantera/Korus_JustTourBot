@@ -10,7 +10,7 @@ theme: /
         q!: старт
         script:
             //$context.session = {};
-            $context.client = {};
+            //$context.client = {};
             $session.stateCounterInARow = 0
             $session.stateCounter = 0
             
