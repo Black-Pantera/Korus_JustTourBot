@@ -286,13 +286,19 @@ theme: /
             a: Подскажите, у вас остались ещё вопросы?
             
         if: $request.channelType === "telegram"
-            script:
-                $reactions.inlineButtons({ text: "Узнать прогноз погоды", transition: " /WeatherForecast" });
-                $reactions.inlineButtons({ text: "Оформить заявку на подбор тура", transition: " /OfferTour" });
+            inlineButtons:
+                { text: "Узнать прогноз погоды", callback_data: "/WeatherForecast" }
+                { text: "Оформить заявку на подбор тура", callback_data: "/OfferTour" }
         else:
             buttons:
                 "Узнать прогноз погоды" -> /WeatherForecast
                 "Оформить заявку на подбор тура" -> /OfferTour
+                
+        state: CatchCallbackButton
+            event: telegramCallbackQuery
+            script:
+                $temp.goTo = $request.query
+            go!: {{$temp.goTo}}
             
         state: LocalCatchAll || noContex = true
             event: noMatch
