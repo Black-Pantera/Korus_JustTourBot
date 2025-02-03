@@ -260,7 +260,7 @@ theme: /
                
     state: OfferTour
         intent!: /tour
-        event: telegramCallbackQuery
+        
         a: Тур
               
     state: DontHaveQuestions
