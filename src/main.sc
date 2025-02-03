@@ -101,7 +101,6 @@ theme: /
     state: WeatherForecast
         intent!: /weather
         q!: * {@Cities * * @duckling.date} *
-        event: telegramCallbackQuery
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
             
