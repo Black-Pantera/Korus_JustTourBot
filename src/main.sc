@@ -66,7 +66,7 @@ theme: /
                         $reactions.transition("/HowCanIHelpYou");
                         }
                     log("///////// MY LOG "+toPrettyString($parseTree));    
-                    $reactions.answer($client.name);
+                    //$reactions.answer($client.name);
             
             state: ErrorName
                 event: noMatch

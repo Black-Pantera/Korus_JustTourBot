@@ -24,7 +24,7 @@ function openWeatherMapCurrent(units, lang, lat, lon){
     return $http.query("http://api.openweathermap.org/data/2.5/weather?APPID=${APPID}&units=${units}&lang=${lang}&lat=${lat}&lon=${lon}", {
             timeout: 10000,
             query:{
-                APPID: "106ad0548ad7d7b7eb02682ec63886b4",
+                APPID: $env.get(OPENWEATHER_API_KEY, "Переменная не найдена"), 
                 units: units,
                 lang: lang,
                 lat: lat,
