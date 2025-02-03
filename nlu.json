@@ -92,6 +92,24 @@
     },
     "patterns" : [ ],
     "priority" : 0
+  }, {
+    "path" : "/robot",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "кто это?"
+    }, {
+      "text" : "ты робот?"
+    }, {
+      "text" : "это робот?"
+    }, {
+      "text" : "я общаюсь с роботом?"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {
