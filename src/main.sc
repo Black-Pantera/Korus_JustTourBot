@@ -10,7 +10,7 @@ theme: /
         q!: старт
         script:
             //$context.session = {};
-            //$context.client = {};
+            $context.client = {};
             $session.stateCounterInARow = 0
             $session.stateCounter = 0
             
@@ -53,13 +53,18 @@ theme: /
             a: Как к вам лучше обращаться?
             
             state: SetName
-                q!: * @Names *
+                q: * @Names *
+                q: * @pymorphy.name *
                 script:
                     if ($parseTree._Names) {
                         $client.name = $parseTree._Names.name;
-                      
                         $reactions.transition("/HowCanIHelpYou");
-                    }
+                        }
+                    
+                    if ($parseTree["_pymorphy.name"]) {
+                        $client.name = $parseTree["_pymorphy.name"];
+                        $reactions.transition("/HowCanIHelpYou");
+                        }
             
             state: ErrorName
                 event: noMatch
@@ -264,7 +269,7 @@ theme: /
             script:
                 $reactions.answer($temp.response);
                 
-        state: 
+        state: Error
                
     state: OfferTour
         intent!: /tour
