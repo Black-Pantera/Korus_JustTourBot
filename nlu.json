@@ -524,7 +524,7 @@
       "value" : "{\n  \"name\": \"Андрей\",\n  \"diminutive\": \"Андрюша\",\n  \"sex\": \"м\"\n}"
     } ]
   } ],
-  "enabledSystemEntities" : [ "pymorphy.name", "duckling.number", "duckling.time", "duckling.date", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
+  "enabledSystemEntities" : [ "pymorphy.name", "pymorphy.surn", "duckling.number", "duckling.time", "duckling.date", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
   "spellerDictionary" : [ ],
   "systemEntities" : [ {
     "name" : "mystem.geo",
@@ -561,7 +561,7 @@
     "enabled" : true
   }, {
     "name" : "pymorphy.surn",
-    "enabled" : false
+    "enabled" : true
   }, {
     "name" : "pymorphy.patr",
     "enabled" : false
