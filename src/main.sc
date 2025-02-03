@@ -233,7 +233,7 @@ theme: /
                 
                 $reactions.transition("/ThisDayHasPassed");
                 } 
-                else if (getWeekNumber(userDate) > 1) {
+                else if (DatesDiff(userDate, date) > 5) {
                     $reactions.transition("/ThisDayIsNotComingSoon");
                     } else $reactions.transition("/TellWeather");
         
@@ -260,6 +260,31 @@ theme: /
                 $session.country = null;
                     
             go!: /SomethingElse
+            
+    state: ThisDayIsNotComingSoon
+        script:
+            $session.stateCounter ++
+                
+        if: $session.stateCounter < 3
+            script:
+                $session.userDate = null;
+            random: 
+                a: Мне жаль, но метеорологи и я пока не можем дать такие долгосрочные прогнозы.
+                a: Извините, посмотреть прогноз на такую далекую дату я не смогу.
+            go!: /GetDate
+        else:
+            a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
+                
+            script: 
+                $session.stateCounter = 0;
+                $session.userDate = null;
+                $session.userCity = null;
+                $session.lat = null;
+                $session.lon = null;
+                $session.country = null;
+                    
+            go!: /SomethingElse
+        
             
     state: TellWeather
         script:

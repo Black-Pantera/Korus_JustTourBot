@@ -6,6 +6,11 @@ function getWeekNumber(d) {
     return [d.getUTCFullYear(), weekNo];
 }
 
+function DatesDiff(date1, date2) {
+   var diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); 
+   return diffDays;
+}
+
 /*
 function getForecast(lat,lon) {
     var settings = {
