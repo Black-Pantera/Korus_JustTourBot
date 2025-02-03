@@ -3,6 +3,7 @@ require: slotfilling/slotFilling.sc
   
 require: funcs.js
 require: moment.js
+require: moment-with-locales.js
   
 theme: /
 
@@ -263,6 +264,7 @@ theme: /
     state: TellWeather
         script:
             $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
+            moment.lang('ru');
             $temp.userFormatDate = moment($session.userDate).format('LL');
         if: $temp.response.isOk
             random:
