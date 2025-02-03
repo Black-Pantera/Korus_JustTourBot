@@ -81,6 +81,12 @@ theme: /
                 "Узнать прогноз погоды" -> /WeatherForecast
                 "Оформить заявку на подбор тура" -> /OfferTour
                 
+        state: CatchCallbackButton
+            event: telegramCallbackQuery
+            script:
+                $temp.goTo = $request.query
+            go!: {{$temp.goTo}}
+                
         state: LocalCatchAll || noContex = true
             event: noMatch
             script:
