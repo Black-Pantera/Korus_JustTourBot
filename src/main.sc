@@ -65,6 +65,8 @@ theme: /
                         $client.name = $parseTree["_pymorphy.name"];
                         $reactions.transition("/HowCanIHelpYou");
                         }
+                        
+                    $reactions.answer($client.name);
             
             state: ErrorName
                 event: noMatch
