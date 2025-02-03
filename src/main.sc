@@ -294,7 +294,7 @@ theme: /
         if: $temp.response.isOk
             random:
                 a: У меня получилось уточнить: на {{ $temp.userFormatDate }} в {{$nlp.inflect($session.userCity, "loct")}} температура воздуха составит {{ Math.floor($temp.response.data.main.temp)}} {{ GetDegree(Math.floor($temp.response.data.main.temp))}} по Цельсию.
-                a: Смог узнать для вас прогноз: на {{ $temp.userFormatDate }} в {{{$nlp.inflect($session.userCity, "loct")}} будет {{Math.floor($temp.response.data.main.temp)}} {{ GetDegree(Math.floor($temp.response.data.main.temp))}} по Цельсию.
+                a: Смог узнать для вас прогноз: на {{ $temp.userFormatDate }} в {{$nlp.inflect($session.userCity, "loct")}} будет {{Math.floor($temp.response.data.main.temp)}} {{ GetDegree(Math.floor($temp.response.data.main.temp))}} по Цельсию.
         else:
             a: У меня не получилось узнать погоду. Попробуйте ещё раз.
             script:
