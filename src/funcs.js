@@ -7,6 +7,7 @@ function getWeekNumber(d) {
 }
 
 function DatesDiff(date1, date2) {
+   const diffTime = Math.abs(date2 - date1);
    var diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); 
    return diffDays;
 }
