@@ -257,12 +257,14 @@ theme: /
             $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
         if: $temp.response.isOk
             random:
-                a: У меня получилось уточнить: на {{$session.userDate.toLocaleDateString('ru-RU', { year: 'numeric',  month: '2-digit',  day: '2-digit'})}} в {{$session.userCity}} температура воздуха составит {{Math.floor($temp.response.data.main.temp)}} °C.
-                a: Смог узнать для вас прогноз: на {{$session.userDate.toLocaleDateString('ru-RU', { year: 'numeric',  month: '2-digit',  day: '2-digit'})}} в {{$session.userCity}} будет {{Math.floor($temp.response.data.main.temp)}} °C.
+                a: У меня получилось уточнить: на {{$session.userDate.toLocaleDateString('ru-RU', { year: 'numeric',  month: '2-digit',  day: '2-digit'})}} в {{$session.userCity}} температура воздуха составит {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
+                a: Смог узнать для вас прогноз: на {{$session.userDate.toLocaleDateString('ru-RU', { year: 'numeric',  month: '2-digit',  day: '2-digit'})}} в {{$session.userCity}} будет {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
         else:
             a: У меня не получилось узнать погоду. Попробуйте ещё раз.
             script:
                 $reactions.answer($temp.response);
+                
+        state: 
                
     state: OfferTour
         intent!: /tour
@@ -311,12 +313,23 @@ theme: /
                     a: Извините, не совсем понял. Пожалуйста, подскажите, могу ли я чем-то вам помочь?
                     a: К сожалению, не смог понять, что вы имеете в виду. Подскажите, что вас интересует?
                     
-                buttons:
-                    "Узнать прогноз погоды" -> /WeatherForecast
-                    "Оформить заявку на подбор тура" -> /OfferTour
+                if: $request.channelType === "telegram"
+                    inlineButtons:
+                        { text: "Узнать прогноз погоды", callback_data: "/WeatherForecast" }
+                        { text: "Оформить заявку на подбор тура", callback_data: "/OfferTour" }
+                else:
+                    buttons:
+                        "Узнать прогноз погоды" -> /WeatherForecast
+                        "Оформить заявку на подбор тура" -> /OfferTour
             else:
                 a: Простите, так и не смог понять, что вы имели ввиду.
                 go!: /GoodBye
+                
+            state: CatchCallbackButton
+                event: telegramCallbackQuery
+                script:
+                    $temp.goTo = $request.query
+                go!: {{$temp.goTo}}
               
     state: GoodBye
         intent!: /пока
