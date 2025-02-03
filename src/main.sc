@@ -73,9 +73,9 @@ theme: /
             a: Подскажите, какой у вас вопрос?
             
         if: $request.channelType === "telegram"
-            script:
-                $reactions.inlineButtons({ text: "Узнать прогноз погоды", transition: "/WeatherForecast" });
-                $reactions.inlineButtons({ text: "Оформить заявку на подбор тура", transition: "/OfferTour" });
+            inlineButtons:
+                { text: "Узнать прогноз погоды", callback_data: "/WeatherForecast" }
+                { text: "Оформить заявку на подбор тура", callback_data: "/OfferTour" }
         else:
             buttons:
                 "Узнать прогноз погоды" -> /WeatherForecast
