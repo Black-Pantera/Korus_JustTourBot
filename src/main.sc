@@ -262,10 +262,11 @@ theme: /
     state: TellWeather
         script:
             $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
+            $temp.userFormatDate = moment($session.userDate, 'YYYY-MM-DD').toDate();
         if: $temp.response.isOk
             random:
-                a: У меня получилось уточнить: на {{ new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(new Date($session.userDate)) }} в городе {{$session.userCity}} температура воздуха составит {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
-                a: Смог узнать для вас прогноз: на {{ new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(new Date($session.userDate)) }} в городе {{$session.userCity}} будет {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
+                a: У меня получилось уточнить: на {{ $temp.userFormatDate }} в городе {{$session.userCity}} температура воздуха составит {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
+                a: Смог узнать для вас прогноз: на {{ $temp.userFormatDate }} в городе {{$session.userCity}} будет {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
         else:
             a: У меня не получилось узнать погоду. Попробуйте ещё раз.
             script:
