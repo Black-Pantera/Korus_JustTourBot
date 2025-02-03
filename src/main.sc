@@ -65,7 +65,7 @@ theme: /
                         $client.name = $parseTree["_pymorphy.name"];
                         $reactions.transition("/HowCanIHelpYou");
                         }
-                        
+                    log("///////// MY LOG "+toPrettyString($parseTree));    
                     $reactions.answer($client.name);
             
             state: ErrorName
