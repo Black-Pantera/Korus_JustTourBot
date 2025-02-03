@@ -263,7 +263,7 @@ theme: /
     state: TellWeather
         script:
             $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
-            $temp.userFormatDate = moment($session.userDate, 'YYYY-MM-DD').toDate();
+            $temp.userFormatDate = moment($session.userDate).format('LL');
         if: $temp.response.isOk
             random:
                 a: У меня получилось уточнить: на {{ $temp.userFormatDate }} в городе {{$session.userCity}} температура воздуха составит {{Math.floor($temp.response.data.main.temp)}} °C градусов по Цельсию.
