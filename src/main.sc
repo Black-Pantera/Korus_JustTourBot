@@ -272,6 +272,22 @@ theme: /
                 $reactions.answer($temp.response);
                 
         state: Error
+            event: noMatch
+            
+            script:
+                $session.stateCounter++
+                
+            if: $session.stateCounter < 3
+                go!: /TellWeather
+            else:
+                a: Мне очень жаль, но при обращении к сервису, содержащему сведения о погоде, произошла ошибка. Пожалуйста, попробуйте написать мне немного позже. Надеюсь работоспособность сервиса восстановится.
+                script:
+                    $session.userDate = null;
+                    $session.userCity = null;
+                    $session.lat = null;
+                    $session.lon = null;
+                    
+                go!: /SomethingElse
                
     state: OfferTour
         intent!: /tour
