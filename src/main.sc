@@ -258,7 +258,7 @@ theme: /
         if: $temp.response.isOk
             random:
                 a: У меня получилось уточнить: на {{$session.userDate.toLocaleDateString("ru-RU", { year: 'numeric',  month: '2-digit',  day: '2-digit'})}} в {{$session.userCity}} температура воздуха составит {{Math.floor($temp.response.data.main.temp)}} °C.
-                a: Смог узнать для вас прогноз: на {{$session.userDate.toLocaleDateString("ru-RU", { year: 'numeric',  month: '2-digit',  day: '2-digit'}")}} в {{$session.userCity}} будет {{Math.floor($temp.response.data.main.temp)}} °C.
+                a: Смог узнать для вас прогноз: на {{$session.userDate.toLocaleDateString("ru-RU", { year: 'numeric',  month: '2-digit',  day: '2-digit'})}} в {{$session.userCity}} будет {{Math.floor($temp.response.data.main.temp)}} °C.
         else:
             a: У меня не получилось узнать погоду. Попробуйте ещё раз.
             script:
