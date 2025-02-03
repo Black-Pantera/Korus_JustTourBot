@@ -2,6 +2,7 @@ require: slotfilling/slotFilling.sc
   module = sys.zb-common
   
 require: funcs.js
+require: moment.js
   
 theme: /
 
