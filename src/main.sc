@@ -23,8 +23,8 @@ theme: /
         q!: $regex</start>
         q!: старт
         script:
-            //$context.session = {};
-            //$context.client = {};
+            $context.session = {};
+            $context.client = {};
             $session.stateCounterInARow = 0
             $session.stateCounter = 0
             $session.stateCounterName = 0
