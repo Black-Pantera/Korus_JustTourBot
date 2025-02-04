@@ -89,13 +89,13 @@ theme: /
                 
                 if: $session.stateCounterName < 3
                     a: Пожалуйста, введите корректное имя
+                    go!: /GetName/InputName
                 else:
                     a: Кажется, я не знаком с таким именем.
                 
-                script: 
-                    $session.stateCounterName = 0
-                    
-                go!: /GoodBye
+                    script: 
+                        $session.stateCounterName = 0
+                        go!: /GoodBye
                 
     state: HowCanIHelpYou
         random:
