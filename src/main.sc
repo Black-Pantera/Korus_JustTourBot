@@ -361,7 +361,8 @@ theme: /
                     log("///////// MY LOG "+toPrettyString($parseTree));
                 
                     if ($parseTree._Countries) {
-                    $session.country = $parseTree._Countries.english;    
+                    $session.country = $parseTree._Countries.english;   
+                    }
                     
                 if: $session.country
                     a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь, давайте перейдем к указанию оставшихся параметров.
@@ -370,6 +371,20 @@ theme: /
                 else:
                     a: Введите название страны
                     
+                state: Country
+                    q!: * @Countries *
+                    script: 
+                        log("///////// MY LOG "+toPrettyString($parseTree));
+                
+                        if ($parseTree._Countries) {
+                        $session.country = $parseTree._Countries.english;  
+                        }
+                    
+                    if: $session.country
+                        go!: /AskNumberOfPeople
+                  
+    state: AskNumberOfPeople
+        a: Укажите количество человек, которые отправятся в путешествие.
             
     state: DontHaveQuestions
         q!: * вопросов нет *
