@@ -23,8 +23,8 @@ theme: /
         q!: $regex</start>
         q!: старт
         script:
-            $context.session = {};
-            $context.client = {};
+            //$context.session = {};
+            //$context.client = {};
             $session.stateCounterInARow = 0
             $session.stateCounter = 0
             $session.stateCounterName = 0
@@ -376,6 +376,13 @@ theme: /
                     
                 if: $session.country
                     go!: /AskNumberOfPeople
+                    
+        state: Disagree
+            a: Понял вас. В таком случае, когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
+            script:
+                $session.country = "Не указано";  
+            go!: /AskNumberOfPeople
+                
                   
     state: AskNumberOfPeople
         a: Укажите количество человек, которые отправятся в путешествие.
