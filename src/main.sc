@@ -383,6 +383,9 @@ theme: /
                   
     state: AskNumberOfPeople
         a: Укажите количество человек, которые отправятся в путешествие.
+        
+        state: Number
+            
             
     state: DontHaveQuestions
         q!: * вопросов нет *
