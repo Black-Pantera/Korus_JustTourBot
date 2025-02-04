@@ -84,9 +84,19 @@ theme: /
             
             state: ErrorName
                 event: noMatch
-                a: Пожалуйста, введите корректное имя
-                go!: /GetName
-        
+                script:
+                    $session.stateCounterName++
+                
+                if: $session.stateCounterName < 3
+                    a: Пожалуйста, введите корректное имя
+                else:
+                    a: Кажется, я не знаком с таким именем.
+                
+                script: 
+                    $session.stateCounterName = 0
+                    
+                go!: /GoodBye
+                
     state: HowCanIHelpYou
         random:
             a: Чем могу помочь?
