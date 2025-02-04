@@ -344,44 +344,42 @@ theme: /
                
     state: OfferTour
         intent!: /tour
-        
         random:
             a: Готов помочь вам оформить заявку на подбор тура. Кат только я соберу от вас нужные для запроса данные, наш менеджер подберет самые подходящие варианты и свяжется с вами.
             a: Рад помочь с оформлением запроса на подбор тура. Как только мы заполним заявку, наш специалист свяжется с вами, чтобы предложить наиболее подходящие варианты путешествий.
-              
         if: $session.country
             go!: /AskNumberOfPeople
         else:
             a: Подскажите, вы уже определились с страной прибытия?
             
-            state: Agree
+        state: Agree
+            q!: * @Countries *
+            q: * да * 
+            script: 
+                log("///////// MY LOG "+toPrettyString($parseTree));
+                
+                if ($parseTree._Countries) {
+                $session.country = $parseTree._Countries.english;   
+                }
+                    
+            if: $session.country
+                a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь, давайте перейдем к указанию оставшихся параметров.
+                go!: /AskNumberOfPeople
+                    
+            else:
+                a: Введите название страны
+                    
+            state: Country
                 q!: * @Countries *
-                q: * да * 
                 script: 
                     log("///////// MY LOG "+toPrettyString($parseTree));
                 
                     if ($parseTree._Countries) {
-                    $session.country = $parseTree._Countries.english;   
+                    $session.country = $parseTree._Countries.english;  
                     }
                     
                 if: $session.country
-                    a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь, давайте перейдем к указанию оставшихся параметров.
                     go!: /AskNumberOfPeople
-                    
-                else:
-                    a: Введите название страны
-                    
-                state: Country
-                    q!: * @Countries *
-                    script: 
-                        log("///////// MY LOG "+toPrettyString($parseTree));
-                
-                        if ($parseTree._Countries) {
-                        $session.country = $parseTree._Countries.english;  
-                        }
-                    
-                    if: $session.country
-                        go!: /AskNumberOfPeople
                   
     state: AskNumberOfPeople
         a: Укажите количество человек, которые отправятся в путешествие.
