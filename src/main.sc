@@ -326,7 +326,7 @@ theme: /
         state: Error
             event: noMatch
             
-            
+            script:
                 $session.stateCounter++
                 
             if: $session.stateCounter < 3
