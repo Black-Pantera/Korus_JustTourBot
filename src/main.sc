@@ -356,8 +356,6 @@ theme: /
             q!: * @Countries *
             q: * да * 
             script: 
-                log("///////// MY LOG "+toPrettyString($parseTree));
-                
                 if ($parseTree._Countries) {
                 $session.country = $parseTree._Countries.name;   
                 }
@@ -372,8 +370,6 @@ theme: /
             state: Country
                 q!: * @Countries *
                 script: 
-                    log("///////// MY LOG "+toPrettyString($parseTree));
-                
                     if ($parseTree._Countries) {
                     $session.country = $parseTree._Countries.name;  
                     }
