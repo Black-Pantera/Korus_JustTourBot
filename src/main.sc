@@ -95,7 +95,7 @@ theme: /
                 
                     script: 
                         $session.stateCounterName = 0
-                        go!: /GoodBye
+                    go!: /GoodBye
                 
     state: HowCanIHelpYou
         random:
