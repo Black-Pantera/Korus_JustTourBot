@@ -112,11 +112,11 @@ theme: /
         if: $request.channelType === "telegram"
             inlineButtons:
                 { text: "Узнать прогноз погоды", callback_data: "/WeatherForecast" }
-                { text: "Оформить заявку на подбор тура", callback_data: "/OfferTour" }
+                { text: "Оформить заявку на подбор тура", callback_data: "/TravelRequest" }
         else:
             buttons:
                 "Узнать прогноз погоды" -> /WeatherForecast
-                "Оформить заявку на подбор тура" -> /OfferTour
+                "Оформить заявку на подбор тура" -> /TravelRequest
                 
         state: CatchCallbackButton
             event: telegramCallbackQuery
@@ -347,7 +347,7 @@ theme: /
                     
                 go!: /SomethingElse
                
-    state: OfferTour
+    state: TravelRequest
         intent!: /tour
         random:
             a: Готов помочь вам оформить заявку на подбор тура. Кат только я соберу от вас нужные для запроса данные, наш менеджер подберет самые подходящие варианты и свяжется с вами.
@@ -415,11 +415,11 @@ theme: /
         if: $request.channelType === "telegram"
             inlineButtons:
                 { text: "Узнать прогноз погоды", callback_data: "/WeatherForecast" }
-                { text: "Оформить заявку на подбор тура", callback_data: "/OfferTour" }
+                { text: "Оформить заявку на подбор тура", callback_data: "/TravelRequest" }
         else:
             buttons:
                 "Узнать прогноз погоды" -> /WeatherForecast
-                "Оформить заявку на подбор тура" -> /OfferTour
+                "Оформить заявку на подбор тура" -> /TravelRequest
                 
         state: CatchCallbackButton
             event: telegramCallbackQuery
@@ -441,11 +441,11 @@ theme: /
                 if: $request.channelType === "telegram"
                     inlineButtons:
                         { text: "Узнать прогноз погоды", callback_data: "/WeatherForecast" }
-                        { text: "Оформить заявку на подбор тура", callback_data: "/OfferTour" }
+                        { text: "Оформить заявку на подбор тура", callback_data: "/TravelRequest" }
                 else:
                     buttons:
                         "Узнать прогноз погоды" -> /WeatherForecast
-                        "Оформить заявку на подбор тура" -> /OfferTour
+                        "Оформить заявку на подбор тура" -> /TravelRequest
             else:
                 a: Простите, так и не смог понять, что вы имели ввиду.
                 go!: /GoodBye
