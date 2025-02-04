@@ -359,7 +359,7 @@ theme: /
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 
                 if ($parseTree._Countries) {
-                $session.country = $parseTree._Countries.english;   
+                $session.country = $parseTree._Countries.name;   
                 }
                     
             if: $session.country
@@ -375,7 +375,7 @@ theme: /
                     log("///////// MY LOG "+toPrettyString($parseTree));
                 
                     if ($parseTree._Countries) {
-                    $session.country = $parseTree._Countries.english;  
+                    $session.country = $parseTree._Countries.name;  
                     }
                     
                 if: $session.country
