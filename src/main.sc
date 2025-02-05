@@ -474,7 +474,7 @@ theme: /
         state: DontKnow  
             intent!: /незнаем
             script:
-                $session.numberOfPeople = "Не указано";
+                $session.startDate = "Не указано";
                 $reactions.transition("/AskDuration");
                 
         state: LocalCatchAll
@@ -510,6 +510,12 @@ theme: /
                 } else {
                     $reactions.transition("/AskDuration/LocalCatchAll");
                     }
+                    
+        state: DontKnow  
+            intent!: /незнаем
+            script:
+                $session.endDate = "Не указано";
+                $reactions.transition("/AskServices");
                     
         state: LocalCatchAll
             event: noMatch
