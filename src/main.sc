@@ -550,8 +550,8 @@ theme: /
         state: Package
             q!: * @Packages *  
             script:
-                log("///////// MY LOG "+toPrettyString($parseTree));
-                $reactions.answer($request.query);
+                $session.services = $request.query;
+                $reactions.transition("/AskName");
         
     
     state: AskName
