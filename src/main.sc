@@ -555,7 +555,6 @@ theme: /
         state: WhatIsIncluded
             intent: /included
             script:
-                log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree._Packages) {
                     var answer = "В пакет услуг "+$parseTree._Packages.name+" входят следующие опции: "+ $parseTree._Packages.consists +".";
                     $reactions.answer(answer);
