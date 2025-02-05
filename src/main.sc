@@ -549,7 +549,7 @@ theme: /
             "VIP" -> /Package
             
     state: Package
-        q: * @Packages *
+        q!: * @Packages * 
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
             if ($parseTree._Packages) {
