@@ -503,7 +503,9 @@ theme: /
         
         state: Number
             q: * @duckling.number *
+            q: * @duckling.date *
             script:
+                 log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_duckling.number"] > 0) {
                     $reactions.answer($parseTree["_duckling.number"]);
                     $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
