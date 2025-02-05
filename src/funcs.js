@@ -43,20 +43,6 @@ function addDays(date, days) {
 }
 
 
-/*
-function getForecast(lat,lon) {
-    var settings = {
-        "url": "https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=106ad0548ad7d7b7eb02682ec63886b4",
-        "method": "GET",
-        "timeout": 0,
-    };
-
-    $.ajax(settings).done(function (response) {
-        return response;
-    });
-}
-*/
-
 function openWeatherMapCurrent(units, lang, lat, lon){
     return $http.query("http://api.openweathermap.org/data/2.5/weather?APPID=${APPID}&units=${units}&lang=${lang}&lat=${lat}&lon=${lon}", {
             timeout: 10000,
