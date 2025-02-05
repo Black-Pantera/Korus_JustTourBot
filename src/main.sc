@@ -17,7 +17,11 @@ theme: /
             $reactions.answer(randomAnswer);
             
             $reactions.buttons({ text: "В главное меню", transition: "/Start" })
-        });     
+        }); 
+        
+        bind("postProcess", function($context) {
+            $context.session.lastState = $context.currentState;
+        });
 
     state: Start
         q!: $regex</start>
@@ -381,6 +385,22 @@ theme: /
                     
                 if: $session.country
                     go!: /AskNumberOfPeople
+                    
+            state: LocalCatchAll
+                script:
+                    $session.stateCounterInARow++
+                
+                if: $session.stateCounterInARow < 3
+                    random:
+                        a: Извините, не совсем понял вас. Подскажите, вы выбрали страну для путешествия?
+                        a: К сожалению, не понял вас. Вы выбрали страну для поездки?
+                    
+                go!: $context.session.lastState
+            else:
+                a: Простите! Так и не получилось вас понять. Когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
+                go!: /AskNumberOfPeople
+               
+                
                     
         state: Disagree
             q: * нет * 
