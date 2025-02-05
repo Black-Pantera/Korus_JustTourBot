@@ -548,7 +548,7 @@ theme: /
             "VIP" -> /AskServices/Package
             
         state: Package
-            q: * @Packages *  
+            q: @Packages  
             script:
                 $session.services = $request.query;
                 $reactions.transition("/AskName");
