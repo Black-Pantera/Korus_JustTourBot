@@ -112,6 +112,20 @@
     },
     "patterns" : [ ],
     "priority" : 0
+  }, {
+    "path" : "/незнаем",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "не знаю"
+    }, {
+      "text" : "неважно"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {
