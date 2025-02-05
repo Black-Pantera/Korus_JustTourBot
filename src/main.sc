@@ -521,7 +521,6 @@ theme: /
         state: LocalCatchAll
             event: noMatch
             script:
-                log("///////// MY LOG "+toPrettyString($parseTree));
                 $session.stateCounterInARow ++
                 
             if: $session.stateCounterInARow < 3
@@ -556,9 +555,10 @@ theme: /
         state: WhatIsIncluded
             intent: /included
             script:
+                log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree._Packages) {
                     var answer = "В пакет услуг "+$parseTree._Packages.name+" входят следующие опции: "+ $parseTree._Packages.consists +".";
-                    $reactions.answer();
+                    $reactions.answer(answer);
                     }
             
         
