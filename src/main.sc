@@ -188,7 +188,7 @@ theme: /
             a: Прогноз для какого города хотите получить?
             
         state: UserCity
-            q!: * @Cities *
+            q: * @Cities *
             script:
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 
@@ -543,7 +543,23 @@ theme: /
             
     state: AskServices
         a: Уточните, пожалуйста, какой пакет услуг вам интересен?
+        buttons:
+            "Эконом" -> /Package
+            "Стандарт" -> /Package
+            "VIP" -> /Package
             
+    state: Package
+        q!: * @Package *
+        script:
+            if ($parseTree._Package) {
+                $session.services = $parseTree._Package.name;   
+                $reactions.transition("/AsName");
+                }
+        
+    
+    state: AskName
+        a: ваш пакет услуг {{ $session.services}}
+    
     state: DontHaveQuestions
         q!: * вопросов нет *
         q!: * нет *

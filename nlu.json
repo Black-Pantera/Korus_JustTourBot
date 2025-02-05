@@ -559,6 +559,33 @@
     } ]
   }, {
     "entity" : {
+      "name" : "Package",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Эконом" ],
+      "value" : "{\n\"name\": \"Эконом\",\n\"perDayOneMan\": 7000,\n\"consists\": \" 'размещение в отеле 3*', 'трансфер при заселении' \"\n}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Стандарт" ],
+      "value" : "{\n\"name\": \"Стандарт\",\n\"perDayOneMan\": 12000,\n\"consists\": \" 'размещение в отеле 4*', 'трансфер при заселении', 'завтраки в отеле' \"\n}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "VIP" ],
+      "value" : "{\n\"name\": \"VIP\",\n\"perDayOneMan\": 20000,\n\"consists\": \" 'размещение в отеле 5*', 'трансфер при заселении и выезде', 'завтраки, обеды и ужины в отеле', 'обзорная экскурсия по городу' \"\n}"
+    } ]
+  }, {
+    "entity" : {
       "name" : "Countries",
       "enabled" : true,
       "shared" : false,
