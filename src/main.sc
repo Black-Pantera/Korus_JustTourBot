@@ -381,7 +381,7 @@ theme: /
                     if ($parseTree._Countries) {
                     $session.country = $parseTree._Countries.name;  
                     }
-                    
+                a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь, давайте перейдем к указанию оставшихся параметров.    
                 if: $session.country
                     go!: /AskNumberOfPeople
                     
