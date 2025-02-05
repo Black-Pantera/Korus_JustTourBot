@@ -372,7 +372,6 @@ theme: /
             if: $session.country
                 a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь, давайте перейдем к указанию оставшихся параметров.
                 go!: /AskNumberOfPeople
-                    
             else:
                 a: Введите название страны
                     
@@ -395,6 +394,8 @@ theme: /
                     random:
                         a: Извините, не совсем понял вас. Подскажите, вы выбрали страну для путешествия?
                         a: К сожалению, не понял вас. Вы выбрали страну для поездки?
+                    script:
+                        $reactions.answer($context.session.lastState)
                     
                     go!: $context.session.lastState
                 else:
