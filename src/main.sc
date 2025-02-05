@@ -520,8 +520,8 @@ theme: /
         state: LocalCatchAll
             event: noMatch
             script:
+                log("///////// MY LOG "+toPrettyString($parseTree));
                 $session.stateCounterInARow ++
-                $reactions.answer($request);
                 
             if: $session.stateCounterInARow < 3
                 script:
