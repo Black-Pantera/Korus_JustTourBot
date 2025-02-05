@@ -420,7 +420,8 @@ theme: /
                     $reactions.transition("/AskNumberOfPeople/LocalCatchAll");
                     }
                 
-        state: DontKnow        
+        state: DontKnow  
+            intent!: /незнаем
             script:
                 $session.numberOfPeople = "Не указано";
                 $reactions.transition("/AskStartDate");
