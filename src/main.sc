@@ -396,8 +396,7 @@ theme: /
                         a: К сожалению, не понял вас. Вы выбрали страну для поездки?
                     script:
                         $reactions.answer($context.session.lastState)
-                    
-                    go!: $context.session.lastState
+                        $reactions.transition("/TravelRequest");
                 else:
                     a: Простите! Так и не получилось вас понять. Когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
                     go!: /AskNumberOfPeople
