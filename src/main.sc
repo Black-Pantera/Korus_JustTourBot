@@ -466,6 +466,7 @@ theme: /
                     }  else {
                         $reactions.transition("/AskDuration");
                        }
+                }
                     
         state: DontKnow  
             intent!: /незнаем
