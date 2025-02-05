@@ -449,6 +449,17 @@ theme: /
             
     state: AskStartDate
         a: Еще мне потребуется предполагаемая дата начала поездки. Пожалуйста, напишите ее.
+        
+        state: Date
+            q: * @duckling.date *
+            script:
+                log("///////// MY LOG "+toPrettyString($parseTree));
+                
+                if ($parseTree["_duckling.date"]) {
+                    $session.startDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                    $reactions.answer($session.startDate);
+                    }
+            
             
     state: DontHaveQuestions
         q!: * вопросов нет *
