@@ -560,7 +560,7 @@ theme: /
                     $reactions.answer(answer);
                     }
                 else {
-                    var answer = "Пакет "Эконом" включает следующие опции: ."
+                    var answer = "Пакет \"Эконом\" включает следующие опции: ."
                     $reactions.answer(answer);
                     }
             
