@@ -521,6 +521,7 @@ theme: /
             event: noMatch
             script:
                 $session.stateCounterInARow ++
+                $reactions.answer($request);
                 
             if: $session.stateCounterInARow < 3
                 script:
