@@ -328,8 +328,8 @@ theme: /
             $temp.userFormatDate = moment($session.userDate).format('LL');
         if: $temp.response.isOk
             random:
-                a: У меня получилось уточнить: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} температура воздуха составит {{ Math.floor($temp.response.data.main.temp)}} {{ GetDegree(Math.floor($temp.response.data.main.temp))}} по Цельсию.
-                a: Смог узнать для вас прогноз: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} будет {{Math.floor($temp.response.data.main.temp)}} {{ GetDegree(Math.floor($temp.response.data.main.temp))}} по Цельсию.
+                a: У меня получилось уточнить: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} температура воздуха составит {{ Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp)) }} по Цельсию.
+                a: Смог узнать для вас прогноз: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} будет {{Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp))}} по Цельсию.
         else:
             a: У меня не получилось узнать погоду. Попробуйте ещё раз.
             script:
@@ -557,7 +557,7 @@ theme: /
             intent: /included
             script:
                 if ($parseTree._Packages) {
-                    var answer = "В пакет услуг "+$parseTree._Packages.name+" входят следующие опции: [Входящие в него услуги - 1], [Входящие в него услуги - 2], ... [Входящие в него услуги - N].
+                    var answer = "В пакет услуг "+$parseTree._Packages.name+" входят следующие опции: "+ $parseTree._Packages. +".";
                     $reactions.answer();
                     }
             
