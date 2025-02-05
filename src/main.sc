@@ -444,7 +444,7 @@ theme: /
             else:
                 script: 
                     $session.stateCounterInARow = 0;
-                     $reactions.transition("/AskNumberOfPeople/DontKnow");
+                    $reactions.transition("/AskNumberOfPeople/DontKnow");
             
     state: AskStartDate
         a: Еще мне потребуется предполагаемая дата начала поездки. Пожалуйста, напишите ее.
