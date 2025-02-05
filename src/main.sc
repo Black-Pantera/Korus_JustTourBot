@@ -503,7 +503,6 @@ theme: /
         
         state: Number
             q: * @duckling.number *
-            q: * @duckling.date *
             script:
                  log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_duckling.number"] > 0) {
