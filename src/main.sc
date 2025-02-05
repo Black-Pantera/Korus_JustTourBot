@@ -224,7 +224,7 @@ theme: /
             a: Прогноз погоды на какую дату вам нужен?
             
         state: UserDate
-            q: @duckling.date
+            q: * @duckling.date *
             script:
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 
@@ -392,7 +392,6 @@ theme: /
                         a: Извините, не совсем понял вас. Подскажите, вы выбрали страну для путешествия?
                         a: К сожалению, не понял вас. Вы выбрали страну для поездки?
                     script:
-                        $reactions.answer($context.session.lastState)
                         $reactions.transition("/TravelRequest");
                 else:
                     script:
@@ -412,8 +411,43 @@ theme: /
         a: Укажите количество человек, которые отправятся в путешествие.
         
         state: Number
-            q: @duckling.number
+            q: * @duckling.number *
+            script:
+                if ($parseTree["_duckling.number"] > 0) {
+                    $session.numberOfPeople = $parseTree["_duckling.number"];
+                    $reactions.transition("/AskStartDate");
+                } else {
+                    $reactions.transition("/AskNumberOfPeople/LocalCatchAll");
+                    }
+                
+        state: DontKnow        
+            script:
+                $session.numberOfPeople = "Не указано";
+                $reactions.transition("/AskStartDate");
+                
+        state: LocalCatchAll
+            event: noMatch
+            script:
+                $session.stateCounterInARow ++
+                
+            if: $session.stateCounterInARow < 3
+                script:
+                    if ($parseTree["_duckling.number"]) {
+                        $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидное число людей - оно должно быть больше 0.");
+                        }
+                    else {
+                        var answers = ["Извините, не совсем понял вас. Сколько человек планирует отправиться в поездку?",
+                        "К сожалению, не понял вас. Сколько человек поедет в тур?"];
+                        var randomAnswer = answers[$reactions.random(answers.length)];
+                        $reactions.answer(randomAnswer);
+                        }
+            else:
+                script: 
+                    $session.stateCounterInARow = 0;
+                     $reactions.transition("/AskNumberOfPeople/DontKnow");
             
+    state: AskStartDate
+        a: Еще мне потребуется предполагаемая дата начала поездки. Пожалуйста, напишите ее.
             
     state: DontHaveQuestions
         q!: * вопросов нет *
