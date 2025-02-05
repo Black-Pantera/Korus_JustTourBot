@@ -559,7 +559,7 @@
     } ]
   }, {
     "entity" : {
-      "name" : "Package",
+      "name" : "Packages",
       "enabled" : true,
       "shared" : false,
       "type" : "annotation",
