@@ -42,10 +42,13 @@
     "shared" : false,
     "phrases" : [ {
       "text" : "привет"
+    }, {
+      "text" : "салют"
     } ],
     "classificationRules" : {
       "refs" : [ ]
     },
+    "patterns" : [ ],
     "priority" : 0
   }, {
     "path" : "/weather",
@@ -65,14 +68,6 @@
     },
     "patterns" : [ ],
     "slots" : [ ],
-    "priority" : 0
-  }, {
-    "path" : "/Новый интент",
-    "enabled" : true,
-    "shared" : false,
-    "classificationRules" : {
-      "refs" : [ ]
-    },
     "priority" : 0
   }, {
     "path" : "/tour",

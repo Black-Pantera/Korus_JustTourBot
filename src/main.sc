@@ -506,7 +506,6 @@ theme: /
             script:
                  log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_duckling.number"] > 0) {
-                    $reactions.answer($parseTree["_duckling.number"]);
                     $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
                     $reactions.transition("/AskServices");
                 } else {
@@ -550,7 +549,7 @@ theme: /
             
         state: Package
             q: * @Packages *  
-            a: qwerty
+            a: ваш пакет услуг: {{ $parseTree._Packages.name }}
             script:
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree._Packages) {
