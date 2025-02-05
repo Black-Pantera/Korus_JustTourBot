@@ -459,7 +459,7 @@ theme: /
                 if ($parseTree["_duckling.date"]) {
                     $session.startDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                     
-                    var date = newDate();
+                    var date = new Date();
                     var userDate = $session.startDate;
                     if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
                         $reactions.transition("/AskStartDate/LocalCatchAll");
