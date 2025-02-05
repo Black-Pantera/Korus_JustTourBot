@@ -507,7 +507,6 @@ theme: /
                 if ($parseTree["_duckling.number"] > 0) {
                     $reactions.answer($parseTree["_duckling.number"]);
                     $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
-                    $reactions.answer($session.endDate);
                     $reactions.transition("/AskServices");
                 } else {
                     $reactions.transition("/AskDuration/LocalCatchAll");
