@@ -549,13 +549,9 @@ theme: /
             
         state: Package
             q!: * @Packages *  
-            a: ваш пакет услуг: {{ $parseTree._Packages.name }}
             script:
                 log("///////// MY LOG "+toPrettyString($parseTree));
-                if ($parseTree._Packages) {
-                    $session.services = $parseTree._Packages.name;   
-                    $reactions.transition("/AskName");
-                    }
+               
         
     
     state: AskName
