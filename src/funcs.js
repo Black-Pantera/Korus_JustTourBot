@@ -37,6 +37,13 @@ function GetDegree(g) {
     }
 }
 
+function addDays(date, days) {
+    const newDate = new Date(date);
+    newDate.setDate(date.getDate() + days);
+    return newDate;
+}
+
+
 /*
 function getForecast(lat,lon) {
     var settings = {

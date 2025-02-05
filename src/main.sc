@@ -500,6 +500,16 @@ theme: /
                     
     state: AskDuration
         a: Также укажите, сколько дней будет длиться путешествие.
+        
+        state: Number
+            q: * @duckling.number *
+            script:
+                if ($parseTree["_duckling.number"] > 0) {
+                    $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
+                    $reactions.transition("/AskServices");
+                } else {
+                    $reactions.transition("/AskNumberOfPeople/LocalCatchAll");
+                    }
             
             
     state: DontHaveQuestions
