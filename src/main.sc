@@ -156,11 +156,11 @@ theme: /
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
             
-            if (($parseTree._Cities) && ($parseTree["_duckling.date"])) {
-                $session.userCity = $parseTree._Cities.name;
-                $session.lon = $parseTree._Cities.lon;
-                $session.lat = $parseTree._Cities.lat;
-                $session.country = $parseTree._Cities.country;   
+            if (($parseTree._City) && ($parseTree["_duckling.date"])) {
+                $session.userCity = $parseTree._City.name;
+                $session.lon = $parseTree._City.lon;
+                $session.lat = $parseTree._City.lat;
+                $session.country = $parseTree._City.country;   
                 $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                 $reactions.transition("/CheсkDate");
                 }
@@ -170,11 +170,11 @@ theme: /
                     $reactions.transition("/GetCity");
                     }
                 else 
-                    if ($parseTree._Cities) {
-                        $session.userCity = $parseTree._Cities.name;
-                        $session.lon = $parseTree._Cities.lon;
-                        $session.lat = $parseTree._Cities.lat;
-                        $session.country = $parseTree._Cities.country; 
+                    if ($parseTree._City) {
+                        $session.userCity = $parseTree._City.name;
+                        $session.lon = $parseTree._City.lon;
+                        $session.lat = $parseTree._City.lat;
+                        $session.country = $parseTree._City.country; 
                         
                         $reactions.transition("/GetDate");
                         }
