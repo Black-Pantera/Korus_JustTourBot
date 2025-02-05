@@ -32,6 +32,8 @@ theme: /
             $session.stateCounterInARow = 0
             $session.stateCounter = 0
             $session.stateCounterName = 0
+            $session.stateCounterInARowCountry = 0
+            $session.stateCounterInARowCity = 0
             $session.userDate = null
             $session.userCity = null;
             $session.lat = null;
@@ -204,9 +206,9 @@ theme: /
         state: LocalCatchAll || noContex = true
             event: noMatch
             script:
-                $session.stateCounterInARow++
+                $session.stateCounterInARowCity++
                 
-            if: $session.stateCounterInARow < 3
+            if: $session.stateCounterInARowCity < 3
                 random: 
                     a: Извините, не совсем понял вас. Напишите, пожалуйста, название города, чтобы я смог узнать прогноз погоды для него.
                     a: К сожалению, не понял вас. Укажите, пожалуйста, нужный вам город?
@@ -215,7 +217,7 @@ theme: /
                 
                 script: 
                     $session.userDate = null
-                    $session.stateCounterInARow = 0
+                    $session.stateCounterInARowCity = 0
                     
                 go!: /SomethingElse
                 
