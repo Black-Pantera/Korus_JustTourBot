@@ -556,8 +556,11 @@ theme: /
             intent: /included
             script:
                 if ($parseTree._Packages) {
-                    var answer = "В пакет услуг "+$parseTree._Packages.name+" входят следующие опции: "+ $parseTree._Packages.consists +".";
+                    var answer = "В пакет услуг \""+$parseTree._Packages.name+"\" входят следующие опции: "+ $parseTree._Packages.consists +".";
                     $reactions.answer(answer);
+                    }
+                else {
+                    var answer = "Пакет"
                     }
             
         
