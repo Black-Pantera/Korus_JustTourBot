@@ -367,7 +367,7 @@ theme: /
             
         state: Agree
             q: * @Countries *
-            q: * (да|ага|yes) *
+            q: * (да|ага|yes|ога) *
             script: 
                 if ($parseTree._Countries) {
                 $session.country = $parseTree._Countries.name;   
