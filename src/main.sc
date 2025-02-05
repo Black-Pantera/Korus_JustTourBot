@@ -488,7 +488,7 @@ theme: /
                         $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите актуальную дату - она не должна быть в прошедшем периоде.");
                         }
                     else {
-                        var answers = [" Извините, не совсем понял вас. Какого числа предполагаете выезд?",
+                        var answers = ["Извините, не совсем понял вас. Какого числа предполагаете выезд?",
                         "К сожалению, не понял вас. На какую дату планируете отправление?"];
                         var randomAnswer = answers[$reactions.random(answers.length)];
                         $reactions.answer(randomAnswer);
@@ -508,8 +508,29 @@ theme: /
                     $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
                     $reactions.transition("/AskServices");
                 } else {
-                    $reactions.transition("/AskNumberOfPeople/LocalCatchAll");
+                    $reactions.transition("/AskDuration/LocalCatchAll");
                     }
+                    
+        state: LocalCatchAll
+            event: noMatch
+            script:
+                $session.stateCounterInARow ++
+                
+            if: $session.stateCounterInARow < 3
+                script:
+                    if ($parseTree["_duckling.number"]) {
+                        $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидное число дней - оно должно быть больше 0.");
+                        }
+                    else {
+                        var answers = ["Извините, не совсем понял вас. Сколько дней планируете быть в поездке?",
+                        "К сожалению, не понял вас. На какой срок планируете отъезд?"];
+                        var randomAnswer = answers[$reactions.random(answers.length)];
+                        $reactions.answer(randomAnswer);
+                        }
+            else:
+                script: 
+                    $session.stateCounterInARow = 0;
+                    $reactions.transition("/AskDuration/DontKnow");
             
             
     state: DontHaveQuestions
