@@ -550,6 +550,7 @@ theme: /
             
         state: Package
             q: * @Packages *  
+            a: qwerty
             script:
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree._Packages) {
