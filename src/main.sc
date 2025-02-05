@@ -34,6 +34,7 @@ theme: /
             $session.stateCounterName = 0
             $session.stateCounterInARowCountry = 0
             $session.stateCounterInARowCity = 0
+            $session.stateGlobalCounter = 0;
             $session.userDate = null
             $session.userCity = null;
             $session.lat = null;
@@ -46,9 +47,9 @@ theme: /
     state: GlobalCatchAll || noContext = true
         event!: noMatch
         script:
-            $session.stateCounterInARow++
+            $session.stateGlobalCounter++
                 
-        if: $session.stateCounterInARow < 3
+        if: $session.stateGlobalCounter < 3
             random: 
                 a: Прошу прощения, не совсем вам понял. Попробуйте, пожалуйста, переформулировать ваш вопрос.
                 a: Простите, не совсем понял. Что именно вас интересует?
@@ -58,7 +59,7 @@ theme: /
             a: Кажется, этот вопрос не в моей компетенции. Но я постоянно учусь новому, и, надеюсь скоро научусь отвечать и на него.
                 
             script: 
-                $session.stateCounterInARow = 0
+                $session.stateGlobalCounter = 0
                     
             go!: /SomethingElse
             
