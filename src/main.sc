@@ -387,6 +387,7 @@ theme: /
                     go!: /AskNumberOfPeople
                     
             state: LocalCatchAll
+                event: noMatch
                 script:
                     $session.stateCounterInARow++
                 
