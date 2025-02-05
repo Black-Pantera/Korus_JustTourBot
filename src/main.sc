@@ -549,8 +549,9 @@ theme: /
             "VIP" -> /Package
             
     state: Package
-        q!: * @Package *
+        q: * @Package *
         script:
+            log("///////// MY LOG "+toPrettyString($parseTree));
             if ($parseTree._Package) {
                 $session.services = $parseTree._Package.name;   
                 $reactions.transition("/AskName");
