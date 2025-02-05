@@ -121,6 +121,22 @@
     },
     "patterns" : [ ],
     "priority" : 0
+  }, {
+    "path" : "/included",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "а что входит в @Packages ?"
+    }, {
+      "text" : "что в них входит?"
+    }, {
+      "text" : "чем отличаются?"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {

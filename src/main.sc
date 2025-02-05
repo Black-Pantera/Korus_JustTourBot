@@ -548,10 +548,19 @@ theme: /
             "VIP" -> /AskServices/Package
             
         state: Package
-            q!: * @Packages *  
+            q: * @Packages *  
             script:
                 $session.services = $request.query;
                 $reactions.transition("/AskName");
+                
+        state: WhatIsIncluded
+            intent: /included
+            script:
+                if ($parseTree._Packages) {
+                    var answer = "В пакет услуг "+$parseTree._Packages.name+" входят следующие опции: [Входящие в него услуги - 1], [Входящие в него услуги - 2], ... [Входящие в него услуги - N].
+                    $reactions.answer();
+                    }
+            
         
     
     state: AskName
