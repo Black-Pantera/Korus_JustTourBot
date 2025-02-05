@@ -362,8 +362,7 @@ theme: /
             a: Подскажите, вы уже определились с страной прибытия?
             
         state: Agree
-            q: * @Countries *
-            q: * да * 
+            q: * {@Countries * * да} *
             script: 
                 if ($parseTree._Countries) {
                 $session.country = $parseTree._Countries.name;   
