@@ -1,5 +1,7 @@
 require: slotfilling/slotFilling.sc
   module = sys.zb-common
+require: city/city.sc
+    module = sys.zb-common  
   
 require: funcs.js
 require: moment.js
@@ -150,7 +152,7 @@ theme: /
            
     state: WeatherForecast
         intent!: /weather
-        q!: * {@Cities * * @duckling.date} *
+        q!: * {$City * * @duckling.date} *
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
             
@@ -188,15 +190,15 @@ theme: /
             a: Прогноз для какого города хотите получить?
             
         state: UserCity
-            q: * @Cities *
+            q: * $City *
             script:
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 
-                if ($parseTree._Cities) {
-                    $session.userCity = $parseTree._Cities.name;
-                    $session.lon = $parseTree._Cities.lon;
-                    $session.lat = $parseTree._Cities.lat;
-                    $session.country = $parseTree._Cities.country;                    
+                if ($parseTree._City) {
+                    $session.userCity = $parseTree._City.name;
+                    $session.lon = $parseTree._City.lon;
+                    $session.lat = $parseTree._City.lat;
+                    $session.country = $parseTree._City.country;                    
                     }
                     
                 if ($parseTree["_duckling.date"])
