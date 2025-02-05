@@ -505,7 +505,6 @@ theme: /
             q: * @duckling.number *
             script:
                 if ($parseTree["_duckling.number"] > 0) {
-                    $reactions.answer($parseTree["_duckling.number"]);
                     $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
                     $reactions.transition("/AskServices");
                 } else {
@@ -540,6 +539,8 @@ theme: /
                     $session.stateCounterInARow = 0;
                     $reactions.transition("/AskDuration/DontKnow");
             
+    state: AskServices
+        a: Уточните, пожалуйста, какой пакет услуг вам интересен?
             
     state: DontHaveQuestions
         q!: * вопросов нет *
