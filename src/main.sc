@@ -548,7 +548,7 @@ theme: /
             "VIP" -> /AskServices/Package
             
         state: Package
-            q: * @Packages *  
+            q!: * @Packages *  
             a: ваш пакет услуг: {{ $parseTree._Packages.name }}
             script:
                 log("///////// MY LOG "+toPrettyString($parseTree));
