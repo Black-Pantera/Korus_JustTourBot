@@ -553,12 +553,12 @@ theme: /
         script:
             if ($parseTree._Package) {
                 $session.services = $parseTree._Package.name;   
-                $reactions.transition("/AsName");
+                $reactions.transition("/AskName");
                 }
         
     
     state: AskName
-        a: ваш пакет услуг {{ $session.services}}
+        a: ваш пакет услуг {{ $session.services }}
     
     state: DontHaveQuestions
         q!: * вопросов нет *
