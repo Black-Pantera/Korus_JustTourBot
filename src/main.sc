@@ -544,18 +544,18 @@ theme: /
     state: AskServices
         a: Уточните, пожалуйста, какой пакет услуг вам интересен?
         buttons:
-            "Эконом" -> /Package
-            "Стандарт" -> /Package
-            "VIP" -> /Package
+            "Эконом" -> /AskServices/Package
+            "Стандарт" -> /AskServices/Package
+            "VIP" -> /AskServices/Package
             
-    state: Package
-        q!: * @Packages * 
-        script:
-            log("///////// MY LOG "+toPrettyString($parseTree));
-            if ($parseTree._Packages) {
-                $session.services = $parseTree._Packages.name;   
-                $reactions.transition("/AskName");
-                }
+        state: Package
+            q: * @Packages *  
+            script:
+                log("///////// MY LOG "+toPrettyString($parseTree));
+                if ($parseTree._Packages) {
+                    $session.services = $parseTree._Packages.name;   
+                    $reactions.transition("/AskName");
+                    }
         
     
     state: AskName
