@@ -38,7 +38,7 @@ function GetDegree(g) {
 }
 
 function addDays(date, days) {
-    newDate.setDate(date.getDate() + days);
+    var newDate = new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
     return newDate;
 }
 
