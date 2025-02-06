@@ -428,7 +428,6 @@ theme: /
                 
         state: DontKnow  
             intent!: /незнаем
-            a: "Не указано"
             script:
                 $session.numberOfPeople = "Не указано";
                 $reactions.transition("/AskStartDate");
