@@ -565,6 +565,7 @@ theme: /
                 else {
                     
                     $reactions.answer(JSON.stringify($caila.entitiesLookup("эконом", true)));
+                    $reactions.answer(JSON.stringify($caila.entitiesLookup("vip", true)));
                     
                     var answer = "Пакет \"Эконом\" включает следующие опции: ."
                     log("!!!!MY");
