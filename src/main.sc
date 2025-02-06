@@ -567,14 +567,6 @@ theme: /
                     var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);
                     var pk3 = JSON.parse($caila.entitiesLookup("vip", true).entities[0].value);
                     
-                    $reactions.answer(JSON.stringify(pk1));
-                    $reactions.answer(JSON.stringify(pk2));
-                    $reactions.answer(JSON.stringify(pk3));
-                    
-                    $reactions.answer(pk1.name + pk1.perDayOneMan+pk1.consists);
-                    $reactions.answer(pk2.name + pk2.perDayOneMan+pk2.consists);
-                    $reactions.answer(pk3.name + pk3.perDayOneMan+pk3.consists);
-                    
                     var answer = "Пакет \""+pk1.name+"\" включает следующие опции: " +pk1.consists +". В пакет \""+pk2.name+"\" входят: " +pk2.consists +". И, наконец, \""+pk3.name+"\" предполагает " +pk3.consists +".";
                     $reactions.answer(answer);
                     }
