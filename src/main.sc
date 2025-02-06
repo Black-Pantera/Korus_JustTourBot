@@ -572,6 +572,17 @@ theme: /
                     }
             
             go!: /AskServices
+            
+        state: Price
+            intent: /prices
+            script:
+                if ($parseTree._Packages) {
+                    if ($sesion.numberOfPeople !== "Не указано") {
+                        if ($session.endDate !== "Не указано")
+                        $session.personalPrice = $sesion.numberOfPeople * $parseTree._Packages.
+                        }
+                    
+                    }
     
     state: AskName
         a: ваш пакет услуг {{ $session.services }}

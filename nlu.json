@@ -139,6 +139,30 @@
     },
     "patterns" : [ ],
     "priority" : 0
+  }, {
+    "path" : "/prices",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "сколько будет стоить @Packages"
+    }, {
+      "text" : "какая цена?"
+    }, {
+      "text" : "что по чем?"
+    }, {
+      "text" : "а ценник?"
+    }, {
+      "text" : "а ценник за  @Packages"
+    }, {
+      "text" : "цена  @Packages"
+    }, {
+      "text" : "стоимость @Packages?"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {
