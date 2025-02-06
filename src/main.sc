@@ -564,8 +564,12 @@ theme: /
                     }
                 else {
                     
-                    $reactions.answer(JSON.stringify($caila.entitiesLookup("эконом", true)));
-                    $reactions.answer(JSON.stringify($caila.entitiesLookup("vip", true)));
+                    $reactions.answer($caila.entitiesLookup("эконом", true).entities[0].value);
+                    $reactions.answer($caila.entitiesLookup("стандарт", true).entities[0].value);
+                    $reactions.answer($caila.entitiesLookup("vip", true).entities[0].value);
+                    
+                    //$reactions.answer(JSON.stringify($caila.entitiesLookup("эконом", true)));
+                    //$reactions.answer(JSON.stringify($caila.entitiesLookup("vip", true)));
                     
                     var answer = "Пакет \"Эконом\" включает следующие опции: ."
                     log("!!!!MY");
