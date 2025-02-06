@@ -577,11 +577,11 @@ theme: /
             intent: /prices
             script:
                 if ($parseTree._Packages) {
-                    if ($sesion.numberOfPeople !== "Не указано") {
+                    if ($session.numberOfPeople !== "Не указано") {
                         if ($session.endDate !== "Не указано")
-                        $session.personalPrice = $sesion.numberOfPeople * $parseTree._Packages.perDayOneMan;
+                        $session.personalPrice = $session.numberOfPeople * $parseTree._Packages.perDayOneMan;
                         var answer = "При оформлении пакет услуг \""+$parseTree._Packages.name+"\" на поездку для " +
-                        $sesion.numberOfPeople +" "+ $nlp.conform("человек", $sesion.numberOfPeople)+" стоимость составит "+$session.personalPrice+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
+                        $sesion.numberOfPeople +" "+ $nlp.conform("человек", $session.numberOfPeople)+" стоимость составит "+$session.personalPrice+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
                         $reactions.answer(answer);
                         }
                 }
