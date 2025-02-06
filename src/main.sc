@@ -427,7 +427,7 @@ theme: /
                     }
                 
         state: DontKnow  
-            intent!: /незнаем
+            intent: /незнаем
             script:
                 $session.numberOfPeople = "Не указано";
                 $reactions.transition("/AskStartDate");
@@ -474,7 +474,7 @@ theme: /
                 }
                     
         state: DontKnow  
-            intent!: /незнаем
+            intent: /незнаем
             script:
                 $session.startDate = "Не указано";
                 $reactions.transition("/AskDuration");
@@ -515,7 +515,7 @@ theme: /
                     }
                     
         state: DontKnow  
-            intent!: /незнаем
+            intent: /незнаем
             script:
                 $session.endDate = "Не указано";
                 $reactions.transition("/AskServices");
