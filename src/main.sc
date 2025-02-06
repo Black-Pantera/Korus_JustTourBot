@@ -508,6 +508,7 @@ theme: /
             script:
                  log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_duckling.number"] > 0) {
+                    $session.countDays = $parseTree["_duckling.number"];
                     $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
                     $reactions.transition("/AskServices");
                 } else {
@@ -579,7 +580,7 @@ theme: /
                 if ($parseTree._Packages) {
                     if ($session.numberOfPeople !== "Не указано") {
                         if ($session.endDate !== "Не указано") {
-                        $session.personalPrice = $session.numberOfPeople * $parseTree._Packages.perDayOneMan;
+                        $session.personalPrice = $session.numberOfPeople * $parseTree._Packages.perDayOneMan*$session.countDays;
                         var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+"\" на поездку для " +
                         $session.numberOfPeople +" "+ $nlp.conform("человек", $session.numberOfPeople) +" стоимость составит "+$session.personalPrice+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
                         $reactions.answer(answer);
