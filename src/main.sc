@@ -579,7 +579,9 @@ theme: /
                 if ($parseTree._Packages) {
                     if ($sesion.numberOfPeople !== "Не указано") {
                         if ($session.endDate !== "Не указано")
-                        $session.personalPrice = $sesion.numberOfPeople * $parseTree._Packages.
+                        $session.personalPrice = $sesion.numberOfPeople * $parseTree._Packages.perDayOneMan;
+                        var answer = "Пакет \""+pk1.name+"\" включает следующие опции: " +pk1.consists +". В пакет \""+pk2.name+"\" входят: " +pk2.consists +". И, наконец, \""+pk3.name+"\" предполагает " +pk3.consists +".";
+                        $reactions.answer(answer);
                         }
                     
                     }
