@@ -575,8 +575,7 @@ theme: /
                     $reactions.answer(pk2.name + pk2.perDayOneMan+pk2.consists);
                     $reactions.answer(pk3.name + pk3.perDayOneMan+pk3.consists);
                     
-                    var answer = "Пакет "+pk1.name+" включает следующие опции: " +pk1.consists +". В пакет "+pk2.name+" входят: " +pk2.consists +". И, наконец, "+pk3.name+" предполагает " +pk3.consists +"."+
-                    log(answer);
+                    var answer = "Пакет \""+pk1.name+"\" включает следующие опции: " +pk1.consists +". В пакет \""+pk2.name+"\" входят: " +pk2.consists +". И, наконец, \""+pk3.name+"\" предполагает " +pk3.consists +".";
                     $reactions.answer(answer);
                     }
             
