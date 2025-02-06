@@ -571,7 +571,7 @@ theme: /
                     $reactions.answer(answer);
                     }
             
-        
+            go!: /AskServices
     
     state: AskName
         a: ваш пакет услуг {{ $session.services }}
