@@ -571,7 +571,8 @@ theme: /
                     $reactions.answer(pk2.consists);
                     $reactions.answer(pk3.consists);
                     
-                    var answer = "Пакет \"Эконом\" включает следующие опции: "+pk1.consists +"."
+                    var answer = "Пакет \"Эконом\" включает следующие опции: стоимость за 1 человека за 1 день -"perDayOneMan+" рублей, " +pk1. pk1.consists +"."+
+                    ""
                     $reactions.answer(answer);
                     }
             
