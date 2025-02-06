@@ -571,6 +571,8 @@ theme: /
                     $reactions.answer(JSON.stringify(pk2));
                     $reactions.answer(JSON.stringify(pk3));
                     
+                    $reactions.answer(pk1.name + pk1.perDayOneMan+pk1.consists);
+                    
                     var answer = "Пакет \""+pk1.name+"\" включает следующие опции: стоимость за 1 человека за 1 день -"+pk1.perDayOneMan+" рублей, " +pk1.consists +"."+
                     " В пакет \""+pk2.name+"\" входят: стоимость за 1 человека за 1 день -"+pk2.perDayOneMan+" рублей, " +pk2.consists +"."+
                     " И, наконец, \""+pk3.name+"\" предполагает : стоимость за 1 человека за 1 день -"+pk3.perDayOneMan+" рублей, " +pk3.consists +"."+
