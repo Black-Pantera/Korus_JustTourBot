@@ -559,10 +559,13 @@ theme: /
             q: @Packages
             script:
                 if ($parseTree._Packages) {
-                    var answer = "В пакет услуг \""+$parseTree._Packages.name+"\" входят следующие опции: "+ $parseTree._Packages.consists +".";
+                    var answer = "В пакет услуг \""+$parseTree._Packages.name+"\" входят следующие опции: стоимость за 1 человека за 1 день -"+$parseTree._Packages.perDayOneMan+", услуги -" + $parseTree._Packages.consists +".";
                     $reactions.answer(answer);
                     }
                 else {
+                    
+                    $reactions.answer(JSON.stringify($caila.entitiesLookup("test@test.com", true)));
+                    
                     var answer = "Пакет \"Эконом\" включает следующие опции: ."
                     log("!!!!MY");
                     log($entities);
