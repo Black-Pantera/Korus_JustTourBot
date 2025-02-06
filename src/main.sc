@@ -563,7 +563,8 @@ theme: /
                     }
                 else {
                     var answer = "Пакет \"Эконом\" включает следующие опции: ."
-                    log("///////// MY LOG "+$entities);
+                    log("/////MY");
+                    log($entities);
                     $reactions.answer(answer);
                     }
             
