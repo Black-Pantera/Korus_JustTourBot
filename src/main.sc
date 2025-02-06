@@ -580,11 +580,13 @@ theme: /
                     if ($sesion.numberOfPeople !== "Не указано") {
                         if ($session.endDate !== "Не указано")
                         $session.personalPrice = $sesion.numberOfPeople * $parseTree._Packages.perDayOneMan;
-                        var answer = "Пакет \""+pk1.name+"\" включает следующие опции: " +pk1.consists +". В пакет \""+pk2.name+"\" входят: " +pk2.consists +". И, наконец, \""+pk3.name+"\" предполагает " +pk3.consists +".";
+                        var answer = "При оформлении пакет услуг \""+$parseTree._Packages.name+"\" на поездку для " +
+                        $sesion.numberOfPeople +" "+ $nlp.conform("человек", $sesion.numberOfPeople)+" стоимость составит "+$session.personalPrice+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
                         $reactions.answer(answer);
                         }
+                }
                     
-                    }
+            go!: /AskServices
     
     state: AskName
         a: ваш пакет услуг {{ $session.services }}
