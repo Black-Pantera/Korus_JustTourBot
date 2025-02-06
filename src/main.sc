@@ -430,7 +430,7 @@ theme: /
             intent!: /незнаем
             script:
                 $session.numberOfPeople = "Не указано";
-                $reactions.transition("/AskStartDate");
+                $reactions.transition("./AskStartDate");
                 
         state: LocalCatchAll
             event: noMatch
