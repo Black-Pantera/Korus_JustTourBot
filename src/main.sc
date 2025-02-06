@@ -556,7 +556,6 @@ theme: /
                 
         state: WhatIsIncluded
             intent: /included
-            q: @Packages
             script:
                 if ($parseTree._Packages) {
                     var answer = "В пакет услуг \""+$parseTree._Packages.name+"\" входят следующие опции: стоимость за 1 человека за 1 день -"+$parseTree._Packages.perDayOneMan+" рублей, " + $parseTree._Packages.consists +".";
@@ -564,14 +563,15 @@ theme: /
                     }
                 else {
                     
-                    $reactions.answer($caila.entitiesLookup("эконом", true).entities[0].value.consists);
-                    $reactions.answer($caila.entitiesLookup("стандарт", true).entities[0].value.consists);
-                    $reactions.answer($caila.entitiesLookup("vip", true).entities[0].value.consists);
+                    var pk1 = JSON.parse($caila.entitiesLookup("эконом", true).entities[0].value);
+                    var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);
+                    var pk3 = JSON.parse($caila.entitiesLookup("vip", true).entities[0].value);
                     
-                    //$reactions.answer(JSON.stringify($caila.entitiesLookup("эконом", true)));
-                    //$reactions.answer(JSON.stringify($caila.entitiesLookup("vip", true)));
+                    $reactions.answer(pk1.consists);
+                    $reactions.answer(pk2.consists);
+                    $reactions.answer(pk3.consists);
                     
-                    var answer = "Пакет \"Эконом\" включает следующие опции: ."
+                    var answer = "Пакет \"Эконом\" включает следующие опции: "+pk1.consists +"."
                     log("!!!!MY");
                     log($entities);
                     $reactions.answer(answer);
