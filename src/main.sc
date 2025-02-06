@@ -578,12 +578,17 @@ theme: /
             script:
                 if ($parseTree._Packages) {
                     if ($session.numberOfPeople !== "Не указано") {
-                        if ($session.endDate !== "Не указано")
+                        if ($session.endDate !== "Не указано") {
                         $session.personalPrice = $session.numberOfPeople * $parseTree._Packages.perDayOneMan;
                         var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+"\" на поездку для " +
-                        $session.numberOfPeople +" "+ $nlp.inflect("человек", "gent") +" стоимость составит "+$session.personalPrice+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
+                        $session.numberOfPeople +" "+ $nlp.conform("человек", $session.numberOfPeople) +" стоимость составит "+$session.personalPrice+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
                         $reactions.answer(answer);
                         }
+                    } else {
+                        var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+" стоимость составит "+$parseTree._Packages.perDayOneMan+ " рублей на одного человека.";
+                        $reactions.answer(answer);
+                        }
+                    
                 }
                     
             go!: /AskServices
