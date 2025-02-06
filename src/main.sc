@@ -581,7 +581,7 @@ theme: /
                         if ($session.endDate !== "Не указано")
                         $session.personalPrice = $session.numberOfPeople * $parseTree._Packages.perDayOneMan;
                         var answer = "При оформлении пакет услуг \""+$parseTree._Packages.name+"\" на поездку для " +
-                        $sesion.numberOfPeople +" "+ $nlp.conform("человек", $session.numberOfPeople)+" стоимость составит "+$session.personalPrice+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
+                        $session.numberOfPeople +" "+ $nlp.conform("человек", $session.numberOfPeople)+" стоимость составит "+$session.personalPrice+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
                         $reactions.answer(answer);
                         }
                 }
