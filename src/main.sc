@@ -572,8 +572,6 @@ theme: /
                     $reactions.answer(pk3.consists);
                     
                     var answer = "Пакет \"Эконом\" включает следующие опции: "+pk1.consists +"."
-                    log("!!!!MY");
-                    log($entities);
                     $reactions.answer(answer);
                     }
             
