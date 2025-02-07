@@ -479,6 +479,7 @@ theme: /
                 } else if ($parseTree["pattern"]) {
                     $session.countDays = 7;
                     $session.endDate = addDays($session.startDate, 7);
+                    $reactions.transition("/AskServices");
                     } else {
                     $session.stateCounterInARow = 0;
                     $reactions.transition("/AskDuration/LocalCatchAll");
