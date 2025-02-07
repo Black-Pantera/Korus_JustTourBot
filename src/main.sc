@@ -32,8 +32,8 @@ theme: /
         script:
             $context.session = {};
             $context.client = {};
-            $session.stateCounterInARow = 0
             
+            $session.stateCounterInARow = 0
             $session.stateCounter = 0
             $session.stateCounterName = 0
             $session.stateCounterInARowCountry = 0
@@ -95,7 +95,11 @@ theme: /
         state: LocalCatchAll || noContex = true
             event: noMatch
             script:
-                $session.stateCounterInARow += 1
+                if ($session.stateCounterInARow)
+                    $session.stateCounterInARow ++;
+                else
+                    $session.stateCounterInARow = 0;
+                
                 $reactions.answer($session.stateCounterInARow);
                 
             if: $session.stateCounterInARow < 3
@@ -104,7 +108,7 @@ theme: /
                     a: К сожалению, не смог понять, что вы имеете в виду. Подскажите, что вас интересует?
             else:
                 script: 
-                    $session.stateCounterInARow = 0
+                    $session.stateCounterInARow = 0;
                 a: Кажется, этот вопрос не в моей компетенции. Но я постоянно учусь новому, и, надеюсь скоро научусь отвечать и на него.
                 go!: /SomethingElse
            
