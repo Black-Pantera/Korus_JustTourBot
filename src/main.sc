@@ -645,6 +645,7 @@ theme: /
         state: Name
             q: * @pymorphy.name *
             script:
+                log("!!!///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_pymorphy.name"]) {
                     $client.name = capitalize($parseTree["_pymorphy.name"]);
                     }
