@@ -32,16 +32,7 @@ theme: /
         script:
             $context.session = {};
             $context.client = {};
-            
-            $session.stateGlobalCounter = 0;
-            
-            $session.stateNumberPeople = 0;
-            $session.userDate = null
-            $session.userCity = null;
-            $session.lat = null;
-            $session.lon = null;
-            $session.country = null;
-            
+        
         if: $client.name
             random:
                 a: {{ capitalize($client.name) }}, здравствуйте! Артур из Just Tour на связи. Рад снова видеть вас в чате!
@@ -109,8 +100,6 @@ theme: /
         intent!: /weather
         q!: * {$City * * @duckling.date} *
         script:
-            log("///////// MY LOG "+toPrettyString($parseTree));
-            
             if (($parseTree._City) && ($parseTree["_duckling.date"])) {
                 $session.userCity = $parseTree._City.name;
                 $session.lon = $parseTree._City.lon;
