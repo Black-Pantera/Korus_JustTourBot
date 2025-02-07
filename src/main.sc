@@ -434,8 +434,7 @@ theme: /
             script:
                 $session.stateNumberPeople ++;
                 $reactions.answer($session.stateNumberPeople);
-            if: $session.stateNumberPeople < 3
-                script:
+                if ($session.stateNumberPeople < 3) {
                     if ($parseTree["_duckling.number"]) {
                         $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидное число людей - оно должно быть больше 0.");
                         }
@@ -445,11 +444,11 @@ theme: /
                         var randomAnswer = answers[$reactions.random(answers.length)];
                         $reactions.answer(randomAnswer);
                         }
-            else:
-                script: 
+                } else {
                     $session.stateNumberPeople = 0;
                     $reactions.transition("/AskNumberOfPeople/DontKnow");
-            
+                    }
+
     state: AskStartDate
         a: Еще мне потребуется предполагаемая дата начала поездки. Пожалуйста, напишите ее.
         script:
