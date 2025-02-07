@@ -603,7 +603,6 @@ theme: /
         if: $client.name
             script:
                 $reactions.transition("/AskPhone");
-                $session.stateCounterInARow = 0;
         else:
             script:
                 if ($context.session.lastState !== "/AskName/LocalCatchAll"){
@@ -614,6 +613,8 @@ theme: /
                     var answer = "Введите, пожалуйста, ваше имя.";
                     $reactions.answer(answer);
                     }
+        script:
+            $session.stateCounterInARow = 0;
                     
         state: Name
             q: * @pymorphy.name *
@@ -653,7 +654,7 @@ theme: /
             else:
                 script: 
                     $session.stateCounterInARow = 0;
-                    var answer = "КК сожалению, без указания вашего имени заявка не может быть отправлена. Вы можете вернуться к ее заполнению позже или связаться с нами по номеру 8 (812) 000-00-00.";
+                    var answer = "К сожалению, без указания вашего имени заявка не может быть отправлена. Вы можете вернуться к ее заполнению позже или связаться с нами по номеру 8 (812) 000-00-00.";
                     $reactions.answer(answer);
                     $reactions.transition("/SomethingElse");       
             
