@@ -82,6 +82,8 @@ theme: /
             a: Чем могу помочь?
             a: Что вас интересует?
             a: Подскажите, какой у вас вопрос?
+        script:
+            $session.stateCounterInARow = 0;
         buttons:
             "Узнать прогноз погоды" -> /WeatherForecast
             "Оформить заявку на подбор тура" -> /TravelRequest
@@ -97,7 +99,7 @@ theme: /
             
             script:
                 $session.stateCounterInARow ++;
-                //$reactions.answer($session.stateCounterInARow);
+                $reactions.answer($session.stateCounterInARow);
                 
             if: $session.stateCounterInARow < 3
                 random: 
