@@ -215,6 +215,18 @@
     },
     "patterns" : [ ],
     "priority" : 0
+  }, {
+    "path" : "/@pymorphy.name",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "меня зовут @pymorphy.name"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {

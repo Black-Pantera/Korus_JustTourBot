@@ -618,8 +618,7 @@ theme: /
                     
         state: Name
             q: * @pymorphy.name *
-            q: * меня зовут @Names *
-            q: * меня зовут * @pymorphy.name *
+            q: * меня зовут $NAME *
             script:
                 log("!!!///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_pymorphy.name"]) {
@@ -683,14 +682,9 @@ theme: /
             a: Могу ли я помочь чем-то ещё?
             a: Подскажите, у вас остались ещё вопросы?
             
-        if: $request.channelType === "telegram"
-            inlineButtons:
-                { text: "Узнать прогноз погоды", callback_data: "/WeatherForecast" }
-                { text: "Оформить заявку на подбор тура", callback_data: "/TravelRequest" }
-        else:
-            buttons:
-                "Узнать прогноз погоды" -> /WeatherForecast
-                "Оформить заявку на подбор тура" -> /TravelRequest
+        buttons:
+            "Узнать прогноз погоды" -> /WeatherForecast
+            "Оформить заявку на подбор тура" -> /TravelRequest
                 
         state: CatchCallbackButton
             event: telegramCallbackQuery
@@ -709,14 +703,9 @@ theme: /
                     a: Извините, не совсем понял. Пожалуйста, подскажите, могу ли я чем-то вам помочь?
                     a: К сожалению, не смог понять, что вы имеете в виду. Подскажите, что вас интересует?
                     
-                if: $request.channelType === "telegram"
-                    inlineButtons:
-                        { text: "Узнать прогноз погоды", callback_data: "/WeatherForecast" }
-                        { text: "Оформить заявку на подбор тура", callback_data: "/TravelRequest" }
-                else:
-                    buttons:
-                        "Узнать прогноз погоды" -> /WeatherForecast
-                        "Оформить заявку на подбор тура" -> /TravelRequest
+                buttons:
+                    "Узнать прогноз погоды" -> /WeatherForecast
+                    "Оформить заявку на подбор тура" -> /TravelRequest
             else:
                 script:
                     $session.stateCounterInARow = 0
