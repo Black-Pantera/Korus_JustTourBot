@@ -552,7 +552,7 @@ theme: /
             q: @Packages  
             script:
                 $session.services = $request.query;
-                $reactions.transition("/AskName");
+            go!: /AskName
                 
         state: WhatIsIncluded
             intent: /included
