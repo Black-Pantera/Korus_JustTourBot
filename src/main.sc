@@ -430,7 +430,6 @@ theme: /
                     var date = new Date();
                     var userDate = $session.startDate;
                     if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
-                        $session.stateCounterInARow = 0;
                         $reactions.transition("/AskStartDate/LocalCatchAll");
                     }  else {
                         $reactions.transition("/AskDuration");
@@ -466,6 +465,7 @@ theme: /
                     
     state: AskDuration
         a: Также укажите, сколько дней будет длиться путешествие.
+        $session.stateCounterInARow = 0;
        
         state: Number
             q: * @duckling.number *
@@ -481,10 +481,9 @@ theme: /
                     $session.endDate = addDays($session.startDate, 7);
                     $reactions.transition("/AskServices");
                     } else {
-                    $session.stateCounterInARow = 0;
-                    $reactions.transition("/AskDuration/LocalCatchAll");
+                        $reactions.transition("/AskDuration/LocalCatchAll");
                     }
-                    
+                      
         state: DontKnow  
             intent: /незнаем
             script:
@@ -514,6 +513,8 @@ theme: /
             
     state: AskServices
         a: Уточните, пожалуйста, какой пакет услуг вам интересен?
+        script: 
+            $session.stateCounterInARow = 0;
         buttons:
             "Эконом" -> /AskServices/Package
             "Стандарт" -> /AskServices/Package
