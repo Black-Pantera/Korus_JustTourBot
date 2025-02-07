@@ -119,15 +119,9 @@ theme: /
             a: Чем могу помочь?
             a: Что вас интересует?
             a: Подскажите, какой у вас вопрос?
-            
-        if: $request.channelType === "telegram"
-            inlineButtons:
-                { text: "Узнать прогноз погоды", callback_data: "/WeatherForecast" }
-                { text: "Оформить заявку на подбор тура", callback_data: "/TravelRequest" }
-        else:
-            buttons:
-                "Узнать прогноз погоды" -> /WeatherForecast
-                "Оформить заявку на подбор тура" -> /TravelRequest
+        buttons:
+            "Узнать прогноз погоды" -> /WeatherForecast
+            "Оформить заявку на подбор тура" -> /TravelRequest
                 
         state: CatchCallbackButton
             event: telegramCallbackQuery
