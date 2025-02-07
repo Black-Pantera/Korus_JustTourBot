@@ -621,10 +621,10 @@ theme: /
                 log("!!!///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_pymorphy.name"]) {
                     $client.name = capitalize($parseTree["_pymorphy.name"]);
+                    } else if ($parseTree["pattern"]) {
+                    $session.userName = capitalize($parseTree["value"].name);
                     }
-                else {
-                    $session.userName = capitalize($request.query);
-                    }
+                    
             if: $client.name
                 script:
                     $reactions.answer($client.name);
