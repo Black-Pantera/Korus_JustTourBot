@@ -608,17 +608,19 @@ theme: /
             if: $session.stateCounterInARow < 3
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
-                    /*
-                    if ($parseTree["_duckling.number"]) {
-                        $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидное число дней - оно должно быть больше 0.");
+                    
+                    if ($parseTree["pattern"]) {
+                        $reactions.answer("Мне жаль, но без указания пакет услуг я не смогу отправить заявку. Сделайте выбор, пожалуйста.");
                         }
                     else {
-                        var answers = ["Извините, не совсем понял вас. Сколько дней планируете быть в поездке?",
-                        "К сожалению, не понял вас. На какой срок планируете отъезд?"];
+                        var answers = ["Извините, не совсем понял вас. Какой пакет услуг вам больше всего подходит?",
+                        "К сожалению, не понял вас. Какой пакет услуг выбираете?"];
                         var randomAnswer = answers[$reactions.random(answers.length)];
                         $reactions.answer(randomAnswer);
+                        $reactions.buttons({ text: "Эконом", transition: "/AskServices/Package" },
+                        {text: "Стандарт", transition: "/AskServices/Package"},
+                        {text: "VIP", transition: "/AskServices/Package"})
                         }
-                        */
             else:
                 script: 
                     $session.stateCounterInARow = 0;
