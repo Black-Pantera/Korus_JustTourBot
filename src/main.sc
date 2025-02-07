@@ -37,6 +37,7 @@ theme: /
             $session.stateCounterInARowCountry = 0
             $session.stateCounterInARowCity = 0
             $session.stateGlobalCounter = 0;
+            $session.stateNumberPeople = 0;
             $session.userDate = null
             $session.userCity = null;
             $session.lat = null;
@@ -431,9 +432,9 @@ theme: /
         state: LocalCatchAll || noContext = true
             event: noMatch
             script:
-                $session.stateCounterInARow ++
+                $session.stateNumberPeople ++
                 
-            if: $session.stateCounterInARow < 3
+            if: $session.stateNumberPeople < 3
                 script:
                     if ($parseTree["_duckling.number"]) {
                         $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидное число людей - оно должно быть больше 0.");
@@ -446,7 +447,7 @@ theme: /
                         }
             else:
                 script: 
-                    $session.stateCounterInARow = 0;
+                    $session.stateNumberPeople = 0;
                     $reactions.transition("/AskNumberOfPeople/DontKnow");
             
     state: AskStartDate
