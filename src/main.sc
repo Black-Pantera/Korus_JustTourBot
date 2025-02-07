@@ -645,7 +645,7 @@ theme: /
                 script:
                     //$reactions.answer($session.userName);
             go!: /AskPhone    
-                
+            
         state: LocalCatchAll || noContext = true
             event: noMatch
             intent: /незнаем
@@ -694,6 +694,12 @@ theme: /
             a: Укажите номер телефона для связи.
             script:
                 $reactions.buttons({ text: "Поделиться контактом", request_contact: true })
+                
+        state: Phone
+            event: telegramSendContact
+            script:
+                $client.phone_number = $request.rawRequest.message.contact.phone_number;
+            a: Спасибо! Наш менеджер свяжется с вами по номеру телефона {{ $client.phone_number }}.
         
     state: AskComment
         a: Теперь напишите комментарий для менеджера, если это требуется.
