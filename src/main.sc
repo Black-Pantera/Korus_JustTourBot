@@ -268,6 +268,7 @@ theme: /
             
     state: TellWeather
         script:
+            $session.stateCounter = 0;
             $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
             moment.lang('ru');
             $temp.userFormatDate = moment($session.userDate).format('LL');
