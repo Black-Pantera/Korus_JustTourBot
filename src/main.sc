@@ -268,7 +268,6 @@ theme: /
             
     state: TellWeather
         script:
-            $session.stateCounter = 0;
             $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
             moment.lang('ru');
             $temp.userFormatDate = moment($session.userDate).format('LL');
@@ -279,7 +278,7 @@ theme: /
         else:
             a: У меня не получилось узнать погоду. Попробуйте ещё раз.
             script:
-                $reactions.answer($temp.response);
+                $session.stateCounter = 0;
                 
         state: Error
             event: noMatch
