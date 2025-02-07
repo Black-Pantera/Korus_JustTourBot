@@ -649,8 +649,8 @@ theme: /
                         }
                     else {
                         $session.userName = $request.query;
+                        $reactions.transition("/UnusualName");    
                     }
-                go!: /UnusualName    
             else:
                 script: 
                     $session.stateCounterInARow = 0;
