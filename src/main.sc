@@ -432,9 +432,9 @@ theme: /
         state: LocalCatchAll || noContext = true
             event: noMatch
             script:
-                $session.stateNumberPeople ++;
-                $reactions.answer($session.stateNumberPeople);
-                if ($session.stateNumberPeople < 3) {
+                $session.stateCounterInARow ++;
+                $reactions.answer($session.stateCounterInARow);
+                if ($session.stateCounterInARow < 3) {
                     if ($parseTree["_duckling.number"]) {
                         $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидное число людей - оно должно быть больше 0.");
                         }
@@ -445,7 +445,7 @@ theme: /
                         $reactions.answer(randomAnswer);
                         }
                 } else {
-                    $session.stateNumberPeople = 0;
+                    $session.stateCounterInARow = 0;
                     $reactions.transition("/AskNumberOfPeople/DontKnow");
                     }
 
