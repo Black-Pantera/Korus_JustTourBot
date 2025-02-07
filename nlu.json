@@ -163,6 +163,22 @@
     },
     "patterns" : [ ],
     "priority" : 0
+  }, {
+    "path" : "/неделя",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "неделю"
+    }, {
+      "text" : "с неделю"
+    }, {
+      "text" : "недели хватит"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {
