@@ -417,8 +417,7 @@ theme: /
     state: AskStartDate
         a: Еще мне потребуется предполагаемая дата начала поездки. Пожалуйста, напишите ее.
         script:
-            $reactions.answer($session.numberOfPeople);
-        
+            
         state: Date
             q: * @duckling.date *
             script:
@@ -430,6 +429,7 @@ theme: /
                     var date = new Date();
                     var userDate = $session.startDate;
                     if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
+                        $session.stateCounterInARow = 0;
                         $reactions.transition("/AskStartDate/LocalCatchAll");
                     }  else {
                         $reactions.transition("/AskDuration");

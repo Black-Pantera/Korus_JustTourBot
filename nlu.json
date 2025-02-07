@@ -736,6 +736,25 @@
       "rule" : [ "Бермуды" ],
       "value" : "{\"name\":\"Бермуды\",\"english\":\"Bermuda\",\"alpha2\":\"BM\",\"alpha3\":\"BMU\",\"iso\":\"60\",\"location\":\"Америка\",\"location-precise\":\"Северная Америка\"}"
     } ]
+  }, {
+    "entity" : {
+      "name" : "датаНачинаяСТекущей",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "с текущей даты", "дата, начиная с текущей" ],
+      "value" : ""
+    } ]
   } ],
   "enabledSystemEntities" : [ "pymorphy.name", "pymorphy.surn", "duckling.number", "duckling.time", "duckling.date", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
   "spellerDictionary" : [ ],
