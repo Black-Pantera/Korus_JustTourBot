@@ -619,7 +619,7 @@ theme: /
         state: Name
             q: * @pymorphy.name *
             q: * меня зовут @Names *
-            q: * меня зовут @pymorphy.name *
+            q: * меня зовут * @pymorphy.name *
             script:
                 log("!!!///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_pymorphy.name"]) {
