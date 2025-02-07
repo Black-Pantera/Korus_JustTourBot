@@ -476,7 +476,7 @@ theme: /
                     $session.countDays = $parseTree["_duckling.number"];
                     $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
                     $reactions.transition("/AskServices");
-                } else if ($request.query == "неделю") {
+                } else if ($parseTree["pattern"]) {
                     $session.countDays = 7;
                     $session.endDate = addDays($session.startDate, 7);
                     } else {
