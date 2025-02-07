@@ -432,7 +432,7 @@ theme: /
         state: LocalCatchAll || noContext = true
             event: noMatch
             script:
-                $session.stateNumberPeople ++
+                $session.stateNumberPeople ++;
                 $reactions.answer($session.stateNumberPeople);
             if: $session.stateNumberPeople < 3
                 script:
