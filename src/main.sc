@@ -433,7 +433,7 @@ theme: /
             event: noMatch
             script:
                 $session.stateNumberPeople ++
-                
+                $reactions.answer($session.stateNumberPeople);
             if: $session.stateNumberPeople < 3
                 script:
                     if ($parseTree["_duckling.number"]) {
