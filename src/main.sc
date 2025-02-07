@@ -422,14 +422,13 @@ theme: /
                     $reactions.transition("/AskStartDate");
                 } 
                 
-                
         state: DontKnow  
             intent: /незнаем
             script:
                 $session.numberOfPeople = "Не указано";
                 $reactions.transition("/AskStartDate");
                 
-        state: LocalCatchAll
+        state: LocalCatchAll || noContext = true
             event: noMatch
             script:
                 $session.stateCounterInARow ++
