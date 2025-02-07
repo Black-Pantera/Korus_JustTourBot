@@ -33,11 +33,6 @@ theme: /
             $context.session = {};
             $context.client = {};
             
-            $session.stateCounterInARow = 0
-            $session.stateCounter = 0
-            $session.stateCounterName = 0
-            $session.stateCounterInARowCountry = 0
-            $session.stateCounterInARowCity = 0
             $session.stateGlobalCounter = 0;
             
             $session.stateNumberPeople = 0;
@@ -99,7 +94,6 @@ theme: /
             
             script:
                 $session.stateCounterInARow ++;
-                $reactions.answer($session.stateCounterInARow);
                 
             if: $session.stateCounterInARow < 3
                 random: 
