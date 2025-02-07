@@ -409,7 +409,6 @@ theme: /
                         var randomAnswer = answers[$reactions.random(answers.length)];
                         $reactions.answer(randomAnswer);
                         }
-                } 
             else: 
                 script:
                     $session.stateCounterInARow = 0;
