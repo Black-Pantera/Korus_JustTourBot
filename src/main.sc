@@ -466,9 +466,7 @@ theme: /
                     
     state: AskDuration
         a: Также укажите, сколько дней будет длиться путешествие.
-        script:
-            $session.stateCounterInARow = 0;
-        
+       
         state: Number
             q: * @duckling.number *
             script:
@@ -478,6 +476,7 @@ theme: /
                     $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
                     $reactions.transition("/AskServices");
                 } else {
+                    $session.stateCounterInARow = 0;
                     $reactions.transition("/AskDuration/LocalCatchAll");
                     }
                     
