@@ -98,8 +98,7 @@ theme: /
                         $reactions.transition("/HowCanIHelpYou");
                         }
                     log("///////// MY LOG "+toPrettyString($parseTree));    
-                    //$reactions.answer($client.name);
-            
+        
             state: ErrorName
                 event: noMatch
                 script:
@@ -607,8 +606,6 @@ theme: /
                 
             if: $session.stateCounterInARow < 3
                 script:
-                    log("///////// MY LOG "+toPrettyString($parseTree));
-                    
                     if ($parseTree["pattern"]) {
                         $reactions.answer("Мне жаль, но без указания пакет услуг я не смогу отправить заявку. Сделайте выбор, пожалуйста.");
                         }
@@ -642,6 +639,20 @@ theme: /
                     var answer = "Введите, пожалуйста, ваше имя.";
                     $reactions.answer(answer);
                     }
+                    
+        state: Name
+            q: * @pymorphy.name *
+            script:
+                if ($parseTree["_pymorphy.name"]) {
+                    $client.name = capitalize($parseTree["_pymorphy.name"]);
+                    }
+                else {
+                    $session.userName = capitalize($request.query);
+                    }
+            go!: /AskPhone    
+                
+               
+            
                 
             
         
