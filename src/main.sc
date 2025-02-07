@@ -671,7 +671,21 @@ theme: /
             
     state: UnusualName   
         a: Как необычно! Подскажите, вы точно хотели указать в качестве своего имени "{{ $request.query }}"?
-    
+        script: 
+            $session.stateCounterInARow = 0;
+        
+        state: ChoosenNo
+            q: * нет *
+            script:
+                $reactions.transition("/AskName");       
+                
+        state: ChoosenYes
+            q: * да *
+            q: * $Name *
+            event: noMatch
+            script:
+                $reactions.transition("/AskName/Name");   
+                
     state: DontHaveQuestions
         q!: * вопросов нет *
         q!: * нет *
