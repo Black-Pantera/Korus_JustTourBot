@@ -523,7 +523,7 @@ theme: /
             event: noMatch
             script:
                 $session.stateCounterInARow ++
-                
+                $reactions.answer($session.stateCounterInARow);
             if: $session.stateCounterInARow < 3
                 script:
                     if ($parseTree["_duckling.number"]) {
