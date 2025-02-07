@@ -693,7 +693,7 @@ theme: /
         else:
             a: Укажите номер телефона для связи.
             script:
-                $reactions.buttons({ text: "оделиться контактом", request_contact: true })
+                $reactions.buttons({ text: "Поделиться контактом", request_contact: true })
         
     state: AskComment
         a: Теперь напишите комментарий для менеджера, если это требуется.
