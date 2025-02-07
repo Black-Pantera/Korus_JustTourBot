@@ -605,7 +605,6 @@ theme: /
                 $reactions.transition("/AskPhone");
         else:
             script:
-                $reactions.answer($context.session.lastState);
                 if ($context.session.lastState !== "/AskName/LocalCatchAll"){
                     var answer = "С параметрами заявки почти закончили! Осталось указать контакты, чтобы менеджер смог связаться с вами.";
                     $reactions.answer(answer);
