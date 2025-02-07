@@ -376,6 +376,8 @@ theme: /
                   
     state: AskNumberOfPeople
         a: Укажите количество человек, которые отправятся в путешествие.
+        script:
+            $session.stateCounterInARow = 0;
         
         state: Number
             q: * @duckling.number *
@@ -395,8 +397,9 @@ theme: /
             event: noMatch
             script:
                 $session.stateCounterInARow ++;
-                $reactions.answer($session.stateCounterInARow);
-                if ($session.stateCounterInARow < 3) {
+                
+            if: $session.stateCounterInARow < 3
+                script:
                     if ($parseTree["_duckling.number"]) {
                         $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидное число людей - оно должно быть больше 0.");
                         }
@@ -406,10 +409,11 @@ theme: /
                         var randomAnswer = answers[$reactions.random(answers.length)];
                         $reactions.answer(randomAnswer);
                         }
-                } else {
+                } 
+            else: 
+                script:
                     $session.stateCounterInARow = 0;
-                    $reactions.transition("/AskNumberOfPeople/DontKnow");
-                    }
+                go!: /AskNumberOfPeople/DontKnow
 
     state: AskStartDate
         a: Еще мне потребуется предполагаемая дата начала поездки. Пожалуйста, напишите ее.
