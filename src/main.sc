@@ -180,8 +180,7 @@ theme: /
                     else 
                         $reactions.transition("/GetCity");
                         
-                    
-            
+        
     state: GetCity
         random:
             a: Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.
