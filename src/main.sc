@@ -174,7 +174,7 @@ theme: /
         state: UserDate
             q: * @duckling.date *
             script:
-                log("///////// MY LOG "+toPrettyString($parseTree));
+                $session.stateCounterInARow = 0;
                 
                 if ($parseTree["_duckling.date"]) {
                     $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
@@ -194,7 +194,7 @@ theme: /
                 a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
                 script: 
-                    $session.stateCounterInARow = 0
+                    $session.stateCounterInARow = 0;
                     $session.userDate = null
                     $session.userCity = null;
                     $session.lat = null;
