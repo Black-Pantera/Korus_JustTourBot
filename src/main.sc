@@ -317,6 +317,7 @@ theme: /
             q: * @Countries *
             q: * (да|ага|yes|ога) *
             script: 
+                $session.stateCounterInARow = 0;
                 if ($parseTree._Countries) {
                 $session.country = $parseTree._Countries.name;   
                 }
@@ -341,8 +342,8 @@ theme: /
                 
                 if: $session.stateCounterInARow < 3
                     random:
-                        a: Извините, не совсем понял вас. Подскажите, вы выбрали страну для путешествия?
-                        a: К сожалению, не понял вас. Вы выбрали страну для поездки?
+                        a: Извините, не совсем понял вас. Назовите, пожалуйста, нужную вам страну.
+                        a: К сожалению, не понял вас. Введите название страны для поездки.
                     script:
                         $reactions.transition("/TravelRequest");
                 else:
@@ -358,6 +359,22 @@ theme: /
                 $session.country = "Не указано";  
             go!: /AskNumberOfPeople
                 
+        state: LocalCatchAll
+                event: noMatch
+                script:
+                    $session.stateCounterInARow ++
+                
+                if: $session.stateCounterInARow < 3
+                    random:
+                        a: Извините, не совсем понял вас. Подскажите, вы выбрали страну для путешествия?
+                        a: К сожалению, не понял вас. Вы выбрали страну для поездки?
+                    script:
+                        $reactions.transition("/TravelRequest");
+                else:
+                    script:
+                        $session.stateCounterInARow = 0
+                    a: Простите! Так и не получилось вас понять. Когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
+                    go!: /AskNumberOfPeople
                   
     state: AskNumberOfPeople
         a: Укажите количество человек, которые отправятся в путешествие.
