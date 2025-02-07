@@ -506,7 +506,7 @@ theme: /
         state: Number
             q: * @duckling.number *
             script:
-                 log("///////// MY LOG "+toPrettyString($parseTree));
+                log("///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_duckling.number"] > 0) {
                     $session.countDays = $parseTree["_duckling.number"];
                     $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
@@ -598,6 +598,34 @@ theme: /
                     $reactions.answer(answer);
                     }
             go!: /AskServices
+            
+        state: LocalCatchAll
+            event: noMatch
+            intent: /незнаем
+            script:
+                $session.stateCounterInARow ++
+                
+            if: $session.stateCounterInARow < 3
+                script:
+                    log("///////// MY LOG "+toPrettyString($parseTree));
+                    /*
+                    if ($parseTree["_duckling.number"]) {
+                        $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидное число дней - оно должно быть больше 0.");
+                        }
+                    else {
+                        var answers = ["Извините, не совсем понял вас. Сколько дней планируете быть в поездке?",
+                        "К сожалению, не понял вас. На какой срок планируете отъезд?"];
+                        var randomAnswer = answers[$reactions.random(answers.length)];
+                        $reactions.answer(randomAnswer);
+                        }
+                        */
+            else:
+                script: 
+                    $session.stateCounterInARow = 0;
+                    var answer = "К сожалению, без выбора пакета заявка не может быть отправлена. Вы можете вернуться к её заполнению позже или связаться с нами по номеру 8 (812) 000-00-00.";
+                    $reactions.answer(answer);
+                    $reactions.transition("/SomethingElse");
+            
     
     state: AskName
         a: ваш пакет услуг {{ $session.services }}
