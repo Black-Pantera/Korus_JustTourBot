@@ -146,8 +146,7 @@ theme: /
         state: UserCity
             q: * $City *
             script:
-                log("///////// MY LOG "+toPrettyString($parseTree));
-                
+                $session.stateCounterInARow = 0;
                 if ($parseTree._City) {
                     $session.userCity = $parseTree._City.name;
                     $session.lon = $parseTree._City.lon;
@@ -163,9 +162,9 @@ theme: /
         state: LocalCatchAll || noContex = true
             event: noMatch
             script:
-                $session.stateCounterInARowCity++
+                $session.stateCounterInARow++
                 
-            if: $session.stateCounterInARowCity < 3
+            if: $session.stateCounterInARow < 3
                 random: 
                     a: Извините, не совсем понял вас. Напишите, пожалуйста, название города, чтобы я смог узнать прогноз погоды для него.
                     a: К сожалению, не понял вас. Укажите, пожалуйста, нужный вам город?
@@ -174,7 +173,7 @@ theme: /
                 
                 script: 
                     $session.userDate = null
-                    $session.stateCounterInARowCity = 0
+                    $session.stateCounterInARow = 0
                     
                 go!: /SomethingElse
                 
