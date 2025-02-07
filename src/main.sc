@@ -344,8 +344,6 @@ theme: /
                     random:
                         a: Извините, не совсем понял вас. Назовите, пожалуйста, нужную вам страну.
                         a: К сожалению, не понял вас. Введите название страны для поездки.
-                    script:
-                        $reactions.transition("/TravelRequest");
                 else:
                     script:
                         $session.stateCounterInARow = 0
