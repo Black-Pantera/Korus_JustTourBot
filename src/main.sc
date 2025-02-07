@@ -617,9 +617,9 @@ theme: /
                         "К сожалению, не понял вас. Какой пакет услуг выбираете?"];
                         var randomAnswer = answers[$reactions.random(answers.length)];
                         $reactions.answer(randomAnswer);
-                        $reactions.buttons({ text: "Эконом", transition: "/AskServices/Package" },
+                        $reactions.buttons([{ text: "Эконом", transition: "/AskServices/Package" },
                         {text: "Стандарт", transition: "/AskServices/Package"},
-                        {text: "VIP", transition: "/AskServices/Package"})
+                        {text: "VIP", transition: "/AskServices/Package"}])
                         }
             else:
                 script: 
