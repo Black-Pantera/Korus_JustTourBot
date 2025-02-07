@@ -458,6 +458,7 @@ theme: /
         state: Date
             q: * @duckling.date *
             script:
+                $reactions.answer($session.numberOfPeople);
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 
                 if ($parseTree["_duckling.date"]) {
