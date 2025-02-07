@@ -421,9 +421,8 @@ theme: /
                 if ($parseTree["_duckling.number"] > 0) {
                     $session.numberOfPeople = $parseTree["_duckling.number"];
                     $reactions.transition("/AskStartDate");
-                } else {
-                    $reactions.transition("/AskNumberOfPeople/LocalCatchAll");
-                    }
+                } 
+                
                 
         state: DontKnow  
             intent: /незнаем
