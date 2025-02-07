@@ -454,11 +454,12 @@ theme: /
             
     state: AskStartDate
         a: Еще мне потребуется предполагаемая дата начала поездки. Пожалуйста, напишите ее.
+        script:
+            $reactions.answer($session.numberOfPeople);
         
         state: Date
             q: * @duckling.date *
             script:
-                $reactions.answer($session.numberOfPeople);
                 log("///////// MY LOG "+toPrettyString($parseTree));
                 
                 if ($parseTree["_duckling.date"]) {
