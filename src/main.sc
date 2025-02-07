@@ -571,7 +571,7 @@ theme: /
                     }
             go!: /AskServices
             
-        state: LocalCatchAll
+        state: LocalCatchAll || noContext = true
             event: noMatch
             intent: /незнаем
             script:
@@ -616,6 +616,7 @@ theme: /
                     
         state: Name
             q: * @pymorphy.name *
+            й
             script:
                 log("!!!///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_pymorphy.name"]) {
