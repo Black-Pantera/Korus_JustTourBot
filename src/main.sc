@@ -305,6 +305,8 @@ theme: /
         random:
             a: Готов помочь вам оформить заявку на подбор тура. Как только я соберу от вас нужные для запроса данные, наш менеджер подберет самые подходящие варианты и свяжется с вами.
             a: Рад помочь с оформлением запроса на подбор тура. Как только мы заполним заявку, наш специалист свяжется с вами, чтобы предложить наиболее подходящие варианты путешествий.
+        script:
+            $session.stateCounterInARow = 0;
         if: $session.country
             go!: /AskNumberOfPeople
         else:
@@ -334,9 +336,9 @@ theme: /
             state: LocalCatchAll
                 event: noMatch
                 script:
-                    $session.stateCounterInARowCountry++
+                    $session.stateCounterInARow ++
                 
-                if: $session.stateCounterInARowCountry < 3
+                if: $session.stateCounterInARow < 3
                     random:
                         a: Извините, не совсем понял вас. Подскажите, вы выбрали страну для путешествия?
                         a: К сожалению, не понял вас. Вы выбрали страну для поездки?
@@ -344,7 +346,7 @@ theme: /
                         $reactions.transition("/TravelRequest");
                 else:
                     script:
-                        $session.stateCounterInARowCountry = 0
+                        $session.stateCounterInARow = 0
                     a: Простите! Так и не получилось вас понять. Когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
                     go!: /AskNumberOfPeople
                
