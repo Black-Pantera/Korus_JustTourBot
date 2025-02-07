@@ -629,6 +629,7 @@ theme: /
                 log("!!!///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_pymorphy.name"]) {
                     $client.name = capitalize($parseTree["_pymorphy.name"]);
+                    $session.userName = capitalize($parseTree["_pymorphy.name"]);
                     } else if ($parseTree["pattern"] && ($parseTree["_Root"] !== "да")) {
                     $session.userName = capitalize($parseTree["value"].name);
                     } else {
@@ -637,11 +638,11 @@ theme: /
                     
             if: $client.name
                 script:
-                    $reactions.answer($client.name);
+                    //$reactions.answer($client.name);
                     
             if: $session.userName
                 script:
-                    $reactions.answer($session.userName);
+                    //$reactions.answer($session.userName);
             go!: /AskPhone    
                 
         state: LocalCatchAll || noContext = true
