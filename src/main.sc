@@ -616,7 +616,7 @@ theme: /
                     
         state: Name
             q: * @pymorphy.name *
-            й
+            q: * меня зовут @Names *
             script:
                 log("!!!///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_pymorphy.name"]) {
@@ -625,9 +625,16 @@ theme: /
                 else {
                     $session.userName = capitalize($request.query);
                     }
+            if: $client.name
+                script:
+                    $reactions.answer($client.name);
+                    
+            if: $session.userName
+                script:
+                    $reactions.answer($session.userName);
             go!: /AskPhone    
                 
-        state: LocalCatchAll
+        state: LocalCatchAll || noContext = true
             event: noMatch
             intent: /незнаем
             script:
