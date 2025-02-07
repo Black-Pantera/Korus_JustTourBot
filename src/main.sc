@@ -465,7 +465,8 @@ theme: /
                     
     state: AskDuration
         a: Также укажите, сколько дней будет длиться путешествие.
-        $session.stateCounterInARow = 0;
+        script:
+            $session.stateCounterInARow = 0;
        
         state: Number
             q: * @duckling.number *
