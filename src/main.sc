@@ -661,7 +661,8 @@ theme: /
     state: AskPhone
         a: Укажите номер телефона для связи.
             
-    state: UnusualName    
+    state: UnusualName   
+        a: Как необычно! Подскажите, вы точно хотели указать в качестве своего имени "{{ $request.query }}"?
     
     state: DontHaveQuestions
         q!: * вопросов нет *
