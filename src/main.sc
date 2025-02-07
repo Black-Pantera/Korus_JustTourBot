@@ -469,13 +469,17 @@ theme: /
        
         state: Number
             q: * @duckling.number *
+            q: * неделю *
             script:
-                log("///////// MY LOG "+toPrettyString($parseTree));
+                log("!!!///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_duckling.number"] > 0) {
                     $session.countDays = $parseTree["_duckling.number"];
                     $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
                     $reactions.transition("/AskServices");
-                } else {
+                } else if ($request.query == "неделю") {
+                    $session.countDays = 7;
+                    $session.endDate = addDays($session.startDate, 7);
+                    } else {
                     $session.stateCounterInARow = 0;
                     $reactions.transition("/AskDuration/LocalCatchAll");
                     }
