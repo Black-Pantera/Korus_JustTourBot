@@ -634,6 +634,7 @@ theme: /
                     $session.userName = capitalize($parseTree["value"].name);
                     } else {
                         $session.userName = $session.userName;
+                        $client.name = $session.userName;
                         }
                     
             if: $client.name
