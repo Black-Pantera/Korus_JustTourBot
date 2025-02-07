@@ -594,8 +594,7 @@ theme: /
                     var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);
                     var pk3 = JSON.parse($caila.entitiesLookup("vip", true).entities[0].value);
                     
-                    var answer = "При формировании пакета услуг \""+ pk1.name+"\" стоимость составит "+ pk1.perDayOneMan+ " рублей на одного человека. Для пакета "\""+ pk2.name+"\" "+ pk2.perDayOneMan+ 
-                    ". А \""+ pk3.name+"\" будет стоить "+ pk3.perDayOneMan+".";
+                    var answer = "При формировании пакета услуг \""+ pk1.name+"\" стоимость составит "+ pk1.perDayOneMan+ " рублей на одного человека. Для пакета \""+ pk2.name+"\" - "+ pk2.perDayOneMan+ ". А \""+ pk3.name+"\" будет стоить "+ pk3.perDayOneMan+".";
                     $reactions.answer(answer);
                     }
             go!: /AskServices
