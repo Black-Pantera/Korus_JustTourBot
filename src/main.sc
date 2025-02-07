@@ -466,6 +466,8 @@ theme: /
                     
     state: AskDuration
         a: Также укажите, сколько дней будет длиться путешествие.
+        script:
+            $session.stateCounterInARow = 0;
         
         state: Number
             q: * @duckling.number *
@@ -489,7 +491,7 @@ theme: /
             event: noMatch
             script:
                 $session.stateCounterInARow ++
-                $reactions.answer($session.stateCounterInARow);
+                
             if: $session.stateCounterInARow < 3
                 script:
                     if ($parseTree["_duckling.number"]) {
