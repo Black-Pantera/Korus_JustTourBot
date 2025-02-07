@@ -180,6 +180,16 @@
     "patterns" : [ ],
     "priority" : 0
   }, {
+    "path" : "/имена",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
     "path" : "/неХочуУказывать",
     "enabled" : true,
     "shared" : false,
