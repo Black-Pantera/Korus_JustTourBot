@@ -632,7 +632,17 @@ theme: /
     state: AskName
         if: $client.name
             script:
-                $reactions.transition("/AskName");
+                $reactions.transition("/AskPhone");
+        else:
+            script:
+                if ($context.session.lastState !== "/AskName/CatchAll"){
+                    var answer = "С параметрами заявки почти закончили! Осталось указать контакты, чтобы менеджер смог связаться с вами.";
+                }
+                else {
+                    var answer = "Введите, пожалуйста, ваше имя.";
+                    $reactions.answer(answer);
+                    }
+                
             
         
     
