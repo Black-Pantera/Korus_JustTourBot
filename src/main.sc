@@ -670,9 +670,6 @@ theme: /
                     $reactions.answer(answer);
                     $reactions.transition("/SomethingElse");       
             
-    state: AskPhone
-        a: Укажите номер телефона для связи.
-            
     state: UnusualName   
         a: Как необычно! Подскажите, вы точно хотели указать в качестве своего имени "{{ $request.query }}"?
         script: 
@@ -688,7 +685,24 @@ theme: /
             q: * $Name *
             event: noMatch
             script:
-                $reactions.transition("/AskName/Name");   
+                $reactions.transition("/AskName/Name");  
+                
+    state: AskPhone
+        if: $client.phone
+            go!: AskComment
+        else:
+            a: Укажите номер телефона для связи.
+            script:
+                $reactions.buttons({ text: "оделиться контактом", request_contact: true })
+        
+    state: AskComment
+        a: Теперь напишите комментарий для менеджера, если это требуется.
+        buttons:
+            "Не нужно" -> /AskComment/Comment
+            
+        state: Comment
+            script:
+                $session.userComment = $request.query;
                 
     state: DontHaveQuestions
         q!: * вопросов нет *
