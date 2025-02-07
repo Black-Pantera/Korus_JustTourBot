@@ -632,7 +632,7 @@ theme: /
                     } else if ($parseTree["pattern"] && ($parseTree["_Root"] !== "да")) {
                     $session.userName = capitalize($parseTree["value"].name);
                     } else {
-                        $session.userName = $request.query;
+                        $session.userName = $session.userName;
                         }
                     
             if: $client.name
@@ -674,7 +674,7 @@ theme: /
     state: UnusualName   
         a: Как необычно! Подскажите, вы точно хотели указать в качестве своего имени "{{ $request.query }}"?
         script: 
-            $session.stateCounterInARow = 0;
+            $session.userName = $request.query;
         
         state: ChoosenNo
             q: * нет *
