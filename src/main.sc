@@ -639,6 +639,8 @@ theme: /
         state: LocalCatchAll || noContext = true
             event: noMatch
             intent: /незнаем
+            intent: /неХочуУказывать
+            intent: /зачем
             script:
                 $session.stateCounterInARow ++
                 

@@ -179,6 +179,42 @@
     },
     "patterns" : [ ],
     "priority" : 0
+  }, {
+    "path" : "/неХочуУказывать",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "не хочу называть"
+    }, {
+      "text" : "не буду вводить"
+    }, {
+      "text" : "не буду писать"
+    }, {
+      "text" : "не хочу писать"
+    }, {
+      "text" : "не буду указывать"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/зачем",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "зачем"
+    }, {
+      "text" : "а зачем вам оно?"
+    }, {
+      "text" : "а вам зачем?"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {
