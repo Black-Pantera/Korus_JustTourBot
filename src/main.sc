@@ -2,6 +2,8 @@ require: slotfilling/slotFilling.sc
   module = sys.zb-common
 require: city/city.sc
     module = sys.zb-common  
+require: name/name.sc
+    module = sys.zb-common
   
 require: funcs.js
 require: moment.js
@@ -618,7 +620,7 @@ theme: /
                     
         state: Name
             q: * @pymorphy.name *
-            q: * меня зовут $NAME *
+            q: * меня зовут * * $Names *
             script:
                 log("!!!///////// MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_pymorphy.name"]) {
