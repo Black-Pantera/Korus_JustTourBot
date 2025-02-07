@@ -633,7 +633,7 @@ theme: /
         else:
             script:
                 $reactions.answer($context.session.lastState);
-                if ($context.session.lastState !== "/AskName/CatchAll"){
+                if ($context.session.lastState !== "/AskName/LocalCatchAll"){
                     var answer = "С параметрами заявки почти закончили! Осталось указать контакты, чтобы менеджер смог связаться с вами.";
                 }
                 else {
