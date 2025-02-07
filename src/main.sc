@@ -209,10 +209,11 @@ theme: /
             var userDate = $session.userDate;
             
             if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
-                
+                $session.stateCounter = 0;
                 $reactions.transition("/ThisDayHasPassed");
                 } 
                 else if (DatesDiff(userDate, date) > 5) {
+                    $session.stateCounter = 0;
                     $reactions.transition("/ThisDayIsNotComingSoon");
                     } else $reactions.transition("/TellWeather");
         
