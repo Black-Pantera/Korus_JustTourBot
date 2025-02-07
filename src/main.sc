@@ -487,7 +487,7 @@ theme: /
                 $session.endDate = "Не указано";
                 $reactions.transition("/AskServices");
                     
-        state: LocalCatchAll
+        state: LocalCatchAll || noContex = true
             event: noMatch
             script:
                 $session.stateCounterInARow ++
