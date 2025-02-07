@@ -95,15 +95,9 @@ theme: /
         state: LocalCatchAll || noContex = true
             event: noMatch
             
-            if: $session.stateCounterInARow
-                script:
-                    $session.stateCounterInARow ++;
-            else:
-                script:
-                    $session.stateCounterInARow = 0;
-                
             script:
-                $reactions.answer($session.stateCounterInARow);
+                $session.stateCounterInARow ++;
+                //$reactions.answer($session.stateCounterInARow);
                 
             if: $session.stateCounterInARow < 3
                 random: 
