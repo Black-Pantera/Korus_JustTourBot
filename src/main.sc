@@ -374,7 +374,8 @@ theme: /
                         $reactions.transition("/TravelRequest");
                 else:
                     script:
-                        $session.stateCounterInARow = 0
+                        $session.stateCounterInARow = 0;
+                        $session.country = "Не указано";
                     a: Простите! Так и не получилось вас понять. Когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
                     go!: /AskNumberOfPeople
                   
