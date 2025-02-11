@@ -299,7 +299,7 @@ theme: /
                 $session.stateCounter = 0;
                 $reactions.transition("/TellWeather/Error");
       
-        if:  $session.country
+        if: $session.country
             if: $session.userHasTour 
                 script:
                     $reactions.transition("/SomethingElseForWeather");
