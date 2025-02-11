@@ -151,17 +151,11 @@ theme: /
                     $session.lon = $parseTree._City.lon;
                     $session.lat = $parseTree._City.lat;
                     
-                    //var ent = $caila.getEntity("Countries");
-                    
-                    //$reactions.answer($parseTree._City.country);
-                    
                     var pk = JSON.parse($caila.entitiesLookup($parseTree._City.country, true).entities[0].value);
-                   
-                    $reactions.answer(pk.name);
-                      
-                    
-                    $session.country = $parseTree._City.country;                    
-                    }
+                    if (pk != null) {
+                        $session.country = pk.name;
+                        }
+                }
                     
                 if ($parseTree["_duckling.date"])
                     $reactions.transition("/CheсkDate");
