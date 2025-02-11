@@ -702,6 +702,9 @@ theme: /
             script:
                 $client.phone_number = $request.rawRequest.message.contact.phone_number;
             a: Спасибо! Наш менеджер свяжется с вами по номеру телефона {{ $client.phone_number }}.
+            
+        state: LocalCatch || noContext = true
+            
         
     state: AskComment
         a: Теперь напишите комментарий для менеджера, если это требуется.
