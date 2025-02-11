@@ -153,9 +153,12 @@ theme: /
                     
                     var ent = $caila.getEntity("Countries");
                     
-                    $reactions.answer(JSON.stringify(ent));
+                    //$reactions.answer(JSON.stringify(ent));
                     
-                    //var pk = JSON.parse($caila.entitiesLookup("эконом", true).entities[0].value);
+                    var pk = JSON.parse($caila.entitiesLookup($parseTree._City.country, true).entities[0].value);
+                    if (pk) {
+                        $reactions.answer(JSON.stringify(pk));
+                        }
                     
                     $session.country = $parseTree._City.country;                    
                     }
