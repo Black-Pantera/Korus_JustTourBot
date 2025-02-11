@@ -276,7 +276,6 @@ theme: /
                     
             go!: /SomethingElse
         
-            
     state: TellWeather
         script:
             $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
@@ -396,6 +395,7 @@ theme: /
             q: * @duckling.number *
             q: * только я *
             script:
+                
                 if ($parseTree["_duckling.number"] > 0) {
                     $session.numberOfPeople = $parseTree["_duckling.number"];
                     $reactions.transition("/AskStartDate");
