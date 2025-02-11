@@ -396,10 +396,14 @@ theme: /
             q: * только я *
             script:
                 log("!!! MY LOG "+toPrettyString($parseTree));
-                if ($parseTree["_duckling.number"] > 0) {
+                if ($parseTree["_duckling.number"] > 0)  {
                     $session.numberOfPeople = $parseTree["_duckling.number"];
                     $reactions.transition("/AskStartDate");
                 } 
+                if ($parseTree["pattern"]) {
+                    $session.numberOfPeople = 1;
+                    $reactions.transition("/AskStartDate");
+                    }
                 
         state: DontKnow  
             intent: /незнаем
