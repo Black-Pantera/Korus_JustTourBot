@@ -570,7 +570,7 @@ theme: /
                         if ($session.endDate !== "Не указано") {
                         $session.personalPrice = $session.numberOfPeople * $parseTree._Packages.perDayOneMan*$session.countDays;
                         var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+"\" на поездку для " +
-                        $session.numberOfPeople +" "+ $nlp.conform("человек", $nlp.inflect($session.numberOfPeople, "gent")) +" стоимость составит "+numberWithCommas($session.personalPrice)+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
+                        $session.numberOfPeople +" "+ $nlp.conform($nlp.inflect("человек","gent"), $session.numberOfPeople) +" стоимость составит "+numberWithCommas($session.personalPrice)+ " "+$nlp.conform("рубль", $session.personalPrice)+".";
                         $reactions.answer(answer);
                         }
                     } else {
