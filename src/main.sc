@@ -793,7 +793,7 @@ theme: /
                 }
            
             if ($session.endDate != "Не указано") {
-                $temp.confirmation += " \n- Приблизительная дата начала поездки - "+ moment($session.endDate).format('LL');
+                $temp.confirmation += " \n- Приблизительная дата окончания поездки - "+ moment($session.endDate).format('LL');
                 isImportant = true;
                 }
             
@@ -818,8 +818,6 @@ theme: /
                 $reactions.answer($temp.confirmation);
                 }
                 
-            $reactions.answer("Подскажите, вы готовы отправить заявку?");
-            
         a: Подскажите, вы готовы отправить заявку?
         buttons:
             "Да" -> /Confirmation/Agree
