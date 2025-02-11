@@ -26,10 +26,11 @@ theme: /
         bind("postProcess", function($context) {
             $context.session.lastState = $context.currentState;
             if (context.request.channelType === "telegram") {
-                _.each(context.response.replies, function(reply) {
+                context.response.replies.forEach(function(reply) {
                     if (reply.type === "text") {
                         reply.markup = "markdown";
                     }
+                });
             }
             
         });
