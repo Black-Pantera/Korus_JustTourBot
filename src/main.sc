@@ -322,8 +322,8 @@ theme: /
         
     state: OfferTour
         random:
-            a: Хотите оставить заявку на подбор тура в {{$nlp.inflect($session.country, "accs")}}?
-            a: Можем составить заявку на подбор идеального тура в {{$nlp.inflect($session.country, "accs")}}. Хотите?
+            a: Хотите оставить заявку на подбор тура в {{ $nlp.inflect($session.country, "accs") }}?
+            a: Можем составить заявку на подбор идеального тура в {{ $nlp.inflect($session.country, "accs") }}. Хотите?
             
         state: OfferTourYes
             q: (да|хочу)
