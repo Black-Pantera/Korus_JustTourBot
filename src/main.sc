@@ -25,6 +25,13 @@ theme: /
         
         bind("postProcess", function($context) {
             $context.session.lastState = $context.currentState;
+            
+            if (context.request.channelType === "telegram") {
+                _.each(context.response.replies, function(reply) {
+                    if (reply.type === "text") {
+                        reply.markup = "markdown";
+                    }
+            });
         });
 
     state: Start
@@ -34,6 +41,7 @@ theme: /
         script:
             $context.session = {};
             $context.client = {};
+            $temp = {};
         
         if: $client.name
             random:
@@ -750,7 +758,10 @@ theme: /
             script:
                 $session.userComment = "Не указано";
             go!: /Confirmation
-            
+    
+    state: Confirmation
+        script:
+            $temp.confirmation = "Среди важных критериев подбора вы выделили: "
                 
     state: DontHaveQuestions
         q!: * вопросов нет *
