@@ -571,11 +571,11 @@ theme: /
                         if ($session.endDate !== "Не указано") {
                         $session.personalPrice = $session.numberOfPeople * $parseTree._Packages.perDayOneMan*$session.countDays;
                         var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+"\" на поездку для " +
-                        $session.numberOfPeople +" "+ $nlp.conform("человек", $session.numberOfPeople) +" стоимость составит "+$session.personalPrice+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
+                        $session.numberOfPeople +" "+ $nlp.conform("человек", $session.numberOfPeople) +" стоимость составит "+numberWithCommas($session.personalPrice)+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
                         $reactions.answer(answer);
                         }
                     } else {
-                        var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+" стоимость составит "+$parseTree._Packages.perDayOneMan+ " рублей на одного человека.";
+                        var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+" стоимость составит "+numberWithCommas($parseTree._Packages.perDayOneMan)+ " рублей на одного человека.";
                         $reactions.answer(answer);
                         }
                 } else {
@@ -583,7 +583,7 @@ theme: /
                     var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);
                     var pk3 = JSON.parse($caila.entitiesLookup("vip", true).entities[0].value);
                     
-                    var answer = "При формировании пакета услуг \""+ pk1.name+"\" стоимость составит "+ pk1.perDayOneMan+ " рублей на одного человека. Для пакета \""+ pk2.name+"\" - "+ pk2.perDayOneMan+ ". А \""+ pk3.name+"\" будет стоить "+ pk3.perDayOneMan+" за одного человека.";
+                    var answer = "При формировании пакета услуг \""+ pk1.name+"\" стоимость составит "+ numberWithCommas(pk1.perDayOneMan) + " рублей на одного человека. Для пакета \""+ pk2.name+"\" - "+ numberWithCommas(pk2.perDayOneMan)+ ". А \""+ pk3.name+"\" будет стоить "+ numberWithCommas(pk3.perDayOneMan) +" за одного человека.";
                     $reactions.answer(answer);
                     }
             go!: /AskServices
