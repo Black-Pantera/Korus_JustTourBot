@@ -153,12 +153,15 @@ theme: /
                     $session.lon = $parseTree._City.lon;
                     $session.lat = $parseTree._City.lat;
                     
+                    $reactions.answer(JSON.stringify($caila.entitiesLookup($parseTree._City.country, true)));
+                    /*
                     if ($caila.entitiesLookup($parseTree._City.country, true) != null) {
                         var pk = JSON.parse($caila.entitiesLookup($parseTree._City.country, true).entities[0].value);
                         if (pk != null) {
                             $session.country = pk.name;
                         }
                     }
+                    */
                 }
                     
                 if ($parseTree["_duckling.date"])
