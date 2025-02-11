@@ -161,7 +161,9 @@ theme: /
                             }
                         }
                     }
-                   
+                    else {
+                        $session.country = null;
+                        }
                 }
                     
                 if ($parseTree["_duckling.date"])
@@ -300,7 +302,7 @@ theme: /
                 $session.stateCounter = 0;
                 $reactions.transition("/TellWeather/Error");
         script:
-            if($session.userHasTour === true) {
+            if (($session.userHasTour === true) && $session.country) {
                 $reactions.transition("/SomethingElseForWeather");
                 } else {
                     $reactions.transition("/OfferTour");
