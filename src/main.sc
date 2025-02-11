@@ -690,6 +690,8 @@ theme: /
                 $reactions.transition("/AskName/Name");  
                 
     state: AskPhone
+        script:
+            $session.stateCounterInARow = 0;
         if: $client.phone
             go!: AskComment
         else:
@@ -704,6 +706,29 @@ theme: /
             a: Спасибо! Наш менеджер свяжется с вами по номеру телефона {{ $client.phone_number }}.
             
         state: LocalCatch || noContext = true
+            event: noMatch
+            intent: /незнаем
+            intent: /неХочуУказывать
+            intent: /зачем
+            script:
+                $session.stateCounterInARow ++
+                
+            if: $session.stateCounterInARow < 2
+                script:
+                    if ($parseTree["pattern"]) {
+                        $reactions.answer("Мне жаль, но без указания вашего имени отправить заявку не получится. Укажите его, пожалуйста.");
+                        }
+                    else {
+                        $session.userName = $request.query;
+                        $reactions.transition("/UnusualName");    
+                    }
+            else:
+                script: 
+                    $session.stateCounterInARow = 0;
+                    var answer = "К сожалению, без указания вашего имени заявка не может быть отправлена. Вы можете вернуться к ее заполнению позже или связаться с нами по номеру 8 (812) 000-00-00.";
+                    $reactions.answer(answer);
+                    $reactions.transition("/SomethingElse");      
+            
             
         
     state: AskComment
