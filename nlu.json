@@ -173,6 +173,8 @@
       "text" : "с неделю"
     }, {
       "text" : "недели хватит"
+    }, {
+      "text" : "неделя"
     } ],
     "classificationRules" : {
       "refs" : [ ]

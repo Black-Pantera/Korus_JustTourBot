@@ -439,7 +439,6 @@ theme: /
         state: Date
             q: * @duckling.date *
             script:
-                log("///////// MY LOG "+toPrettyString($parseTree));
                 
                 if ($parseTree["_duckling.date"]) {
                     $session.startDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
@@ -571,7 +570,7 @@ theme: /
                         if ($session.endDate !== "Не указано") {
                         $session.personalPrice = $session.numberOfPeople * $parseTree._Packages.perDayOneMan*$session.countDays;
                         var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+"\" на поездку для " +
-                        $session.numberOfPeople +" "+ $nlp.conform("человек", $session.numberOfPeople) +" стоимость составит "+numberWithCommas($session.personalPrice)+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
+                        $session.numberOfPeople +" "+ $nlp.conform("человек", $nlp.inflect($session.numberOfPeople, "gent")) +" стоимость составит "+numberWithCommas($session.personalPrice)+ " "+$nlp.conform("рублей", $session.personalPrice)+".";
                         $reactions.answer(answer);
                         }
                     } else {
@@ -650,14 +649,7 @@ theme: /
                         $session.userName = $session.userName;
                         $client.name = $session.userName;
                         }
-                    
-            if: $client.name
-                script:
-                    //$reactions.answer($client.name);
-                    
-            if: $session.userName
-                script:
-                    //$reactions.answer($session.userName);
+            
             go!: /AskPhone    
             
         state: LocalCatchAll || noContext = true
