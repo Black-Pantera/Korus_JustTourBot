@@ -366,7 +366,6 @@ theme: /
                     $session.stateCounterInARow ++
                 
                 if: $session.stateCounterInARow < 3
-                    a: {{stateCounterInARow}}
                     random:
                         a: Извините, не совсем понял вас. Подскажите, вы выбрали страну для путешествия?
                         a: К сожалению, не понял вас. Вы выбрали страну для поездки?
