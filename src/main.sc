@@ -155,9 +155,9 @@ theme: /
                     
                     //$reactions.answer($parseTree._City.country);
                     
-                    //var pk = JSON.parse($caila.entitiesLookup(""+$parseTree._City.country+"", true).entities[0].value);
+                    var pk = JSON.parse($caila.entitiesLookup($parseTree._City.country, true).entities[0].value);
                    
-                    $reactions.answer(JSON.stringify(pk));
+                    $reactions.answer(pk.name);
                       
                     
                     $session.country = $parseTree._City.country;                    

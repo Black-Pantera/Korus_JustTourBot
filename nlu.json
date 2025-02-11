@@ -731,6 +731,25 @@
     } ]
   }, {
     "entity" : {
+      "name" : "CodeCounties",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "RU" ],
+      "value" : "{\n\"name\": \"Россия\"\n}"
+    } ]
+  }, {
+    "entity" : {
       "name" : "Countries",
       "enabled" : true,
       "shared" : false,
