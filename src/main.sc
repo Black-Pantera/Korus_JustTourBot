@@ -156,9 +156,7 @@ theme: /
                     if ($caila.entitiesLookup($parseTree._City.country, true) != null) {
                         if ($caila.entitiesLookup($parseTree._City.country, true).entities.length) {
                             var pk = JSON.parse($caila.entitiesLookup($parseTree._City.country, true).entities[0].value);
-                            if (pk != null) {
-                                $session.country = pk.name;
-                            }
+                            $session.country = pk.name;
                         } else {
                             $session.country = null;
                         }
@@ -300,12 +298,14 @@ theme: /
             script:
                 $session.stateCounter = 0;
                 $reactions.transition("/TellWeather/Error");
-        script:
-            if (($session.userHasTour === true) && $session.country) {
-                $reactions.transition("/SomethingElseForWeather");
-                } else {
-                    $reactions.transition("/OfferTour");
-                    }
+      
+        if:  $session.country
+            if: $session.userHasTour 
+                script:
+                    $reactions.transition("/SomethingElseForWeather");
+       else:  
+           go!: /OfferTour
+                    
                 
         state: Error
             script:
