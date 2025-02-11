@@ -159,11 +159,10 @@ theme: /
                             if (pk != null) {
                                 $session.country = pk.name;
                             }
+                        } else {
+                            $session.country = null;
                         }
                     }
-                    else {
-                        $session.country = null;
-                        }
                 }
                     
                 if ($parseTree["_duckling.date"])
