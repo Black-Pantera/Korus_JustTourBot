@@ -816,8 +816,21 @@ theme: /
             "Нет" -> /Confirmation/Disagree
             
         state: Agree
+            intent: /confirmationYes
             
         state: Disagree
+            intent: /confirmationNo
+            a: В таком случае, вы всегда можете вернуться к заполнению заявки повторно или связаться с нами по телефону 8 (812) 000-00-00.
+            script:
+                $session.country = null;
+                $session.numberOfPeople = null;
+                $session.startDate = null;
+                $session.endDate = null;
+                $session.services = null;
+                $session.userName = null;
+                $session.userComment = null;
+                $session.personalPrice = null;
+            go!: /SomethingElse
             
                 
     state: DontHaveQuestions
