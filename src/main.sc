@@ -344,7 +344,7 @@ theme: /
             q: * (да|хочу) *
             go: /TravelRequest
             
-        state: OfferTourNo
+        state: Disagree
             q: * (нет|не хочу) *
             a: Понял вас!
             script:
@@ -353,6 +353,14 @@ theme: /
                 $session.lat = null;
                 $session.lon = null;
             a: В таком случае, желаете узнать погоду в другом городе мира?
+            
+            state: DisagreeYes
+                q: * (да|хочу) *
+                go!: /WeatherForecast
+                
+            state: DisagreeNo
+                q: * (нет|не хочу) *
+                go!: /SomethingElse
             
         state: LocalCatchAll || noContext = true
             event: noMatch
