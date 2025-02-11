@@ -767,8 +767,17 @@ theme: /
     state: Confirmation
         script:
             $temp.confirmation = "Среди важных критериев подбора вы выделили: \n* Страна пребывания - "+ $session.country 
-            + " \n* Количество людей в поездке - "+$session.numberOfPeople +" "
-            + " \n* Приблизительная дата начала поездки - "+$session.numberOfPeople; 
+            + " \n- Количество людей в поездке - "+$session.numberOfPeople +" "
+            + " \n- Приблизительная дата начала поездки - "+$session.startDate + " "
+            + " \n- Приблизительная дата окончания поездки - "+$session.endDate + " "
+            + " \n- Желаемый пакет услулуг - "+$session.services + " "
+            + " \n- Комментарий для менеджера - "+$session.userComment + " ";
+            
+            if ($session.personalPrice) {
+                $temp.confirmation += " \n- Примерная стоимость тура - "+$session.personalPrice;
+                }
+            
+            $temp.confirmation += "."
             
             $reactions.answer($temp.confirmation);
             
