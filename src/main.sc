@@ -605,7 +605,7 @@ theme: /
                         $reactions.answer(randomAnswer);
                         $reactions.buttons([{ text: "Эконом", transition: "/AskServices/Package" },
                         {text: "Стандарт", transition: "/AskServices/Package"},
-                        {text: "VIP", transition: "/AskServices/Package"}])
+                        {text: "VIP", transition: "/AskServices/Package"}]);
                         }
             else:
                 script: 
@@ -765,6 +765,7 @@ theme: /
     
     state: Confirmation
         script:
+            $session.stateCounterInARow = 0;
             moment.lang('ru');
             var isImportant = false;
             $temp.confirmation = "Среди важных критериев подбора вы выделили:";
@@ -878,7 +879,6 @@ theme: /
             a: Ваша заявка успешно отправлена! Как только наш менеджер выберет самые подходящие для вас варианты, он обязательно с вами свяжется.
             go!: /GoodBye
            
-            
         state: Disagree
             intent: /confirmationNo
             a: В таком случае, вы всегда можете вернуться к заполнению заявки повторно или связаться с нами по телефону 8 (812) 000-00-00.
@@ -893,6 +893,36 @@ theme: /
                 $session.personalPrice = null;
             go!: /SomethingElse
             
+        state: LocalCatch || noContext = true
+            event: noMatch
+            script:
+                $session.stateCounterInARow ++
+                
+            if: $session.stateCounterInARow < 3
+                script:
+                    var answers = ["Извините, не совсем понял вас. Хотите отправить эту заявку?",
+                    "К сожалению, не смог понять вам. Отправляем эту заявку?"];
+                    var randomAnswer = answers[$reactions.random(answers.length)];
+                    $reactions.answer(randomAnswer);
+                    
+                    $reactions.buttons([{ text: "Да", transition: "/Confirmation/Agree" },
+                    {text: "Нет", transition: "/Confirmation/Disagree"}])
+                    
+            else:
+                script: 
+                    $session.stateCounterInARow = 0;
+                    $session.country = null;
+                    $session.numberOfPeople = null;
+                    $session.startDate = null;
+                    $session.endDate = null;
+                    $session.services = null;
+                    $session.userName = null;
+                    $session.userComment = null;
+                    $session.personalPrice = null;
+                    
+                    var answer = "К сожалению, так и не смог понять, что имелось в виду. Вы всегда можете вернуться к заполнению заявки повторно или связаться с нами по номеру 8 (812) 000-00-00.";
+                    $reactions.answer(answer);
+                    $reactions.transition("/SomethingElse");     
                 
     state: DontHaveQuestions
         q!: * вопросов нет *
