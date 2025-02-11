@@ -150,6 +150,13 @@ theme: /
                     $session.userCity = $parseTree._City.name;
                     $session.lon = $parseTree._City.lon;
                     $session.lat = $parseTree._City.lat;
+                    
+                    var ent = $caila.getEntity("Countries");
+                    
+                    $reactions.answer(JSON.stringify(ent));
+                    
+                    //var pk = JSON.parse($caila.entitiesLookup("эконом", true).entities[0].value);
+                    
                     $session.country = $parseTree._City.country;                    
                     }
                     

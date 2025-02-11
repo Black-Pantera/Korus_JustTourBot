@@ -843,6 +843,10 @@
       "type" : "synonyms",
       "rule" : [ "Бермуды" ],
       "value" : "{\"name\":\"Бермуды\",\"english\":\"Bermuda\",\"alpha2\":\"BM\",\"alpha3\":\"BMU\",\"iso\":\"60\",\"location\":\"Америка\",\"location-precise\":\"Северная Америка\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Россия", "Российская Федерация" ],
+      "value" : "{\n  \"name\": \"Россия\",\n  \"english\": \";Russian Federation\",\n  \"alpha2\": \"RU\",\n  \"alpha3\": \"RUS\",\n  \"iso\": \"646\",\n  \"location\": \"Европа\",\n  \"location-precise\": \"Восточная Европа\"\n}"
     } ]
   }, {
     "entity" : {
