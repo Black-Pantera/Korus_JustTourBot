@@ -145,7 +145,7 @@ theme: /
         state: UserCity
             q: * $City *
             script:
-                log("///////// MY LOG "+toPrettyString($parseTree));
+                log("!!!  MY LOG "+toPrettyString($parseTree));
                 
                 $session.stateCounterInARow = 0;
                 if ($parseTree._City) {
