@@ -808,7 +808,7 @@ theme: /
                 }  
             
             if ($session.personalPrice) {
-                $temp.confirmation += " \n- Примерная стоимость тура - "+$session.personalPrice;
+                $temp.confirmation += " \n- Примерная стоимость тура - "+numberWithCommas($session.personalPrice);
                 isImportant = true;
                 }
             
