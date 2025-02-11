@@ -25,13 +25,13 @@ theme: /
         
         bind("postProcess", function($context) {
             $context.session.lastState = $context.currentState;
-            
             if (context.request.channelType === "telegram") {
                 _.each(context.response.replies, function(reply) {
                     if (reply.type === "text") {
                         reply.markup = "markdown";
                     }
             }
+            
         });
 
     state: Start
