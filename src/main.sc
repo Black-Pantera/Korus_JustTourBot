@@ -766,6 +766,8 @@ theme: /
     state: Confirmation
         script:
             $session.stateCounterInARow = 0;
+            $session.stateCounter = 0;
+            
             moment.lang('ru');
             var isImportant = false;
             $temp.confirmation = "Среди важных критериев подбора вы выделили:";
@@ -859,6 +861,9 @@ theme: /
             
                 message += ".</i>";
                 $reactions.answer(message);
+                
+                 $reactions.transition("/Confirmation/Agree/Error"); 
+                 
                 /*
                 $temp.mailResult = $mail.send({
                     smtpHost: $env.get("smtpHost"),,
@@ -878,7 +883,31 @@ theme: /
                 */
             a: Ваша заявка успешно отправлена! Как только наш менеджер выберет самые подходящие для вас варианты, он обязательно с вами свяжется.
             go!: /GoodBye
-           
+                                            
+            state: Error
+                script:
+                    $session.stateCounter ++;
+                    
+                if: $session.stateCounter < 3
+                    go!: /Confirmation/Agree
+                else
+                    script:
+                        $session.stateCounter = 0;
+                        $session.stateCounterInARow = 0;
+                        $session.country = null;
+                        $session.numberOfPeople = null;
+                        $session.startDate = null;
+                        $session.endDate = null;
+                        $session.services = null;
+                        $session.userName = null;
+                        $session.userComment = null;
+                        $session.personalPrice = null;
+                        
+                        var answer = "К сожалению, произошла техническая ошибка при обращении к сервису хранения заявок. Пожалуйста, позвоните по вопросу подбора путевки нам в Just Tour по номеру 8 (812) 000-00-00.";
+                        $reactions.answer(answer);
+                        $reactions.transition("/SomethingElse");   
+                        
+                    
         state: Disagree
             intent: /confirmationNo
             a: В таком случае, вы всегда можете вернуться к заполнению заявки повторно или связаться с нами по телефону 8 (812) 000-00-00.
