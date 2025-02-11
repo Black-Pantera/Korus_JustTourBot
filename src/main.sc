@@ -717,6 +717,11 @@ theme: /
             q: * @duckling.phone-number *
             q: * {мой номер * * @duckling.phone-number} *
             script:
+                if ($parseTree["_duckling.phone-number"]) {
+                    $client.phone_number = $parseTree["_duckling.phone-number"];
+                    $reactions.transition("/AskComment");  
+                    }
+
                 $client.phone_number = $request.rawRequest.message.contact.phone_number;
             go!: /AskComment
             
