@@ -151,14 +151,14 @@ theme: /
                     $session.lon = $parseTree._City.lon;
                     $session.lat = $parseTree._City.lat;
                     
-                    var ent = $caila.getEntity("Countries");
+                    //var ent = $caila.getEntity("Countries");
                     
-                    //$reactions.answer(JSON.stringify(ent));
+                    $reactions.answer($parseTree._City.country);
                     
                     var pk = JSON.parse($caila.entitiesLookup($parseTree._City.country, true).entities[0].value);
-                    if (pk) {
-                        $reactions.answer(JSON.stringify(pk));
-                        }
+                   
+                    $reactions.answer(JSON.stringify(pk));
+                      
                     
                     $session.country = $parseTree._City.country;                    
                     }
