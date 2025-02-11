@@ -19,7 +19,7 @@ theme: /
             ];
             var randomAnswer = answers[$reactions.random(answers.length)];
             $reactions.answer(randomAnswer);
-            
+            log("!!!  MY LOG "+toPrettyString($parseTree));
             $reactions.buttons({ text: "В главное меню", transition: "/Start" })
         }); 
         
