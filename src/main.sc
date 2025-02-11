@@ -766,7 +766,7 @@ theme: /
     
     state: Confirmation
         script:
-            $temp.confirmation = "Среди важных критериев подбора вы выделили: \n* Страна пребывания - "+ $session.country 
+            $temp.confirmation = "Среди важных критериев подбора вы выделили: \n- Страна пребывания - "+ $session.country 
             + " \n- Количество людей в поездке - "+$session.numberOfPeople +" "
             + " \n- Приблизительная дата начала поездки - "+$session.startDate + " "
             + " \n- Приблизительная дата окончания поездки - "+$session.endDate + " "
