@@ -135,8 +135,7 @@ theme: /
                         }
                     else 
                         $reactions.transition("/GetCity");
-                        
-        
+    
     state: GetCity
         random:
             a: Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.
@@ -289,7 +288,12 @@ theme: /
             script:
                 $session.stateCounter = 0;
                 $reactions.transition("/TellWeather/Error");
-                
+        script:
+            if($session.userHasTour === true) {
+                $reactions.transition("/SomethingElseForWeather");
+                } else {
+                    $reactions.transition("/OfferTour");
+                    }
                 
         state: Error
             script:
@@ -306,6 +310,38 @@ theme: /
                     $session.lat = null;
                     $session.lon = null;
                 go!: /SomethingElse
+                
+    state: SomethingElseForWeather
+        random:
+            a: Хотите спросить что-то ещё?
+            a: Могу ли я помочь чем-то ещё?
+            a: Подскажите, у вас остались ещё вопросы?
+        buttons:
+            "Узнать прогноз с другими параметрами" -> /WeatherForecast
+            "Оформить заявку на подбор тура" -> /TravelRequest
+        
+    state: OfferTour
+        random:
+            a: Хотите оставить заявку на подбор тура в {{$nlp.inflect($session.country, "accs")}}?
+            a: Можем составить заявку на подбор идеального тура в {{$nlp.inflect($session.country, "accs")}}. Хотите?
+            
+        state: OfferTourYes
+            q: (да|хочу)
+            go: /TravelRequest
+            
+        state: OfferTourNo
+            q: (нет|не хочу)
+            a: Понял вас!
+            script:
+                $session.userCity = null;
+                $session.userDate = null;
+                $session.lat = null;
+                $session.lon = null;
+            a: В таком случае, желаете узнать погоду в другом городе мира?
+            
+        state: LocalCatchAll || noContext = true
+            event: noMatch
+           
                
     state: TravelRequest
         intent!: /tour
@@ -611,7 +647,6 @@ theme: /
                     $reactions.answer(answer);
                     $reactions.transition("/SomethingElse");
             
-    
     state: AskName
         if: $client.name
             script:
@@ -859,6 +894,8 @@ theme: /
                 message += ".</i>";
                 $reactions.answer(message);
                 
+                $session.userHasTour = true;
+                
                 /*
                 $temp.mailResult = $mail.send({
                     smtpHost: $env.get("smtpHost"),,
@@ -876,14 +913,16 @@ theme: /
                 else:
                     a: Извините, у меня не получилось отправить email.
                    
-                if ($temp.mailResult.status === "OK") {    
+                if ($temp.mailResult.status === "OK") {
+                    $session.userHasTour = true;
                     $reactions.answer("Ваша заявка успешно отправлена! Как только наш менеджер выберет самые подходящие для вас варианты, он обязательно с вами свяжется.");
                     $reactions.transition("/GoodBye");    
                 }
+                else {
+                $reactions.transition("/Confirmation/Agree/Error"); 
+                }
                 */
                 
-                 $reactions.transition("/Confirmation/Agree/Error"); 
-           
             state: Error
                 script:
                     $session.stateCounter ++;
