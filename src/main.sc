@@ -286,7 +286,7 @@ theme: /
             $temp.userFormatDate = moment($session.userDate).format('LL');
         if: $temp.response.isOk
             random:
-                a: У меня получилось уточнить: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "$session.country"))}} температура воздуха составит {{ Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp)) }} по Цельсию.
+                a: У меня получилось уточнить: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} температура воздуха составит {{ Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp)) }} по Цельсию.
                 a: Смог узнать для вас прогноз: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} будет {{Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp))}} по Цельсию.
         else:
             script:
@@ -327,8 +327,8 @@ theme: /
     state: OfferTour
         a: {{ $session.country }}
         random:
-            a: Хотите оставить заявку на подбор тура в {{ $nlp.inflect($session.country, "accs") }}?
-            a: Можем составить заявку на подбор идеального тура в {{ $nlp.inflect($session.country, "accs") }}. Хотите?
+            a: Хотите оставить заявку на подбор тура в {{ capitalize($nlp.inflect($session.country, "accs")) }}?
+            a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
             
         state: OfferTourYes
             q: (да|хочу)
