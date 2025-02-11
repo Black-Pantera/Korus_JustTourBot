@@ -25,6 +25,7 @@ theme: /
         
         bind("postProcess", function($context) {
             $context.session.lastState = $context.currentState;
+            
             if (context.request.channelType === "telegram") {
                 context.response.replies.forEach(function(reply) {
                     if (reply.type === "text") {
@@ -32,7 +33,6 @@ theme: /
                     }
                 });
             }
-            
         });
 
     state: Start
