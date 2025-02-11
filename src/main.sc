@@ -817,6 +817,58 @@ theme: /
             
         state: Agree
             intent: /confirmationYes
+            script: 
+                var message = "ПриветствуюД! \n"+
+                "Это автоматически отправленное ботом Артуром письмо о новой заявке на подбор тура.";
+                
+                if ($client.name) {
+                    message += "\n - <i>Имя клиента: "+$client.name+"</i>";
+                    } else {
+                        message += "\n - <i>Имя клиента: <i>"+$session.userName+"</i>";
+                        }
+                
+                if ($session.country != "Не указано") {
+                    message += " \n- <i>Желаемая страна пребывания: "+ $session.country+"</i>";
+                   
+                }
+            
+                if ($session.numberOfPeople != "Не указано") {
+                    message += " \n- <i>Количество людей в поездке: "+$session.numberOfPeople+"</i>";
+                }
+            
+                if ($session.startDate != "Не указано") {
+                    message += " \n- <i>Приблизительная дата начала поездки: "+ moment($session.startDate).format('LL')+"</i>";
+                }
+           
+                if ($session.endDate != "Не указано") {
+                    message += " \n- <i>Приблизительная дата окончания поездки: "+ moment($session.endDate).format('LL')+"</i>";
+                }
+            
+                if ($session.services != "Не указано") {
+                    message += " \n- <i>Желаемый пакет услулуг: "+ $session.services+"</i>";
+                } 
+                
+                if ($session.userComment != "Не указано") {
+                    message += " \n- <i>Комментарий клиента: \""+$session.userComment + "\""+"</i>";
+                }  
+            
+                if ($session.personalPrice) {
+                    message += " \n- <i>Примерная стоимость тура: "+numberWithCommas($session.personalPrice)+"</i>";
+                }
+            
+                $reactions.answer(message);
+                /*
+                $temp.mailResult = $mail.send({
+                    smtpHost: $env.get("smtpHost"),,
+                    smtpPort: $env.get("smtpPort"),
+                    user: $env.get("smtpUser"),
+                    password: $secrets.get("smtpPassword"),
+                    from: "bot@just-ai.com",
+                    to: "LKozina@korusconsulting.ru",
+                    subject: "Согласие на обработку персональных данных",
+                    content: "Здравствуйте! Заполненное согласие во вложении, а также доступно по <a href=\"" + $session.fileUrl + "\">ссылке</a>."
+                });
+                */
             
         state: Disagree
             intent: /confirmationNo
