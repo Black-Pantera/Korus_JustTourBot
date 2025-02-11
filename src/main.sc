@@ -303,8 +303,8 @@ theme: /
             if: $session.userHasTour 
                 script:
                     $reactions.transition("/SomethingElseForWeather");
-       else:  
-           go!: /OfferTour
+        else:  
+            go!: /OfferTour
                     
                 
         state: Error
