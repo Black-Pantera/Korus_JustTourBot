@@ -321,7 +321,7 @@ theme: /
             "Оформить заявку на подбор тура" -> /TravelRequest
         
     state: OfferTour
-        a: $session.country
+        a: {{ $session.country }}
         random:
             a: Хотите оставить заявку на подбор тура в {{ $nlp.inflect($session.country, "accs") }}?
             a: Можем составить заявку на подбор идеального тура в {{ $nlp.inflect($session.country, "accs") }}. Хотите?
