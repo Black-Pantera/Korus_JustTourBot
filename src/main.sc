@@ -395,7 +395,7 @@ theme: /
             q: * @duckling.number *
             q: * только я *
             script:
-                
+                log("!!! MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_duckling.number"] > 0) {
                     $session.numberOfPeople = $parseTree["_duckling.number"];
                     $reactions.transition("/AskStartDate");
