@@ -338,7 +338,7 @@ theme: /
                 a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь, давайте перейдем к указанию оставшихся параметров.    
                 go!: /AskNumberOfPeople
                     
-            state: LocalCatchAll
+            state: LocalCatchAll || noContext = true
                 event: noMatch
                 script:
                     $session.stateCounter ++;
