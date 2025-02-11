@@ -26,13 +26,13 @@ theme: /
         bind("postProcess", function($context) {
             $context.session.lastState = $context.currentState;
             
-            if (context.request.channelType === "telegram") {
+           /* if (context.request.channelType === "telegram") {
                 context.response.replies.forEach(function(reply) {
                     if (reply.type === "text") {
                         reply.markup = "markdown";
                     }
                 });
-            }
+            }*/
         });
 
     state: Start
@@ -764,7 +764,7 @@ theme: /
         script:
             $temp.confirmation = "Среди важных критериев подбора вы выделили: \n* Страна пребывания - "+ $session.country 
             + " \n* Количество людей в поездке - "+$session.numberOfPeople +" "
-            + " \n* Приблизительная дата начала поездки - "+$session.numberOfPeople 
+            + " \n* Приблизительная дата начала поездки - "+$session.numberOfPeople; 
             
             $reactions.answer($temp.confirmation);
             
