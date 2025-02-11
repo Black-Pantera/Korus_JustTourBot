@@ -394,6 +394,7 @@ theme: /
         
         state: Number
             q: * @duckling.number *
+            q: * только я *
             script:
                 if ($parseTree["_duckling.number"] > 0) {
                     $session.numberOfPeople = $parseTree["_duckling.number"];
