@@ -31,7 +31,7 @@ theme: /
                     if (reply.type === "text") {
                         reply.markup = "markdown";
                     }
-            });
+            }
         });
 
     state: Start
