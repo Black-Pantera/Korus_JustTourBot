@@ -818,44 +818,45 @@ theme: /
         state: Agree
             intent: /confirmationYes
             script: 
-                var message = "ПриветствуюД! \n"+
+                var message = "<i>Приветствую! \n"+
                 "Это автоматически отправленное ботом Артуром письмо о новой заявке на подбор тура.";
                 
                 if ($client.name) {
-                    message += "\n - <i>Имя клиента: "+$client.name+"</i>";
+                    message += "\n - Имя клиента: "+$client.name;
                     } else {
-                        message += "\n - <i>Имя клиента: <i>"+$session.userName+"</i>";
+                        message += "\n - Имя клиента: <i>"+$session.userName;
                         }
                 
                 if ($session.country != "Не указано") {
-                    message += " \n- <i>Желаемая страна пребывания: "+ $session.country+"</i>";
+                    message += " \n- Желаемая страна пребывания: "+ $session.country;
                    
                 }
             
                 if ($session.numberOfPeople != "Не указано") {
-                    message += " \n- <i>Количество людей в поездке: "+$session.numberOfPeople+"</i>";
+                    message += " \n- Количество людей в поездке: "+$session.numberOfPeople;
                 }
             
                 if ($session.startDate != "Не указано") {
-                    message += " \n- <i>Приблизительная дата начала поездки: "+ moment($session.startDate).format('LL')+"</i>";
+                    message += " \n- Приблизительная дата начала поездки: "+ moment($session.startDate).format('LL');
                 }
            
                 if ($session.endDate != "Не указано") {
-                    message += " \n- <i>Приблизительная дата окончания поездки: "+ moment($session.endDate).format('LL')+"</i>";
+                    message += " \n- Приблизительная дата окончания поездки: "+ moment($session.endDate).format('LL');
                 }
             
                 if ($session.services != "Не указано") {
-                    message += " \n- <i>Желаемый пакет услулуг: "+ $session.services+"</i>";
+                    message += " \n- Желаемый пакет услулуг: "+ $session.services;
                 } 
                 
                 if ($session.userComment != "Не указано") {
-                    message += " \n- <i>Комментарий клиента: \""+$session.userComment + "\""+"</i>";
+                    message += " \n- Комментарий клиента: \""+$session.userComment + "\"";
                 }  
             
                 if ($session.personalPrice) {
-                    message += " \n- <i>Примерная стоимость тура: "+numberWithCommas($session.personalPrice)+"</i>";
+                    message += " \n- Примерная стоимость тура: "+numberWithCommas($session.personalPrice);
                 }
             
+                message += ".</i>";
                 $reactions.answer(message);
                 /*
                 $temp.mailResult = $mail.send({
