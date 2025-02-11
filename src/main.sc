@@ -395,7 +395,6 @@ theme: /
             q: * @duckling.number *
             q: * только я *
             script:
-                log("!!! MY LOG "+toPrettyString($parseTree));
                 if ($parseTree["_duckling.number"] > 0)  {
                     $session.numberOfPeople = $parseTree["_duckling.number"];
                     $reactions.transition("/AskStartDate");
@@ -774,21 +773,58 @@ theme: /
     
     state: Confirmation
         script:
-            $temp.confirmation = "Среди важных критериев подбора вы выделили: \n- Страна пребывания - "+ $session.country 
-            + " \n- Количество людей в поездке - "+$session.numberOfPeople +" "
-            + " \n- Приблизительная дата начала поездки - "+$session.startDate + " "
-            + " \n- Приблизительная дата окончания поездки - "+$session.endDate + " "
-            + " \n- Желаемый пакет услулуг - "+$session.services + " "
-            + " \n- Комментарий для менеджера - "+$session.userComment + " ";
+            moment.lang('ru');
+            var isImportant = false;
+            $temp.confirmation = "Среди важных критериев подбора вы выделили:";
+            
+            if ($session.country != "Не указано") {
+                $temp.confirmation += " \n- Страна пребывания - "+ $session.country;
+                isImportant = true;
+                }
+            
+            if ($session.numberOfPeople != "Не указано") {
+                $temp.confirmation += " \n- Количество людей в поездке - "+$session.numberOfPeople;
+                isImportant = true;
+                }
+            
+            if ($session.startDate != "Не указано") {
+                $temp.confirmation += " \n- Приблизительная дата начала поездки - "+ moment($session.startDate).format('LL');
+                isImportant = true;
+                }
+           
+            if ($session.endDate != "Не указано") {
+                $temp.confirmation += " \n- Приблизительная дата начала поездки - "+ moment($session.endDate).format('LL');
+                isImportant = true;
+                }
+            
+            if ($session.services != "Не указано") {
+                $temp.confirmation += " \n- Желаемый пакет услулуг - "+ $session.services;
+                isImportant = true;
+                } 
+                
+            if ($session.userComment != "Не указано") {
+                $temp.confirmation += " \n- Комментарий для менеджера - \""+$session.userComment + "\"";
+                isImportant = true;
+                }  
             
             if ($session.personalPrice) {
                 $temp.confirmation += " \n- Примерная стоимость тура - "+$session.personalPrice;
+                isImportant = true;
                 }
             
             $temp.confirmation += "."
-            
-            $reactions.answer($temp.confirmation);
+            if (isImportant) {
+                $reactions.answer($temp.confirmation);
+                }
             $reactions.answer("Подскажите, вы готовы отправить заявку?");
+        buttons:
+            "Да" -> /Confirmation/Agree
+            "Нет" -> /Confirmation/Disagree
+            
+        state: Agree
+            
+        state: Disagree
+            
                 
     state: DontHaveQuestions
         q!: * вопросов нет *
