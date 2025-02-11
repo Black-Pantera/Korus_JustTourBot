@@ -714,6 +714,8 @@ theme: /
                 
         state: Phone
             event: telegramSendContact
+            q: * @duckling.phone-number *
+            q: *мой номер * * @duckling.phone-number *
             script:
                 $client.phone_number = $request.rawRequest.message.contact.phone_number;
             go!: /AskComment
