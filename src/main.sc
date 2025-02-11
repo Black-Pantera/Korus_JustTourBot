@@ -341,11 +341,11 @@ theme: /
             a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
             
         state: OfferTourYes
-            q: (да|хочу)
+            q: * (да|хочу) *
             go: /TravelRequest
             
         state: OfferTourNo
-            q: (нет|не хочу)
+            q: * (нет|не хочу) *
             a: Понял вас!
             script:
                 $session.userCity = null;
