@@ -309,6 +309,7 @@ theme: /
             a: Рад помочь с оформлением запроса на подбор тура. Как только мы заполним заявку, наш специалист свяжется с вами, чтобы предложить наиболее подходящие варианты путешествий.
         script:
             $session.stateCounterInARow = 0;
+            $session.stateCounter = 0;
         
         if: $session.country
             go!: /AskNumberOfPeople
@@ -340,15 +341,15 @@ theme: /
             state: LocalCatchAll
                 event: noMatch
                 script:
-                    $session.stateCounterInARow ++
+                    $session.stateCounter ++;
                 
-                if: $session.stateCounterInARow < 3
+                if: $session.stateCounter < 3
                     random:
                         a: Извините, не совсем понял вас. Назовите, пожалуйста, нужную вам страну.
                         a: К сожалению, не понял вас. Введите название страны для поездки.
                 else:
                     script:
-                        $session.stateCounterInARow = 0
+                        $session.stateCounter = 0
                         $session.country = "Не указано";
                     a: Простите! Так и не получилось вас понять. Когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
                     go!: /AskNumberOfPeople
