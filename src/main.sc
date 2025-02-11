@@ -286,13 +286,12 @@ theme: /
                 a: У меня получилось уточнить: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} температура воздуха составит {{ Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp)) }} по Цельсию.
                 a: Смог узнать для вас прогноз: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} будет {{Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp))}} по Цельсию.
         else:
-            a: У меня не получилось узнать погоду. Попробуйте ещё раз.
             script:
                 $session.stateCounter = 0;
+                $reactions.transition("/TellWeather/Error");
+                
                 
         state: Error
-            event: noMatch
-            
             script:
                 $session.stateCounter++
                 
@@ -306,8 +305,6 @@ theme: /
                     $session.userCity = null;
                     $session.lat = null;
                     $session.lon = null;
-                    $session.country = null;
-                    
                 go!: /SomethingElse
                
     state: TravelRequest
