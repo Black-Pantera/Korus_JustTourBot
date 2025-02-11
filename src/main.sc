@@ -622,10 +622,9 @@ theme: /
                     var answer = "С параметрами заявки почти закончили! Осталось указать контакты, чтобы менеджер смог связаться с вами.";
                     $reactions.answer(answer);
                 }
-                else {
-                    var answer = "Введите, пожалуйста, ваше имя.";
-                    $reactions.answer(answer);
-                    }
+                
+                var answer = "Введите, пожалуйста, ваше имя.";
+                $reactions.answer(answer);
         script:
             $session.stateCounterInARow = 0;
                     
@@ -762,7 +761,12 @@ theme: /
     
     state: Confirmation
         script:
-            $temp.confirmation = "Среди важных критериев подбора вы выделили: "
+            $temp.confirmation = "Среди важных критериев подбора вы выделили: \n* Страна пребывания - "+ $session.country 
+            + " \n* Количество людей в поездке - "+$session.numberOfPeople +" "
+            + " \n* Приблизительная дата начала поездки - "+$session.numberOfPeople 
+            
+            $reactions.answer($temp.confirmation);
+            
                 
     state: DontHaveQuestions
         q!: * вопросов нет *
