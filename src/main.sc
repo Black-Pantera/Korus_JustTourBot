@@ -721,10 +721,11 @@ theme: /
                     $client.phone_number = $parseTree["_duckling.phone-number"];
                     $reactions.transition("/AskComment");  
                     }
-
-                $client.phone_number = $request.rawRequest.message.contact.phone_number;
-            go!: /AskComment
-            
+                else {
+                    $client.phone_number = $request.rawRequest.message.contact.phone_number;
+                    $reactions.transition("/AskComment");  
+                    }
+                    
         state: LocalCatch || noContext = true
             event: noMatch
             intent: /незнаем
