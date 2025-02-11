@@ -12,31 +12,6 @@ function DatesDiff(date1, date2) {
    return diffDays;
 }
 
-function GetDegree(g) {
-    if (g < -4) return "градусов";
-    if (g > 4) return "градусов";
-    
-    switch (g) {
-        case 0:
-            return "градусов";
-            break;
-        case -1:     
-        case 1: 
-            return "градус";
-            break;
-        case -2: 
-        case 2: 
-        case -3: 
-        case 3: 
-        case -4: 
-        case 4: 
-            return "градуса";
-            break;
-        default:
-           return "градусов";
-    }
-}
-
 function addDays(date, days) {
     var dt = new Date(date);
     var newDate = new Date(dt.getTime() + days * 24 * 60 * 60 * 1000);
