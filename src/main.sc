@@ -400,7 +400,7 @@ theme: /
                     $session.numberOfPeople = $parseTree["_duckling.number"];
                     $reactions.transition("/AskStartDate");
                 } 
-                if ($parseTree["pattern"]) {
+                else if ($parseTree["pattern"]) {
                     $session.numberOfPeople = 1;
                     $reactions.transition("/AskStartDate");
                     }
