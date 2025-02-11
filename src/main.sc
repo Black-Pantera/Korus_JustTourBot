@@ -301,12 +301,12 @@ theme: /
       
         if: $session.country
             if: $session.userHasTour 
-                script:
-                    $reactions.transition("/SomethingElseForWeather");
-            else:  
+                go!: /SomethingElseForWeather
+            else:
                 go!: /OfferTour
+                
         else:  
-            go!: /OfferTour
+            go!: /SomethingElseForWeather
                     
                 
         state: Error
