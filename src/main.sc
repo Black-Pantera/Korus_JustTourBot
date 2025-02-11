@@ -780,7 +780,7 @@ theme: /
             $temp.confirmation += "."
             
             $reactions.answer($temp.confirmation);
-            
+            $reactions.answer("Подскажите, вы готовы отправить заявку?");
                 
     state: DontHaveQuestions
         q!: * вопросов нет *
