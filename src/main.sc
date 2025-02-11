@@ -731,16 +731,22 @@ theme: /
                     $reactions.answer(answer);
                     $reactions.transition("/SomethingElse");      
             
-            
-        
     state: AskComment
         a: Теперь напишите комментарий для менеджера, если это требуется.
         buttons:
-            "Не нужно" -> /AskComment/Comment
+            "Не нужно" -> /AskComment/Disagree
             
         state: Comment
+            event: noMatch
             script:
                 $session.userComment = $request.query;
+                
+        state: Disagree
+            intent: /незнаем
+            intent: /неХочуУказывать
+            intent: /зачем
+            q: * нет *
+            
                 
     state: DontHaveQuestions
         q!: * вопросов нет *
