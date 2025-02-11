@@ -813,10 +813,14 @@ theme: /
                 }
             
             $temp.confirmation += "."
+            
             if (isImportant) {
                 $reactions.answer($temp.confirmation);
                 }
+                
             $reactions.answer("Подскажите, вы готовы отправить заявку?");
+            
+        a: Подскажите, вы готовы отправить заявку?
         buttons:
             "Да" -> /Confirmation/Agree
             "Нет" -> /Confirmation/Disagree
