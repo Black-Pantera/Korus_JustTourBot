@@ -740,12 +740,16 @@ theme: /
             event: noMatch
             script:
                 $session.userComment = $request.query;
+            go!: /Confirmation
                 
         state: Disagree
             intent: /незнаем
             intent: /неХочуУказывать
             intent: /зачем
             q: * нет *
+            script:
+                $session.userComment = "Не указано";
+            go!: /Confirmation
             
                 
     state: DontHaveQuestions
