@@ -862,8 +862,6 @@ theme: /
                 message += ".</i>";
                 $reactions.answer(message);
                 
-                 $reactions.transition("/Confirmation/Agree/Error"); 
-                 
                 /*
                 $temp.mailResult = $mail.send({
                     smtpHost: $env.get("smtpHost"),,
@@ -880,10 +878,15 @@ theme: /
                     a: Согласие успешно отправлено менеджеру.
                 else:
                     a: Извините, у меня не получилось отправить email.
+                   
+                if ($temp.mailResult.status === "OK") {    
+                    $reactions.answer("Ваша заявка успешно отправлена! Как только наш менеджер выберет самые подходящие для вас варианты, он обязательно с вами свяжется.");
+                    $reactions.transition("/GoodBye");    
+                }
                 */
-            a: Ваша заявка успешно отправлена! Как только наш менеджер выберет самые подходящие для вас варианты, он обязательно с вами свяжется.
-            go!: /GoodBye
-                                            
+                
+                 $reactions.transition("/Confirmation/Agree/Error"); 
+           
             state: Error
                 script:
                     $session.stateCounter ++;
