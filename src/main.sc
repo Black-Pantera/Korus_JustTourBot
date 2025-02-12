@@ -921,7 +921,7 @@ theme: /
                 $temp.mailResult = $mail.send({
                     smtpHost: "smtp.mail.ru",
                     smtpPort: "465",
-                    user: "Larius77@mail.ru",
+                    user: "larius77@mail.ru",
                     password: "LoraBelka93",
                     from: "bot@just-ai.com",
                     to: "Larius77@mail.ru",
