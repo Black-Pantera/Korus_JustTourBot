@@ -293,7 +293,7 @@ theme: /
             moment.lang('ru');
             $temp.userFormatDate = moment($session.userDate).format('LL');
             
-            $reactions.answer($session.userHasTour);
+            //$reactions.answer($session.userHasTour);
             
         if: $temp.response.isOk
             random:
