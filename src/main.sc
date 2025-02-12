@@ -923,7 +923,7 @@ theme: /
                     smtpPort: "465",
                     user: "larius77@mail.ru",
                     password: "DnfyntvBvn9ptQKee7Gu",
-                    from: "bot@just-ai.com",
+                    from: "Larius77@mail.ru",
                     to: ["Larius77@mail.ru"],
                     subject: "Оформление тура",
                     content: message
