@@ -385,7 +385,7 @@ theme: /
             a: Подскажите, вы уже определились с страной прибытия?
             
         state: Agree
-            q: * CodeCounties *
+            q: * @CodeCounties *
             q: * (да|ага|yes|ога) *
             script: 
                 $session.stateCounterInARow = 0;
@@ -400,7 +400,7 @@ theme: /
                 a: Введите название страны
                     
             state: Country
-                q: * CodeCounties *
+                q: * @CodeCounties *
                 script: 
                     $session.country = $parseTree._CodeCounties.name;  
                 a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь, давайте перейдем к указанию оставшихся параметров.    
