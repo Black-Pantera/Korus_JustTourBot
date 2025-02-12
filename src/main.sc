@@ -914,10 +914,9 @@ theme: /
                 }
             
                 message += ".</i>";
-                $reactions.answer(message);
+                //$reactions.answer(message);
                 
                 $session.userHasTour = true;
-                
                 
                 $temp.mailResult = $mail.send({
                     smtpHost: "smtp.mail.ru",
