@@ -745,7 +745,7 @@
     },
     "records" : [ {
       "type" : "synonyms",
-      "rule" : [ "Россия", "RU" ],
+      "rule" : [ "RU" ],
       "value" : "{\n  \"name\": \"Россия\"\n}"
     } ]
   }, {
