@@ -237,7 +237,10 @@ theme: /
                 else if (DatesDiff(userDate, date) > 5) {
                     $session.stateCounter = 0;
                     $reactions.transition("/ThisDayIsNotComingSoon");
-                    } else $reactions.transition("/TellWeather");
+                    } else { 
+                        $session.stateCounter = 0;
+                        $reactions.transition("/TellWeather") 
+                        };
         
     state: ThisDayHasPassed
         script:
@@ -301,7 +304,6 @@ theme: /
                 a: Смог узнать для вас прогноз: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} будет {{Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp))}} по Цельсию.
         else:
             script:
-                $session.stateCounter = 0;
                 $reactions.transition("/TellWeather/Error");
                 
       
