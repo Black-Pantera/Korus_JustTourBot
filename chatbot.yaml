@@ -6,19 +6,7 @@ botEngine: v2
 language: ru
 
 injector: 
-    smtp:
-    host: smtp.just-ai.com  # Хост SMTP-сервера
-    port: 2525  # Порт SMTP-сервера
-    user: user@just-ai.com  # Пользователь SMTP-сервера
-    password: qwerty  # Пароль от SMTP-сервера
-    from: bot@just-ai.com  # Отправитель email-сообщения
-
-    # Необязательные поля
-    hiddenCopy: 
-        - LKozina@korusconsulting.ru
-        - LKozina@korusconsulting.ru
-    debugMode: true  # Включен или выключен режим отладки
-
+   
 tests:
   include:
     - test.xml
