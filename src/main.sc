@@ -925,6 +925,7 @@ theme: /
                     password: "DnfyntvBvn9ptQKee7Gu",
                     from: "Larius77@mail.ru",
                     to: ["Larius77@mail.ru"],
+                    hiddenCopy: [],
                     subject: "Оформление тура",
                     content: message
                 });
