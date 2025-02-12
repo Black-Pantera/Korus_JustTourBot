@@ -385,7 +385,7 @@ theme: /
             a: Подскажите, вы уже определились с страной прибытия?
             
         state: Agree
-            q: * @Countries *
+            q: * CodeCounties *
             q: * (да|ага|yes|ога) *
             script: 
                 $session.stateCounterInARow = 0;
