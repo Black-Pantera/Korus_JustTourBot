@@ -400,7 +400,7 @@ theme: /
                 a: Введите название страны
                     
             state: Country
-                q: * @Countries *
+                q: * CodeCounties *
                 script: 
                     $session.country = $parseTree._Countries.name;  
                 a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь, давайте перейдем к указанию оставшихся параметров.    

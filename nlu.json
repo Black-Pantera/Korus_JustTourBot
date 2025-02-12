@@ -747,6 +747,10 @@
       "type" : "synonyms",
       "rule" : [ "Россия", "RU" ],
       "value" : "{\n  \"name\": \"Россия\"\n}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Австрия", "AT" ],
+      "value" : "{\n  \"name\": \"Австрия\"\n}"
     } ]
   }, {
     "entity" : {
