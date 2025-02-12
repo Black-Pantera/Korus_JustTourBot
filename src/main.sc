@@ -922,7 +922,7 @@ theme: /
                     smtpHost: "smtp.mail.ru",
                     smtpPort: "465",
                     user: "larius77@mail.ru",
-                    password: "LoraBelka93",
+                    password: "DnfyntvBvn9ptQKee7Gu",
                     from: "bot@just-ai.com",
                     to: ["Larius77@mail.ru"],
                     subject: "Оформление тура",
