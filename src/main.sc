@@ -918,16 +918,16 @@ theme: /
                 
                 $session.userHasTour = true;
                 
-                /*
+                
                 $temp.mailResult = $mail.send({
-                    smtpHost: $env.get("smtpHost"),,
-                    smtpPort: $env.get("smtpPort"),
-                    user: $env.get("smtpUser"),
-                    password: $secrets.get("smtpPassword"),
+                    smtpHost: "smtp.mail.ru",
+                    smtpPort: "465",
+                    user: "Larius77@mail.ru",
+                    password: "LoraBelka93",
                     from: "bot@just-ai.com",
-                    to: "LKozina@korusconsulting.ru",
-                    subject: "Согласие на обработку персональных данных",
-                    content: "Здравствуйте! Заполненное согласие во вложении, а также доступно по <a href=\"" + $session.fileUrl + "\">ссылке</a>."
+                    to: "Larius77@mail.ru",
+                    subject: "Оформление тура",
+                    content: message
                 });
                 
                 if: $temp.mailResult.status === "OK"
@@ -943,7 +943,7 @@ theme: /
                 else {
                 $reactions.transition("/Confirmation/Agree/Error"); 
                 }
-                */
+                
                 
             state: Error
                 script:
