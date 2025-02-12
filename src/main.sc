@@ -161,6 +161,8 @@ theme: /
                             $session.country = null;
                         }
                     }
+                    
+                    $reactions.answer($session.country);
                 }
                     
                 if ($parseTree["_duckling.date"])
@@ -290,6 +292,9 @@ theme: /
             $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
             moment.lang('ru');
             $temp.userFormatDate = moment($session.userDate).format('LL');
+            
+            $reactions.answer($session.userHasTour);
+            
         if: $temp.response.isOk
             random:
                 a: У меня получилось уточнить: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} температура воздуха составит {{ Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp)) }} по Цельсию.
@@ -298,6 +303,7 @@ theme: /
             script:
                 $session.stateCounter = 0;
                 $reactions.transition("/TellWeather/Error");
+                
       
         if: $session.country
             if: $session.userHasTour 
