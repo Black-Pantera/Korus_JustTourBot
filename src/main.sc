@@ -389,8 +389,8 @@ theme: /
             q: * (да|ага|yes|ога) *
             script: 
                 $session.stateCounterInARow = 0;
-                if ($parseTree._Countries) {
-                $session.country = $parseTree._Countries.name;   
+                if ($parseTree._CodeCounties) {
+                $session.country = $parseTree._CodeCounties.name;   
                 }
                     
             if: $session.country
@@ -402,7 +402,7 @@ theme: /
             state: Country
                 q: * CodeCounties *
                 script: 
-                    $session.country = $parseTree._Countries.name;  
+                    $session.country = $parseTree._CodeCounties.name;  
                 a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь, давайте перейдем к указанию оставшихся параметров.    
                 go!: /AskNumberOfPeople
                     
