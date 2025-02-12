@@ -929,11 +929,6 @@ theme: /
                     content: message
                 });
                 
-                if: $temp.mailResult.status === "OK"
-                    a: Согласие успешно отправлено менеджеру.
-                else:
-                    a: Извините, у меня не получилось отправить email.
-                   
                 if ($temp.mailResult.status === "OK") {
                     $session.userHasTour = true;
                     $reactions.answer("Ваша заявка успешно отправлена! Как только наш менеджер выберет самые подходящие для вас варианты, он обязательно с вами свяжется.");
