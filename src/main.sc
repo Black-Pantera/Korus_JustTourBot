@@ -913,7 +913,7 @@ theme: /
                     message += "<li>Примерная стоимость тура: "+numberWithCommas($session.personalPrice)+"</li>";
                 }
             
-                message += "</ul>.</i>";
+                message += "</ul></i>.";
                 //$reactions.answer(message);
                 
                 $session.userHasTour = true;
