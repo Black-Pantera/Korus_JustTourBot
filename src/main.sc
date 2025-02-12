@@ -924,7 +924,7 @@ theme: /
                     user: "larius77@mail.ru",
                     password: "LoraBelka93",
                     from: "bot@just-ai.com",
-                    to: "Larius77@mail.ru",
+                    to: ["Larius77@mail.ru"],
                     subject: "Оформление тура",
                     content: message
                 });
