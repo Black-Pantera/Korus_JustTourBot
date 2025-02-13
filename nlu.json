@@ -370,12 +370,1004 @@
     },
     "records" : [ {
       "type" : "synonyms",
+      "rule" : [ "Австралия", "AU" ],
+      "value" : "{\"name\":\"Австралия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Азербайджан", "AZ" ],
+      "value" : "{\"name\":\"Азербайджан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Аландские острова", "AX" ],
+      "value" : "{\"name\":\"Аландские острова\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Албания", "AL" ],
+      "value" : "{\"name\":\"Албания\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Алжир", "DZ" ],
+      "value" : "{\"name\":\"Алжир\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Виргинские Острова (США)", "VI" ],
+      "value" : "{\"name\":\"Виргинские Острова (США)\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Американское Самоа", "AS" ],
+      "value" : "{\"name\":\"Американское Самоа\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ангилья", "AI" ],
+      "value" : "{\"name\":\"Ангилья\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ангола", "AO" ],
+      "value" : "{\"name\":\"Ангола\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Андорра", "AD" ],
+      "value" : "{\"name\":\"Андорра\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Антарктика", "AQ" ],
+      "value" : "{\"name\":\"Антарктика\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Антигуа и Барбуда", "AG" ],
+      "value" : "{\"name\":\"Антигуа и Барбуда\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Аргентина", "AR" ],
+      "value" : "{\"name\":\"Аргентина\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Армения", "AM" ],
+      "value" : "{\"name\":\"Армения\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Аруба", "AW" ],
+      "value" : "{\"name\":\"Аруба\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Афганистан", "AF" ],
+      "value" : "{\"name\":\"Афганистан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Багамские Острова", "BS" ],
+      "value" : "{\"name\":\"Багамские Острова\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Бангладеш", "BD" ],
+      "value" : "{\"name\":\"Бангладеш\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Барбадос", "BB" ],
+      "value" : "{\"name\":\"Барбадос\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Бахрейн", "BH" ],
+      "value" : "{\"name\":\"Бахрейн\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Белиз", "BZ" ],
+      "value" : "{\"name\":\"Белиз\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Беларусь", "BY" ],
+      "value" : "{\"name\":\"Беларусь\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Бельгия", "BE" ],
+      "value" : "{\"name\":\"Бельгия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Бенин", "BJ" ],
+      "value" : "{\"name\":\"Бенин\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Бермуды", "BM" ],
+      "value" : "{\"name\":\"Бермуды\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Болгария", "BG" ],
+      "value" : "{\"name\":\"Болгария\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Боливия", "BO" ],
+      "value" : "{\"name\":\"Боливия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Бонайре", "Синт-Эстатиус и Саба", "BQ" ],
+      "value" : "{\"name\":\"Бонайре, Синт-Эстатиус и Саба\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Босния и Герцеговина", "BA" ],
+      "value" : "{\"name\":\"Босния и Герцеговина\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ботсвана", "BW" ],
+      "value" : "{\"name\":\"Ботсвана\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Бразилия", "BR" ],
+      "value" : "{\"name\":\"Бразилия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Британская Территория в Индийском Океане", "IO" ],
+      "value" : "{\"name\":\"Британская Территория в Индийском Океане\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Виргинские Острова (Великобритания)", "VG" ],
+      "value" : "{\"name\":\"Виргинские Острова (Великобритания)\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Бруней", "BN" ],
+      "value" : "{\"name\":\"Бруней\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Буркина-Фасо", "BF" ],
+      "value" : "{\"name\":\"Буркина-Фасо\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Бурунди", "BI" ],
+      "value" : "{\"name\":\"Бурунди\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Бутан", "BT" ],
+      "value" : "{\"name\":\"Бутан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Вануату", "VU" ],
+      "value" : "{\"name\":\"Вануату\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ватикан", "VA" ],
+      "value" : "{\"name\":\"Ватикан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Великобритания", "GB" ],
+      "value" : "{\"name\":\"Великобритания\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Венгрия", "HU" ],
+      "value" : "{\"name\":\"Венгрия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Венесуэла", "VE" ],
+      "value" : "{\"name\":\"Венесуэла\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Внешние малые острова США", "UM" ],
+      "value" : "{\"name\":\"Внешние малые острова США\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Восточный Тимор", "TL" ],
+      "value" : "{\"name\":\"Восточный Тимор\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Вьетнам", "VN" ],
+      "value" : "{\"name\":\"Вьетнам\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Габон", "GA" ],
+      "value" : "{\"name\":\"Габон\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гаити", "HT" ],
+      "value" : "{\"name\":\"Гаити\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гайана", "GY" ],
+      "value" : "{\"name\":\"Гайана\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гамбия", "GM" ],
+      "value" : "{\"name\":\"Гамбия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гана", "GH" ],
+      "value" : "{\"name\":\"Гана\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гваделупа", "GP" ],
+      "value" : "{\"name\":\"Гваделупа\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гватемала", "GT" ],
+      "value" : "{\"name\":\"Гватемала\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гвиана", "GF" ],
+      "value" : "{\"name\":\"Гвиана\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гвинея", "GN" ],
+      "value" : "{\"name\":\"Гвинея\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гвинея-Бисау", "GW" ],
+      "value" : "{\"name\":\"Гвинея-Бисау\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Германия", "DE" ],
+      "value" : "{\"name\":\"Германия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гернси", "GG" ],
+      "value" : "{\"name\":\"Гернси\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гибралтар", "GI" ],
+      "value" : "{\"name\":\"Гибралтар\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гондурас", "HN" ],
+      "value" : "{\"name\":\"Гондурас\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гонконг", "HK" ],
+      "value" : "{\"name\":\"Гонконг\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гренада", "GD" ],
+      "value" : "{\"name\":\"Гренада\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гренландия", "GL" ],
+      "value" : "{\"name\":\"Гренландия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Греция", "GR" ],
+      "value" : "{\"name\":\"Греция\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Грузия", "GE" ],
+      "value" : "{\"name\":\"Грузия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Гуам", "GU" ],
+      "value" : "{\"name\":\"Гуам\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Дания", "DK" ],
+      "value" : "{\"name\":\"Дания\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Джерси", "JE" ],
+      "value" : "{\"name\":\"Джерси\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Джибути", "DJ" ],
+      "value" : "{\"name\":\"Джибути\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Доминика", "DM" ],
+      "value" : "{\"name\":\"Доминика\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Доминиканская Республика", "DO" ],
+      "value" : "{\"name\":\"Доминиканская Республика\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "ДР Конго", "CD" ],
+      "value" : "{\"name\":\"ДР Конго\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Европейский союз", "EU" ],
+      "value" : "{\"name\":\"Европейский союз\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Египет", "EG" ],
+      "value" : "{\"name\":\"Египет\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Замбия", "ZM" ],
+      "value" : "{\"name\":\"Замбия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "САДР", "EH" ],
+      "value" : "{\"name\":\"САДР\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Зимбабве", "ZW" ],
+      "value" : "{\"name\":\"Зимбабве\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Израиль", "IL" ],
+      "value" : "{\"name\":\"Израиль\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Индия", "IN" ],
+      "value" : "{\"name\":\"Индия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Индонезия", "ID" ],
+      "value" : "{\"name\":\"Индонезия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Иордания", "JO" ],
+      "value" : "{\"name\":\"Иордания\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ирак", "IQ" ],
+      "value" : "{\"name\":\"Ирак\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Иран", "IR" ],
+      "value" : "{\"name\":\"Иран\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ирландия", "IE" ],
+      "value" : "{\"name\":\"Ирландия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Исландия", "IS" ],
+      "value" : "{\"name\":\"Исландия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Испания", "ES" ],
+      "value" : "{\"name\":\"Испания\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Италия", "IT" ],
+      "value" : "{\"name\":\"Италия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Йемен", "YE" ],
+      "value" : "{\"name\":\"Йемен\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кабо-Верде", "CV" ],
+      "value" : "{\"name\":\"Кабо-Верде\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Казахстан", "KZ" ],
+      "value" : "{\"name\":\"Казахстан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Острова Кайман", "KY" ],
+      "value" : "{\"name\":\"Острова Кайман\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Камбоджа", "KH" ],
+      "value" : "{\"name\":\"Камбоджа\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Камерун", "CM" ],
+      "value" : "{\"name\":\"Камерун\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Канада", "CA" ],
+      "value" : "{\"name\":\"Канада\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Катар", "QA" ],
+      "value" : "{\"name\":\"Катар\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кения", "KE" ],
+      "value" : "{\"name\":\"Кения\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кипр", "CY" ],
+      "value" : "{\"name\":\"Кипр\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кыргызстан", "KG" ],
+      "value" : "{\"name\":\"Кыргызстан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кирибати", "KI" ],
+      "value" : "{\"name\":\"Кирибати\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Китайская Республика", "TW" ],
+      "value" : "{\"name\":\"Китайская Республика\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "КНДР (Корейская Народно-Демократическая Республика)", "KP" ],
+      "value" : "{\"name\":\"КНДР (Корейская Народно-Демократическая Республика)\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Китай (Китайская Народная Республика)", "CN" ],
+      "value" : "{\"name\":\"Китай (Китайская Народная Республика)\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кокосовые острова", "CC" ],
+      "value" : "{\"name\":\"Кокосовые острова\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Колумбия", "CO" ],
+      "value" : "{\"name\":\"Колумбия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Коморы", "KM" ],
+      "value" : "{\"name\":\"Коморы\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Коста-Рика", "CR" ],
+      "value" : "{\"name\":\"Коста-Рика\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кот-д’Ивуар", "CI" ],
+      "value" : "{\"name\":\"Кот-д’Ивуар\"}"
+    }, {
+      "type" : "synonyms",
       "rule" : [ "Россия", "RU" ],
-      "value" : "{\n  \"name\": \"Россия\"\n}"
+      "value" : "{\"name\":\"Россия\"}"
     }, {
       "type" : "synonyms",
       "rule" : [ "Австрия", "AT" ],
-      "value" : "{\n  \"name\": \"Австрия\"\n}"
+      "value" : "{\"name\":\"Австрия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Куба", "CU" ],
+      "value" : "{\"name\":\"Куба\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кувейт", "KW" ],
+      "value" : "{\"name\":\"Кувейт\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кюрасао", "CW" ],
+      "value" : "{\"name\":\"Кюрасао\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Лаос", "LA" ],
+      "value" : "{\"name\":\"Лаос\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Латвия", "LV" ],
+      "value" : "{\"name\":\"Латвия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Лесото", "LS" ],
+      "value" : "{\"name\":\"Лесото\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Либерия", "LR" ],
+      "value" : "{\"name\":\"Либерия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ливан", "LB" ],
+      "value" : "{\"name\":\"Ливан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ливия", "LY" ],
+      "value" : "{\"name\":\"Ливия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Литва", "LT" ],
+      "value" : "{\"name\":\"Литва\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Лихтенштейн", "LI" ],
+      "value" : "{\"name\":\"Лихтенштейн\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Люксембург", "LU" ],
+      "value" : "{\"name\":\"Люксембург\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Маврикий", "MU" ],
+      "value" : "{\"name\":\"Маврикий\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Мавритания", "MR" ],
+      "value" : "{\"name\":\"Мавритания\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Мадагаскар", "MG" ],
+      "value" : "{\"name\":\"Мадагаскар\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Майотта", "YT" ],
+      "value" : "{\"name\":\"Майотта\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Макао", "MO" ],
+      "value" : "{\"name\":\"Макао\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Северная Македония", "MK" ],
+      "value" : "{\"name\":\"Северная Македония\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Малави", "MW" ],
+      "value" : "{\"name\":\"Малави\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Малайзия", "MY" ],
+      "value" : "{\"name\":\"Малайзия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Мали", "ML" ],
+      "value" : "{\"name\":\"Мали\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Мальдивы", "MV" ],
+      "value" : "{\"name\":\"Мальдивы\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Мальта", "MT" ],
+      "value" : "{\"name\":\"Мальта\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Марокко", "MA" ],
+      "value" : "{\"name\":\"Марокко\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Мартиника", "MQ" ],
+      "value" : "{\"name\":\"Мартиника\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Маршалловы Острова", "MH" ],
+      "value" : "{\"name\":\"Маршалловы Острова\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Мексика", "MX" ],
+      "value" : "{\"name\":\"Мексика\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Микронезия", "FM" ],
+      "value" : "{\"name\":\"Микронезия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Мозамбик", "MZ" ],
+      "value" : "{\"name\":\"Мозамбик\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Молдова", "MD" ],
+      "value" : "{\"name\":\"Молдова\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Монако", "MC" ],
+      "value" : "{\"name\":\"Монако\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Монголия", "MN" ],
+      "value" : "{\"name\":\"Монголия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Монтсеррат", "MS" ],
+      "value" : "{\"name\":\"Монтсеррат\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Мьянма", "MM" ],
+      "value" : "{\"name\":\"Мьянма\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Намибия", "NA" ],
+      "value" : "{\"name\":\"Намибия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Науру", "NR" ],
+      "value" : "{\"name\":\"Науру\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Непал", "NP" ],
+      "value" : "{\"name\":\"Непал\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Нигер", "NE" ],
+      "value" : "{\"name\":\"Нигер\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Нигерия", "NG" ],
+      "value" : "{\"name\":\"Нигерия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Нидерланды", "NL" ],
+      "value" : "{\"name\":\"Нидерланды\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Никарагуа", "NI" ],
+      "value" : "{\"name\":\"Никарагуа\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ниуэ", "NU" ],
+      "value" : "{\"name\":\"Ниуэ\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Новая Зеландия", "NZ" ],
+      "value" : "{\"name\":\"Новая Зеландия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Новая Каледония", "NC" ],
+      "value" : "{\"name\":\"Новая Каледония\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Норвегия", "NO" ],
+      "value" : "{\"name\":\"Норвегия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "ОАЭ", "AE" ],
+      "value" : "{\"name\":\"ОАЭ\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Оман", "OM" ],
+      "value" : "{\"name\":\"Оман\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Остров Буве", "BV" ],
+      "value" : "{\"name\":\"Остров Буве\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Остров Мэн", "IM" ],
+      "value" : "{\"name\":\"Остров Мэн\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Острова Кука", "CK" ],
+      "value" : "{\"name\":\"Острова Кука\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Остров Норфолк", "NF" ],
+      "value" : "{\"name\":\"Остров Норфолк\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Остров Рождества", "CX" ],
+      "value" : "{\"name\":\"Остров Рождества\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Острова Питкэрн", "PN" ],
+      "value" : "{\"name\":\"Острова Питкэрн\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Остров Святой Елены", "SH" ],
+      "value" : "{\"name\":\"Остров Святой Елены\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Пакистан", "PK" ],
+      "value" : "{\"name\":\"Пакистан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Палау", "PW" ],
+      "value" : "{\"name\":\"Палау\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Государство Палестина", "PS" ],
+      "value" : "{\"name\":\"Государство Палестина\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Панама", "PA" ],
+      "value" : "{\"name\":\"Панама\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Папуа — Новая Гвинея", "PG" ],
+      "value" : "{\"name\":\"Папуа — Новая Гвинея\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Парагвай", "PY" ],
+      "value" : "{\"name\":\"Парагвай\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Перу", "PE" ],
+      "value" : "{\"name\":\"Перу\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Польша", "PL" ],
+      "value" : "{\"name\":\"Польша\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Португалия", "PT" ],
+      "value" : "{\"name\":\"Португалия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Пуэрто-Рико", "PR" ],
+      "value" : "{\"name\":\"Пуэрто-Рико\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Конго", "CG" ],
+      "value" : "{\"name\":\"Республика Конго\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Корея", "KR" ],
+      "value" : "{\"name\":\"Республика Корея\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Реюньон", "RE" ],
+      "value" : "{\"name\":\"Реюньон\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Руанда", "RW" ],
+      "value" : "{\"name\":\"Руанда\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Румыния", "RO" ],
+      "value" : "{\"name\":\"Румыния\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сальвадор", "SV" ],
+      "value" : "{\"name\":\"Сальвадор\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Самоа", "WS" ],
+      "value" : "{\"name\":\"Самоа\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сан-Марино", "SM" ],
+      "value" : "{\"name\":\"Сан-Марино\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сан-Томе и Принсипи", "ST" ],
+      "value" : "{\"name\":\"Сан-Томе и Принсипи\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Саудовская Аравия", "SA" ],
+      "value" : "{\"name\":\"Саудовская Аравия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Северные Марианские Острова", "MP" ],
+      "value" : "{\"name\":\"Северные Марианские Острова\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сейшельские Острова", "SC" ],
+      "value" : "{\"name\":\"Сейшельские Острова\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сен-Бартелеми", "BL" ],
+      "value" : "{\"name\":\"Сен-Бартелеми\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сен-Мартен", "MF" ],
+      "value" : "{\"name\":\"Сен-Мартен\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сен-Пьер и Микелон", "PM" ],
+      "value" : "{\"name\":\"Сен-Пьер и Микелон\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сенегал", "SN" ],
+      "value" : "{\"name\":\"Сенегал\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сент-Винсент и Гренадины", "VC" ],
+      "value" : "{\"name\":\"Сент-Винсент и Гренадины\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сент-Китс и Невис", "KN" ],
+      "value" : "{\"name\":\"Сент-Китс и Невис\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сент-Люсия", "LC" ],
+      "value" : "{\"name\":\"Сент-Люсия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сербия", "RS" ],
+      "value" : "{\"name\":\"Сербия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сингапур", "SG" ],
+      "value" : "{\"name\":\"Сингапур\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Синт-Мартен", "SX" ],
+      "value" : "{\"name\":\"Синт-Мартен\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сирия", "SY" ],
+      "value" : "{\"name\":\"Сирия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Словакия", "SK" ],
+      "value" : "{\"name\":\"Словакия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Словения", "SI" ],
+      "value" : "{\"name\":\"Словения\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Соломоновы Острова", "SB" ],
+      "value" : "{\"name\":\"Соломоновы Острова\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сомали", "SO" ],
+      "value" : "{\"name\":\"Сомали\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Судан", "SD" ],
+      "value" : "{\"name\":\"Судан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Суринам", "SR" ],
+      "value" : "{\"name\":\"Суринам\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "США", "US" ],
+      "value" : "{\"name\":\"США\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сьерра-Леоне", "SL" ],
+      "value" : "{\"name\":\"Сьерра-Леоне\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Таджикистан", "TJ" ],
+      "value" : "{\"name\":\"Таджикистан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Таиланд", "TH" ],
+      "value" : "{\"name\":\"Таиланд\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Танзания", "TZ" ],
+      "value" : "{\"name\":\"Танзания\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Теркс и Кайкос", "TC" ],
+      "value" : "{\"name\":\"Теркс и Кайкос\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Того", "TG" ],
+      "value" : "{\"name\":\"Того\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Токелау", "TK" ],
+      "value" : "{\"name\":\"Токелау\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Тонга", "TO" ],
+      "value" : "{\"name\":\"Тонга\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Тринидад и Тобаго", "TT" ],
+      "value" : "{\"name\":\"Тринидад и Тобаго\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Тувалу", "TV" ],
+      "value" : "{\"name\":\"Тувалу\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Тунис", "TN" ],
+      "value" : "{\"name\":\"Тунис\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Туркменистан", "TM" ],
+      "value" : "{\"name\":\"Туркменистан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Турция", "TR" ],
+      "value" : "{\"name\":\"Турция\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Уганда", "UG" ],
+      "value" : "{\"name\":\"Уганда\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Узбекистан", "UZ" ],
+      "value" : "{\"name\":\"Узбекистан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Украина", "UA" ],
+      "value" : "{\"name\":\"Украина\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Уоллис и Футуна", "WF" ],
+      "value" : "{\"name\":\"Уоллис и Футуна\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Уругвай", "UY" ],
+      "value" : "{\"name\":\"Уругвай\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Фарерские острова", "FO" ],
+      "value" : "{\"name\":\"Фарерские острова\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Фиджи", "FJ" ],
+      "value" : "{\"name\":\"Фиджи\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Филиппины", "PH" ],
+      "value" : "{\"name\":\"Филиппины\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Финляндия", "FI" ],
+      "value" : "{\"name\":\"Финляндия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Фолклендские острова", "FK" ],
+      "value" : "{\"name\":\"Фолклендские острова\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Франция", "FR" ],
+      "value" : "{\"name\":\"Франция\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Французская Полинезия", "PF" ],
+      "value" : "{\"name\":\"Французская Полинезия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Французские Южные и Антарктические территории", "TF" ],
+      "value" : "{\"name\":\"Французские Южные и Антарктические территории\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Херд и Макдональд", "HM" ],
+      "value" : "{\"name\":\"Херд и Макдональд\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Хорватия", "HR" ],
+      "value" : "{\"name\":\"Хорватия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "ЦАР", "CF" ],
+      "value" : "{\"name\":\"ЦАР\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Чад", "TD" ],
+      "value" : "{\"name\":\"Чад\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Черногория", "ME" ],
+      "value" : "{\"name\":\"Черногория\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Чехия", "CZ" ],
+      "value" : "{\"name\":\"Чехия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Чили", "CL" ],
+      "value" : "{\"name\":\"Чили\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Швейцария", "CH" ],
+      "value" : "{\"name\":\"Швейцария\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Швеция", "SE" ],
+      "value" : "{\"name\":\"Швеция\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Шпицберген и Ян-Майен", "SJ" ],
+      "value" : "{\"name\":\"Шпицберген и Ян-Майен\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Шри-Ланка", "LK" ],
+      "value" : "{\"name\":\"Шри-Ланка\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Эквадор", "EC" ],
+      "value" : "{\"name\":\"Эквадор\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Экваториальная Гвинея", "GQ" ],
+      "value" : "{\"name\":\"Экваториальная Гвинея\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Эритрея", "ER" ],
+      "value" : "{\"name\":\"Эритрея\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Эсватини", "SZ" ],
+      "value" : "{\"name\":\"Эсватини\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Эстония", "EE" ],
+      "value" : "{\"name\":\"Эстония\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Эфиопия", "ET" ],
+      "value" : "{\"name\":\"Эфиопия\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "ЮАР", "ZA" ],
+      "value" : "{\"name\":\"ЮАР\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Южная Георгия и Южные Сандвичевы Острова", "GS" ],
+      "value" : "{\"name\":\"Южная Георгия и Южные Сандвичевы Острова\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Южный Судан", "SS" ],
+      "value" : "{\"name\":\"Южный Судан\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ямайка", "JM" ],
+      "value" : "{\"name\":\"Ямайка\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Япония", "JP" ],
+      "value" : "{\"name\":\"Япония\"}"
     } ]
   }, {
     "entity" : {
