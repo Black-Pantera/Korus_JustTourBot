@@ -1032,7 +1032,9 @@ theme: /
             a: Хотите спросить что-то ещё?
             a: Могу ли я помочь чем-то ещё?
             a: Подскажите, у вас остались ещё вопросы?
-            
+        script:
+            $session.stateCounter = 0;
+            $session.stateCounterInARow = 0;
         buttons:
             "Узнать прогноз погоды" -> /WeatherForecast
             "Оформить заявку на подбор тура" -> /TravelRequest
