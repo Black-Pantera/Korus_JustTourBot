@@ -250,7 +250,7 @@
     }, {
       "text" : "готов"
     }, {
-      "text" : "отправля"
+      "text" : "отправляй"
     } ],
     "classificationRules" : {
       "refs" : [ ]
@@ -276,9 +276,11 @@
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
-      "text" : "А в $City"
+      "text" : "а в $City "
     }, {
-      "text" : "а @ducling_data"
+      "text" : "а @duckling.date"
+    }, {
+      "text" : "ещё один прогноз"
     } ],
     "classificationRules" : {
       "refs" : [ ]

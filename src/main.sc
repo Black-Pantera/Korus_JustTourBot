@@ -109,8 +109,8 @@ theme: /
                 go!: /SomethingElse
            
     state: WeatherForecast
-        intent!: /weather
-        q!: * погода * {$City * * @duckling.date} *
+        intent: /weather
+        q: * погода * {$City * * @duckling.date} *
         script:
             if (($parseTree._City) && ($parseTree["_duckling.date"])) {
                 $session.userCity = $parseTree._City.name;
@@ -342,6 +342,11 @@ theme: /
         buttons:
             "Узнать прогноз с другими параметрами" -> /WeatherForecast
             "Оформить заявку на подбор тура" -> /TravelRequest
+            
+        state: AnotherOne
+            intent: /SomethingElseForWeather
+            q: * {$City * * @duckling.date} *
+            
         
     state: OfferTour
         random:
