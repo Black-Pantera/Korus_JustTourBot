@@ -44,6 +44,7 @@ theme: /
             $session = {};
             $session.userHasTour = false;
             //$context.client = {};
+            $client = {};
             $temp = {};
         
         if: $client.name
