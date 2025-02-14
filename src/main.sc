@@ -44,7 +44,7 @@ theme: /
             $session = {};
             $session.userHasTour = false;
             //$context.client = {};
-            $client = {};
+            //$client = {};
             $temp = {};
         
         if: $client.name
@@ -1007,10 +1007,13 @@ theme: /
                     } else {
                         message += "<li>Имя клиента: <i>"+$session.userName+"</li>";
                         }
+                        
+                if ($client.phone_number != "Не указано") {
+                    message += "<li>Телефон: "+ $client.phone_number+"</li>";
+                    }
                 
                 if ($session.country != "Не указано") {
                     message += "<li>Желаемая страна пребывания: "+ $session.country+"</li>";
-                   
                 }
             
                 if ($session.numberOfPeople != "Не указано") {
