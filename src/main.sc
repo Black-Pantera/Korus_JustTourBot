@@ -819,7 +819,7 @@ theme: /
                     $client.name = capitalize($parseTree["_pymorphy.name"]);
                     $session.userName = capitalize($parseTree["_pymorphy.name"]);
                     } else if ($parseTree["pattern"] && ($parseTree["_Root"] !== "да")) {
-                    $session.userName = capitalize($parseTree["value"].name);
+                    $session.userName = $request.query;
                     } else {
                         $session.userName = $session.userName;
                         $client.name = $session.userName;
