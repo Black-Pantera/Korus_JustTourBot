@@ -382,6 +382,10 @@ theme: /
                     $session.country = null;   
                     $session.userDate = null;
                 go!: /HowCanIHelpYou
+                
+            state: DisAgree
+                q: * нет *
+                go!: /DontHaveQuestions
             
         
     state: OfferTour
@@ -413,8 +417,7 @@ theme: /
             
         state: LocalCatchAll || noContext = true
             event: noMatch
-           
-               
+    
     state: TravelRequest
         intent!: /tour
         random:
