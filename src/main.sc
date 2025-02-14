@@ -110,7 +110,7 @@ theme: /
            
     state: WeatherForecast
         intent!: /weather
-        q!: * {$City * * @duckling.date} *
+        q!: * погода * {$City * * @duckling.date} *
         script:
             if (($parseTree._City) && ($parseTree["_duckling.date"])) {
                 $session.userCity = $parseTree._City.name;

@@ -271,6 +271,20 @@
     },
     "patterns" : [ ],
     "priority" : 0
+  }, {
+    "path" : "/SomethingElseForWeather",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "А в $City"
+    }, {
+      "text" : "а @ducling_data"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {
