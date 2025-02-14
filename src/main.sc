@@ -164,7 +164,7 @@ theme: /
                         }
                     }
                     
-                    //$reactions.answer($session.country);
+                    $reactions.answer($session.country);
                 }
                     
                 if ($parseTree["_duckling.date"])
