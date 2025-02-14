@@ -335,6 +335,8 @@ theme: /
                 go!: /SomethingElse
                 
     state: SomethingElseForWeather
+        script:
+            $session.stateCounterInARow = 0;
         random:
             a: Хотите спросить что-то ещё?
             a: Могу ли я помочь чем-то ещё?
@@ -387,6 +389,21 @@ theme: /
                 q: * нет *
                 go!: /DontHaveQuestions
             
+        state: LocalCatchAll || noContext = true
+                event: noMatch
+                script:
+                    $session.stateCounterInARow ++;
+                
+                if: $session.stateCounterInARow < 3
+                    random:
+                        a: Извините, не совсем понял вас. Назовите, пожалуйста, нужную вам страну.
+                        a: К сожалению, не понял вас. Введите название страны для поездки.
+                else:
+                    script:
+                        $session.stateCounterInARow = 0
+                        $session.country = "Не указано";
+                    a: Простите! Так и не получилось вас понять. Когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
+                    go!: /AskNumberOfPeople
         
     state: OfferTour
         random:
