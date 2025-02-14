@@ -433,8 +433,8 @@ theme: /
             a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
             
         state: OfferTourYes
-            q: * (да|хочу) *
-            go: /TravelRequest
+            q!: * (да|хочу) *
+            go!: /TravelRequest
             
         state: Disagree
             q: * (нет|не хочу) *
