@@ -42,7 +42,7 @@ theme: /
         script:
             $context.session = {};
             $session = {};
-            $session.userHasTour = null;
+            $session.userHasTour = false;
             //$context.client = {};
             $temp = {};
         
