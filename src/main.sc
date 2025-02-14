@@ -426,6 +426,8 @@ theme: /
                     go!: /Goodbye
         
     state: OfferTour
+        script:
+            $session.stateCounter = 0;
         random:
             a: Хотите оставить заявку на подбор тура в {{ capitalize($nlp.inflect($session.country, "accs")) }}?
             a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
@@ -442,6 +444,8 @@ theme: /
                 $session.userDate = null;
                 $session.lat = null;
                 $session.lon = null;
+                $session.country = null;
+                $session.stateCounter = 0;
             a: В таком случае, желаете узнать погоду в другом городе мира?
             
             state: DisagreeYes
@@ -451,9 +455,35 @@ theme: /
             state: DisagreeNo
                 q: * (нет|не хочу) *
                 go!: /SomethingElse
+                
+            state: LocalCatchAll || noContext = true
+                event: noMatch
+                script:
+                    $session.stateCounter ++;
+                if: $session.stateCounter < 2
+                    a: Простите, не совсем понял. Хотите узнать прогноз погоды для другого города?   
+                    script:
+                        $reactions.transition("/OfferTour/Disagree");
+                else
+                    script:
+                        $session.stateCounter = 0;
+                    go!: /SomethingElse
             
         state: LocalCatchAll || noContext = true
             event: noMatch
+            script:
+                $session.stateCounter ++;
+            if: $session.stateCounter < 2
+                    a: Извините, не совсем понял вас, вы желаете оставить запрос на подбор путевки в {{$session.country}}?
+            else
+                script:
+                    $session.userCity = null;
+                    $session.userDate = null;
+                    $session.lat = null;
+                    $session.lon = null;
+                    $session.country = null;
+                    $session.stateCounter = 0;
+                go!: /SomethingElse
     
     state: TravelRequest
         intent!: /tour
