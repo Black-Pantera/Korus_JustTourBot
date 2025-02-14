@@ -372,6 +372,16 @@ theme: /
                         }
                         else 
                             $reactions.transition("/GetCity");
+                            
+            state: Agree
+                q: * да *
+                script:
+                    $session.userCity = null;
+                    $session.lon = null;
+                    $session.lat = null;
+                    $session.country = null;   
+                    $session.userDate = null;
+                go!: /HowCanIHelpYou
             
         
     state: OfferTour
