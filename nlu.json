@@ -276,11 +276,9 @@
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
-      "text" : "а в $City "
-    }, {
-      "text" : "а @duckling.date"
-    }, {
       "text" : "ещё один прогноз"
+    }, {
+      "text" : "а в городе $City"
     } ],
     "classificationRules" : {
       "refs" : [ ]

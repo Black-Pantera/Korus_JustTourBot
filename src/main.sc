@@ -346,6 +346,7 @@ theme: /
         state: AnotherOne
             intent: /SomethingElseForWeather
             q: * {$City * * @duckling.date} *
+            q: * а в городе $City *
             
         
     state: OfferTour
