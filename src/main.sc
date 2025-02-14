@@ -347,6 +347,31 @@ theme: /
             intent: /SomethingElseForWeather
             q: * {$City * * @duckling.date} *
             q: * а в городе $City *
+            script:
+                if (($parseTree._City) && ($parseTree["_duckling.date"])) {
+                    $session.userCity = $parseTree._City.name;
+                    $session.lon = $parseTree._City.lon;
+                    $session.lat = $parseTree._City.lat;
+                    $session.country = $parseTree._City.country;   
+                    $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                    $reactions.transition("/CheсkDate");
+                    }
+                else 
+                    if ($parseTree["_duckling.date"]) {
+                        $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                        $reactions.transition("/GetCity");
+                    }
+                    else 
+                        if ($parseTree._City) {
+                            $session.userCity = $parseTree._City.name;
+                            $session.lon = $parseTree._City.lon;
+                            $session.lat = $parseTree._City.lat;
+                            $session.country = $parseTree._City.country; 
+                        
+                            $reactions.transition("/GetDate");
+                        }
+                        else 
+                            $reactions.transition("/GetCity");
             
         
     state: OfferTour
