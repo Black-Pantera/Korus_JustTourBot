@@ -437,7 +437,7 @@ theme: /
             go!: /TravelRequest
             
         state: Disagree
-            q: * (нет|не хочу) *
+            q!: * (нет|не хочу) *
             a: Понял вас!
             script:
                 $session.userCity = null;
