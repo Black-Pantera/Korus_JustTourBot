@@ -544,7 +544,7 @@ theme: /
                 $session.country = "Не указано";  
             go!: /AskNumberOfPeople
                 
-        state: LocalCatchAll
+        state: LocalCatchAll || noContext = true
                 event: noMatch
                 script:
                     $session.stateCounterInARow ++
