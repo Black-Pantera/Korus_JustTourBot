@@ -440,6 +440,7 @@ theme: /
             
         state: Disagree 
             q: * (нет|не хочу) * || fromState = "/OfferTour", onlyThisState = true
+           
             a: Понял вас!
             script:
                 $session.userCity = null;
