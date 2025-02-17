@@ -438,8 +438,8 @@ theme: /
             q!: * (да|хочу) *
             go!: /TravelRequest
             
-        state: Disagree
-            q!: * (нет|не хочу) *
+        state: Disagree 
+            q!: * (нет|не хочу) * || fromState = "/ OfferTour", onlyThisState = true
             a: Понял вас!
             script:
                 $session.userCity = null;
