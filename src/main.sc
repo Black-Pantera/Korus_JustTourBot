@@ -1138,7 +1138,6 @@ theme: /
                 
     state: DontHaveQuestions
         q!: * вопросов нет *
-        q!: * нет *
         q!: * У меня больше нет вопросов *
         random:
             a: Вас понял!
