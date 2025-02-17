@@ -396,7 +396,7 @@ theme: /
                             $reactions.transition("/GetCity");
                             
             state: Agree
-                q: * да *
+                q: * да * || fromState = "/SomethingElseForWeather/AnotherOne", onlyThisState = true
                 script:
                     $session.userCity = null;
                     $session.lon = null;
@@ -406,7 +406,7 @@ theme: /
                 go!: /HowCanIHelpYou
                 
             state: DisAgree
-                q: * нет *
+                q: * нет * || fromState = "/SomethingElseForWeather/AnotherOne", onlyThisState = true
                 go!: /DontHaveQuestions
             
         state: LocalCatchAll || noContext = true
@@ -435,11 +435,11 @@ theme: /
             a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
             
         state: OfferTourYes
-            q!: * (да|хочу) *
+            q: * (да|хочу) * || fromState = "/OfferTour", onlyThisState = true
             go!: /TravelRequest
             
         state: Disagree 
-            q: * (нет|не хочу) * || fromState = "/ OfferTour", onlyThisState = true
+            q: * (нет|не хочу) * || fromState = "/OfferTour", onlyThisState = true
             a: Понял вас!
             script:
                 $session.userCity = null;
@@ -451,11 +451,11 @@ theme: /
             a: В таком случае, желаете узнать погоду в другом городе мира?
             
             state: DisagreeYes
-                q: * (да|хочу) *
+                q: * (да|хочу) * || fromState = "/OfferTour/Disagree", onlyThisState = true
                 go!: /WeatherForecast
                 
             state: DisagreeNo
-                q: * (нет|не хочу) *
+                q: * (нет|не хочу) * || fromState = "/OfferTour/Disagree", onlyThisState = true
                 go!: /SomethingElse
                 
             state: LocalCatchAll || noContext = true
@@ -502,7 +502,7 @@ theme: /
             
         state: Agree
             q: * @CodeCounties *
-            q: * (да|ага|yes|ога) *
+            q: * (да|ага|yes|ога) * || fromState = "/TravelRequest", onlyThisState = true
             script: 
                 $session.stateCounterInARow = 0;
                 if ($parseTree._CodeCounties) {
@@ -539,7 +539,7 @@ theme: /
                     go!: /AskNumberOfPeople
                
         state: Disagree
-            q: * нет * 
+            q: * нет * || fromState = "/TravelRequest", onlyThisState = true
             a: Понял вас. В таком случае, когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
             script:
                 $session.country = "Не указано";  
@@ -865,7 +865,7 @@ theme: /
                 $reactions.transition("/AskName");       
                 
         state: ChoosenYes
-            q: * да *
+            q: * да * || fromState = "/UnusualName", onlyThisState = true
             q: * $Name *
             event: noMatch
             script:
