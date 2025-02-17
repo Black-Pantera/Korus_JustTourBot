@@ -283,6 +283,18 @@
     },
     "patterns" : [ ],
     "priority" : 0
+  }, {
+    "path" : "/whatcanyoudo",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Что ты умеешь?"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {
