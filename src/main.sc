@@ -464,8 +464,7 @@ theme: /
                     $session.stateCounter ++;
                 if: $session.stateCounter < 2
                     a: Простите, не совсем понял. Хотите узнать прогноз погоды для другого города?   
-                    script:
-                        $reactions.transition("/OfferTour/Disagree");
+                    go: /OfferTour/Disagree
                 else
                     script:
                         $session.stateCounter = 0;
@@ -1202,8 +1201,7 @@ theme: /
             a: Я Артур - бот-помощник компании Just Tour, всегда готов отвечать на ваши вопросы.
             a: Вы общаетесь с Артуром - чат-ботом, разработанным командой Just Tour, чтобы помогатьл вам. Всегда рад пообщаться с вами!
         go!: /SomethingElse
-        
-               
+    
     state: WhatCanYouDo
         intent!: /whatcanyoudo
         random:
