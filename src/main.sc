@@ -1136,15 +1136,6 @@ theme: /
                     $reactions.answer(answer);
                     $reactions.transition("/SomethingElse");     
                 
-    state: DontHaveQuestions
-        q!: * вопросов нет *
-        q!: * У меня больше нет вопросов *
-        random:
-            a: Вас понял!
-            a: Хорошо!
-            a: Понял!
-        go!: /GoodBye               
-              
     state: SomethingElse  
         random:
             a: Хотите спросить что-то ещё?
@@ -1188,6 +1179,15 @@ theme: /
                 script:
                     $temp.goTo = $request.query
                 go!: {{$temp.goTo}}
+                
+    state: DontHaveQuestions
+        q!: * вопросов нет *
+        q!: * У меня больше нет вопросов *
+        random:
+            a: Вас понял!
+            a: Хорошо!
+            a: Понял!
+        go!: /GoodBye    
               
     state: GoodBye
         intent!: /пока
