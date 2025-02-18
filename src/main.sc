@@ -885,31 +885,31 @@ theme: /
                         $reactions.transition("/TravelRequest/AskComment");  
                         }
                     
-        state: LocalCatch || noContext = true
-            event: noMatch
-            intent: /незнаем
-            intent: /неХочуУказывать
-            intent: /зачем
-            script:
-                $session.stateCounterInARow ++
-                
-            if: $session.stateCounterInARow < 3
+            state: LocalCatch || noContext = true
+                event: noMatch
+                intent: /незнаем
+                intent: /неХочуУказывать
+                intent: /зачем
                 script:
-                    if ($parseTree["pattern"]) {
-                        $reactions.answer("Мне жаль, но без указания вашего контактного номера одтправить заявку не получится. Укажите его, пожалуйста.");
+                    $session.stateCounterInARow ++
+                
+                if: $session.stateCounterInARow < 3
+                    script:
+                        if ($parseTree["pattern"]) {
+                            $reactions.answer("Мне жаль, но без указания вашего контактного номера одтправить заявку не получится. Укажите его, пожалуйста.");
+                            }
+                        else {
+                            var answers = ["Извините, не совсем понял вас. Для заявки требуется ваш контактный номер, поэтому, пожалуйста, укажите его.",
+                            "К сожалению, не смог распознать номер телефона в вашем ответе. Пожалуйста, укажите его."];
+                            var randomAnswer = answers[$reactions.random(answers.length)];
+                            $reactions.answer(randomAnswer);
                         }
-                    else {
-                        var answers = ["Извините, не совсем понял вас. Для заявки требуется ваш контактный номер, поэтому, пожалуйста, укажите его.",
-                        "К сожалению, не смог распознать номер телефона в вашем ответе. Пожалуйста, укажите его."];
-                        var randomAnswer = answers[$reactions.random(answers.length)];
-                        $reactions.answer(randomAnswer);
-                    }
-            else:
-                script: 
-                    $session.stateCounterInARow = 0;
-                    var answer = "К сожалению, без указания вашего номера телефон заявка не может быть отправлена. Вы можете вернуться к ее заполнению позже или связаться с нами по номеру 8 (812) 000-00-00.";
-                    $reactions.answer(answer);
-                    $reactions.transition("/SomethingElse");      
+                else:
+                    script: 
+                        $session.stateCounterInARow = 0;
+                        var answer = "К сожалению, без указания вашего номера телефон заявка не может быть отправлена. Вы можете вернуться к ее заполнению позже или связаться с нами по номеру 8 (812) 000-00-00.";
+                        $reactions.answer(answer);
+                        $reactions.transition("/SomethingElse");      
             
     state: AskComment
         a: Теперь напишите комментарий для менеджера, если это требуется.
