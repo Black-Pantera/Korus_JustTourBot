@@ -604,53 +604,53 @@ theme: /
                         $session.stateCounterInARow = 0;
                     go!: /TravelRequest/AskNumberOfPeople/DontKnow
 
-    state: AskStartDate
-        a: Еще мне потребуется предполагаемая дата начала поездки. Пожалуйста, напишите ее.
-        script:
-            $session.stateCounterInARow = 0;
+        state: AskStartDate
+            a: Еще мне потребуется предполагаемая дата начала поездки. Пожалуйста, напишите ее.
+            script:
+                $session.stateCounterInARow = 0;
             
-        state: Date
-            q: * @duckling.date *
-            script:
-                
-                if ($parseTree["_duckling.date"]) {
-                    $session.startDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
-                    
-                    var date = new Date();
-                    var userDate = $session.startDate;
-                    if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
-                        $reactions.transition("/AskStartDate/LocalCatchAll");
-                    }  else {
-                        $reactions.transition("/AskDuration");
-                       }
-                }
-                    
-        state: DontKnow  
-            intent: /незнаем
-            script:
-                $session.startDate = "Не указано";
-                $reactions.transition("/AskDuration");
-                
-        state: LocalCatchAll
-            event: noMatch
-            script:
-                $session.stateCounterInARow ++
-                
-            if: $session.stateCounterInARow < 3
+            state: Date
+                q: * @duckling.date *
                 script:
+                
                     if ($parseTree["_duckling.date"]) {
-                        $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите актуальную дату - она не должна быть в прошедшем периоде.");
-                        }
-                    else {
-                        var answers = ["Извините, не совсем понял вас. Какого числа предполагаете выезд?",
-                        "К сожалению, не понял вас. На какую дату планируете отправление?"];
-                        var randomAnswer = answers[$reactions.random(answers.length)];
-                        $reactions.answer(randomAnswer);
-                        }
-            else:
-                script: 
-                    $session.stateCounterInARow = 0;
-                    $reactions.transition("/AskStartDate/DontKnow");
+                        $session.startDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                    
+                        var date = new Date();
+                        var userDate = $session.startDate;
+                        if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
+                            $reactions.transition("/TravelRequest/AskStartDate/LocalCatchAll");
+                        }  else {
+                            $reactions.transition("/TravelRequest/AskDuration");
+                            }
+                    }
+                    
+            state: DontKnow  
+                intent: /незнаем
+                script:
+                    $session.startDate = "Не указано";
+                    $reactions.transition("/TravelRequest/AskDuration");
+                
+            state: LocalCatchAll
+                event: noMatch
+                script:
+                    $session.stateCounterInARow ++
+                
+                if: $session.stateCounterInARow < 3
+                    script:
+                        if ($parseTree["_duckling.date"]) {
+                            $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите актуальную дату - она не должна быть в прошедшем периоде.");
+                            }
+                        else {
+                            var answers = ["Извините, не совсем понял вас. Какого числа предполагаете выезд?",
+                            "К сожалению, не понял вас. На какую дату планируете отправление?"];
+                            var randomAnswer = answers[$reactions.random(answers.length)];
+                            $reactions.answer(randomAnswer);
+                            }
+                else:
+                    script: 
+                        $session.stateCounterInARow = 0;
+                        $reactions.transition("/TravelRequest/AskStartDate/DontKnow");
                     
     state: AskDuration
         a: Также укажите, сколько дней будет длиться путешествие.
