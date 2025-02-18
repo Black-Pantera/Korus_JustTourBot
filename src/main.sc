@@ -212,19 +212,19 @@ theme: /
                     
                     go!: /SomethingElse
                 
-    state: GetDate
-        random:
-            a: На какую дату требуется прогноз?
-            a: Прогноз погоды на какую дату вам нужен?
+        state: GetDate
+            random:
+                a: На какую дату требуется прогноз?
+                a: Прогноз погоды на какую дату вам нужен?
             
-        state: UserDate
-            q: * @duckling.date *
-            script:
-                $session.stateCounterInARow = 0;
+            state: UserDate
+                q: * @duckling.date *
+                script:
+                    $session.stateCounterInARow = 0;
                 
-                if ($parseTree["_duckling.date"]) {
-                    $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
-                    $reactions.transition("/CheсkDate");
+                    if ($parseTree["_duckling.date"]) {
+                        $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                        $reactions.transition("/CheсkDate");
                     }
                     
         state: LocalCatchAll || noContex = true
