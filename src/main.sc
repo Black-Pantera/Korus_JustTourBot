@@ -427,65 +427,64 @@ theme: /
                     a: Простите, так и не смог понять, что вы имели в виду.
                     go!: /Goodbye
         
-    state: OfferTour
-        script:
-            $session.stateCounter = 0;
-        random:
-            a: Хотите оставить заявку на подбор тура в {{ capitalize($nlp.inflect($session.country, "accs")) }}?
-            a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
-            
-        state: OfferTourYes
-            q: * (да|хочу) * || fromState = "/OfferTour", onlyThisState = true
-            go!: /TravelRequest
-            
-        state: Disagree 
-            q: * (нет|не хочу) * || fromState = "/OfferTour", onlyThisState = true
-           
-            a: Понял вас!
+        state: OfferTour
             script:
-                $session.userCity = null;
-                $session.userDate = null;
-                $session.lat = null;
-                $session.lon = null;
-                $session.country = null;
-                $session.stateCounterDisagree = 0;
-            a: В таком случае, желаете узнать погоду в другом городе мира?
+                $session.stateCounter = 0;
+            random:
+                a: Хотите оставить заявку на подбор тура в {{ capitalize($nlp.inflect($session.country, "accs")) }}?
+                a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
             
-            state: DisagreeYes
-                q: * (да|хочу) * || fromState = "/OfferTour/Disagree", onlyThisState = true
-                go!: /WeatherForecast
-                
-            state: DisagreeNo
-                q: * (нет|не хочу) * || fromState = "/OfferTour/Disagree", onlyThisState = true
-                go!: /SomethingElse
-                
-            state: LocalCatchAll || noContext = true
-                event: noMatch
-                script:
-                    $session.stateCounterDisagree ++;
-                if: $session.stateCounterDisagree < 2
-                    a: Простите, не совсем понял. Хотите узнать прогноз погоды для другого города?   
-                    go: /OfferTour/Disagree
-                else
-                    script:
-                        $session.stateCounterDisagree = 0;
-                    go!: /SomethingElse
+            state: OfferTourYes
+                q: * (да|хочу) * || fromState = "/OfferTour", onlyThisState = true
+                go!: /TravelRequest
             
-        state: LocalCatchAll || noContext = true
-            event: noMatch
-            script:
-                $session.stateCounter ++;
-            if: $session.stateCounter < 2
-                    a: Извините, не совсем понял вас, вы желаете оставить запрос на подбор путевки в {{$session.country}}?
-            else
+            state: Disagree 
+                q: * (нет|не хочу) * || fromState = "/OfferTour", onlyThisState = true
+                a: Понял вас!
                 script:
                     $session.userCity = null;
                     $session.userDate = null;
                     $session.lat = null;
                     $session.lon = null;
                     $session.country = null;
-                    $session.stateCounter = 0;
-                go!: /SomethingElse
+                    $session.stateCounterDisagree = 0;
+                a: В таком случае, желаете узнать погоду в другом городе мира?
+            
+                state: DisagreeYes
+                    q: * (да|хочу) * || fromState = "/OfferTour/Disagree", onlyThisState = true
+                    go!: /WeatherForecast
+                
+                state: DisagreeNo
+                    q: * (нет|не хочу) * || fromState = "/OfferTour/Disagree", onlyThisState = true
+                    go!: /SomethingElse
+                
+                    state: LocalCatchAll || noContext = true
+                        event: noMatch
+                        script:
+                            $session.stateCounterDisagree ++;
+                        if: $session.stateCounterDisagree < 2
+                            a: Простите, не совсем понял. Хотите узнать прогноз погоды для другого города?   
+                            go: /OfferTour/Disagree
+                        else
+                            script:
+                                $session.stateCounterDisagree = 0;
+                            go!: /SomethingElse
+            
+            state: LocalCatchAll || noContext = true
+                event: noMatch
+                script:
+                    $session.stateCounter ++;
+                if: $session.stateCounter < 2
+                    a: Извините, не совсем понял вас, вы желаете оставить запрос на подбор путевки в {{$session.country}}?
+                else:
+                    script:
+                        $session.userCity = null;
+                        $session.userDate = null;
+                        $session.lat = null;
+                        $session.lon = null;
+                        $session.country = null;
+                        $session.stateCounter = 0;
+                    go!: /SomethingElse
     
     state: TravelRequest
         intent!: /tour
