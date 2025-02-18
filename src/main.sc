@@ -652,112 +652,112 @@ theme: /
                         $session.stateCounterInARow = 0;
                         $reactions.transition("/TravelRequest/AskStartDate/DontKnow");
                     
-    state: AskDuration
-        a: Также укажите, сколько дней будет длиться путешествие.
-        script:
-            $session.stateCounterInARow = 0;
+        state: AskDuration
+            a: Также укажите, сколько дней будет длиться путешествие.
+            script:
+                $session.stateCounterInARow = 0;
        
-        state: Number
-            q: * @duckling.number *
-            intent: /неделя
-            script:
-                if ($parseTree["_duckling.number"] > 0) {
-                    $session.countDays = $parseTree["_duckling.number"];
-                    $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
-                    $reactions.transition("/AskServices");
-                } else if ($parseTree["pattern"]) {
-                    $session.countDays = 7;
-                    $session.endDate = addDays($session.startDate, 7);
-                    $reactions.transition("/AskServices");
-                    } else {
-                        $reactions.transition("/AskDuration/LocalCatchAll");
-                    }
-                      
-        state: DontKnow  
-            intent: /незнаем
-            script:
-                $session.endDate = "Не указано";
-                $reactions.transition("/AskServices");
-                    
-        state: LocalCatchAll || noContex = true
-            event: noMatch
-            script:
-                $session.stateCounterInARow ++
-                
-            if: $session.stateCounterInARow < 3
+            state: Number
+                q: * @duckling.number *
+                intent: /неделя
                 script:
-                    if ($parseTree["_duckling.number"]) {
-                        $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидное число дней - оно должно быть больше 0.");
+                    if ($parseTree["_duckling.number"] > 0) {
+                        $session.countDays = $parseTree["_duckling.number"];
+                        $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
+                        $reactions.transition("/TravelRequest/AskServices");
+                    } else if ($parseTree["pattern"]) {
+                        $session.countDays = 7;
+                        $session.endDate = addDays($session.startDate, 7);
+                        $reactions.transition("/TravelRequest/AskServices");
+                        } else {
+                            $reactions.transition("/TravelRequest/AskDuration/LocalCatchAll");
+                            }
+                      
+            state: DontKnow  
+                intent: /незнаем
+                script:
+                    $session.endDate = "Не указано";
+                    $reactions.transition("/TravelRequest/AskServices");
+                    
+            state: LocalCatchAll || noContex = true
+                event: noMatch
+                script:
+                    $session.stateCounterInARow ++
+                
+                if: $session.stateCounterInARow < 3
+                    script:
+                        if ($parseTree["_duckling.number"]) {
+                            $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидное число дней - оно должно быть больше 0.");
+                            }
+                        else {
+                            var answers = ["Извините, не совсем понял вас. Сколько дней планируете быть в поездке?",
+                            "К сожалению, не понял вас. На какой срок планируете отъезд?"];
+                            var randomAnswer = answers[$reactions.random(answers.length)];
+                            $reactions.answer(randomAnswer);
+                            }
+                else:
+                    script: 
+                        $session.stateCounterInARow = 0;
+                        $reactions.transition("/TravelRequest/AskDuration/DontKnow");
+            
+        state: AskServices
+            a: Уточните, пожалуйста, какой пакет услуг вам интересен?
+            script: 
+                $session.stateCounterInARow = 0;
+            buttons:
+                "Эконом" -> /TravelRequest/AskServices/Package
+                "Стандарт" -> /TravelRequest/AskServices/Package
+                "VIP" -> /TravelRequest/AskServices/Package
+            
+            state: Package
+                q: @Packages  
+                script:
+                    $session.services = $request.query;
+                go!:  /TravelRequest/AskName
+                
+            state: WhatIsIncluded
+                intent: /included
+                script:
+                    if ($parseTree._Packages) {
+                        var answer = "В пакет услуг \""+$parseTree._Packages.name+"\" входят следующие опции: "+ $parseTree._Packages.consists +".";
+                        $reactions.answer(answer);
                         }
                     else {
-                        var answers = ["Извините, не совсем понял вас. Сколько дней планируете быть в поездке?",
-                        "К сожалению, не понял вас. На какой срок планируете отъезд?"];
-                        var randomAnswer = answers[$reactions.random(answers.length)];
-                        $reactions.answer(randomAnswer);
-                        }
-            else:
-                script: 
-                    $session.stateCounterInARow = 0;
-                    $reactions.transition("/AskDuration/DontKnow");
-            
-    state: AskServices
-        a: Уточните, пожалуйста, какой пакет услуг вам интересен?
-        script: 
-            $session.stateCounterInARow = 0;
-        buttons:
-            "Эконом" -> /AskServices/Package
-            "Стандарт" -> /AskServices/Package
-            "VIP" -> /AskServices/Package
-            
-        state: Package
-            q: @Packages  
-            script:
-                $session.services = $request.query;
-            go!: /AskName
-                
-        state: WhatIsIncluded
-            intent: /included
-            script:
-                if ($parseTree._Packages) {
-                    var answer = "В пакет услуг \""+$parseTree._Packages.name+"\" входят следующие опции: "+ $parseTree._Packages.consists +".";
-                    $reactions.answer(answer);
-                    }
-                else {
                     
-                    var pk1 = JSON.parse($caila.entitiesLookup("эконом", true).entities[0].value);
-                    var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);
-                    var pk3 = JSON.parse($caila.entitiesLookup("vip", true).entities[0].value);
+                        var pk1 = JSON.parse($caila.entitiesLookup("эконом", true).entities[0].value);
+                        var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);
+                        var pk3 = JSON.parse($caila.entitiesLookup("vip", true).entities[0].value);
                     
-                    var answer = "Пакет \""+pk1.name+"\" включает следующие опции: " +pk1.consists +". В пакет \""+pk2.name+"\" входят: " +pk2.consists +". И, наконец, \""+pk3.name+"\" предполагает " +pk3.consists +".";
-                    $reactions.answer(answer);
-                    }
-            
-            go!: /AskServices
-            
-        state: Price
-            intent: /prices
-            script:
-                if ($parseTree._Packages) {
-                    if ($session.numberOfPeople !== "Не указано") {
-                        if ($session.endDate !== "Не указано") {
-                        $session.personalPrice = $session.numberOfPeople * $parseTree._Packages.perDayOneMan*$session.countDays;
-                        var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+"\" на поездку для " +
-                        $session.numberOfPeople +" "+ $nlp.conform($nlp.inflect("человек","gent"), $session.numberOfPeople) +" стоимость составит "+numberWithCommas($session.personalPrice)+ " "+$nlp.conform("рубль", $session.personalPrice)+".";
+                        var answer = "Пакет \""+pk1.name+"\" включает следующие опции: " +pk1.consists +". В пакет \""+pk2.name+"\" входят: " +pk2.consists +". И, наконец, \""+pk3.name+"\" предполагает " +pk3.consists +".";
                         $reactions.answer(answer);
                         }
+            
+                go!:  /TravelRequest/AskServices
+            
+            state: Price
+                intent: /prices
+                script:
+                    if ($parseTree._Packages) {
+                        if ($session.numberOfPeople !== "Не указано") {
+                            if ($session.endDate !== "Не указано") {
+                                $session.personalPrice = $session.numberOfPeople * $parseTree._Packages.perDayOneMan*$session.countDays;
+                                var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+"\" на поездку для " +
+                                $session.numberOfPeople +" "+ $nlp.conform($nlp.inflect("человек","gent"), $session.numberOfPeople) +" стоимость составит "+numberWithCommas($session.personalPrice)+ " "+$nlp.conform("рубль", $session.personalPrice)+".";
+                                $reactions.answer(answer);
+                                }
+                        } else {
+                            var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+" стоимость составит "+numberWithCommas($parseTree._Packages.perDayOneMan)+ " рублей на одного человека.";
+                            $reactions.answer(answer);
+                            }
                     } else {
-                        var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+" стоимость составит "+numberWithCommas($parseTree._Packages.perDayOneMan)+ " рублей на одного человека.";
+                        var pk1 = JSON.parse($caila.entitiesLookup("эконом", true).entities[0].value);
+                        var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);
+                        var pk3 = JSON.parse($caila.entitiesLookup("vip", true).entities[0].value);
+                    
+                        var answer = "При формировании пакета услуг \""+ pk1.name+"\" стоимость составит "+ numberWithCommas(pk1.perDayOneMan) + " рублей на одного человека. Для пакета \""+ pk2.name+"\" - "+ numberWithCommas(pk2.perDayOneMan)+ ". А \""+ pk3.name+"\" будет стоить "+ numberWithCommas(pk3.perDayOneMan) +" за одного человека.";
                         $reactions.answer(answer);
                         }
-                } else {
-                    var pk1 = JSON.parse($caila.entitiesLookup("эконом", true).entities[0].value);
-                    var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);
-                    var pk3 = JSON.parse($caila.entitiesLookup("vip", true).entities[0].value);
-                    
-                    var answer = "При формировании пакета услуг \""+ pk1.name+"\" стоимость составит "+ numberWithCommas(pk1.perDayOneMan) + " рублей на одного человека. Для пакета \""+ pk2.name+"\" - "+ numberWithCommas(pk2.perDayOneMan)+ ". А \""+ pk3.name+"\" будет стоить "+ numberWithCommas(pk3.perDayOneMan) +" за одного человека.";
-                    $reactions.answer(answer);
-                    }
-            go!: /AskServices
+                go!: /TravelRequest/AskServices
             
         state: LocalCatchAll || noContext = true
             event: noMatch
