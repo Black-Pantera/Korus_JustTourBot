@@ -330,7 +330,7 @@ theme: /
                 if: $session.userHasTour 
                     go!: /WeatherForecast/SomethingElseForWeather
                 else:
-                    go!: /OfferTour
+                    go!: /WeatherForecast/OfferTour
                 
             else:  
                 go!: /WeatherForecast/SomethingElseForWeather
