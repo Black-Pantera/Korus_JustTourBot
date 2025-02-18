@@ -1019,8 +1019,7 @@ theme: /
                 }
             
                 message += "</ul></i>";
-                //$reactions.answer(message);
-                
+               
                 $session.userHasTour = true;
                 
                 $temp.mailResult = $mail.send({
