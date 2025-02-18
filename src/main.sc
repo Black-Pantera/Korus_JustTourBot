@@ -849,17 +849,17 @@ theme: /
             script: 
                 $session.userName = $request.query;
         
-        state: ChoosenNo
-            q: * нет *
-            script:
-                $reactions.transition("/AskName");       
+            state: ChoosenNo
+                q: * нет *
+                script:
+                    $reactions.transition("/TravelRequest/AskName");       
                 
-        state: ChoosenYes
-            q: * да * || fromState = "/UnusualName", onlyThisState = true
-            q: * $Name *
-            event: noMatch
-            script:
-                $reactions.transition("/AskName/Name");  
+            state: ChoosenYes
+                q: * да * || fromState = "/TravelRequest/UnusualName", onlyThisState = true
+                q: * $Name *
+                event: noMatch
+                script:
+                    $reactions.transition("/TravelRequest/AskName/Name");  
                 
     state: AskPhone
         script:
