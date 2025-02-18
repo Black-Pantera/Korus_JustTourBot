@@ -25,14 +25,6 @@ theme: /
         
         bind("postProcess", function($context) {
             $context.session.lastState = $context.currentState;
-            
-           /* if (context.request.channelType === "telegram") {
-                context.response.replies.forEach(function(reply) {
-                    if (reply.type === "text") {
-                        reply.markup = "markdown";
-                    }
-                });
-            }*/
         });
 
     state: Start
@@ -43,8 +35,6 @@ theme: /
             $context.session = {};
             $session = {};
             $session.userHasTour = false;
-            //$context.client = {};
-            //$client = {};
             $temp = {};
         
         if: $client.name
@@ -182,8 +172,6 @@ theme: /
                             $session.country = null;
                         }
                     }
-                    
-                    //$reactions.answer($session.country);
                 }
                     
                 if ($parseTree["_duckling.date"])
@@ -316,8 +304,6 @@ theme: /
             $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
             moment.lang('ru');
             $temp.userFormatDate = moment($session.userDate).format('LL');
-            
-            //$reactions.answer($session.userHasTour);
             
         if: $temp.response.isOk
             random:
