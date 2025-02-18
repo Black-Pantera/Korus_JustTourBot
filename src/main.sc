@@ -861,29 +861,29 @@ theme: /
                 script:
                     $reactions.transition("/TravelRequest/AskName/Name");  
                 
-    state: AskPhone
-        script:
-            $session.stateCounterInARow = 0;
-        if: $client.phone
-            go!: AskComment
-        else:
-            a: Укажите номер телефона для связи.
+        state: AskPhone
             script:
-                $reactions.buttons({ text: "Поделиться контактом", request_contact: true })
+                $session.stateCounterInARow = 0;
+            if: $client.phone
+                go!: /TravelRequest/AskComment
+            else:
+                a: Укажите номер телефона для связи.
+                script:
+                    $reactions.buttons({ text: "Поделиться контактом", request_contact: true })
                 
-        state: Phone
-            event: telegramSendContact
-            q: * @duckling.phone-number *
-            q: * {мой номер * * @duckling.phone-number} *
-            script:
-                if ($parseTree["_duckling.phone-number"]) {
-                    $client.phone_number = $parseTree["_duckling.phone-number"];
-                    $reactions.transition("/AskComment");  
-                    }
-                else {
-                    $client.phone_number = $request.rawRequest.message.contact.phone_number;
-                    $reactions.transition("/AskComment");  
-                    }
+            state: Phone
+                event: telegramSendContact
+                q: * @duckling.phone-number *
+                q: * {мой номер * * @duckling.phone-number} *
+                script:
+                    if ($parseTree["_duckling.phone-number"]) {
+                        $client.phone_number = $parseTree["_duckling.phone-number"];
+                        $reactions.transition("/TravelRequest/AskComment");  
+                        }
+                    else {
+                        $client.phone_number = $request.rawRequest.message.contact.phone_number;
+                        $reactions.transition("/TravelRequest/AskComment");  
+                        }
                     
         state: LocalCatch || noContext = true
             event: noMatch
