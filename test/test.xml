@@ -1,13 +1,6 @@
 <test>
     <test-case id="AreYouRobot">
         <state>HowCanIHelpYou</state>
-        <random>2,0,1</random>
-        <q></q>
-        <a>Подскажите, какой у вас вопрос?</a>
-        <q></q>
-        <a>Чем могу помочь?</a>
-        <q></q>
-        <a>Что вас интересует?</a>
         <q>Ты робот?</q>
         <a state="/AreYouRobot" />
     </test-case>
