@@ -8,7 +8,7 @@
     </test-case>
     
     <test-case id="AreYouRobot">
-        <state></state>reYouRobot</state>
+        <state>AreYouRobot</state>
         <random>0,1</random>
         <q>Ты робот?</q>
         <a>Я Артур - бот-помощник компании Just Tour, всегда готов отвечать на ваши вопросы</a>
