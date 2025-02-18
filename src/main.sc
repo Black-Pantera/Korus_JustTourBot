@@ -931,143 +931,142 @@ theme: /
                     $session.userComment = "Не указано";
                 go!: /TravelRequest/Confirmation
     
-    state: Confirmation
-        script:
-            $session.stateCounterInARow = 0;
-            $session.stateCounter = 0;
+        state: Confirmation
+            script:
+                $session.stateCounterInARow = 0;
+                $session.stateCounter = 0;
             
-            moment.lang('ru');
-            var isImportant = false;
-            $temp.confirmation = "Среди важных критериев подбора вы выделили:";
+                moment.lang('ru');
+                var isImportant = false;
+                $temp.confirmation = "Среди важных критериев подбора вы выделили:";
             
-            if ($session.country != "Не указано") {
-                $temp.confirmation += " \n- Страна пребывания - "+ $session.country;
-                isImportant = true;
-                }
-            
-            if ($session.numberOfPeople != "Не указано") {
-                $temp.confirmation += " \n- Количество людей в поездке - "+$session.numberOfPeople;
-                isImportant = true;
-                }
-            
-            if ($session.startDate != "Не указано") {
-                $temp.confirmation += " \n- Приблизительная дата начала поездки - "+ moment($session.startDate).format('LL');
-                isImportant = true;
-                }
-           
-            if ($session.endDate != "Не указано") {
-                $temp.confirmation += " \n- Приблизительная дата окончания поездки - "+ moment($session.endDate).format('LL');
-                isImportant = true;
-                }
-            
-            if ($session.services != "Не указано") {
-                $temp.confirmation += " \n- Желаемый пакет услулуг - "+ $session.services;
-                isImportant = true;
-                } 
-                
-            if ($session.userComment != "Не указано") {
-                $temp.confirmation += " \n- Комментарий для менеджера - \""+$session.userComment + "\"";
-                isImportant = true;
-                }  
-            
-            if ($session.personalPrice) {
-                $temp.confirmation += " \n- Примерная стоимость тура - "+numberWithCommas($session.personalPrice);
-                isImportant = true;
-                }
-            
-            $temp.confirmation += "."
-            
-            if (isImportant) {
-                $reactions.answer($temp.confirmation);
-                }
-                
-        a: Подскажите, вы готовы отправить заявку?
-        buttons:
-            "Да" -> /Confirmation/Agree
-            "Нет" -> /Confirmation/Disagree
-            
-        state: Agree
-            intent: /confirmationYes
-            script: 
-                var message = "<i>Приветствую! \n"+
-                "Это автоматически отправленное ботом Артуром письмо о новой заявке на подбор тура. <ul>";
-                
-                if ($client.name) {
-                    message += "<li>Имя клиента: "+$client.name+"</li>";
-                    } else {
-                        message += "<li>Имя клиента: <i>"+$session.userName+"</li>";
-                        }
-                        
-                if ($client.phone_number != "Не указано") {
-                    message += "<li>Телефон: "+ $client.phone_number+"</li>";
-                    }
-                
                 if ($session.country != "Не указано") {
-                    message += "<li>Желаемая страна пребывания: "+ $session.country+"</li>";
-                }
+                    $temp.confirmation += " \n- Страна пребывания - "+ $session.country;
+                    isImportant = true;
+                    }
             
                 if ($session.numberOfPeople != "Не указано") {
-                    message += "<li>Количество людей в поездке: "+$session.numberOfPeople+"</li>";
-                }
+                    $temp.confirmation += " \n- Количество людей в поездке - "+$session.numberOfPeople;
+                    isImportant = true;
+                    }
             
                 if ($session.startDate != "Не указано") {
-                    message += "<li>Приблизительная дата начала поездки: "+ moment($session.startDate).format('LL')+"</li>";
-                }
+                    $temp.confirmation += " \n- Приблизительная дата начала поездки - "+ moment($session.startDate).format('LL');
+                    isImportant = true;
+                    }
            
                 if ($session.endDate != "Не указано") {
-                    message += "<li>Приблизительная дата окончания поездки: "+ moment($session.endDate).format('LL')+"</li>";
-                }
+                    $temp.confirmation += " \n- Приблизительная дата окончания поездки - "+ moment($session.endDate).format('LL');
+                    isImportant = true;
+                    }
             
                 if ($session.services != "Не указано") {
-                    message += "<li>Желаемый пакет услулуг: "+ $session.services+"</li>"
-                } 
+                    $temp.confirmation += " \n- Желаемый пакет услулуг - "+ $session.services;
+                    isImportant = true;
+                    } 
                 
                 if ($session.userComment != "Не указано") {
-                    message += "<li>Комментарий клиента: \""+$session.userComment + "\""+"</li>";
-                }  
+                    $temp.confirmation += " \n- Комментарий для менеджера - \""+$session.userComment + "\"";
+                    isImportant = true;
+                    }  
             
                 if ($session.personalPrice) {
-                    message += "<li>Примерная стоимость тура: "+numberWithCommas($session.personalPrice)+"</li>";
-                }
+                    $temp.confirmation += " \n- Примерная стоимость тура - "+numberWithCommas($session.personalPrice);
+                    isImportant = true;
+                    }
             
-                message += "</ul></i>";
-               
-                $session.userHasTour = true;
+                $temp.confirmation += "."
+            
+                if (isImportant) {
+                    $reactions.answer($temp.confirmation);
+                    }
                 
-                $temp.mailResult = sendEmail(message);
+            a: Подскажите, вы готовы отправить заявку?
+            buttons:
+                "Да" -> /TravelRequest/Confirmation/Agree
+                "Нет" -> /TravelRequest/Confirmation/Disagree
+            
+            state: Agree
+                intent: /confirmationYes
+                script: 
+                    var message = "<i>Приветствую! \n"+
+                    "Это автоматически отправленное ботом Артуром письмо о новой заявке на подбор тура. <ul>";
                 
-                if ($temp.mailResult.status === "OK") {
-                    $session.userHasTour = true;
-                    $reactions.answer("Ваша заявка успешно отправлена! Как только наш менеджер выберет самые подходящие для вас варианты, он обязательно с вами свяжется.");
-                    $reactions.transition("/GoodBye");    
-                }
-                else {
-                $reactions.transition("/Confirmation/Agree/Error"); 
-                }
-                
-                
-            state: Error
-                script:
-                    $session.stateCounter ++;
-                    
-                if: $session.stateCounter < 3
-                    go!: /Confirmation/Agree
-                else
-                    script:
-                        $session.stateCounter = 0;
-                        $session.stateCounterInARow = 0;
-                        $session.country = null;
-                        $session.numberOfPeople = null;
-                        $session.startDate = null;
-                        $session.endDate = null;
-                        $session.services = null;
-                        $session.userName = null;
-                        $session.userComment = null;
-                        $session.personalPrice = null;
+                    if ($client.name) {
+                        message += "<li>Имя клиента: "+$client.name+"</li>";
+                        } else {
+                            message += "<li>Имя клиента: <i>"+$session.userName+"</li>";
+                            }
                         
-                        var answer = "К сожалению, произошла техническая ошибка при обращении к сервису хранения заявок. Пожалуйста, позвоните по вопросу подбора путевки нам в Just Tour по номеру 8 (812) 000-00-00.";
-                        $reactions.answer(answer);
-                        $reactions.transition("/SomethingElse");   
+                    if ($client.phone_number != "Не указано") {
+                        message += "<li>Телефон: "+ $client.phone_number+"</li>";
+                        }
+                
+                    if ($session.country != "Не указано") {
+                        message += "<li>Желаемая страна пребывания: "+ $session.country+"</li>";
+                    }
+            
+                    if ($session.numberOfPeople != "Не указано") {
+                        message += "<li>Количество людей в поездке: "+$session.numberOfPeople+"</li>";
+                    }
+            
+                    if ($session.startDate != "Не указано") {
+                        message += "<li>Приблизительная дата начала поездки: "+ moment($session.startDate).format('LL')+"</li>";
+                    }
+           
+                    if ($session.endDate != "Не указано") {
+                        message += "<li>Приблизительная дата окончания поездки: "+ moment($session.endDate).format('LL')+"</li>";
+                    }
+            
+                    if ($session.services != "Не указано") {
+                        message += "<li>Желаемый пакет услулуг: "+ $session.services+"</li>"
+                    } 
+                
+                    if ($session.userComment != "Не указано") {
+                        message += "<li>Комментарий клиента: \""+$session.userComment + "\""+"</li>";
+                    }  
+            
+                    if ($session.personalPrice) {
+                        message += "<li>Примерная стоимость тура: "+numberWithCommas($session.personalPrice)+"</li>";
+                    }
+            
+                    message += "</ul></i>";
+               
+                    $session.userHasTour = true;
+                
+                    $temp.mailResult = sendEmail(message);
+                
+                    if ($temp.mailResult.status === "OK") {
+                        $session.userHasTour = true;
+                        $reactions.answer("Ваша заявка успешно отправлена! Как только наш менеджер выберет самые подходящие для вас варианты, он обязательно с вами свяжется.");
+                        $reactions.transition("/GoodBye");    
+                    }
+                    else {
+                        $reactions.transition("/TravelRequest/Confirmation/Agree/Error"); 
+                    }
+                
+                state: Error
+                    script:
+                        $session.stateCounter ++;
+                    
+                    if: $session.stateCounter < 3
+                        go!: /TravelRequest/Confirmation/Agree
+                    else:
+                        script:
+                            $session.stateCounter = 0;
+                            $session.stateCounterInARow = 0;
+                            $session.country = null;
+                            $session.numberOfPeople = null;
+                            $session.startDate = null;
+                            $session.endDate = null;
+                            $session.services = null;
+                            $session.userName = null;
+                            $session.userComment = null;
+                            $session.personalPrice = null;
+                        
+                            var answer = "К сожалению, произошла техническая ошибка при обращении к сервису хранения заявок. Пожалуйста, позвоните по вопросу подбора путевки нам в Just Tour по номеру 8 (812) 000-00-00.";
+                            $reactions.answer(answer);
+                            $reactions.transition("/SomethingElse");   
                         
                     
         state: Disagree
