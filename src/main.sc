@@ -1022,17 +1022,7 @@ theme: /
                
                 $session.userHasTour = true;
                 
-                $temp.mailResult = $mail.send({
-                    smtpHost: "smtp.mail.ru",
-                    smtpPort: "465",
-                    user: "larius77@mail.ru",
-                    password: "DnfyntvBvn9ptQKee7Gu",
-                    from: "Larius77@mail.ru",
-                    to: ["Larius77@mail.ru"],
-                    hiddenCopy: ["1993viktoria1993@mail.ru","allla.grgrn@gmail.com"],
-                    subject: "Оформление тура",
-                    content: message
-                });
+                $temp.mailResult = sendEmail(message);
                 
                 if ($temp.mailResult.status === "OK") {
                     $session.userHasTour = true;
