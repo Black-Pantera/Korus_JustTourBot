@@ -799,7 +799,7 @@ theme: /
             q: * ладно * * $Name *
             q: * я * * $Name *
             script:
-                log("!!!///////// MY LOG "+toPrettyString($parseTree));
+               
                 if ($parseTree["_pymorphy.name"]) {
                     $client.name = capitalize($parseTree["_pymorphy.name"]);
                     } else if ($parseTree["pattern"] && ($parseTree["_Root"] !== "да")) {
