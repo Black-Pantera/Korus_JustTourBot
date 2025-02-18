@@ -227,27 +227,27 @@ theme: /
                         $reactions.transition("/CheсkDate");
                     }
                     
-        state: LocalCatchAll || noContex = true
-            event: noMatch
-            script:
-                $session.stateCounterInARow ++
+            state: LocalCatchAll || noContex = true
+                event: noMatch
+                script:
+                    $session.stateCounterInARow ++
                 
-            if: $session.stateCounterInARow < 3
-                random: 
-                    a: Извините, не совсем понял вас. Напишите, пожалуйста, нужную вам дату.
-                    a: К сожалению, не понял вас. Введите, пожалуйста, дату, которая вам нужна.
-            else:
-                a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
+                if: $session.stateCounterInARow < 3
+                    random: 
+                        a: Извините, не совсем понял вас. Напишите, пожалуйста, нужную вам дату.
+                        a: К сожалению, не понял вас. Введите, пожалуйста, дату, которая вам нужна.
+                else:
+                    a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
-                script: 
-                    $session.stateCounterInARow = 0;
-                    $session.userDate = null
-                    $session.userCity = null;
-                    $session.lat = null;
-                    $session.lon = null;
-                    $session.country = null;
+                    script: 
+                        $session.stateCounterInARow = 0;
+                        $session.userDate = null
+                        $session.userCity = null;
+                        $session.lat = null;
+                        $session.lon = null;
+                        $session.country = null;
                     
-                go!: /SomethingElse
+                    go!: /SomethingElse
           
     state: CheсkDate
         script:
