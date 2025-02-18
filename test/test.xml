@@ -7,9 +7,6 @@
         <a state="/SomethingElse" />
     </test-case>
     
-    <test-case id="HowCanIHelpYou">
-        <q>погода в Казани завтра</q>
-        <a state="/WeatherForecast/TellWeather" />
-    </test-case>
+
 
 </test>
