@@ -8,7 +8,7 @@
     </test-case>
     
     <test-case id="AreYouRobot">
-        <state>HowCanIHelpYou</state>
+        <state>/HowCanIHelpYou</state>
         <q>Ты робот?</q>
         <a state="/AreYouRobot" />
     </test-case>
