@@ -190,9 +190,9 @@ theme: /
                     }
                     
                     if ($parseTree["_duckling.date"])
-                        $reactions.transition("/CheсkDate");
+                        $reactions.transition("/WeatherForecast/CheсkDate");
                     else
-                        $reactions.transition("/GetDate");
+                        $reactions.transition("/WeatherForecast/GetDate");
         
             state: LocalCatchAll || noContex = true
                 event: noMatch
