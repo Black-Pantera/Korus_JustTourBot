@@ -249,22 +249,22 @@ theme: /
                     
                     go!: /SomethingElse
           
-    state: CheсkDate
-        script:
-            var date = new Date();
-            var userDate = $session.userDate;
+        state: CheсkDate
+            script:
+                var date = new Date();
+                var userDate = $session.userDate;
             
-            if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
-                $session.stateCounter = 0;
-                $reactions.transition("/ThisDayHasPassed");
-                } 
-                else if (DatesDiff(userDate, date) > 5) {
+                if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
                     $session.stateCounter = 0;
-                    $reactions.transition("/ThisDayIsNotComingSoon");
-                    } else { 
+                    $reactions.transition("/ThisDayHasPassed");
+                    } 
+                    else if (DatesDiff(userDate, date) > 5) {
                         $session.stateCounter = 0;
-                        $reactions.transition("/TellWeather") 
-                        };
+                        $reactions.transition("/ThisDayIsNotComingSoon");
+                        } else { 
+                            $session.stateCounter = 0;
+                            $reactions.transition("/TellWeather") 
+                            };
         
     state: ThisDayHasPassed
         script:
