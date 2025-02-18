@@ -266,53 +266,52 @@ theme: /
                             $reactions.transition("/TellWeather") 
                             };
         
-    state: ThisDayHasPassed
-        script:
-            $session.stateCounter ++
-                
-        if: $session.stateCounter < 3
+        state: ThisDayHasPassed
             script:
-                $session.userDate = null;
-            random: 
-                a: К сожалению, я не могу узнать прогноз погоды на период времени в прошлом.
-                a: Я не смогу посмотреть прогноз для прошедшего периода.
-            go!: /GetDate
-        else:
-            a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
+                $session.stateCounter ++
                 
-            script: 
-                $session.stateCounter = 0;
-                $session.userDate = null;
-                $session.userCity = null;
-                $session.lat = null;
-                $session.lon = null;
-                $session.country = null;
+            if: $session.stateCounter < 3
+                script:
+                    $session.userDate = null;
+                random: 
+                    a: К сожалению, я не могу узнать прогноз погоды на период времени в прошлом.
+                    a: Я не смогу посмотреть прогноз для прошедшего периода.
+                go!: /GetDate
+            else:
+                a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
+                
+                script: 
+                    $session.stateCounter = 0;
+                    $session.userDate = null;
+                    $session.userCity = null;
+                    $session.lat = null;
+                    $session.lon = null;
+                    $session.country = null;
                     
-            go!: /SomethingElse
+                go!: /SomethingElse
             
-    state: ThisDayIsNotComingSoon
-        script:
-            $session.stateCounter ++
-                
-        if: $session.stateCounter < 3
+        state: ThisDayIsNotComingSoon
             script:
-                $session.userDate = null;
-            random: 
-                a: Мне жаль, но метеорологи и я пока не можем дать такие долгосрочные прогнозы.
-                a: Извините, посмотреть прогноз на такую далекую дату я не смогу.
-            go!: /GetDate
-        else:
-            a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
+                $session.stateCounter ++
                 
-            script: 
-                $session.stateCounter = 0;
-                $session.userDate = null;
-                $session.userCity = null;
-                $session.lat = null;
-                $session.lon = null;
-                $session.country = null;
-                    
-            go!: /SomethingElse
+            if: $session.stateCounter < 3
+                script:
+                    $session.userDate = null;
+                random: 
+                    a: Мне жаль, но метеорологи и я пока не можем дать такие долгосрочные прогнозы.
+                    a: Извините, посмотреть прогноз на такую далекую дату я не смогу.
+                go!: /GetDate
+            else:
+                a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
+                
+                script: 
+                    $session.stateCounter = 0;
+                    $session.userDate = null;
+                    $session.userCity = null;
+                    $session.lat = null;
+                    $session.lon = null;
+                    $session.country = null;
+                go!: /SomethingElse
         
     state: TellWeather
         script:
