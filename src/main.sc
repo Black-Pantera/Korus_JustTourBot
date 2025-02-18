@@ -759,32 +759,32 @@ theme: /
                         }
                 go!: /TravelRequest/AskServices
             
-        state: LocalCatchAll || noContext = true
-            event: noMatch
-            intent: /незнаем
-            script:
-                $session.stateCounterInARow ++
-                
-            if: $session.stateCounterInARow < 3
+            state: LocalCatchAll || noContext = true
+                event: noMatch
+                intent: /незнаем
                 script:
-                    if ($parseTree["pattern"]) {
-                        $reactions.answer("Мне жаль, но без указания пакет услуг я не смогу отправить заявку. Сделайте выбор, пожалуйста.");
-                        }
-                    else {
-                        var answers = ["Извините, не совсем понял вас. Какой пакет услуг вам больше всего подходит?",
-                        "К сожалению, не понял вас. Какой пакет услуг выбираете?"];
-                        var randomAnswer = answers[$reactions.random(answers.length)];
-                        $reactions.answer(randomAnswer);
-                        $reactions.buttons([{ text: "Эконом", transition: "/AskServices/Package" },
-                        {text: "Стандарт", transition: "/AskServices/Package"},
-                        {text: "VIP", transition: "/AskServices/Package"}]);
-                        }
-            else:
-                script: 
-                    $session.stateCounterInARow = 0;
-                    var answer = "К сожалению, без выбора пакета заявка не может быть отправлена. Вы можете вернуться к её заполнению позже или связаться с нами по номеру 8 (812) 000-00-00.";
-                    $reactions.answer(answer);
-                    $reactions.transition("/SomethingElse");
+                    $session.stateCounterInARow ++
+                
+                if: $session.stateCounterInARow < 3
+                    script:
+                        if ($parseTree["pattern"]) {
+                            $reactions.answer("Мне жаль, но без указания пакет услуг я не смогу отправить заявку. Сделайте выбор, пожалуйста.");
+                            }
+                        else {
+                            var answers = ["Извините, не совсем понял вас. Какой пакет услуг вам больше всего подходит?",
+                            "К сожалению, не понял вас. Какой пакет услуг выбираете?"];
+                            var randomAnswer = answers[$reactions.random(answers.length)];
+                            $reactions.answer(randomAnswer);
+                            $reactions.buttons([{ text: "Эконом", transition: "/TravelRequest/AskServices/Package" },
+                            {text: "Стандарт", transition: "/TravelRequest/AskServices/Package"},
+                            {text: "VIP", transition: "/TravelRequest/AskServices/Package"}]);
+                            }
+                else:
+                    script: 
+                        $session.stateCounterInARow = 0;
+                        var answer = "К сожалению, без выбора пакета заявка не может быть отправлена. Вы можете вернуться к её заполнению позже или связаться с нами по номеру 8 (812) 000-00-00.";
+                        $reactions.answer(answer);
+                        $reactions.transition("/SomethingElse");
             
     state: AskName
         if: $client.name
