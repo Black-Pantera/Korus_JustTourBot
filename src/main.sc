@@ -354,46 +354,46 @@ theme: /
                         $session.lon = null;
                     go!: /SomethingElse
                 
-    state: SomethingElseForWeather
-        script:
-            $session.stateCounterInARow = 0;
-        random:
-            a: Хотите спросить что-то ещё?
-            a: Могу ли я помочь чем-то ещё?
-            a: Подскажите, у вас остались ещё вопросы?
-        buttons:
-            "Узнать прогноз с другими параметрами" -> /WeatherForecast
-            "Оформить заявку на подбор тура" -> /TravelRequest
-            
-        state: AnotherOne
-            intent: /SomethingElseForWeather
-            q: * {$City * * @duckling.date} *
-            q: * а в городе $City *
+        state: SomethingElseForWeather
             script:
-                if (($parseTree._City) && ($parseTree["_duckling.date"])) {
-                    $session.userCity = $parseTree._City.name;
-                    $session.lon = $parseTree._City.lon;
-                    $session.lat = $parseTree._City.lat;
-                    $session.country = $parseTree._City.country;   
-                    $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
-                    $reactions.transition("/CheсkDate");
-                    }
-                else 
-                    if ($parseTree["_duckling.date"]) {
+                $session.stateCounterInARow = 0;
+            random:
+                a: Хотите спросить что-то ещё?
+                a: Могу ли я помочь чем-то ещё?
+                a: Подскажите, у вас остались ещё вопросы?
+            buttons:
+                "Узнать прогноз с другими параметрами" -> /WeatherForecast
+                "Оформить заявку на подбор тура" -> /TravelRequest
+            
+            state: AnotherOne
+                intent: /SomethingElseForWeather
+                q: * {$City * * @duckling.date} *
+                q: * а в городе $City *
+                script:
+                    if (($parseTree._City) && ($parseTree["_duckling.date"])) {
+                        $session.userCity = $parseTree._City.name;
+                        $session.lon = $parseTree._City.lon;
+                        $session.lat = $parseTree._City.lat;
+                        $session.country = $parseTree._City.country;   
                         $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
-                        $reactions.transition("/GetCity");
-                    }
+                        $reactions.transition("/CheсkDate");
+                        }
                     else 
-                        if ($parseTree._City) {
-                            $session.userCity = $parseTree._City.name;
-                            $session.lon = $parseTree._City.lon;
-                            $session.lat = $parseTree._City.lat;
-                            $session.country = $parseTree._City.country; 
-                        
-                            $reactions.transition("/GetDate");
+                        if ($parseTree["_duckling.date"]) {
+                            $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                            $reactions.transition("/GetCity");
                         }
                         else 
-                            $reactions.transition("/GetCity");
+                            if ($parseTree._City) {
+                                $session.userCity = $parseTree._City.name;
+                                $session.lon = $parseTree._City.lon;
+                                $session.lat = $parseTree._City.lat;
+                                $session.country = $parseTree._City.country; 
+                        
+                                $reactions.transition("/GetDate");
+                            }
+                            else 
+                                $reactions.transition("/GetCity");
                             
             state: Agree
                 q: * да * || fromState = "/SomethingElseForWeather/AnotherOne", onlyThisState = true
@@ -409,7 +409,7 @@ theme: /
                 q: * нет * || fromState = "/SomethingElseForWeather/AnotherOne", onlyThisState = true
                 go!: /DontHaveQuestions
             
-        state: LocalCatchAll || noContext = true
+            state: LocalCatchAll || noContext = true
                 event: noMatch
                 script:
                     $session.stateCounterInARow ++;
