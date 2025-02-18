@@ -786,21 +786,22 @@ theme: /
                         $reactions.answer(answer);
                         $reactions.transition("/SomethingElse");
             
-    state: AskName
-        if: $client.name
+        state: AskName
             script:
-                $reactions.transition("/AskPhone");
-        else:
-            script:
-                if ($context.session.lastState !== "/AskName/LocalCatchAll"){
-                    var answer = "С параметрами заявки почти закончили! Осталось указать контакты, чтобы менеджер смог связаться с вами.";
-                    $reactions.answer(answer);
-                }
+                $session.stateCounterInARow = 0;
+            if: $client.name
+                script:
+                    $reactions.transition("/TravelRequest/AskPhone");
+            else:
+                script:
+                    if ($context.session.lastState !== "/TravelRequest/AskName/LocalCatchAll"){
+                        var answer = "С параметрами заявки почти закончили! Осталось указать контакты, чтобы менеджер смог связаться с вами.";
+                        $reactions.answer(answer);
+                        }
                 
-                var answer = "Введите, пожалуйста, ваше имя.";
-                $reactions.answer(answer);
-        script:
-            $session.stateCounterInARow = 0;
+                    var answer = "Введите, пожалуйста, ваше имя.";
+                    $reactions.answer(answer);
+                
                     
         state: Name
             q: * @pymorphy.name *
