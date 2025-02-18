@@ -1125,12 +1125,6 @@ theme: /
             "Узнать прогноз погоды" -> /WeatherForecast
             "Оформить заявку на подбор тура" -> /TravelRequest
                 
-        state: CatchCallbackButton
-            event: telegramCallbackQuery
-            script:
-                $temp.goTo = $request.query
-            go!: {{$temp.goTo}}
-            
         state: LocalCatchAll || noContex = true
             event: noMatch
             
@@ -1150,12 +1144,6 @@ theme: /
                     $session.stateCounterInARow = 0
                 a: Простите, так и не смог понять, что вы имели ввиду.
                 go!: /GoodBye
-                
-            state: CatchCallbackButton
-                event: telegramCallbackQuery
-                script:
-                    $temp.goTo = $request.query
-                go!: {{$temp.goTo}}
                 
     state: DontHaveQuestions
         q!: * вопросов нет *
