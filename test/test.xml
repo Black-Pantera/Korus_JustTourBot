@@ -1,12 +1,4 @@
 <test>
-    <test-case id="1">
-        <q>/start</q>
-        <a>Здравствуйте! Меня зовут Артур, бот-помощник компании Just Tour. Расскажу все о погоде в городах мира и помогу с оформлением заявки на подбор тура.</a>
-        <a>Чем могу помочь?</a>
-        <q>Ты робот?</q>
-        <a state="/AreYouRobot" />
-    </test-case>
-    
     <test-case id="AreYouRobot">
         <state>AreYouRobot</state>
         <random>0,1</random>
@@ -15,7 +7,7 @@
         <a state="/SomethingElse" />
     </test-case>
     
-    <test-case id="2">
+    <test-case id="HowCanIHelpYou">
         <state>HowCanIHelpYou</state>
         <random>2,0,1</random>
         <a>Подскажите, какой у вас вопрос?</a>
