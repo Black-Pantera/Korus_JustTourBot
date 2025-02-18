@@ -9,7 +9,7 @@
     
     <test-case id="HowCanIHelpYou">
         <q>погода в Казани завтра</q>
-        <a state="/WeatherForecast" />
+        <a state="/WeatherForecast/TellWeather" />
     </test-case>
 
 </test>
