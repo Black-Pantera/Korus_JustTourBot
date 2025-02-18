@@ -313,46 +313,46 @@ theme: /
                     $session.country = null;
                 go!: /SomethingElse
         
-    state: TellWeather
-        script:
-            $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
-            moment.lang('ru');
-            $temp.userFormatDate = moment($session.userDate).format('LL');
-            
-        if: $temp.response.isOk
-            random:
-                a: У меня получилось уточнить: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} температура воздуха составит {{ Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp)) }} по Цельсию.
-                a: Смог узнать для вас прогноз: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} будет {{Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp))}} по Цельсию.
-        else:
+        state: TellWeather
             script:
-                $reactions.transition("/TellWeather/Error");
+                $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
+                moment.lang('ru');
+                $temp.userFormatDate = moment($session.userDate).format('LL');
+            
+            if: $temp.response.isOk
+                random:
+                    a: У меня получилось уточнить: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} температура воздуха составит {{ Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp)) }} по Цельсию.
+                    a: Смог узнать для вас прогноз: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} будет {{Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp))}} по Цельсию.
+            else:
+                script:
+                    $reactions.transition("/TellWeather/Error");
                 
       
-        if: $session.country
-            if: $session.userHasTour 
-                go!: /SomethingElseForWeather
-            else:
-                go!: /OfferTour
+            if: $session.country
+                if: $session.userHasTour 
+                    go!: /SomethingElseForWeather
+                else:
+                    go!: /OfferTour
                 
-        else:  
-            go!: /SomethingElseForWeather
+            else:  
+                go!: /SomethingElseForWeather
                     
                 
-        state: Error
-            script:
-                $session.stateCounter++
-                
-            if: $session.stateCounter < 3
-                go!: /TellWeather
-            else:
-                a: Мне очень жаль, но при обращении к сервису, содержащему сведения о погоде, произошла ошибка. Пожалуйста, попробуйте написать мне немного позже. Надеюсь работоспособность сервиса восстановится.
+            state: Error
                 script:
-                    $session.stateCounter = 0;
-                    $session.userDate = null;
-                    $session.userCity = null;
-                    $session.lat = null;
-                    $session.lon = null;
-                go!: /SomethingElse
+                    $session.stateCounter++
+                
+                if: $session.stateCounter < 3
+                    go!: /TellWeather
+                else:
+                    a: Мне очень жаль, но при обращении к сервису, содержащему сведения о погоде, произошла ошибка. Пожалуйста, попробуйте написать мне немного позже. Надеюсь работоспособность сервиса восстановится.
+                    script:
+                        $session.stateCounter = 0;
+                        $session.userDate = null;
+                        $session.userCity = null;
+                        $session.lat = null;
+                        $session.lon = null;
+                    go!: /SomethingElse
                 
     state: SomethingElseForWeather
         script:
