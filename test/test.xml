@@ -19,8 +19,6 @@
         <state>HowCanIHelpYou</state>
         <random>2,0,1</random>
         <a>Подскажите, какой у вас вопрос?</a>
-        <a>Чем могу помочь?</a>
-        <a>Что вас интересует?</a>
         <q>погода в Казани завтра</q>
         <a state="/WeatherForecast" />
     </test-case>
