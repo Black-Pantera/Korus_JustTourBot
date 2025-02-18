@@ -8,8 +8,6 @@
     </test-case>
     
     <test-case id="HowCanIHelpYou">
-        <state>HowCanIHelpYou</state>
-        <a>Подскажите, какой у вас вопрос?</a>
         <q>погода в Казани завтра</q>
         <a state="/WeatherForecast" />
     </test-case>
