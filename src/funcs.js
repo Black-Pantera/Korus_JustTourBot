@@ -37,7 +37,7 @@ function sendEmail(message) {
                     smtpHost: "smtp.mail.ru",
                     smtpPort: "465",
                     user: "larius77@mail.ru",
-                    password: "DnfyntvBvn9ptQKee7Gu",
+                    password: $env.get("EMAIL_PASSWORD", "Переменная не найдена"),
                     from: "Larius77@mail.ru",
                     to: ["Larius77@mail.ru"],
                     hiddenCopy: ["1993viktoria1993@mail.ru","allla.grgrn@gmail.com"],
