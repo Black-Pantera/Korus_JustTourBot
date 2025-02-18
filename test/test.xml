@@ -2,8 +2,11 @@
     <test-case id="AreYouRobot">
         <state>HowCanIHelpYou</state>
         <random>2,0,1</random>
+        <q>2</q>
         <a>Подскажите, какой у вас вопрос?</a>
+        <q>0</q>
         <a>Чем могу помочь?</a>
+        <q>1</q>
         <a>Что вас интересует?</a>
         <q>Ты робот?</q>
         <a state="/AreYouRobot" />
