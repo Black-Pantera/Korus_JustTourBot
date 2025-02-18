@@ -34,8 +34,8 @@ function openWeatherMapCurrent(units, lang, lat, lon){
 
 function sendEmail(message) {
     return $mail.send({
-                    smtpHost: $env.get("SMTP_HOST","Переменная не найдена"), 
-                    smtpPort: "465",
+                    smtpHost: $env.get("SMTP_HOST", "Переменная не найдена"), 
+                    smtpPort: $env.get("SMTP_PORT", "Переменная не найдена"),
                     user: "larius77@mail.ru",
                     password: $env.get("EMAIL_PASSWORD", "Переменная не найдена"),
                     from: "Larius77@mail.ru",
