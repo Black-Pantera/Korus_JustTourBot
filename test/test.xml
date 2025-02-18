@@ -7,6 +7,10 @@
         <a state="/SomethingElse" />
     </test-case>
     
-
+    <test-case id="WeatherForecast">
+        <state>WeatherForecast</state>
+        <q>погода в Казани завтра</q>
+        <a>Я Артур - бот-помощник компании Just Tour, всегда готов отвечать на ваши вопросы.</a>
+    </test-case>
 
 </test>
