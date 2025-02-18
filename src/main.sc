@@ -81,8 +81,6 @@ theme: /
             a: С удовольствием расскажу вам о ближайших метеопрогнозах для разных городов и помогу составить запрос на подбор тура.
         go!: /SomethingElse
         
-        
-            
     state: HowCanIHelpYou
         random:
             a: Чем могу помочь?
@@ -495,7 +493,7 @@ theme: /
             $session.stateCounter = 0;
         
         if: $session.country
-            go!: /AskNumberOfPeople
+            go!: /TravelRequest/AskNumberOfPeople
         else:
             a: Подскажите, вы уже определились с страной прибытия?
             
@@ -510,7 +508,7 @@ theme: /
                     
             if: $session.country
                 a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь, давайте перейдем к указанию оставшихся параметров.
-                go!: /AskNumberOfPeople
+                go!: /TravelRequest/AskNumberOfPeople
             else:
                 a: Введите название страны
                     
@@ -519,7 +517,7 @@ theme: /
                 script: 
                     $session.country = $parseTree._CodeCounties.name;  
                 a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь, давайте перейдем к указанию оставшихся параметров.    
-                go!: /AskNumberOfPeople
+                go!: /TravelRequest/AskNumberOfPeople
                     
             state: LocalCatchAll || noContext = true
                 event: noMatch
@@ -535,7 +533,7 @@ theme: /
                         $session.stateCounter = 0
                         $session.country = "Не указано";
                     a: Простите! Так и не получилось вас понять. Когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
-                    go!: /AskNumberOfPeople
+                    go!: /TravelRequest/AskNumberOfPeople
                
         state: Disagree
             q: * нет * || fromState = "/TravelRequest", onlyThisState = true
@@ -561,50 +559,50 @@ theme: /
                     a: Простите! Так и не получилось вас понять. Когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
                     go!: /AskNumberOfPeople
                   
-    state: AskNumberOfPeople
-        a: Укажите количество человек, которые отправятся в путешествие.
-        script:
-            $session.stateCounterInARow = 0;
+        state: AskNumberOfPeople
+            a: Укажите количество человек, которые отправятся в путешествие.
+            script:
+                $session.stateCounterInARow = 0;
         
-        state: Number
-            q: * @duckling.number *
-            q: * только я *
-            script:
-                if ($parseTree["_duckling.number"] > 0)  {
-                    $session.numberOfPeople = $parseTree["_duckling.number"];
-                    $reactions.transition("/AskStartDate");
-                } 
-                else if ($parseTree["pattern"]) {
-                    $session.numberOfPeople = 1;
-                    $reactions.transition("/AskStartDate");
-                    }
-                
-        state: DontKnow  
-            intent: /незнаем
-            script:
-                $session.numberOfPeople = "Не указано";
-                $reactions.transition("/AskStartDate");
-                
-        state: LocalCatchAll || noContext = true
-            event: noMatch
-            script:
-                $session.stateCounterInARow ++;
-                
-            if: $session.stateCounterInARow < 3
+            state: Number
+                q: * @duckling.number *
+                q: * только я *
                 script:
-                    if ($parseTree["_duckling.number"]) {
-                        $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидное число людей - оно должно быть больше 0.");
+                    if ($parseTree["_duckling.number"] > 0)  {
+                        $session.numberOfPeople = $parseTree["_duckling.number"];
+                        $reactions.transition("/TravelRequest/AskStartDate");
+                    } 
+                    else if ($parseTree["pattern"]) {
+                        $session.numberOfPeople = 1;
+                        $reactions.transition("/TravelRequest/AskStartDate");
                         }
-                    else {
-                        var answers = ["Извините, не совсем понял вас. Сколько человек планирует отправиться в поездку?",
-                        "К сожалению, не понял вас. Сколько человек поедет в тур?"];
-                        var randomAnswer = answers[$reactions.random(answers.length)];
-                        $reactions.answer(randomAnswer);
-                        }
-            else: 
+                
+            state: DontKnow  
+                intent: /незнаем
                 script:
-                    $session.stateCounterInARow = 0;
-                go!: /AskNumberOfPeople/DontKnow
+                    $session.numberOfPeople = "Не указано";
+                    $reactions.transition("/TravelRequest/AskStartDate");
+                
+            state: LocalCatchAll || noContext = true
+                event: noMatch
+                script:
+                    $session.stateCounterInARow ++;
+                
+                if: $session.stateCounterInARow < 3
+                    script:
+                        if ($parseTree["_duckling.number"]) {
+                            $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидное число людей - оно должно быть больше 0.");
+                            }
+                        else {
+                            var answers = ["Извините, не совсем понял вас. Сколько человек планирует отправиться в поездку?",
+                            "К сожалению, не понял вас. Сколько человек поедет в тур?"];
+                            var randomAnswer = answers[$reactions.random(answers.length)];
+                            $reactions.answer(randomAnswer);
+                            }
+                else: 
+                    script:
+                        $session.stateCounterInARow = 0;
+                    go!: /TravelRequest/AskNumberOfPeople/DontKnow
 
     state: AskStartDate
         a: Еще мне потребуется предполагаемая дата начала поездки. Пожалуйста, напишите ее.
