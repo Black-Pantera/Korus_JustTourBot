@@ -1,7 +1,8 @@
 <test>
     <test-case>
         <q>/start</q>
-        <a></a>
+        <a>Ты робот?</a>
+        <a state="/AreYouRobot" />
     </test-case>
     
     <test-case id="TellWeather">
