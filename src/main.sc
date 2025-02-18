@@ -67,6 +67,22 @@ theme: /
                     
             go!: /SomethingElse
             
+    state: AreYouRobot
+        intent!: /robot
+        random:
+            a: Я Артур - бот-помощник компании Just Tour, всегда готов отвечать на ваши вопросы.
+            a: Вы общаетесь с Артуром - чат-ботом, разработанным командой Just Tour, чтобы помогать вам. Всегда рад пообщаться с вами!
+        go!: /SomethingElse
+    
+    state: WhatCanYouDo
+        intent!: /whatcanyoudo
+        random:
+            a: Умею рассказывать о погоде в городах мира и составлять заявки на подбор подходящего именно вам путешествия.
+            a: С удовольствием расскажу вам о ближайших метеопрогнозах для разных городов и помогу составить запрос на подбор тура.
+        go!: /SomethingElse
+        
+        
+            
     state: HowCanIHelpYou
         random:
             a: Чем могу помочь?
@@ -147,55 +163,54 @@ theme: /
                     else 
                         $reactions.transition("/GetCity");
     
-    state: GetCity
-        random:
-            a: Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.
-            a: Скажите, пожалуйста, для какого города вы хотетие получить прогноз?
-            a: Прогноз для какого города хотите получить?
+        state: GetCity
+            random:
+                a: Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.
+                a: Скажите, пожалуйста, для какого города вы хотетие получить прогноз?
+                a: Прогноз для какого города хотите получить?
             
-        state: UserCity
-            q: * $City *
-            script:
-                log("!!!  MY LOG "+toPrettyString($parseTree));
-                
-                $session.stateCounterInARow = 0;
-                if ($parseTree._City) {
-                    $session.userCity = $parseTree._City.name;
-                    $session.lon = $parseTree._City.lon;
-                    $session.lat = $parseTree._City.lat;
+            state: UserCity
+                q: * $City *
+                script:
+                    $session.stateCounterInARow = 0;
                     
-                    if ($caila.entitiesLookup($parseTree._City.country, true) != null) {
-                        if ($caila.entitiesLookup($parseTree._City.country, true).entities.length) {
-                            var pk = JSON.parse($caila.entitiesLookup($parseTree._City.country, true).entities[0].value);
-                            $session.country = pk.name;
-                        } else {
-                            $session.country = null;
+                    if ($parseTree._City) {
+                        $session.userCity = $parseTree._City.name;
+                        $session.lon = $parseTree._City.lon;
+                        $session.lat = $parseTree._City.lat;
+                    
+                        if ($caila.entitiesLookup($parseTree._City.country, true) != null) {
+                            if ($caila.entitiesLookup($parseTree._City.country, true).entities.length) {
+                                var pk = JSON.parse($caila.entitiesLookup($parseTree._City.country, true).entities[0].value);
+                                $session.country = pk.name;
+                            } else {
+                                $session.country = null;
+                                }
                         }
                     }
-                }
                     
-                if ($parseTree["_duckling.date"])
-                    $reactions.transition("/CheсkDate");
-                else
-                    $reactions.transition("/GetDate");
+                    if ($parseTree["_duckling.date"])
+                        $reactions.transition("/CheсkDate");
+                    else
+                        $reactions.transition("/GetDate");
         
-        state: LocalCatchAll || noContex = true
-            event: noMatch
-            script:
-                $session.stateCounterInARow++
+            state: LocalCatchAll || noContex = true
+                event: noMatch
+                script:
+                    $session.stateCounterInARow++
                 
-            if: $session.stateCounterInARow < 3
-                random: 
-                    a: Извините, не совсем понял вас. Напишите, пожалуйста, название города, чтобы я смог узнать прогноз погоды для него.
-                    a: К сожалению, не понял вас. Укажите, пожалуйста, нужный вам город?
-            else:
-                a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
+                if: $session.stateCounterInARow < 3
+                    random: 
+                        a: Извините, не совсем понял вас. Напишите, пожалуйста, название города, чтобы я смог узнать прогноз погоды для него.
+                        a: К сожалению, не понял вас. Укажите, пожалуйста, нужный вам город?
+                else:
+                    a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
-                script: 
-                    $session.userDate = null
-                    $session.stateCounterInARow = 0
+                    script: 
+                        $session.userDate = null
+                        $session.stateCounterInARow = 0
                     
-                go!: /SomethingElse
+                    go!: /SomethingElse
                 
     state: GetDate
         random:
@@ -1163,16 +1178,4 @@ theme: /
             a: Всего вам доброго!
             a: Всего доброго, до свидания!
     
-    state: AreYouRobot
-        intent!: /robot
-        random:
-            a: Я Артур - бот-помощник компании Just Tour, всегда готов отвечать на ваши вопросы.
-            a: Вы общаетесь с Артуром - чат-ботом, разработанным командой Just Tour, чтобы помогать вам. Всегда рад пообщаться с вами!
-        go!: /SomethingElse
     
-    state: WhatCanYouDo
-        intent!: /whatcanyoudo
-        random:
-            a: Умею рассказывать о погоде в городах мира и составлять заявки на подбор подходящего именно вам путешествия.
-            a: С удовольствием расскажу вам о ближайших метеопрогнозах для разных городов и помогу составить запрос на подбор тура.
-        go!: /SomethingElse
