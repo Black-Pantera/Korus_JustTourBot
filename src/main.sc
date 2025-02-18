@@ -803,51 +803,51 @@ theme: /
                     $reactions.answer(answer);
                 
                     
-        state: Name
-            q: * @pymorphy.name *
-            q: * меня зовут * * $Name *
-            q: * зови меня * * $Name *
-            q: * имя * * $Name *
-            q: * ладно * * $Name *
-            q: * я * * $Name *
-            script:
-               
-                if ($parseTree["_pymorphy.name"]) {
-                    $client.name = capitalize($parseTree["_pymorphy.name"]);
-                    } else if ($parseTree["pattern"] && ($parseTree["_Root"] !== "да")) {
-                        $session.userName = capitalize($request.query);
-                        } 
-                    
-            go!: /AskPhone    
-            
-        state: LocalCatchAll || noContext = true
-            event: noMatch
-            intent: /незнаем
-            intent: /неХочуУказывать
-            intent: /зачем
-            script:
-                $session.stateCounterInARow ++
-                
-            if: $session.stateCounterInARow < 2
+            state: Name
+                q: * @pymorphy.name *
+                q: * меня зовут * * $Name *
+                q: * зови меня * * $Name *
+                q: * имя * * $Name *
+                q: * ладно * * $Name *
+                q: * я * * $Name *
                 script:
-                    if ($parseTree["pattern"]) {
-                        $reactions.answer("Мне жаль, но без указания вашего имени отправить заявку не получится. Укажите его, пожалуйста.");
-                        }
-                    else {
-                        $session.userName = $request.query;
-                        $reactions.transition("/UnusualName");    
-                    }
-            else:
-                script: 
-                    $session.stateCounterInARow = 0;
-                    var answer = "К сожалению, без указания вашего имени заявка не может быть отправлена. Вы можете вернуться к ее заполнению позже или связаться с нами по номеру 8 (812) 000-00-00.";
-                    $reactions.answer(answer);
-                    $reactions.transition("/SomethingElse");       
+               
+                    if ($parseTree["_pymorphy.name"]) {
+                        $client.name = capitalize($parseTree["_pymorphy.name"]);
+                        } else if ($parseTree["pattern"] && ($parseTree["_Root"] !== "да")) {
+                            $session.userName = capitalize($request.query);
+                            } 
+                    
+                go!: /TravelRequest/AskPhone    
             
-    state: UnusualName   
-        a: Как необычно! Подскажите, вы точно хотели указать в качестве своего имени "{{ $request.query }}"?
-        script: 
-            $session.userName = $request.query;
+            state: LocalCatchAll || noContext = true
+                event: noMatch
+                intent: /незнаем
+                intent: /неХочуУказывать
+                intent: /зачем
+                script:
+                    $session.stateCounterInARow ++
+                
+                if: $session.stateCounterInARow < 2
+                    script:
+                        if ($parseTree["pattern"]) {
+                            $reactions.answer("Мне жаль, но без указания вашего имени отправить заявку не получится. Укажите его, пожалуйста.");
+                            }
+                        else {
+                            $session.userName = $request.query;
+                            $reactions.transition("/UnusualName");    
+                        }
+                else:
+                    script: 
+                        $session.stateCounterInARow = 0;
+                        var answer = "К сожалению, без указания вашего имени заявка не может быть отправлена. Вы можете вернуться к ее заполнению позже или связаться с нами по номеру 8 (812) 000-00-00.";
+                        $reactions.answer(answer);
+                        $reactions.transition("/SomethingElse");       
+            
+        state: UnusualName   
+            a: Как необычно! Подскажите, вы точно хотели указать в качестве своего имени "{{ $request.query }}"?
+            script: 
+                $session.userName = $request.query;
         
         state: ChoosenNo
             q: * нет *
