@@ -911,25 +911,25 @@ theme: /
                         $reactions.answer(answer);
                         $reactions.transition("/SomethingElse");      
             
-    state: AskComment
-        a: Теперь напишите комментарий для менеджера, если это требуется.
-        buttons:
-            "Не нужно" -> /AskComment/Disagree
+        state: AskComment
+            a: Теперь напишите комментарий для менеджера, если это требуется.
+            buttons:
+                "Не нужно" -> /TravelRequest/AskComment/Disagree
             
-        state: Comment
-            event: noMatch
-            script:
-                $session.userComment = $request.query;
-            go!: /Confirmation
+            state: Comment
+                event: noMatch
+                script:
+                    $session.userComment = $request.query;
+                go!: /TravelRequest/Confirmation
                 
-        state: Disagree
-            intent: /незнаем
-            intent: /неХочуУказывать
-            intent: /зачем
-            q: * нет *
-            script:
-                $session.userComment = "Не указано";
-            go!: /Confirmation
+            state: Disagree
+                intent: /незнаем
+                intent: /неХочуУказывать
+                intent: /зачем
+                q: * нет *
+                script:
+                    $session.userComment = "Не указано";
+                go!: /TravelRequest/Confirmation
     
     state: Confirmation
         script:
