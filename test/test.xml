@@ -8,9 +8,12 @@
     </test-case>
     
     <test-case id="AreYouRobot">
-        <state>/HowCanIHelpYou</state>
+        <state></state>reYouRobot</state>
+        <random>0,1</random>
         <q>Ты робот?</q>
-        <a state="/AreYouRobot" />
+        <a>Я Артур - бот-помощник компании Just Tour, всегда готов отвечать на ваши вопросы</a>
+        <q>Ты робот?</q>
+        <a>Вы общаетесь с Артуром - чат-ботом, разработанным командой Just Tour, чтобы помогать вам. Всегда рад пообщаться с вами!</a>
     </test-case>
     
     <test-case id="2">
