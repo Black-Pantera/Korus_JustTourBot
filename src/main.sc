@@ -224,7 +224,7 @@ theme: /
                 
                     if ($parseTree["_duckling.date"]) {
                         $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
-                        $reactions.transition("/CheсkDate");
+                        $reactions.transition("/WeatherForecast/CheсkDate");
                     }
                     
             state: LocalCatchAll || noContex = true
@@ -260,10 +260,10 @@ theme: /
                     } 
                     else if (DatesDiff(userDate, date) > 5) {
                         $session.stateCounter = 0;
-                        $reactions.transition("/ThisDayIsNotComingSoon");
+                        $reactions.transition("/WeatherForecast/ThisDayIsNotComingSoon");
                         } else { 
                             $session.stateCounter = 0;
-                            $reactions.transition("/TellWeather") 
+                            $reactions.transition("/WeatherForecast/TellWeather") 
                             };
         
         state: ThisDayHasPassed
@@ -325,17 +325,17 @@ theme: /
                     a: Смог узнать для вас прогноз: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} будет {{Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp))}} по Цельсию.
             else:
                 script:
-                    $reactions.transition("/TellWeather/Error");
+                    $reactions.transition("/WeatherForecast/TellWeather/Error");
                 
       
             if: $session.country
                 if: $session.userHasTour 
-                    go!: /SomethingElseForWeather
+                    go!: /WeatherForecast/SomethingElseForWeather
                 else:
                     go!: /OfferTour
                 
             else:  
-                go!: /SomethingElseForWeather
+                go!: /WeatherForecast/SomethingElseForWeather
                     
                 
             state: Error
@@ -343,7 +343,7 @@ theme: /
                     $session.stateCounter++
                 
                 if: $session.stateCounter < 3
-                    go!: /TellWeather
+                    go!: /WeatherForecast/TellWeather
                 else:
                     a: Мне очень жаль, но при обращении к сервису, содержащему сведения о погоде, произошла ошибка. Пожалуйста, попробуйте написать мне немного позже. Надеюсь работоспособность сервиса восстановится.
                     script:
@@ -376,12 +376,12 @@ theme: /
                         $session.lat = $parseTree._City.lat;
                         $session.country = $parseTree._City.country;   
                         $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
-                        $reactions.transition("/CheсkDate");
+                        $reactions.transition("/WeatherForecast/CheсkDate");
                         }
                     else 
                         if ($parseTree["_duckling.date"]) {
                             $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
-                            $reactions.transition("/GetCity");
+                            $reactions.transition("/WeatherForecast/GetCity");
                         }
                         else 
                             if ($parseTree._City) {
@@ -390,13 +390,13 @@ theme: /
                                 $session.lat = $parseTree._City.lat;
                                 $session.country = $parseTree._City.country; 
                         
-                                $reactions.transition("/GetDate");
+                                $reactions.transition("/WeatherForecast/GetDate");
                             }
                             else 
-                                $reactions.transition("/GetCity");
+                                $reactions.transition("/WeatherForecast/GetCity");
                             
             state: Agree
-                q: * да * || fromState = "/SomethingElseForWeather/AnotherOne", onlyThisState = true
+                q: * да * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
                 script:
                     $session.userCity = null;
                     $session.lon = null;
@@ -406,7 +406,7 @@ theme: /
                 go!: /HowCanIHelpYou
                 
             state: DisAgree
-                q: * нет * || fromState = "/SomethingElseForWeather/AnotherOne", onlyThisState = true
+                q: * нет * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
                 go!: /DontHaveQuestions
             
             state: LocalCatchAll || noContext = true
@@ -435,11 +435,11 @@ theme: /
                 a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
             
             state: OfferTourYes
-                q: * (да|хочу) * || fromState = "/OfferTour", onlyThisState = true
+                q: * (да|хочу) * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
                 go!: /TravelRequest
             
             state: Disagree 
-                q: * (нет|не хочу) * || fromState = "/OfferTour", onlyThisState = true
+                q: * (нет|не хочу) * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
                 a: Понял вас!
                 script:
                     $session.userCity = null;
@@ -451,11 +451,11 @@ theme: /
                 a: В таком случае, желаете узнать погоду в другом городе мира?
             
                 state: DisagreeYes
-                    q: * (да|хочу) * || fromState = "/OfferTour/Disagree", onlyThisState = true
+                    q: * (да|хочу) * || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
                     go!: /WeatherForecast
                 
                 state: DisagreeNo
-                    q: * (нет|не хочу) * || fromState = "/OfferTour/Disagree", onlyThisState = true
+                    q: * (нет|не хочу) * || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
                     go!: /SomethingElse
                 
                     state: LocalCatchAll || noContext = true
@@ -464,7 +464,7 @@ theme: /
                             $session.stateCounterDisagree ++;
                         if: $session.stateCounterDisagree < 2
                             a: Простите, не совсем понял. Хотите узнать прогноз погоды для другого города?   
-                            go: /OfferTour/Disagree
+                            go: /WeatherForecast/OfferTour/Disagree
                         else
                             script:
                                 $session.stateCounterDisagree = 0;
