@@ -190,6 +190,7 @@ theme: /
                         }
                     }
                     
+                    $reactions.answer($session.userDate);
                     if ($session.userDate)
                         $reactions.transition("/WeatherForecast/CheсkDate");
                     else
