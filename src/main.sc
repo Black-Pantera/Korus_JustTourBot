@@ -273,7 +273,7 @@ theme: /
         state: CheсkDate
             script:
                 var date = new Date();
-                var userDate = $session.userDate;
+                var userDate = new Date($session.userDate);
             
                 if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
                     $session.stateCounter = 0;
