@@ -8,7 +8,6 @@
     </test-case>
     
     <test-case id="WeatherForecast">
-        <q>/start</q>
         <q>Прогноз погоды</q>
         <a state = "/WeatherForecast" />
         <random>2,0,1</random>
