@@ -8,12 +8,15 @@
     </test-case>
     
     <test-case id="WeatherForecast">
-        <state>WeatherForecast</state>
+        <q>/start</q>
         <q>Прогноз погоды</q>
-        <a state="/WeatherForecast/GetCity" />
+        <a state = "/WeatherForecast" />
         <random>2,0,1</random>
+        <q>2</q>
         <a>Прогноз для какого города хотите получить?</a>
         <q>Казань</q>
+        <a state="/WeatherForecast/GetCity" />
+       
         <a state="/WeatherForecast/GetCity/UserCity" />
         
         <a state="/WeatherForecast/GetDate"></a>
