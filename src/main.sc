@@ -313,19 +313,22 @@ theme: /
         
         state: TellWeather
             script:
-                $temp.response = openWeatherMapCurrent("metric","ru",$session.lat, $session.lon);
-                moment.lang('ru');
+                moment.lang('ru'); 
                 $temp.userFormatDate = moment($session.userDate).format('LL');
-            
-            if: $temp.response.isOk
-                random:
-                    a: У меня получилось уточнить: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} температура воздуха составит {{ Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp)) }} по Цельсию.
-                    a: Смог узнать для вас прогноз: на {{ $temp.userFormatDate }} в {{capitalize($nlp.inflect($session.userCity, "loct"))}} будет {{Math.floor($temp.response.data.main.temp)}} {{ $nlp.conform("градус", Math.floor($temp.response.data.main.temp))}} по Цельсию.
-            else:
-                script:
-                    $reactions.transition("/WeatherForecast/TellWeather/Error");
                 
-      
+                openWeatherMapCurrent("metric","ru",$session.lat, $session.lon).then(function (res) {
+                    
+                    var answers = [
+                        "У меня получилось уточнить: на "+ $temp.userFormatDate +" в "+ capitalize($nlp.inflect($session.userCity, "loct"))+" температура воздуха составит "+ Math.floor($temp.response.data.main.temp)+ " "+ $nlp.conform("градус", Math.floor($temp.response.data.main.temp)) +" по Цельсию.",
+                        "Смог узнать для вас прогноз: на "+ $temp.userFormatDate +" в "+ capitalize($nlp.inflect($session.userCity, "loct"))+" будет "+Math.floor($temp.response.data.main.temp)+ " "+$nlp.conform("градус", Math.floor($temp.response.data.main.temp)) +" по Цельсию."
+                    ];
+                    var randomAnswer = answers[$reactions.random(answers.length)];
+                    $reactions.answer(randomAnswer);
+                    
+                }).catch(function (err) {
+                     $reactions.transition("/WeatherForecast/TellWeather/Error");
+                });
+                
             if: $session.country
                 if: $session.userHasTour 
                     go!: /WeatherForecast/SomethingElseForWeather
