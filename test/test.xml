@@ -6,11 +6,11 @@
                 <appid>106ad0548ad7d7b7eb02682ec63886b4</appid> 
                 <units>metric</units>
                 <lang>ru</lang>
-                <lat>москва</lat>
-                <lon>москва</lon>
+                <lat>53.24</lat>
+                <lon>50.22</lon>
             </parameters>
             <response>
-                {
+            {
                 "coord": {
                     "lon": 50.22,
                     "lat": 53.24
@@ -55,7 +55,7 @@
                 "id": 499099,
                 "name": "Самара",
                 "cod": 200
-                }
+            }
             </response>
         </mockData>
     
