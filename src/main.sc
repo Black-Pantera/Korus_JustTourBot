@@ -125,7 +125,7 @@ theme: /
             
             log("!!!///////// MY LOG "+toPrettyString($parseTree));
             
-            if (($parseTree._City) && ($parseTree["_duckling.date"])) {
+            if ($parseTree._City && $parseTree["_duckling.date"]) {
                 log("1!!!///////// MY LOG "+toPrettyString($parseTree));
                 
                 $session.userCity = $parseTree._City.name;
