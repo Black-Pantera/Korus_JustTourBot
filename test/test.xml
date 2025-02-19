@@ -19,7 +19,6 @@
         <a>Хотите спросить что-то ещё?</a>
     </test-case>
     
-    
     <test-case id="WeatherForecast2">
         <mockData>
             <query method="get">http://api.openweathermap.org/data/2.5/weather?APPID=${appid}&amp;units=${units}&amp;lang=${lang}&amp;lat=${lat}&amp;lon=${lon}</query>
