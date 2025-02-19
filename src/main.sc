@@ -190,7 +190,7 @@ theme: /
                         }
                     }
                     
-                    if ($parseTree["_duckling.date"])
+                    if ($session.userDate)
                         $reactions.transition("/WeatherForecast/CheсkDate");
                     else
                         $reactions.transition("/WeatherForecast/GetDate");
