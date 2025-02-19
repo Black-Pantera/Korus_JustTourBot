@@ -334,11 +334,9 @@ theme: /
                     go!: /WeatherForecast/SomethingElseForWeather
                 else:
                     go!: /WeatherForecast/OfferTour
-                
             else:  
                 go!: /WeatherForecast/SomethingElseForWeather
                     
-                
             state: Error
                 script:
                     $session.stateCounter++
