@@ -65,7 +65,12 @@
       "refs" : [ ]
     },
     "patterns" : [ ],
-    "slots" : [ ],
+    "slots" : [ {
+      "name" : "Date",
+      "entity" : "duckling.date",
+      "required" : true,
+      "prompts" : [ ]
+    } ],
     "priority" : 0
   }, {
     "path" : "/tour",
