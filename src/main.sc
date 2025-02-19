@@ -123,7 +123,7 @@ theme: /
         q!: * погода * $City *
         script:
             
-            
+            log("!!!///////// MY LOG "+toPrettyString($parseTree));
             if (($parseTree._City) && ($parseTree["_duckling.date"])) {
                 $session.userCity = $parseTree._City.name;
                 $session.lon = $parseTree._City.lon;
