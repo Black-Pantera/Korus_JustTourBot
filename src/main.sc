@@ -315,7 +315,8 @@ theme: /
             script:
                 moment.lang('ru'); 
                 $temp.userFormatDate = moment($session.userDate).format('LL');
-                
+                $reactions.answer($session.lat);
+                $reactions.answer($session.lon);
                 openWeatherMapCurrent("metric","ru",$session.lat, $session.lon).then(function (res) {
                     
                     var answers = [
