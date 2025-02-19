@@ -121,7 +121,6 @@ theme: /
         intent: /weather
         q!: * погода * {$City * * @duckling.date} *
         q!: * погода * $City *
-        q!: * {погода * * @duckling.date} *
         script:
             
             log("!!!///////// MY LOG "+toPrettyString($parseTree));
@@ -242,7 +241,7 @@ theme: /
                 q: * @duckling.date *
                 script:
                     $session.stateCounterInARow = 0;
-                
+                    log("---!!!///////// MY LOG "+toPrettyString($parseTree));
                     if ($parseTree["_duckling.date"]) {
                         $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                         $reactions.transition("/WeatherForecast/CheсkDate");
