@@ -126,6 +126,8 @@ theme: /
             log("!!!///////// MY LOG "+toPrettyString($parseTree));
             
             if (($parseTree._City) && ($parseTree["_duckling.date"])) {
+                log("1!!!///////// MY LOG "+toPrettyString($parseTree));
+                
                 $session.userCity = $parseTree._City.name;
                 $session.lon = $parseTree._City.lon;
                 $session.lat = $parseTree._City.lat;
@@ -144,7 +146,7 @@ theme: /
                 }
             else 
                 if ($parseTree["_duckling.date"]) {
-                    log("----!!!///////// MY LOG "+toPrettyString($parseTree));
+                    log("2!!!///////// MY LOG "+toPrettyString($parseTree));
                     $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                     
                     $reactions.answer($session.userDate);
@@ -153,6 +155,7 @@ theme: /
                     }
                 else 
                     if ($parseTree._City) {
+                        log("3!!!///////// MY LOG "+toPrettyString($parseTree));
                         $session.userCity = $parseTree._City.name;
                         $session.lon = $parseTree._City.lon;
                         $session.lat = $parseTree._City.lat;
@@ -169,7 +172,10 @@ theme: /
                         $reactions.transition("/WeatherForecast/GetDate");
                     }
                     else 
+                    {
+                        log("4!!!///////// MY LOG "+toPrettyString($parseTree));
                         $reactions.transition("/WeatherForecast/GetCity");
+                    }
     
         state: GetCity
             random:
