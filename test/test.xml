@@ -10,7 +10,6 @@
     <test-case id="WeatherForecast">
         <q>Прогноз погоды</q>
         <a state = "/WeatherForecast/GetCity"/>
-        <random>0</random>
         <a>Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.</a>
         <q>Казань</q>
         <random>0</random>
