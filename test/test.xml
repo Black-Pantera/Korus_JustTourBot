@@ -24,6 +24,17 @@
         <a>Хотите спросить что-то ещё?</a>
     </test-case>
     
+    <test-case id="WeatherForecast3">
+        <dateTime>2025-02-21 00:00:00</dateTime>
+        <q>погода в Самаре послезавтра</q>
+        <mockData>
+            <query>http://api.openweathermap.org/data/2.5/weather</query>
+            <response type="text">2</response>
+        </mockData>
+        <a>Смог узнать для вас прогноз: на 2025-02-21 в Самаре будет 2 градуса по Цельсию.</a>
+        <a>Хотите спросить что-то ещё?</a>
+    </test-case>
+    
     <test-case id="TravelRequest">
         <q>выбрать путевку</q>
         <a state="/TravelRequest" />
