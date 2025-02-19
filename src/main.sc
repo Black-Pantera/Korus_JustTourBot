@@ -121,6 +121,7 @@ theme: /
         intent: /weather
         q!: * погода * {$City * * @duckling.date} *
         q!: * погода * $City *
+        q!: * {погода * * @duckling.date} *
         script:
             
             log("!!!///////// MY LOG "+toPrettyString($parseTree));
