@@ -26,7 +26,7 @@
     
     <test-case id="WeatherForecast3">
         <dateTime>2025-02-21 00:00:00</dateTime>
-        <q>погода в Самаре послезавтра</q>
+        <q>погода в Самаре на 21 февраля 2025 года</q>
         <mockData>
             <query>http://api.openweathermap.org/data/2.5/weather</query>
             <response type="text">2</response>
