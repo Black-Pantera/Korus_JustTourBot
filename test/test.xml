@@ -27,7 +27,7 @@
     <test-case id="WeatherForecast3">
         <dateTime>2025-02-21 00:00:00</dateTime>
         <mockData>
-            <query>http://api.openweathermap.org/data/2.5/weather?APPID=106ad0548ad7d7b7eb02682ec63886b4&units=metric&lang=rulat=53.24&lon=50.22</query>
+            <query>http://api.openweathermap.org/data/2.5/weather?APPID=106ad0548ad7d7b7eb02682ec63886b4&amp;units=metric&amp;lang=rulat=53.24&amp;lon=50.22</query>
             <response type="text">{"cod":"400","message":"Nothing to geocode"}</response>
         </mockData>
         <q>погода в Самаре на 21 февраля 2025 года</q>
