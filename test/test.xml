@@ -1,32 +1,6 @@
 <test>
-    <test-case id="AreYouRobot">
-        <state>AreYouRobot</state>
-        <random>0, 1</random>
-        <q>Ты робот?</q>
-        <a>Я Артур - бот-помощник компании Just Tour, всегда готов отвечать на ваши вопросы.</a>
-        <a state="/SomethingElse" />
-    </test-case>
     
-    <test-case id="WeatherForecast1">
-        <q>Прогноз погоды</q>
-        <a>Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.</a>
-        <q>Казань</q>
-        <a>На какую дату требуется прогноз?</a>
-        <q>На 20 февраля 2025</q>
-        <a state = "/WeatherForecast/TellWeather/Error"/>
-        <random>0</random>
-        <a>Хотите спросить что-то ещё?</a>
-    </test-case>
-    
-    <test-case id="WeatherForecast2">
-        <q>погода в Самаре послезавтра</q>
-        <a state = "/WeatherForecast/TellWeather/Error"/>
-        <a>Хотите спросить что-то ещё?</a>
-    </test-case>
-    
-    <test-case id="WeatherForecast3">
-        <dateTime>2025-02-21 00:00:00</dateTime>
-        <mockData>
+    <mockData>
             <query>http://api.openweathermap.org/data/2.5/weather?APPID=${appid}&amp;units=${units}&amp;lang=${lang}&amp;lat=${lat}&amp;lon=${lon}</query>
             <parameters>
                 <appid>106ad0548ad7d7b7eb02682ec63886b4</appid> 
@@ -84,6 +58,35 @@
                 }
             </response>
         </mockData>
+    
+    <test-case id="AreYouRobot">
+        <state>AreYouRobot</state>
+        <random>0, 1</random>
+        <q>Ты робот?</q>
+        <a>Я Артур - бот-помощник компании Just Tour, всегда готов отвечать на ваши вопросы.</a>
+        <a state="/SomethingElse" />
+    </test-case>
+    
+    <test-case id="WeatherForecast1">
+        <q>Прогноз погоды</q>
+        <a>Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.</a>
+        <q>Казань</q>
+        <a>На какую дату требуется прогноз?</a>
+        <q>На 20 февраля 2025</q>
+        <a state = "/WeatherForecast/TellWeather/Error"/>
+        <random>0</random>
+        <a>Хотите спросить что-то ещё?</a>
+    </test-case>
+    
+    <test-case id="WeatherForecast2">
+        <q>погода в Самаре послезавтра</q>
+        <a state = "/WeatherForecast/TellWeather/Error"/>
+        <a>Хотите спросить что-то ещё?</a>
+    </test-case>
+    
+    <test-case id="WeatherForecast3">
+        <dateTime>2025-02-21 00:00:00</dateTime>
+        
         <q>погода в Самаре на 21 февраля 2025 года</q>
         <a>Смог узнать для вас прогноз: на 21 февраля 2025 г. в Самаре будет -10 градусов по Цельсию.</a>
         <a>Можем составить заявку на подбор идеального тура в Россию. Хотите?</a>
