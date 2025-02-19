@@ -7,12 +7,20 @@
         <a state="/SomethingElse" />
     </test-case>
     
-    <test-case id="WeatherForecast">
+    <test-case id="WeatherForecast1">
         <q>Прогноз погоды</q>
         <a>Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.</a>
         <q>Казань</q>
         <a>На какую дату требуется прогноз?</a>
         <q>На 20 февраля 2025</q>
+        <a state = "/WeatherForecast/TellWeather/Error"/>
+        <random>0</random>
+        <a>Хотите спросить что-то ещё?</a>
+    </test-case>
+    
+    <test-case id="WeatherForecast2">
+        <q>погода в Самарае послезавтра</q>
+        <a>Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.</a>
         <a state = "/WeatherForecast/TellWeather/Error"/>
         <random>0</random>
         <a>Хотите спросить что-то ещё?</a>
