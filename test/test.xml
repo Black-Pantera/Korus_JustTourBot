@@ -11,6 +11,7 @@
         <state>WeatherForecast</state>
         <q>Прогноз погоды</q>
         <a state="/WeatherForecast/GetCity" />
+        <random>2,0,1</random>
         <a>Прогноз для какого города хотите получить?</a>
         <q>Казань</q>
         <a state="/WeatherForecast/GetCity/UserCity" />
