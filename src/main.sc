@@ -145,12 +145,15 @@ theme: /
                 $reactions.transition("/WeatherForecast/CheсkDate");
             }
             else 
-                if ($parseTree["_duckling.date"]) 
+                if ($parseTree["_duckling.date"] || $parseTree["_Date"]) 
                 {
                     log("2!!!///////// MY LOG "+toPrettyString($parseTree));
-                    $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                     
-                    $reactions.answer($session.userDate);
+                    if ($parseTree["_duckling.date"])
+                        $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                    
+                    if ($parseTree["_Date"])
+                        $session.userDate = new Date($parseTree["_Date"].year + "/"+ $parseTree["_Date"].month + "/"+ $parseTree["_Date"].day);  
                     
                     $reactions.transition("/WeatherForecast/GetCity");
                 } 
