@@ -126,8 +126,6 @@ theme: /
             log("!!!///////// MY LOG "+toPrettyString($parseTree));
             
             if ($parseTree._City && $parseTree["_duckling.date"]) {
-                log("1!!!///////// MY LOG "+toPrettyString($parseTree));
-                
                 $session.userCity = $parseTree._City.name;
                 $session.lon = $parseTree._City.lon;
                 $session.lat = $parseTree._City.lat;
@@ -147,8 +145,6 @@ theme: /
             else 
                 if ($parseTree["_duckling.date"] || $parseTree["_Date"]) 
                 {
-                    log("2!!!///////// MY LOG "+toPrettyString($parseTree));
-                    
                     if ($parseTree["_duckling.date"])
                         $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                     
@@ -159,7 +155,6 @@ theme: /
                 } 
                 else 
                     if ($parseTree._City) {
-                        log("3!!!///////// MY LOG "+toPrettyString($parseTree));
                         $session.userCity = $parseTree._City.name;
                         $session.lon = $parseTree._City.lon;
                         $session.lat = $parseTree._City.lat;
@@ -177,8 +172,6 @@ theme: /
                     }
                     else 
                     {
-                        
-                        log("4!!!///////// MY LOG "+toPrettyString($parseTree));
                         $reactions.transition("/WeatherForecast/GetCity");
                     }
             
@@ -209,7 +202,6 @@ theme: /
                         }
                     }
                     
-                    $reactions.answer($session.userDate);
                     if ($session.userDate)
                         $reactions.transition("/WeatherForecast/CheсkDate");
                     else
@@ -242,7 +234,6 @@ theme: /
                 q: * @duckling.date *
                 script:
                     $session.stateCounterInARow = 0;
-                    log("---!!!///////// MY LOG "+toPrettyString($parseTree));
                     if ($parseTree["_duckling.date"]) {
                         $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                         $reactions.transition("/WeatherForecast/CheсkDate");
@@ -277,7 +268,7 @@ theme: /
             
                 if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
                     $session.stateCounter = 0;
-                    $reactions.transition("/ThisDayHasPassed");
+                    $reactions.transition("/WeatherForecast/ThisDayHasPassed");
                     } 
                     else if (DatesDiff(userDate, date) > 5) {
                         $session.stateCounter = 0;
