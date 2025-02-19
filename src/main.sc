@@ -124,6 +124,7 @@ theme: /
         script:
             
             log("!!!///////// MY LOG "+toPrettyString($parseTree));
+            
             if (($parseTree._City) && ($parseTree["_duckling.date"])) {
                 $session.userCity = $parseTree._City.name;
                 $session.lon = $parseTree._City.lon;
@@ -144,7 +145,9 @@ theme: /
             else 
                 if ($parseTree["_duckling.date"]) {
                     $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                    
                     $reactions.answer($session.userDate);
+                    
                     $reactions.transition("/WeatherForecast/GetCity");
                     }
                 else 
@@ -153,7 +156,7 @@ theme: /
                         $session.lon = $parseTree._City.lon;
                         $session.lat = $parseTree._City.lat;
                         
-                        if ($caila.entitiesLookup($parseTree._City.country, true) != null) {
+                        if ($caila.entitiesLookup($parseTree._City.country, true) != null) { 
                             if ($caila.entitiesLookup($parseTree._City.country, true).entities.length) {
                                 var pk = JSON.parse($caila.entitiesLookup($parseTree._City.country, true).entities[0].value);
                                 $session.country = pk.name;
@@ -281,7 +284,7 @@ theme: /
                 random: 
                     a: К сожалению, я не могу узнать прогноз погоды на период времени в прошлом.
                     a: Я не смогу посмотреть прогноз для прошедшего периода.
-                go!: /GetDate
+                go!: /WeatherForecast/GetDate
             else:
                 a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
@@ -305,7 +308,7 @@ theme: /
                 random: 
                     a: Мне жаль, но метеорологи и я пока не можем дать такие долгосрочные прогнозы.
                     a: Извините, посмотреть прогноз на такую далекую дату я не смогу.
-                go!: /GetDate
+                go!: /WeatherForecast/GetDate
             else:
                 a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
