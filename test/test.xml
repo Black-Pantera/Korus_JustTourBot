@@ -12,6 +12,7 @@
         <q>Прогноз погоды</q>
         <a state="/WeatherForecast/GetCity" />
         <a>Прогноз для какого города хотите получить?</a>
+        <a state="/WeatherForecast/GetCity/UserCity" />
         <q>в Казани</q>
         <a state="/WeatherForecast/GetDate"></a>
         <a>На какую дату требуется прогноз?</a>
