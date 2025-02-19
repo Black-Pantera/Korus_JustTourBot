@@ -1,7 +1,7 @@
 <test>
     
     <mockData>
-            <query>http://api.openweathermap.org/data/2.5/weather?APPID=${appid}&amp;units=${units}&amp;lang=${lang}&amp;lat=${lat}&amp;lon=${lon}</query>
+            <query method="get">http://api.openweathermap.org/data/2.5/weather?APPID=${appid}&amp;units=${units}&amp;lang=${lang}&amp;lat=${lat}&amp;lon=${lon}</query>
             <parameters>
                 <appid>106ad0548ad7d7b7eb02682ec63886b4</appid> 
                 <units>metric</units>
