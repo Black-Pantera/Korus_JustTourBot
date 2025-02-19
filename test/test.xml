@@ -9,13 +9,13 @@
     
     <test-case id="WeatherForecast">
         <q>Прогноз погоды</q>
-        <random>2, 0, 1</random>
+        <random>0</random>
         <a>Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.</a>
         <q>Казань</q>
         <a state="/WeatherForecast/GetCity/UserCity"></a>
         <a>На какую дату требуется прогноз?</a>
         <q>На 20 февраля 2025</q>
-        <a state="/WeatherForecast/TellWeather"></a>
+        <a state="/WeatherForecast/GetDate/UserDate"></a>
         <a>У меня получилось уточнить: на 2025-02-20T00:00:00 в Казани  температура воздуха составит</a>
     </test-case>
 
