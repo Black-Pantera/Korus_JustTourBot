@@ -144,8 +144,7 @@ theme: /
                 $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                 $reactions.transition("/WeatherForecast/CheсkDate");
                 }
-            else {
-            
+            else  
                 if ($parseTree["_duckling.date"]) {
                     log("2!!!///////// MY LOG "+toPrettyString($parseTree));
                     $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
@@ -177,7 +176,7 @@ theme: /
                         log("4!!!///////// MY LOG "+toPrettyString($parseTree));
                         $reactions.transition("/WeatherForecast/GetCity");
                     }
-            }
+            
     
         state: GetCity
             random:
