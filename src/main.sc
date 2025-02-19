@@ -122,6 +122,8 @@ theme: /
         q!: * погода * {$City * * @duckling.date} *
         q!: * погода * $City *
         script:
+            
+            
             if (($parseTree._City) && ($parseTree["_duckling.date"])) {
                 $session.userCity = $parseTree._City.name;
                 $session.lon = $parseTree._City.lon;
