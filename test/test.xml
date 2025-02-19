@@ -28,7 +28,7 @@
         <dateTime>2025-02-21 00:00:00</dateTime>
         <mockData>
             <query>http://api.openweathermap.org/data/2.5/weather?APPID=106ad0548ad7d7b7eb02682ec63886b4</query>
-            <response type="text">200</response>
+            <response type="text">OK</response>
         </mockData>
         <q>погода в Самаре на 21 февраля 2025 года</q>
         <a>Смог узнать для вас прогноз: на 2025-02-21 в Самаре будет 2 градуса по Цельсию.</a>
