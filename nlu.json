@@ -68,7 +68,7 @@
     "slots" : [ {
       "name" : "Date",
       "entity" : "duckling.date",
-      "required" : true,
+      "required" : false,
       "prompts" : [ ]
     } ],
     "priority" : 0
