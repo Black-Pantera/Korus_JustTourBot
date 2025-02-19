@@ -27,7 +27,14 @@
     <test-case id="WeatherForecast3">
         <dateTime>2025-02-21 00:00:00</dateTime>
         <mockData>
-            <query>http://api.openweathermap.org/data/2.5/weather?APPID=106ad0548ad7d7b7eb02682ec63886b4&amp;units=metric&amp;lang=ru&amp;lat=53.24&amp;lon=50.22</query>
+            <query>http://api.openweathermap.org/data/2.5/weather?APPID=${appid}&amp;units=${units}&amp;lang=${lang}&amp;lat=${lat}&amp;lon=${lon}</query>
+            <parameters>
+                <appid>106ad0548ad7d7b7eb02682ec63886b4</appid> 
+                <units>metric</units>
+                <lang>ru</lang>
+                <lat>москва</lat>
+                <lon>москва</lon>
+            </parameters>
             <response>
                 {
                 "coord": {
