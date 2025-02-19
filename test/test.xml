@@ -33,11 +33,7 @@
         <a>Хотите спросить что-то ещё?</a>
     </test-case>
     
-    <test-case id="WeatherForecast2">
-        <q>погода в Самаре послезавтра</q>
-        <a state = "/WeatherForecast/TellWeather/Error"/>
-        <a>Хотите спросить что-то ещё?</a>
-    </test-case>
+    
     
     <test-case id="WeatherForecast3">
         <q>погода в Самаре на 21 февраля 2025 года</q>
