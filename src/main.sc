@@ -144,7 +144,7 @@ theme: /
                 }
             else 
                 if ($parseTree["_duckling.date"]) {
-                     log("----!!!///////// MY LOG "+toPrettyString($parseTree));
+                    log("----!!!///////// MY LOG "+toPrettyString($parseTree));
                     $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                     
                     $reactions.answer($session.userDate);
