@@ -143,7 +143,8 @@ theme: /
                
                 $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                 $reactions.transition("/WeatherForecast/CheсkDate");
-                }
+            }
+            
             else  
                 if ($parseTree["_duckling.date"]) {
                     log("2!!!///////// MY LOG "+toPrettyString($parseTree));
@@ -173,6 +174,7 @@ theme: /
                     }
                     else 
                     {
+                        
                         log("4!!!///////// MY LOG "+toPrettyString($parseTree));
                         $reactions.transition("/WeatherForecast/GetCity");
                     }
