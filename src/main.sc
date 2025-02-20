@@ -693,10 +693,11 @@ theme: /
                         $session.countDays = 7;
                         $session.endDate = addDays($session.startDate, 7);
                         $reactions.transition("/TravelRequest/AskServices");
-                        } else {
-                            $reactions.transition("/TravelRequest/AskDuration/LocalCatchAll");
-                            }
-                      
+                        } 
+                        
+                    if ($parseTree["_duckling.number"] < 0)    
+                        $reactions.transition("/TravelRequest/AskDuration/LocalCatchAll");
+                        
             state: DontKnow  
                 intent: /незнаем
                 script:
