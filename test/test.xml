@@ -26,8 +26,8 @@
         <a>На какую дату требуется прогноз?</a>
         <q>На 1 апреля 2025</q>
         <a state = "/WeatherForecast/ThisDayIsNotComingSoon"/>
-        <random>1</random>
-        <a>Прогноз погоды на какую дату вам нужен?</a>
+        <random>0</random>
+        <a>На какую дату требуется прогноз?</a>
     </test-case>
     
     <test-case id="WeatherForecast1">
