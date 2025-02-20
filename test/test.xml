@@ -14,7 +14,7 @@
         <q>Казань</q>
         <a>На какую дату требуется прогноз?</a>
         <q>На 1 января 2025</q>
-        <a state = "/WeatherForecast/GetDate"/>
+        <a state = "/WeatherForecast/ThisDayHasPassed"/>
         <random>0</random>
         <a>На какую дату требуется прогноз?</a>
     </test-case>
