@@ -122,8 +122,7 @@ theme: /
         q!: * погода * {$City * * @duckling.date} *
         q!: * погода * $City *
         script:
-             $session.stateCounter = 0;
-            log("!!!///////// MY LOG "+toPrettyString($parseTree));
+            $session.stateCounter = 0;
             
             if ($parseTree._City && $parseTree["_duckling.date"]) {
                 $session.userCity = $parseTree._City.name;
