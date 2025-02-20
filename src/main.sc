@@ -121,7 +121,7 @@ theme: /
         intent: /weather
         q!: * погода * {$City * * @duckling.date} *
         q!: * погода * $City *
-        q!: * будет ли @duckling.date * в * $City * (дождь|солнечно|пасмурно) *
+        q!: * будет * @duckling.date * в * $City * (дождь|солнечно|пасмурно) *
         script:
             $session.stateCounter = 0;
             
