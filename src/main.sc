@@ -599,7 +599,7 @@ theme: /
                         }
                         
                     if ($parseTree["_duckling.number"] < 0)
-                        $reactions.transition("/TravelRequest/LocalCatchAll");
+                        $reactions.transition("/TravelRequest/AskNumberOfPeople/LocalCatchAll");
                 
             state: DontKnow  
                 intent: /незнаем
