@@ -483,6 +483,12 @@ theme: /
                                 $session.stateCounterDisagree = 0;
                             go!: /SomethingElse
             
+            state: AnotherOne
+                intent: /SomethingElseForWeather
+                q: * {$City * * @duckling.date} *
+                q: * а в городе $City *
+                go!: /WeatherForecast/SomethingElseForWeather/AnotherOne
+            
             state: LocalCatchAll || noContext = true
                 event: noMatch
                 script:
