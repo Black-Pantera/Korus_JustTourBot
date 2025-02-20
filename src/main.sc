@@ -226,6 +226,8 @@ theme: /
                     go!: /SomethingElse
                 
         state: GetDate
+            script:
+                
             random:
                 a: На какую дату требуется прогноз?
                 a: Прогноз погоды на какую дату вам нужен?
@@ -234,6 +236,7 @@ theme: /
                 q: * @duckling.date *
                 script:
                     $session.stateCounterInARow = 0;
+                    $session.stateCounter = 0;
                     if ($parseTree["_duckling.date"]) {
                         $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                         $reactions.transition("/WeatherForecast/CheсkDate");
@@ -267,14 +270,14 @@ theme: /
                 var userDate = new Date($session.userDate);
             
                 if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
-                    $session.stateCounter = 0;
+                    
                     $reactions.transition("/WeatherForecast/ThisDayHasPassed");
                     } 
                     else if (DatesDiff(userDate, date) > 5) {
-                        $session.stateCounter = 0;
+                        
                         $reactions.transition("/WeatherForecast/ThisDayIsNotComingSoon");
                         } else { 
-                            $session.stateCounter = 0;
+                            
                             $reactions.transition("/WeatherForecast/TellWeather") 
                             };
         
