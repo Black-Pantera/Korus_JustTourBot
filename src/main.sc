@@ -597,6 +597,9 @@ theme: /
                         $session.numberOfPeople = 1;
                         $reactions.transition("/TravelRequest/AskStartDate");
                         }
+                        
+                    if ($parseTree["_duckling.number"] < 0)
+                        $reactions.transition("/TravelRequest/LocalCatchAll");
                 
             state: DontKnow  
                 intent: /незнаем
