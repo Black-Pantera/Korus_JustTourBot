@@ -561,7 +561,7 @@ theme: /
             a: Понял вас. В таком случае, когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
             script:
                 $session.country = "Не указано";  
-            go!: /AskNumberOfPeople
+            go!: /TravelRequest/AskNumberOfPeople
                 
         state: LocalCatchAll || noContext = true
                 event: noMatch
@@ -578,7 +578,7 @@ theme: /
                         $session.stateCounterInARow = 0;
                         $session.country = "Не указано";
                     a: Простите! Так и не получилось вас понять. Когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
-                    go!: /AskNumberOfPeople
+                    go!: /TravelRequest/AskNumberOfPeople
                   
         state: AskNumberOfPeople
             a: Укажите количество человек, которые отправятся в путешествие.
