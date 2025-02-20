@@ -13,6 +13,8 @@
         <a>Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.</a>
         <q>Казань</q>
         <a state = "/WeatherForecast/TellWeather/Error"/>
+        <random>0</random>
+        <a>Хотите спросить что-то ещё?</a>
     </test-case>
     
     <test-case id="WeatherForecast_ThisDayHasPassed">
