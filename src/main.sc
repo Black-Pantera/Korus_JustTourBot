@@ -122,7 +122,7 @@ theme: /
         q!: * погода * {$City * * @duckling.date} *
         q!: * погода * $City *
         script:
-            
+             $session.stateCounter = 0;
             log("!!!///////// MY LOG "+toPrettyString($parseTree));
             
             if ($parseTree._City && $parseTree["_duckling.date"]) {
@@ -226,8 +226,6 @@ theme: /
                     go!: /SomethingElse
                 
         state: GetDate
-            script:
-                
             random:
                 a: На какую дату требуется прогноз?
                 a: Прогноз погоды на какую дату вам нужен?
@@ -236,7 +234,7 @@ theme: /
                 q: * @duckling.date *
                 script:
                     $session.stateCounterInARow = 0;
-                    $session.stateCounter = 0;
+                   
                     if ($parseTree["_duckling.date"]) {
                         $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                         $reactions.transition("/WeatherForecast/CheсkDate");
