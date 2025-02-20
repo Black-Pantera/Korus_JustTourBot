@@ -9,7 +9,8 @@ injector:
    
 tests:
   include:
-    - test.xml
+    - travelRequest.xml
+    - weatherForecast.xml
 
 nlp:
   intentNoMatchThresholds:
