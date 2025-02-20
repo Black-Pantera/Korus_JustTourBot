@@ -471,8 +471,8 @@ theme: /
                     q: * (нет|не хочу) * || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
                     go!: /SomethingElse
                 
-                    state: LocalCatchAll || noContext = true || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
-                        event: noMatch
+                    state: LocalCatchAll || noContext = true 
+                        event: noMatch || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
                         script:
                             $session.stateCounterDisagree ++;
                         if: $session.stateCounterDisagree < 2
