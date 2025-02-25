@@ -419,7 +419,7 @@ theme: /
                 go!: /HowCanIHelpYou
                 
             state: DisAgree
-                q: * нет * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
+                q: * (нет|no) * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
                 go!: /DontHaveQuestions
             
             state: LocalCatchAll || noContext = true
@@ -557,7 +557,7 @@ theme: /
                     go!: /TravelRequest/AskNumberOfPeople
                
         state: Disagree
-            q: * нет * || fromState = "/TravelRequest", onlyThisState = true
+            q: * (нет|no) * || fromState = "/TravelRequest", onlyThisState = true
             a: Понял вас. В таком случае, когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
             script:
                 $session.country = "Не указано";  
@@ -875,7 +875,7 @@ theme: /
                 $session.userName = $request.query;
         
             state: ChoosenNo
-                q: * нет *
+                q: * (нет|no) * || fromState = "/TravelRequest/UnusualName", onlyThisState = true
                 script:
                     $reactions.transition("/TravelRequest/AskName");       
                 
@@ -951,7 +951,7 @@ theme: /
                 intent: /незнаем
                 intent: /неХочуУказывать
                 intent: /зачем
-                q: * нет *
+                q: * нет * || fromState = "/TravelRequest/AskComment", onlyThisState = true
                 script:
                     $session.userComment = "Не указано";
                 go!: /TravelRequest/Confirmation
