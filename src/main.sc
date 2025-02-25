@@ -1149,6 +1149,14 @@ theme: /
         buttons:
             "Узнать прогноз погоды" -> /WeatherForecast
             "Оформить заявку на подбор тура" -> /TravelRequest
+            
+        state: SomethingElseYes
+            q: * (да|ага|yes|ога) * || fromState = "/SomethingElse", onlyThisState = true
+            go!: /HowCanIHelpYou
+            
+        state: SomethingElseNo
+            q: * (нет|no) * || fromState = "/SomethingElse", onlyThisState = true
+            go!: /DontHaveQuestions
                 
         state: LocalCatchAll || noContex = true
             event: noMatch
