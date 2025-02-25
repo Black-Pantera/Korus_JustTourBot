@@ -442,7 +442,7 @@ theme: /
         
         state: OfferTour
             script:
-                $reactions.answer($session.country);
+                log("///////// MY LOG "+$session.country);
                 $session.stateCounter = 0;
             random:
                 a: Хотите оставить заявку на подбор тура в {{ capitalize($nlp.inflect($session.country, "accs")) }}?
