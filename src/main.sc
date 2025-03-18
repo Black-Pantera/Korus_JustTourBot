@@ -267,7 +267,7 @@ theme: /
                 var date = new Date();
                 var userDate = new Date($session.userDate);
             
-                if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
+                if (userDatePassed(userDate, date)) {
                     
                     $reactions.transition("/WeatherForecast/ThisDayHasPassed");
                     } 
@@ -642,7 +642,7 @@ theme: /
                     
                         var date = new Date();
                         var userDate = $session.startDate;
-                        if (userDate.setHours(0,0,0,0) < date.setHours(0,0,0,0)) {
+                        if (userDatePassed(userDate, date)) {
                             $reactions.transition("/TravelRequest/AskStartDate/LocalCatchAll");
                         }  else {
                             $reactions.transition("/TravelRequest/AskDuration");
