@@ -199,7 +199,7 @@
     "patterns" : [ ],
     "priority" : 0
   }, {
-    "path" : "/зачем",
+    "path" : "/forWhat",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
