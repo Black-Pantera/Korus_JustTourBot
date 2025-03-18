@@ -1188,7 +1188,7 @@ theme: /
         go!: /GoodBye    
               
     state: GoodBye
-        intent!: /пока
+        intent!: /goodBye
         random:
             a: Всего доброго!
             a: Всего вам доброго!

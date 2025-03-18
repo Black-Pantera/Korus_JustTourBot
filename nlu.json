@@ -23,27 +23,13 @@
     }
   },
   "intents" : [ {
-    "path" : "/пока",
+    "path" : "/goodBye",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
       "text" : "пока"
     }, {
       "text" : "до свидания"
-    } ],
-    "classificationRules" : {
-      "refs" : [ ]
-    },
-    "patterns" : [ ],
-    "priority" : 0
-  }, {
-    "path" : "/привет",
-    "enabled" : true,
-    "shared" : false,
-    "phrases" : [ {
-      "text" : "привет"
-    }, {
-      "text" : "салют"
     } ],
     "classificationRules" : {
       "refs" : [ ]
@@ -187,16 +173,6 @@
     "patterns" : [ ],
     "priority" : 0
   }, {
-    "path" : "/имена",
-    "enabled" : true,
-    "shared" : false,
-    "phrases" : [ ],
-    "classificationRules" : {
-      "refs" : [ ]
-    },
-    "patterns" : [ ],
-    "priority" : 0
-  }, {
     "path" : "/неХочуУказывать",
     "enabled" : true,
     "shared" : false,
@@ -299,14 +275,6 @@
       "refs" : [ ]
     },
     "patterns" : [ ],
-    "priority" : 0
-  }, {
-    "path" : "/Новый интент",
-    "enabled" : true,
-    "shared" : false,
-    "classificationRules" : {
-      "refs" : [ ]
-    },
     "priority" : 0
   } ],
   "entities" : [ {
