@@ -313,7 +313,7 @@ theme: /
                 go!: /HowCanIHelpYou
                 
             state: DisAgree
-                q: * $no * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
+                q: * $noWant * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
                 go!: /DontHaveQuestions
             
             state: LocalCatchAll || noContext = true
@@ -346,7 +346,7 @@ theme: /
                 go!: /TravelRequest
             
             state: Disagree 
-                q: * (нет|неа|не хочу) * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
+                q: * $noWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
                 a: Понял вас!
                 script:
                     $session.userCity = null;
@@ -362,7 +362,7 @@ theme: /
                     go!: /WeatherForecast
                 
                 state: DisagreeNo
-                    q: * (нет|не хочу) * || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
+                    q: * $noWant * || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
                     go!: /SomethingElse
                 
                     state: LocalCatchAll || noContext = true 
