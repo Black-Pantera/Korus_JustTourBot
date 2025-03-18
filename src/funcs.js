@@ -18,6 +18,12 @@ function addDays(date, days) {
     return newDate;
 }
 
+function userDatePassed(date1, date2){
+    var userDate = date1.setHours(0,0,0,0);
+    var date = date2.setHours(0,0,0,0);
+    
+    return userDate < date;
+}
 
 function openWeatherMapCurrent(units, lang, lat, lon){
     return $http.get("http://api.openweathermap.org/data/2.5/weather?APPID=${APPID}&units=${units}&lang=${lang}&lat=${lat}&lon=${lon}", {
