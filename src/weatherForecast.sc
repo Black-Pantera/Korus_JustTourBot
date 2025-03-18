@@ -303,7 +303,7 @@ theme: /
                                 $reactions.transition("/WeatherForecast/GetCity");
                             
             state: Agree
-                q: * $yes * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
+                q: * $yesWant * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
                 script:
                     $session.userCity = null;
                     $session.lon = null;
