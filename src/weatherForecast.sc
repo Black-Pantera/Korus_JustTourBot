@@ -342,11 +342,11 @@ theme: /
                 a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
             
             state: OfferTourYes
-                q: * (да|хочу) * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
+                q: * (да|ага|хочу) * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
                 go!: /TravelRequest
             
             state: Disagree 
-                q: * (нет|не хочу) * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
+                q: * (нет|неа|не хочу) * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
                 a: Понял вас!
                 script:
                     $session.userCity = null;
