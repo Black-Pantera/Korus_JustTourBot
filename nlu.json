@@ -274,11 +274,23 @@
     "shared" : false,
     "phrases" : [ {
       "text" : "ещё один прогноз"
+    }, {
+      "text" : "а в $City"
+    }, {
+      "text" : "а в городе $City"
+    }, {
+      "text" : "а @duckling.date"
     } ],
     "classificationRules" : {
       "refs" : [ ]
     },
     "patterns" : [ ],
+    "slots" : [ {
+      "name" : "Date",
+      "entity" : "duckling.date",
+      "required" : true,
+      "prompts" : [ ]
+    } ],
     "priority" : 0
   }, {
     "path" : "/whatCanYouDo",

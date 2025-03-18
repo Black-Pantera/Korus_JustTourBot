@@ -343,6 +343,7 @@ theme: /
             
             state: OfferTourYes
                 q: * $yesWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
+                intent!: /somethingElseForWeather || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne"
                 go!: /TravelRequest
             
             state: Disagree 
@@ -376,12 +377,6 @@ theme: /
                             script:
                                 $session.stateCounterDisagree = 0;
                             go!: /SomethingElse
-            
-            state: AnotherOne
-                intent: /somethingElseForWeather
-                q: * {$City * * @duckling.date} *
-                q: * а в городе $City *
-                go!: /WeatherForecast/SomethingElseForWeather/AnotherOne
             
             state: LocalCatchAll || noContext = true
                 event: noMatch
