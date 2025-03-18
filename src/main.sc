@@ -519,12 +519,12 @@ theme: /
             a: Подскажите, вы уже определились с страной прибытия?
             
         state: Agree
-            q: * @codeCounties *
+            q: * @CodeCounties *
             q: * (да|ага|yes|ога) * || fromState = "/TravelRequest", onlyThisState = true
             script: 
                 $session.stateCounterInARow = 0;
-                if ($parseTree._codeCounties) {
-                $session.country = $parseTree._codeCounties.name;   
+                if ($parseTree._CodeCounties) {
+                $session.country = $parseTree._CodeCounties.name;   
                 }
                     
             if: $session.country
@@ -534,9 +534,9 @@ theme: /
                 a: Введите название страны
                     
             state: Country
-                q: * @codeCounties *
+                q: * @CodeCounties *
                 script: 
-                    $session.country = $parseTree._codeCounties.name;  
+                    $session.country = $parseTree._CodeCounties.name;  
                 a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь, давайте перейдем к указанию оставшихся параметров.    
                 go!: /TravelRequest/AskNumberOfPeople
                     

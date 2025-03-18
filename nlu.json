@@ -322,7 +322,7 @@
     } ]
   }, {
     "entity" : {
-      "name" : "codeCounties",
+      "name" : "CodeCounties",
       "enabled" : true,
       "shared" : false,
       "type" : "annotation",
