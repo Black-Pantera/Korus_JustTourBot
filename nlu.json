@@ -215,7 +215,7 @@
     "patterns" : [ ],
     "priority" : 0
   }, {
-    "path" : "/@pymorphy.name",
+    "path" : "/askName",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
@@ -226,10 +226,6 @@
       "text" : "зови меня @namesRu"
     }, {
       "text" : "моё имя @namesRu"
-    }, {
-      "text" : "имя @namesRu"
-    }, {
-      "text" : "ладно @namesRu"
     } ],
     "classificationRules" : {
       "refs" : [ ]
