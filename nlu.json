@@ -30,6 +30,10 @@
       "text" : "пока"
     }, {
       "text" : "до свидания"
+    }, {
+      "text" : "bye"
+    }, {
+      "text" : "Goodbye"
     } ],
     "classificationRules" : {
       "refs" : [ ]
@@ -155,7 +159,7 @@
     "patterns" : [ ],
     "priority" : 0
   }, {
-    "path" : "/неделя",
+    "path" : "/week",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
