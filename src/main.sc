@@ -520,7 +520,7 @@ theme: /
             
         state: Agree
             q: * @CodeCounties *
-            q: * (да|ага|yes|ога) * || fromState = "/TravelRequest", onlyThisState = true
+            q: * $yes * || fromState = "/TravelRequest", onlyThisState = true
             script: 
                 $session.stateCounterInARow = 0;
                 if ($parseTree._CodeCounties) {
