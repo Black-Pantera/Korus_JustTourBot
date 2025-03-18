@@ -1337,7 +1337,7 @@
     } ]
   }, {
     "entity" : {
-      "name" : "датаНачинаяСТекущей",
+      "name" : "DateStartingCurrent",
       "enabled" : true,
       "shared" : false,
       "type" : "annotation",

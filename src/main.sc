@@ -635,6 +635,7 @@ theme: /
             
             state: Date
                 q: * @duckling.date *
+                q: * @DateStartingCurrent *
                 script:
                 
                     if ($parseTree["_duckling.date"]) {
