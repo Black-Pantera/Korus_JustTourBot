@@ -303,7 +303,7 @@ theme: /
                                 $reactions.transition("/WeatherForecast/GetCity");
                             
             state: Agree
-                q: * да * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
+                q: * $yes * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
                 script:
                     $session.userCity = null;
                     $session.lon = null;
@@ -313,7 +313,7 @@ theme: /
                 go!: /HowCanIHelpYou
                 
             state: DisAgree
-                q: * (нет|no) * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
+                q: * $no * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
                 go!: /DontHaveQuestions
             
             state: LocalCatchAll || noContext = true
@@ -342,7 +342,7 @@ theme: /
                 a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
             
             state: OfferTourYes
-                q: * (да|ага|хочу) * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
+                q: * $yesWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
                 go!: /TravelRequest
             
             state: Disagree 
@@ -358,7 +358,7 @@ theme: /
                 a: В таком случае, желаете узнать погоду в другом городе мира?
             
                 state: DisagreeYes
-                    q: * (да|хочу) * || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
+                    q: * $yesWant * || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
                     go!: /WeatherForecast
                 
                 state: DisagreeNo
