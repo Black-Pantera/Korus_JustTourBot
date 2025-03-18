@@ -25,7 +25,7 @@ theme: /
             
         state: Agree
             q: * @CodeCounties *
-            q: * $yes * || fromState = "/TravelRequest", onlyThisState = true
+            q: * $yesWant * || fromState = "/TravelRequest", onlyThisState = true
             script: 
                 $session.stateCounterInARow = 0;
                 if ($parseTree._CodeCounties) {
@@ -62,7 +62,7 @@ theme: /
                     go!: /TravelRequest/AskNumberOfPeople
                
         state: Disagree
-            q: * (нет|no) * || fromState = "/TravelRequest", onlyThisState = true
+            q: * $noWant * || fromState = "/TravelRequest", onlyThisState = true
             a: Понял вас. В таком случае, когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
             script:
                 $session.country = "Не указано";  
@@ -376,13 +376,13 @@ theme: /
                 $session.userName = $request.query;
         
             state: ChoosenNo
-                q: * (нет|no) * || fromState = "/TravelRequest/UnusualName", onlyThisState = true
+                q: * $noWant * || fromState = "/TravelRequest/UnusualName", onlyThisState = true
                 script:
                     $reactions.transition("/TravelRequest/AskName");       
                 
             state: ChoosenYes
-                q: * да * || fromState = "/TravelRequest/UnusualName", onlyThisState = true
-                q: * $Name *
+                q: * $yesWant * || fromState = "/TravelRequest/UnusualName", onlyThisState = true
+                q: * @namesRu *
                 event: noMatch
                 script:
                     $reactions.transition("/TravelRequest/AskName/Name");  
@@ -452,7 +452,7 @@ theme: /
                 intent: /weather
                 intent: /doNotWantToIndicate
                 intent: /forWhat
-                q: * нет * || fromState = "/TravelRequest/AskComment", onlyThisState = true
+                q: * $noWant * || fromState = "/TravelRequest/AskComment", onlyThisState = true
                 script:
                     $session.userComment = "Не указано";
                 go!: /TravelRequest/Confirmation
