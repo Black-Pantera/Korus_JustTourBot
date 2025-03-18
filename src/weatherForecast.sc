@@ -378,7 +378,7 @@ theme: /
                             go!: /SomethingElse
             
             state: AnotherOne
-                intent: /SomethingElseForWeather
+                intent: /somethingElseForWeather
                 q: * {$City * * @duckling.date} *
                 q: * а в городе $City *
                 go!: /WeatherForecast/SomethingElseForWeather/AnotherOne
