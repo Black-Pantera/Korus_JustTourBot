@@ -219,9 +219,17 @@
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
-      "text" : "меня зовут @pymorphy.name"
+      "text" : "меня зовут @namesRu"
     }, {
       "text" : "@pymorphy.name"
+    }, {
+      "text" : "зови меня @namesRu"
+    }, {
+      "text" : "моё имя @namesRu"
+    }, {
+      "text" : "имя @namesRu"
+    }, {
+      "text" : "ладно @namesRu"
     } ],
     "classificationRules" : {
       "refs" : [ ]

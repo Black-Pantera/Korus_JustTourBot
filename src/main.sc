@@ -830,13 +830,13 @@ theme: /
                     
             state: Name
                 q: * @pymorphy.name *
-                q: * меня зовут * * $Name *
-                q: * зови меня * * $Name *
-                q: * имя * * $Name *
-                q: * ладно * * $Name *
-                q: * я * * $Name *
+                q: * меня зовут * * @namesRu *
+                q: * зови меня * * @namesRu *
+                q: * имя * * @namesRu *
+                q: * ладно * * @namesRu *
+                q: * я * * @namesRu *
                 script:
-               
+                    log("///////// MY LOG "+toPrettyString($parseTree));
                     if ($parseTree["_pymorphy.name"]) {
                         $client.name = capitalize($parseTree["_pymorphy.name"]);
                         } else if ($parseTree["pattern"] && ($parseTree["_Root"] !== "да")) {
