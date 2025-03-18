@@ -602,7 +602,7 @@ theme: /
                         $reactions.transition("/TravelRequest/AskNumberOfPeople/LocalCatchAll");
                 
             state: DontKnow  
-                intent: /незнаем
+                intent: /weDoNotKnow
                 script:
                     $session.numberOfPeople = "Не указано";
                     $reactions.transition("/TravelRequest/AskStartDate");
@@ -650,7 +650,7 @@ theme: /
                     }
                     
             state: DontKnow  
-                intent: /незнаем
+                intent: /weDoNotKnow
                 script:
                     $session.startDate = "Не указано";
                     $reactions.transition("/TravelRequest/AskDuration");
@@ -699,7 +699,7 @@ theme: /
                         $reactions.transition("/TravelRequest/AskDuration/LocalCatchAll");
                         
             state: DontKnow  
-                intent: /незнаем
+                intent: /weDoNotKnow
                 script:
                     $session.endDate = "Не указано";
                     $reactions.transition("/TravelRequest/AskServices");
@@ -786,7 +786,7 @@ theme: /
             
             state: LocalCatchAll || noContext = true
                 event: noMatch
-                intent: /незнаем
+                intent: /weDoNotKnow
                 script:
                     $session.stateCounterInARow ++
                 
@@ -847,7 +847,7 @@ theme: /
             
             state: LocalCatchAll || noContext = true
                 event: noMatch
-                intent: /незнаем
+                intent: /weDoNotKnow
                 intent: /неХочуУказывать
                 intent: /forWhat
                 script:
@@ -912,9 +912,9 @@ theme: /
                     
             state: LocalCatch || noContext = true
                 event: noMatch
-                intent: /незнаем
+                intent: /weDoNotKnow
                 intent: /неХочуУказывать
-                intent: /зачем
+                intent: /forWhat
                 script:
                     $session.stateCounterInARow ++
                 
@@ -948,9 +948,9 @@ theme: /
                 go!: /TravelRequest/Confirmation
                 
             state: Disagree
-                intent: /незнаем
+                intent: /weather
                 intent: /неХочуУказывать
-                intent: /зачем
+                intent: /forWhat
                 q: * нет * || fromState = "/TravelRequest/AskComment", onlyThisState = true
                 script:
                     $session.userComment = "Не указано";
