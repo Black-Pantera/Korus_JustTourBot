@@ -277,7 +277,7 @@
     "patterns" : [ ],
     "priority" : 0
   }, {
-    "path" : "/SomethingElseForWeather",
+    "path" : "/somethingElseForWeather",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {

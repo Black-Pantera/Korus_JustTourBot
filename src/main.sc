@@ -379,7 +379,7 @@ theme: /
                 "Оформить заявку на подбор тура" -> /TravelRequest
             
             state: AnotherOne
-                intent: /SomethingElseForWeather
+                intent: /somethingElseForWeather
                 q: * {$City * * @duckling.date} *
                 q: * а в городе $City *
                 script:
