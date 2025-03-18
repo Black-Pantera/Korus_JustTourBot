@@ -289,7 +289,7 @@
     "patterns" : [ ],
     "priority" : 0
   }, {
-    "path" : "/whatcanyoudo",
+    "path" : "/whatCanYouDo",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
