@@ -177,7 +177,7 @@
     "patterns" : [ ],
     "priority" : 0
   }, {
-    "path" : "/неХочуУказывать",
+    "path" : "/doNotWantToIndicate",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
@@ -220,11 +220,19 @@
     "shared" : false,
     "phrases" : [ {
       "text" : "меня зовут @pymorphy.name"
+    }, {
+      "text" : "@pymorphy.name"
     } ],
     "classificationRules" : {
       "refs" : [ ]
     },
     "patterns" : [ ],
+    "slots" : [ {
+      "name" : "Имя",
+      "entity" : "pymorphy.name",
+      "required" : true,
+      "prompts" : [ "Введите, пожалуйста, ваше имя." ]
+    } ],
     "priority" : 0
   }, {
     "path" : "/confirmationYes",

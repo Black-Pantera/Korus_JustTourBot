@@ -848,7 +848,7 @@ theme: /
             state: LocalCatchAll || noContext = true
                 event: noMatch
                 intent: /weDoNotKnow
-                intent: /неХочуУказывать
+                intent: /doNotWantToIndicate
                 intent: /forWhat
                 script:
                     $session.stateCounterInARow ++
@@ -913,7 +913,7 @@ theme: /
             state: LocalCatch || noContext = true
                 event: noMatch
                 intent: /weDoNotKnow
-                intent: /неХочуУказывать
+                intent: /doNotWantToIndicate
                 intent: /forWhat
                 script:
                     $session.stateCounterInARow ++
@@ -949,7 +949,7 @@ theme: /
                 
             state: Disagree
                 intent: /weather
-                intent: /неХочуУказывать
+                intent: /doNotWantToIndicate
                 intent: /forWhat
                 q: * нет * || fromState = "/TravelRequest/AskComment", onlyThisState = true
                 script:
