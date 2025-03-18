@@ -10,25 +10,25 @@ require: dateTime/moment.min.js
   
 require: funcs.js
 require: patterns.sc
+
+init: 
+    bind("onAnyError", function($context) {
+        var answers = [
+            "Извините, произошла техническая ошибка. Специалисты обязательно изучат её и возьмут в работу. Пожалуйста, напишите в чат позже.",
+            "Простите, произошла ошибка в системе. Наши специалисты обязательно её исправят."
+        ];
+        var randomAnswer = answers[$reactions.random(answers.length)];
+        $reactions.answer(randomAnswer);
+           
+        $reactions.buttons({ text: "В главное меню", transition: "/Start" })
+    }); 
+        
+    bind("postProcess", function($context) {
+        $context.session.lastState = $context.currentState;
+    });
   
 theme: /
     
-    init: 
-        bind("onAnyError", function($context) {
-            var answers = [
-                "Извините, произошла техническая ошибка. Специалисты обязательно изучат её и возьмут в работу. Пожалуйста, напишите в чат позже.",
-                "Простите, произошла ошибка в системе. Наши специалисты обязательно её исправят."
-            ];
-            var randomAnswer = answers[$reactions.random(answers.length)];
-            $reactions.answer(randomAnswer);
-           
-            $reactions.buttons({ text: "В главное меню", transition: "/Start" })
-        }); 
-        
-        bind("postProcess", function($context) {
-            $context.session.lastState = $context.currentState;
-        });
-
     state: Start
         q!: $regex</start>
         q!: старт
