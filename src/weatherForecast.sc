@@ -280,6 +280,8 @@ theme: /
                         $session.lon = $parseTree._City.lon;
                         $session.lat = $parseTree._City.lat;
                         $session.country = $parseTree._City.country;   
+                        log("///////// MY LOG "+toPrettyString($parseTree));
+                        log("////////!!!!"+ $session.country);
                         $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                         $reactions.transition("/WeatherForecast/CheсkDate");
                         }
