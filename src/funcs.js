@@ -25,7 +25,7 @@ function userDatePassed(date1, date2){
     return userDate < date;
 }
 
-function getCityByCode(code)
+function getCountryByCode(code)
 {
     var country = null;
     if ($caila.entitiesLookup(code, true) != null) {
