@@ -96,6 +96,7 @@ theme: /
         buttons:
             "Узнать прогноз погоды" -> /WeatherForecast
             "Оформить заявку на подбор тура" -> /TravelRequest
+        q!: * $noQuestions * || toState = "/DontHaveQuestions", onlyThisState = true
                 
         state: CatchCallbackButton
             event: telegramCallbackQuery
@@ -132,7 +133,7 @@ theme: /
             "Оформить заявку на подбор тура" -> /TravelRequest
         q: * $noWant * || toState = "/DontHaveQuestions", onlyThisState = true
         q: * $yesWant * || toState = "/HowCanIHelpYou", onlyThisState = true
-            
+        
         state: LocalCatchAll || noContex = true
             event: noMatch
             
@@ -154,8 +155,7 @@ theme: /
                 go!: /GoodBye
                 
     state: DontHaveQuestions
-        q!: * вопросов нет *
-        q!: * У меня больше нет вопросов *
+        q!: * $noQuestions *
         random:
             a: Вас понял!
             a: Хорошо!
