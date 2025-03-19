@@ -273,9 +273,7 @@ theme: /
                 "Оформить заявку на подбор тура" -> /TravelRequest
             
             state: AnotherOne
-                intent: /somethingElseForWeather
-                q: * {$City * * @duckling.date} *
-                q: * а в городе $City *
+               q: * $somethingElseForWeather *
                 script:
                     if (($parseTree._City) && ($parseTree["_duckling.date"])) {
                         $session.userCity = $parseTree._City.name;
