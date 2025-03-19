@@ -374,12 +374,8 @@ theme: /
             a: Как необычно! Подскажите, вы точно хотели указать в качестве своего имени "{{ $request.query }}"?
             script: 
                 $session.userName = $request.query;
+            q: * $noWant * || toState = "/TravelRequest/AskName", onlyThisState = true
         
-            state: ChoosenNo
-                q: * $noWant * || fromState = "/TravelRequest/UnusualName", onlyThisState = true
-                script:
-                    $reactions.transition("/TravelRequest/AskName");       
-                
             state: ChoosenYes
                 q: * $yesWant * || fromState = "/TravelRequest/UnusualName", onlyThisState = true
                 q: * @namesRu *
@@ -388,7 +384,7 @@ theme: /
                     $reactions.transition("/TravelRequest/AskName/Name");  
                 
         state: AskPhone
-            script:
+            script: 
                 $session.stateCounterInARow = 0;
             if: $client.phone
                 go!: /TravelRequest/AskComment
