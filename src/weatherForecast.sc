@@ -325,25 +325,17 @@ theme: /
                 q: * $yesWant * || toState = "/WeatherForecast", onlyThisState = true
                 q: * $noWant * || toState = "/SomethingElse", onlyThisState = true
             
-                state: DisagreeYes
-                    q: * $yesWant * || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
-                    go!: /WeatherForecast
-                
-                state: DisagreeNo
-                    q: * $noWant * || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
-                    go!: /SomethingElse
-                
-                    state: LocalCatchAll || noContext = true 
-                        event: noMatch || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
+                state: LocalCatchAll || noContext = true 
+                    event: noMatch || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
+                    script:
+                        $session.stateCounterDisagree ++;
+                    if: $session.stateCounterDisagree < 2
+                        a: Простите, не совсем понял. Хотите узнать прогноз погоды для другого города?   
+                        go: /WeatherForecast/OfferTour/Disagree
+                    else
                         script:
-                            $session.stateCounterDisagree ++;
-                        if: $session.stateCounterDisagree < 2
-                            a: Простите, не совсем понял. Хотите узнать прогноз погоды для другого города?   
-                            go: /WeatherForecast/OfferTour/Disagree
-                        else
-                            script:
-                                $session.stateCounterDisagree = 0;
-                            go!: /SomethingElse
+                            $session.stateCounterDisagree = 0;
+                        go!: /SomethingElse
             
             state: LocalCatchAll || noContext = true
                 event: noMatch
