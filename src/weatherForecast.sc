@@ -85,7 +85,7 @@ theme: /
                         $session.userCity = $parseTree._City.name;
                         $session.lon = $parseTree._City.lon;
                         $session.lat = $parseTree._City.lat;
-                        $session.country = getCityByCode($parseTree._City.country);
+                        $session.country = getCountryByCode($parseTree._City.country);
                     }
                     
                     if ($session.userDate)
@@ -271,7 +271,7 @@ theme: /
                         $session.userCity = $parseTree._City.name;
                         $session.lon = $parseTree._City.lon;
                         $session.lat = $parseTree._City.lat;
-                        $session.country = getCityByCode($parseTree._City.country);   
+                        $session.country = getCountryByCode($parseTree._City.country);   
                         $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                         $reactions.transition("/WeatherForecast/CheсkDate");
                         }
@@ -285,7 +285,7 @@ theme: /
                                 $session.userCity = $parseTree._City.name;
                                 $session.lon = $parseTree._City.lon;
                                 $session.lat = $parseTree._City.lat;
-                                $session.country = getCityByCode($parseTree._City.country);
+                                $session.country = getCountryByCode($parseTree._City.country);
                                 $reactions.transition("/WeatherForecast/GetDate");
                             }
                             else 
