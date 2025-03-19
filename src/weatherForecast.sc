@@ -345,6 +345,8 @@ theme: /
                 q: * $yesWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
                 intent!: /somethingElseForWeather || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne"
                 go!: /TravelRequest
+                script:
+                    log("///////// MY LOG "+toPrettyString($parseTree));
             
             state: Disagree 
                 q: * $noWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true

@@ -275,9 +275,9 @@
     "phrases" : [ {
       "text" : "ещё один прогноз"
     }, {
-      "text" : "а в $City"
+      "text" : "а в @City"
     }, {
-      "text" : "а в городе $City"
+      "text" : "а в городе @City"
     }, {
       "text" : "а @duckling.date"
     } ],
@@ -288,7 +288,7 @@
     "slots" : [ {
       "name" : "Date",
       "entity" : "duckling.date",
-      "required" : true,
+      "required" : false,
       "prompts" : [ ]
     } ],
     "priority" : 0
