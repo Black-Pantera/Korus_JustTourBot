@@ -361,7 +361,7 @@ theme: /
                             }
                         else {
                             $session.userName = $request.query;
-                            $reactions.transition("/UnusualName");    
+                            $reactions.transition("/TravelRequest/UnusualName");    
                         }
                 else:
                     script: 
