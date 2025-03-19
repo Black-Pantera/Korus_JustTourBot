@@ -343,7 +343,7 @@ theme: /
             
             state: OfferTourYes
                 q: * $yesWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
-                q:  || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne"
+                q: * $somethingElseForWeather * || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne"
                 go!: /TravelRequest
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
