@@ -375,7 +375,7 @@ theme: /
             script: 
                 $session.userName = $request.query;
             q: * $noWant * || toState = "/TravelRequest/AskName", onlyThisState = true
-        
+            
             state: ChoosenYes
                 q: * $yesWant * || fromState = "/TravelRequest/UnusualName", onlyThisState = true
                 q: * @namesRu *
