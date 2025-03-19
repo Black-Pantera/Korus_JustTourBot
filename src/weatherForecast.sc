@@ -233,6 +233,7 @@ theme: /
                     go!: /SomethingElse
                 
         state: SomethingElseForWeather
+            q: * $noWant * || toState = "/DontHaveQuestions", onlyThisState = true
             script:
                 $session.stateCounterInARow = 0;
             random:
@@ -280,10 +281,6 @@ theme: /
                     $session.userDate = null;
                 go!: /HowCanIHelpYou
                 
-            state: DisAgree
-                q: * $noWant * || fromState = "/WeatherForecast/SomethingElseForWeather/AnotherOne", onlyThisState = true
-                go!: /DontHaveQuestions
-            
             state: LocalCatchAll || noContext = true
                 event: noMatch
                 script:
