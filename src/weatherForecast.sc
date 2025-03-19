@@ -343,7 +343,7 @@ theme: /
             
             state: OfferTourYes
                 q: * $yesWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
-                intent!: /somethingElseForWeather || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne"
+                q: * {$City * * @duckling.date} * | * а в городе $City * || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne"
                 go!: /TravelRequest
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
