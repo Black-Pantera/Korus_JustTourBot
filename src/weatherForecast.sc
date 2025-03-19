@@ -343,10 +343,6 @@ theme: /
             q: * $yesWant * || toState = "/TravelRequest", onlyThisState = true
             q: * $somethingElseForWeather * || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne" , onlyThisState = true 
             
-            state: OfferTourYes
-                q: * @duckling.date * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne"
-                
-                
             state: Disagree 
                 q: * $noWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
                 a: Понял вас!
