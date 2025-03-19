@@ -269,24 +269,6 @@
     "patterns" : [ ],
     "priority" : 0
   }, {
-    "path" : "/somethingElseForWeather",
-    "enabled" : true,
-    "shared" : false,
-    "phrases" : [ {
-      "text" : "ещё один прогноз"
-    } ],
-    "classificationRules" : {
-      "refs" : [ ]
-    },
-    "patterns" : [ ],
-    "slots" : [ {
-      "name" : "Date",
-      "entity" : "duckling.date",
-      "required" : false,
-      "prompts" : [ ]
-    } ],
-    "priority" : 0
-  }, {
     "path" : "/whatCanYouDo",
     "enabled" : true,
     "shared" : false,
