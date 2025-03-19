@@ -96,7 +96,7 @@ theme: /
         buttons:
             "Узнать прогноз погоды" -> /WeatherForecast
             "Оформить заявку на подбор тура" -> /TravelRequest
-        q!: * $noQuestions * || toState = "/DontHaveQuestions", onlyThisState = true
+        q: * $noQuestions * || toState = "/DontHaveQuestions", onlyThisState = true
                 
         state: CatchCallbackButton
             event: telegramCallbackQuery
