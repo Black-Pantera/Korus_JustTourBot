@@ -349,6 +349,7 @@ theme: /
                     log("///////// MY LOG "+toPrettyString($parseTree));
             
             state: Disagree 
+                q: * $somethingElseForWeather * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne"
                 q: * $noWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
                 a: Понял вас!
                 script:
