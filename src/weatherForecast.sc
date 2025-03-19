@@ -104,7 +104,7 @@ theme: /
                     $session.stateCounterInARow = 0;
                    
                     if ($parseTree["_duckling.date"]) {
-                        $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                        $session.userDate = getUserDate($parseTree["_Date"]);
                         $reactions.transition("/WeatherForecast/CheсkDate");
                     }
                     
