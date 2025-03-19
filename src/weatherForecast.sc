@@ -233,7 +233,6 @@ theme: /
                     go!: /SomethingElse
                 
         state: SomethingElseForWeather
-            q: * $noWant * || toState = "/DontHaveQuestions", onlyThisState = true
             script:
                 $session.stateCounterInARow = 0;
             random:
@@ -243,6 +242,7 @@ theme: /
             buttons:
                 "Узнать прогноз с другими параметрами" -> /WeatherForecast
                 "Оформить заявку на подбор тура" -> /TravelRequest
+            q: * $noWant * || toState = "/DontHaveQuestions", onlyThisState = true
             
             state: AnotherOne
                 q: * $somethingElseForWeather *
