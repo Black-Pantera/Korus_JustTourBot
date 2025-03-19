@@ -24,17 +24,17 @@ theme: /
                 $session.lon = $parseTree._City.lon;
                 $session.lat = $parseTree._City.lat;
                 $session.country = getCountryByCode($parseTree._City.country);
-                $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                $session.userDate = getUserDate($parseTree["_duckling.date"]); 
                 $reactions.transition("/WeatherForecast/CheсkDate");
             }
             else 
                 if ($parseTree["_duckling.date"] || $parseTree["_Date"]) 
                 {
                     if ($parseTree["_duckling.date"])
-                        $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                        $session.userDate = getUserDate($parseTree["_duckling.date"]); 
                     
                     if ($parseTree["_Date"])
-                        $session.userDate = new Date($parseTree["_Date"].year + "/"+ $parseTree["_Date"].month + "/"+ $parseTree["_Date"].day);  
+                        $session.userDate = getUserDate($parseTree["_Date"]); 
                     
                     $reactions.transition("/WeatherForecast/GetCity");
                 } 
@@ -136,14 +136,11 @@ theme: /
                 var userDate = new Date($session.userDate);
             
                 if (userDatePassed(userDate, date)) {
-                    
                     $reactions.transition("/WeatherForecast/ThisDayHasPassed");
                     } 
                     else if (DatesDiff(userDate, date) > 5) {
-                        
                         $reactions.transition("/WeatherForecast/ThisDayIsNotComingSoon");
-                        } else { 
-                            
+                        } else {
                             $reactions.transition("/WeatherForecast/TellWeather") 
                             };
         
@@ -254,12 +251,12 @@ theme: /
                         $session.lon = $parseTree._City.lon;
                         $session.lat = $parseTree._City.lat;
                         $session.country = getCountryByCode($parseTree._City.country);   
-                        $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                        $session.userDate = getUserDate($parseTree["_duckling.date"]); 
                         $reactions.transition("/WeatherForecast/CheсkDate");
                         }
                     else 
                         if ($parseTree["_duckling.date"]) {
-                            $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                            $session.userDate = getUserDate($parseTree["_duckling.date"]); 
                             $reactions.transition("/WeatherForecast/GetCity");
                         }
                         else 
