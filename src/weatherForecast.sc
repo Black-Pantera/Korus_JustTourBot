@@ -13,7 +13,7 @@ theme: /
 
     state: WeatherForecast
         intent: /weather
-        q!: * погода * {$City * * @duckling.date} *
+        q!: * (погода|прогноз погоды) * {$City * * @duckling.date} *
         q!: * погода * $City *
         q!: * будет * @duckling.date * в * $City * (дождь|солнечно|пасмурно) *
         script:
