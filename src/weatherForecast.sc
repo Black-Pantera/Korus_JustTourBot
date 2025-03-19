@@ -23,16 +23,7 @@ theme: /
                 $session.userCity = $parseTree._City.name;
                 $session.lon = $parseTree._City.lon;
                 $session.lat = $parseTree._City.lat;
-                
-                if ($caila.entitiesLookup($parseTree._City.country, true) != null) {
-                    if ($caila.entitiesLookup($parseTree._City.country, true).entities.length) {
-                        var pk = JSON.parse($caila.entitiesLookup($parseTree._City.country, true).entities[0].value);
-                        $session.country = pk.name;
-                    } else {
-                        $session.country = null;
-                        }
-                }
-               
+                $session.country = getCountryByCode($parseTree._City.country);
                 $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
                 $reactions.transition("/WeatherForecast/CheсkDate");
             }
@@ -52,16 +43,7 @@ theme: /
                         $session.userCity = $parseTree._City.name;
                         $session.lon = $parseTree._City.lon;
                         $session.lat = $parseTree._City.lat;
-                        
-                        if ($caila.entitiesLookup($parseTree._City.country, true) != null) { 
-                            if ($caila.entitiesLookup($parseTree._City.country, true).entities.length) {
-                                var pk = JSON.parse($caila.entitiesLookup($parseTree._City.country, true).entities[0].value);
-                                $session.country = pk.name;
-                            } else {
-                                $session.country = null;
-                            }
-                       }
-                        
+                        $session.country = getCountryByCode($parseTree._City.country);
                         $reactions.transition("/WeatherForecast/GetDate");
                     }
                     else 

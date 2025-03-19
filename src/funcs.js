@@ -25,8 +25,11 @@ function userDatePassed(date1, date2){
     return userDate < date;
 }
 
-function getCountryByCode(code)
-{
+function getUserDate(dt){
+    return new Date(dt.year + "/"+ dt.month + "/"+ dt.day);
+}
+
+function getCountryByCode(code){
     var country = null;
     if ($caila.entitiesLookup(code, true) != null) {
         if ($caila.entitiesLookup(code, true).entities.length) {
