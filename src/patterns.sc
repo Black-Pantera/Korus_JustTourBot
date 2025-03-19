@@ -3,3 +3,4 @@ patterns:
     $noWant = (нет|неа|no|не хочу)
     $yesWant = (да|ага|yes|ога|хочу)
     $somethingElseForWeather = (ещё один*|ещё один прогноз*|а* @duckling.date|* $City *|* {$City * * @duckling.date} *)
+    $noQuestions = (вопросов нет|нет вопросов|у меня больше нет вопросов)
