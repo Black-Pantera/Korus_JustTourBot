@@ -322,6 +322,8 @@ theme: /
                     $session.country = null;
                     $session.stateCounterDisagree = 0;
                 a: В таком случае, желаете узнать погоду в другом городе мира?
+                q: * $yesWant * || toState = "/WeatherForecast", onlyThisState = true
+                q: * $noWant * || toState = "/SomethingElse", onlyThisState = true
             
                 state: DisagreeYes
                     q: * $yesWant * || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
