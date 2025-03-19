@@ -279,7 +279,7 @@ theme: /
                         $session.userCity = $parseTree._City.name;
                         $session.lon = $parseTree._City.lon;
                         $session.lat = $parseTree._City.lat;
-                        $session.country = $parseTree._City.country;   
+                        $session.country = getCityByCode($parseTree._City.country);   
                         log("///////// MY LOG "+toPrettyString($parseTree));
                         log("////////!!!!"+ $session.country);
                         $session.userDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
