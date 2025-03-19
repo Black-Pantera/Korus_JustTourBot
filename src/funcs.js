@@ -25,6 +25,23 @@ function userDatePassed(date1, date2){
     return userDate < date;
 }
 
+function getCityByCode(code)
+{
+    var country = null;
+    if ($caila.entitiesLookup(code, true) != null) {
+        if ($caila.entitiesLookup(code, true).entities.length) {
+            var pk = JSON.parse($caila.entitiesLookup(code, true).entities[0].value);
+            country = pk.name;
+        } 
+        else 
+        {
+            country = null;
+        }
+    }
+    
+    return country;
+}
+
 function openWeatherMapCurrent(units, lang, lat, lon){
     return $http.get("http://api.openweathermap.org/data/2.5/weather?APPID=${APPID}&units=${units}&lang=${lang}&lat=${lat}&lon=${lon}", {
             timeout: 10000,
