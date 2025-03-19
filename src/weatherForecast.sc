@@ -341,9 +341,9 @@ theme: /
                 a: Хотите оставить заявку на подбор тура в {{ capitalize($nlp.inflect($session.country, "accs")) }}?
                 a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
             q: * $yesWant * || toState = "/TravelRequest", onlyThisState = true
+            q: * $somethingElseForWeather * || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne" , onlyThisState = true 
             
             state: OfferTourYes
-                q: * $City * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne"
                 q: * @duckling.date * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne"
                 
                 
