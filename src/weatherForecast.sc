@@ -344,7 +344,7 @@ theme: /
             state: OfferTourYes
                 q: * $City * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne"
                 q: * @duckling.date * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne"
-                q: * $yesWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true || toState = "/TravelRequest"
+                q: * $yesWant * || toState = "/TravelRequest", onlyThisState = true
                 
             state: Disagree 
                 q: * $noWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
