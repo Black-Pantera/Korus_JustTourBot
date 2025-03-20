@@ -27,7 +27,9 @@ init:
     
     bind("preProcess", function($context) {
         
-        $context.session.stateCounter = 0;
+        if (!$context.session.stateCounter) {
+            $context.session.stateCounter = 0;
+        }
         
         if (!$context.session.stateCounterInARow) {
             $context.session.stateCounterInARow = 0;
