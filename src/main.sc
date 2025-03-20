@@ -171,8 +171,6 @@ theme: /
                     "Узнать прогноз погоды" -> /WeatherForecast
                     "Оформить заявку на подбор тура" -> /TravelRequest
             else:
-                script:
-                    $session.stateCounterInARow = 0
                 a: Простите, так и не смог понять, что вы имели ввиду.
                 go!: /GoodBye
                 
