@@ -123,8 +123,6 @@ theme: /
 
         state: AskStartDate
             a: Еще мне потребуется предполагаемая дата начала поездки. Пожалуйста, напишите ее.
-            script:
-                $session.stateCounterInARow = 0;
             
             state: Date
                 q: * @duckling.date *
