@@ -454,50 +454,9 @@ theme: /
                 $session.stateCounter = 0;
             
                 moment.lang('ru');
-                var isImportant = false;
-                $temp.confirmation = "Среди важных критериев подбора вы выделили:";
-            
-                if ($session.country != "Не указано") {
-                    $temp.confirmation += " \n- Страна пребывания - "+ $session.country;
-                    isImportant = true;
-                    }
-            
-                if ($session.numberOfPeople != "Не указано") {
-                    $temp.confirmation += " \n- Количество людей в поездке - "+$session.numberOfPeople;
-                    isImportant = true;
-                    }
-            
-                if ($session.startDate != "Не указано") {
-                    $temp.confirmation += " \n- Приблизительная дата начала поездки - "+ moment($session.startDate).format('LL');
-                    isImportant = true;
-                    }
-           
-                if ($session.endDate != "Не указано") {
-                    $temp.confirmation += " \n- Приблизительная дата окончания поездки - "+ moment($session.endDate).format('LL');
-                    isImportant = true;
-                    }
-            
-                if ($session.services != "Не указано") {
-                    $temp.confirmation += " \n- Желаемый пакет услулуг - "+ $session.services;
-                    isImportant = true;
-                    } 
-                
-                if ($session.userComment != "Не указано") {
-                    $temp.confirmation += " \n- Комментарий для менеджера - \""+$session.userComment + "\"";
-                    isImportant = true;
-                    }  
-            
-                if ($session.personalPrice) {
-                    $temp.confirmation += " \n- Примерная стоимость тура - "+numberWithCommas($session.personalPrice);
-                    isImportant = true;
-                    }
-            
-                $temp.confirmation += "."
-            
-                if (isImportant) {
-                    $reactions.answer($temp.confirmation);
-                    }
-                
+                $temp.confirmation = confirmation();
+                $reactions.answer($temp.confirmation);
+                   
             a: Подскажите, вы готовы отправить заявку?
             buttons:
                 "Да" -> /TravelRequest/Confirmation/Agree
