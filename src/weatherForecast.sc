@@ -85,8 +85,7 @@ theme: /
                 
                     script: 
                         $session.userDate = null
-                        $session.stateCounterInARow = 0
-                    
+                       
                     go!: /SomethingElse
                 
         state: GetDate
@@ -115,7 +114,6 @@ theme: /
                     a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
                     script: 
-                        $session.stateCounterInARow = 0;
                         $session.userDate = null
                         $session.userCity = null;
                         $session.lat = null;
@@ -153,7 +151,6 @@ theme: /
                 a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
                 script: 
-                    $session.stateCounter = 0;
                     $session.userDate = null;
                     $session.userCity = null;
                     $session.lat = null;
@@ -177,7 +174,6 @@ theme: /
                 a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
                 script: 
-                   //$session.stateCounter = 0;
                     $session.userDate = null;
                     $session.userCity = null;
                     $session.lat = null;
@@ -219,7 +215,6 @@ theme: /
                 else:
                     a: Мне очень жаль, но при обращении к сервису, содержащему сведения о погоде, произошла ошибка. Пожалуйста, попробуйте написать мне немного позже. Надеюсь работоспособность сервиса восстановится.
                     script:
-                        $session.stateCounter = 0;
                         $session.userDate = null;
                         $session.userCity = null;
                         $session.lat = null;
@@ -286,8 +281,6 @@ theme: /
                         "Узнать прогноз с другими параметрами" -> /WeatherForecast
                         "Оформить заявку на подбор тура" -> /TravelRequest
                 else:
-                    script:
-                        $session.stateCounterInARow = 0
                     a: Простите, так и не смог понять, что вы имели в виду.
                     go!: /Goodbye
         
@@ -319,8 +312,6 @@ theme: /
                         a: Простите, не совсем понял. Хотите узнать прогноз погоды для другого города?   
                         go: /WeatherForecast/OfferTour/Disagree
                     else
-                        script:
-                            $session.stateCounter = 0;
                         go!: /SomethingElse
             
             state: LocalCatchAll || noContext = true
@@ -336,5 +327,4 @@ theme: /
                         $session.lat = null;
                         $session.lon = null;
                         $session.country = null;
-                        $session.stateCounter = 0;
                     go!: /SomethingElse
