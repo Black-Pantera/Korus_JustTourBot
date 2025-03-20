@@ -67,7 +67,6 @@ theme: /
                 event: noMatch
                 script:
                     $session.stateCounterInARow ++
-                
                 if: $session.stateCounterInARow < 3
                     random:
                         a: Извините, не совсем понял вас. Подскажите, вы выбрали страну для путешествия?
@@ -75,16 +74,13 @@ theme: /
                     go: /TravelRequest
                 else:
                     script:
-                        $session.stateCounterInARow = 0;
                         $session.country = "Не указано";
                     a: Простите! Так и не получилось вас понять. Когда консультант получит заявку, он подберет варианты стран для вас. А теперь давайте перейдем к указанию оставшихся параметров.
                     go!: /TravelRequest/AskNumberOfPeople
                   
         state: AskNumberOfPeople
             a: Укажите количество человек, которые отправятся в путешествие.
-            script:
-                $session.stateCounterInARow = 0;
-        
+            
             state: Number
                 q: * @duckling.number *
                 q: * только я *
@@ -111,7 +107,6 @@ theme: /
                 event: noMatch
                 script:
                     $session.stateCounterInARow ++;
-                
                 if: $session.stateCounterInARow < 3
                     script:
                         if ($parseTree["_duckling.number"]) {
