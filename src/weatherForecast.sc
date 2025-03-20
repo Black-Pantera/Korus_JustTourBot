@@ -17,7 +17,7 @@ theme: /
         q!: * погода * $City *
         q!: * будет * @duckling.date * в * $City * (дождь|солнечно|пасмурно) *
         script:
-            $session.stateCounter = 0;
+            //$session.stateCounter = 0;
             
             if ($parseTree._City && $parseTree["_duckling.date"]) {
                 $session.userCity = $parseTree._City.name;
