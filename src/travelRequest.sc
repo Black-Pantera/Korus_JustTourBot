@@ -375,14 +375,9 @@ theme: /
             script: 
                 $session.userName = $request.query;
             q: * $noWant * || toState = "/TravelRequest/AskName", onlyThisState = true
+            q: (* $yesWant *|* @namesRu *) || toState = "/TravelRequest/AskName/Name", onlyThisState = true
+            event: noMatch || toState = "/TravelRequest/AskName/Name", onlyThisState = true
             
-            state: ChoosenYes
-                q: * $yesWant * || fromState = "/TravelRequest/UnusualName", onlyThisState = true
-                q: * @namesRu *
-                event: noMatch
-                script:
-                    $reactions.transition("/TravelRequest/AskName/Name");  
-                
         state: AskPhone
             script: 
                 $session.stateCounterInARow = 0;
