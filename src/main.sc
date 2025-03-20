@@ -37,6 +37,9 @@ init:
         
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
+        
+        if ($context.session.lastState == "ThisDayHasPassed")
+            $context.session.stateCounter = 0;
     });
   
 theme: /
