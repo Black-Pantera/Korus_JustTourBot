@@ -168,9 +168,7 @@ theme: /
                     
         state: AskDuration
             a: Также укажите, сколько дней будет длиться путешествие.
-            script:
-                $session.stateCounterInARow = 0;
-       
+            
             state: Number
                 q: * @duckling.number *
                 intent: /week
@@ -198,7 +196,6 @@ theme: /
                 event: noMatch
                 script:
                     $session.stateCounterInARow ++
-                
                 if: $session.stateCounterInARow < 3
                     script:
                         if ($parseTree["_duckling.number"]) {
@@ -212,7 +209,6 @@ theme: /
                             }
                 else:
                     script: 
-                        $session.stateCounterInARow = 0;
                         $reactions.transition("/TravelRequest/AskDuration/DontKnow");
             
         state: AskServices

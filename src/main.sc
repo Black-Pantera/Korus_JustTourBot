@@ -67,6 +67,16 @@ init:
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
+        
+        if ($context.session.lastState == "/TravelRequest/AskDuration") {
+            $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
+        }
+        
+        if ($context.session.lastState == "/TravelRequest/AskDuration/DontKnow") {
+            $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
+        }
        
     });
   
