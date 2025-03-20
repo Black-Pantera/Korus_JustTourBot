@@ -146,9 +146,7 @@ theme: /
                     if ($parseTree["_duckling.date"]) {
                         $session.startDate = getUserDate($parseTree["_duckling.date"]); 
                     
-                        var date = new Date();
-                        var userDate = $session.startDate;
-                        if (userDatePassed(userDate, date)) {
+                        if (userDatePassed($session.startDate, new Date())) {
                             $reactions.transition("/TravelRequest/AskStartDate/LocalCatchAll");
                         }  else {
                             $reactions.transition("/TravelRequest/AskDuration");
