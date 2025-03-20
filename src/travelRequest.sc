@@ -189,7 +189,7 @@ theme: /
        
             state: Number
                 q: * @duckling.number *
-                intent: /weather
+                intent: /week
                 script:
                     if ($parseTree["_duckling.number"] > 0) {
                         $session.countDays = $parseTree["_duckling.number"];

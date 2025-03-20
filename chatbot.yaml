@@ -13,6 +13,10 @@ tests:
     - weatherForecast.xml
 
 nlp:
+  timeLimit:
+    enabled: true
+    timeout: 20000
   intentNoMatchThresholds:
     phrases: 0.2
     patterns: 0.2
+    
