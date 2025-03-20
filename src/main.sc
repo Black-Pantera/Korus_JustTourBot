@@ -38,7 +38,7 @@ init:
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
         
-        if ($context.session.lastState == "ThisDayHasPassed")
+        if ($context.session.lastState != "LocalCatchAll")
             $context.session.stateCounter = 0;
     });
   
