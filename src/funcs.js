@@ -76,3 +76,44 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+function confirmation() {
+    var $session = $jsapi.context().session;
+    
+    var isImportant = false;
+    var confirmation = "Среди важных критериев подбора вы выделили:";
+    
+    if ($session.country != "Не указано") {
+        confirmation += " \n- Страна пребывания - "+ $session.country;
+        isImportant = true;
+    }
+            
+    if ($session.numberOfPeople != "Не указано") {
+        confirmation += " \n- Количество людей в поездке - "+$session.numberOfPeople;
+        isImportant = true;
+    }
+            
+    if ($session.startDate != "Не указано") {
+        confirmation += " \n- Приблизительная дата начала поездки - "+ moment($session.startDate).format('LL');
+        isImportant = true;
+    }
+           
+    if ($session.endDate != "Не указано") {
+        confirmation += " \n- Приблизительная дата окончания поездки - "+ moment($session.endDate).format('LL');
+        isImportant = true;
+    }
+            
+    if ($session.services != "Не указано") {
+        confirmation += " \n- Желаемый пакет услулуг - "+ $session.services;
+        isImportant = true;
+    } 
+                
+    if ($session.userComment != "Не указано") {
+        confirmation += " \n- Комментарий для менеджера - \""+$session.userComment + "\"";
+        isImportant = true;
+    }  
+            
+    if ($session.personalPrice) {
+        confirmation += " \n- Примерная стоимость тура - "+numberWithCommas($session.personalPrice);
+        isImportant = true;
+    }
+}
