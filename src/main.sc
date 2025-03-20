@@ -38,8 +38,6 @@ init:
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
         
-        $context.session.stateCounterInARow++;
-        
         if ($context.session.lastState == "/SomethingElse") { 
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
