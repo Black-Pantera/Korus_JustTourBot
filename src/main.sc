@@ -53,12 +53,12 @@ init:
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskStartDate") {
+        if ($context.session.lastState == "/TravelRequest/AskNumberOfPeople/DontKnow") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskNumberOfPeople/DontKnow") {
+        if ($context.session.lastState == "/TravelRequest/AskStartDate") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
