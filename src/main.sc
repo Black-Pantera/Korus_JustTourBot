@@ -29,8 +29,8 @@ init:
         if (!$context.session.stateCounter) {
             $context.session.stateCounter = 0;
         }
-        else
-            $session.stateCounterInARow++;
+        
+            
         
         if (!$context.session.stateCounterInARow) {
             $context.session.stateCounterInARow = 0;
@@ -39,6 +39,8 @@ init:
         
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
+        
+        $session.stateCounterInARow++;
         
         if ($context.session.lastState == "/SomethingElse") { 
             $context.session.stateCounter = 0;
