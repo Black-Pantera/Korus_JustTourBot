@@ -465,8 +465,7 @@ theme: /
             state: Agree
                 intent: /confirmationYes
                 script: 
-                    ///
-               
+                    var message = mailText();
                     $session.userHasTour = true;
                 
                     $temp.mailResult = sendEmail(message);
