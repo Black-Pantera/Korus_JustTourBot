@@ -144,7 +144,7 @@ theme: /
                 script:
                 
                     if ($parseTree["_duckling.date"]) {
-                        $session.startDate = new Date($parseTree["_duckling.date"].year + "/"+ $parseTree["_duckling.date"].month + "/"+ $parseTree["_duckling.date"].day);
+                        $session.startDate = getUserDate($parseTree["_duckling.date"]); 
                     
                         var date = new Date();
                         var userDate = $session.startDate;
