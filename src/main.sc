@@ -38,7 +38,7 @@ init:
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
         
-        $context.session.stateCounter ++;
+        $context.session.stateCounter = +1;
     });
   
 theme: /
