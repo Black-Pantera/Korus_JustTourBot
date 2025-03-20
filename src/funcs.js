@@ -44,6 +44,16 @@ function whatIsIncluded(pc) {
     }
 }
 
+function getPrice(pc){
+    var $session = $jsapi.context().session;
+    
+    var answer = "При оформлении пакета услуг \""+pc.name+"\" на поездку для " +
+    $session.numberOfPeople +" "+ $nlp.conform($nlp.inflect("человек","gent"), $session.numberOfPeople) + 
+    " стоимость составит " + numberWithCommas($session.personalPrice)+ " "+$nlp.conform("рубль", $session.personalPrice)+".";
+    
+    return answer;
+}
+
 function getPrices() {
     var pk1 = JSON.parse($caila.entitiesLookup("эконом", true).entities[0].value);
     var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);

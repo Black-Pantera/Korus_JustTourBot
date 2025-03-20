@@ -258,8 +258,13 @@ theme: /
                         if ($session.numberOfPeople !== "Не указано") {
                             if ($session.endDate !== "Не указано") {
                                 $session.personalPrice = $session.numberOfPeople * $parseTree._Packages.perDayOneMan*$session.countDays;
-                                var answer = "При оформлении пакета услуг \""+$parseTree._Packages.name+"\" на поездку для " +
+                                
+                                var answer = getPrice($parseTree._Packages);
+                                
+                                
+                                "При оформлении пакета услуг \""+$parseTree._Packages.name+"\" на поездку для " +
                                 $session.numberOfPeople +" "+ $nlp.conform($nlp.inflect("человек","gent"), $session.numberOfPeople) +" стоимость составит "+numberWithCommas($session.personalPrice)+ " "+$nlp.conform("рубль", $session.personalPrice)+".";
+                                
                                 $reactions.answer(answer);
                                 }
                         } else {
@@ -267,11 +272,7 @@ theme: /
                             $reactions.answer(answer);
                             }
                     } else {
-                        var pk1 = JSON.parse($caila.entitiesLookup("эконом", true).entities[0].value);
-                        var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);
-                        var pk3 = JSON.parse($caila.entitiesLookup("vip", true).entities[0].value);
-                    
-                        var answer = "При формировании пакета услуг \""+ pk1.name+"\" стоимость составит "+ numberWithCommas(pk1.perDayOneMan) + " рублей на одного человека. Для пакета \""+ pk2.name+"\" - "+ numberWithCommas(pk2.perDayOneMan)+ ". А \""+ pk3.name+"\" будет стоить "+ numberWithCommas(pk3.perDayOneMan) +" за одного человека.";
+                        var answer = getPrices();
                         $reactions.answer(answer);
                         }
                 go!: /TravelRequest/AskServices
