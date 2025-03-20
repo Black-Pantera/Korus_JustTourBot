@@ -28,6 +28,8 @@ init:
     bind("preProcess", function($context) {
         if (!$context.session.stateCounter) {
             $context.session.stateCounter = 0;
+        } else {
+            $context.session.stateCounter = +1;
         }
         
         if (!$context.session.stateCounterInARow) {
@@ -37,8 +39,6 @@ init:
         
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
-        
-        $context.session.stateCounter = +1;
     });
   
 theme: /
