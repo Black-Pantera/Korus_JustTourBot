@@ -138,7 +138,7 @@ theme: /
         
         state: ThisDayHasPassed
             script:
-                $session.stateCounter ++
+                //$session.stateCounter ++
                 
             if: $session.stateCounter < 3
                 script:
