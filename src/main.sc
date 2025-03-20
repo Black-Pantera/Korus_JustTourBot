@@ -33,14 +33,10 @@ init:
         if (!$context.session.stateCounterInARow) {
             $context.session.stateCounterInARow = 0;
         }
-        
-        log("///////// MY LOG preProcess "+$context.currentState);
     });
         
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
-        
-        log("///////// MY LOG postProcess "+$context.session.lastState);
         
         if ($context.session.lastState == "/SomethingElse") { 
             $context.session.stateCounter = 0;
