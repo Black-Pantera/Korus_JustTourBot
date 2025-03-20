@@ -213,8 +213,6 @@ theme: /
             
         state: AskServices
             a: Уточните, пожалуйста, какой пакет услуг вам интересен?
-            script: 
-                $session.stateCounterInARow = 0;
             buttons:
                 "Эконом" -> /TravelRequest/AskServices/Package
                 "Стандарт" -> /TravelRequest/AskServices/Package
@@ -259,7 +257,6 @@ theme: /
                 intent: /weDoNotKnow
                 script:
                     $session.stateCounterInARow ++
-                
                 if: $session.stateCounterInARow < 3
                     script:
                         if ($parseTree["pattern"]) {
@@ -276,7 +273,6 @@ theme: /
                             }
                 else:
                     script: 
-                        $session.stateCounterInARow = 0;
                         var answer = "К сожалению, без выбора пакета заявка не может быть отправлена. Вы можете вернуться к её заполнению позже или связаться с нами по номеру 8 (812) 000-00-00.";
                         $reactions.answer(answer);
                         $reactions.transition("/SomethingElse");
