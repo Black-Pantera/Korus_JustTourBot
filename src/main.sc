@@ -38,6 +38,8 @@ init:
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
         
+        log("///////// MY LOG "+$context.session.lastState);
+        
         if ($context.session.lastState != "LocalCatchAll")
             $context.session.stateCounter = 0;
     });
