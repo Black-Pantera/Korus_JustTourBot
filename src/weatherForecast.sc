@@ -307,7 +307,7 @@ theme: /
                     $session.lat = null;
                     $session.lon = null;
                     $session.country = null;
-                    $session.stateCounterDisagree = 0;
+                    //$session.stateCounterDisagree = 0;
                 a: В таком случае, желаете узнать погоду в другом городе мира?
                 q: * $yesWant * || toState = "/WeatherForecast", onlyThisState = true
                 q: * $noWant * || toState = "/SomethingElse", onlyThisState = true
@@ -315,13 +315,13 @@ theme: /
                 state: LocalCatchAll || noContext = true 
                     event: noMatch || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
                     script:
-                        $session.stateCounterDisagree ++;
-                    if: $session.stateCounterDisagree < 2
+                        $session.stateCounter ++;
+                    if: $session.stateCounter < 2
                         a: Простите, не совсем понял. Хотите узнать прогноз погоды для другого города?   
                         go: /WeatherForecast/OfferTour/Disagree
                     else
                         script:
-                            $session.stateCounterDisagree = 0;
+                            $session.stateCounter = 0;
                         go!: /SomethingElse
             
             state: LocalCatchAll || noContext = true
