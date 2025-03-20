@@ -42,14 +42,11 @@ init:
         
         log("///////// MY LOG postProcess"+$context.session.lastState);
         
-        if ($context.session.lastState == "/WeatherForecast/GetDate") { 
-            if ($context.session.stateCounter > 3) {
-                $context.session.stateCounter = 0;
-            }
-            else {
-                $context.session.stateCounter = +1;
-                }
+        if ($context.session.lastState == "/WeatherForecast/SomethingElse") { 
+            $context.session.stateCounter = 0;
         }
+         
+       
     });
   
 theme: /
