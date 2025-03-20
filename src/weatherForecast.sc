@@ -74,7 +74,7 @@ theme: /
             state: LocalCatchAll || noContex = true
                 event: noMatch
                 script:
-                    $session.stateCounterInARow++
+                    //$session.stateCounterInARow++
                 if: $session.stateCounterInARow < 3
                     random: 
                         a: Извините, не совсем понял вас. Напишите, пожалуйста, название города, чтобы я смог узнать прогноз погоды для него.

@@ -29,6 +29,8 @@ init:
         if (!$context.session.stateCounter) {
             $context.session.stateCounter = 0;
         }
+        else
+            $session.stateCounterInARow++;
         
         if (!$context.session.stateCounterInARow) {
             $context.session.stateCounterInARow = 0;
