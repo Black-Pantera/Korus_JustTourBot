@@ -44,6 +44,17 @@ function whatIsIncluded(pc) {
     }
 }
 
+function getPrices() {
+    var pk1 = JSON.parse($caila.entitiesLookup("эконом", true).entities[0].value);
+    var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);
+    var pk3 = JSON.parse($caila.entitiesLookup("vip", true).entities[0].value);
+    var answer = "При формировании пакета услуг \""+ pk1.name+"\" стоимость составит "+ numberWithCommas(pk1.perDayOneMan) + 
+    " рублей на одного человека. Для пакета \""+ pk2.name+"\" - "+ numberWithCommas(pk2.perDayOneMan) + 
+    ". А \""+ pk3.name+"\" будет стоить "+ numberWithCommas(pk3.perDayOneMan) +" за одного человека.";
+    
+    return answer;
+}
+    
 function getCountryByCode(code){
     var country = null;
     if ($caila.entitiesLookup(code, true) != null) {
