@@ -28,8 +28,7 @@ init:
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
         
-        if ($context.session.lastState != )
-        $session.stateCounter = 0;
+        $context.session.stateCounter = 0;
     });
   
 theme: /
