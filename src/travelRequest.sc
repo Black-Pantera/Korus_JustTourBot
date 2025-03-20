@@ -119,8 +119,6 @@ theme: /
                             $reactions.answer(randomAnswer);
                             }
                 else: 
-                    script:
-                        $session.stateCounterInARow = 0;
                     go!: /TravelRequest/AskNumberOfPeople/DontKnow
 
         state: AskStartDate
