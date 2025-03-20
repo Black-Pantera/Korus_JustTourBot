@@ -149,7 +149,6 @@ theme: /
                 event: noMatch
                 script:
                     $session.stateCounterInARow ++
-                
                 if: $session.stateCounterInARow < 3
                     script:
                         if ($parseTree["_duckling.date"]) {
@@ -277,8 +276,6 @@ theme: /
                         $reactions.transition("/SomethingElse");
             
         state: AskName
-            script:
-                $session.stateCounterInARow = 0;
             if: $client.name
                 script:
                     $reactions.transition("/TravelRequest/AskPhone");
@@ -312,7 +309,6 @@ theme: /
                 intent: /forWhat
                 script:
                     $session.stateCounterInARow ++
-                
                 if: $session.stateCounterInARow < 2
                     script:
                         if ($parseTree["pattern"]) {
@@ -324,7 +320,6 @@ theme: /
                         }
                 else:
                     script: 
-                        $session.stateCounterInARow = 0;
                         var answer = "К сожалению, без указания вашего имени заявка не может быть отправлена. Вы можете вернуться к ее заполнению позже или связаться с нами по номеру 8 (812) 000-00-00.";
                         $reactions.answer(answer);
                         $reactions.transition("/SomethingElse");       
@@ -338,8 +333,6 @@ theme: /
             event: noMatch || toState = "/TravelRequest/AskName/Name", onlyThisState = true
             
         state: AskPhone
-            script: 
-                $session.stateCounterInARow = 0;
             if: $client.phone
                 go!: /TravelRequest/AskComment
             else:
@@ -368,7 +361,6 @@ theme: /
                 intent: /forWhat
                 script:
                     $session.stateCounterInARow ++
-                
                 if: $session.stateCounterInARow < 3
                     script:
                         if ($parseTree["pattern"]) {
@@ -409,9 +401,6 @@ theme: /
     
         state: Confirmation
             script:
-                $session.stateCounterInARow = 0;
-                $session.stateCounter = 0;
-            
                 moment.lang('ru');
                 $temp.confirmation = confirmation();
                 $reactions.answer($temp.confirmation);
@@ -441,13 +430,10 @@ theme: /
                 state: Error
                     script:
                         $session.stateCounter ++;
-                    
                     if: $session.stateCounter < 3
                         go!: /TravelRequest/Confirmation/Agree
                     else:
                         script:
-                            $session.stateCounter = 0;
-                            $session.stateCounterInARow = 0;
                             $session.country = null;
                             $session.numberOfPeople = null;
                             $session.startDate = null;
@@ -479,7 +465,6 @@ theme: /
                 event: noMatch
                 script:
                     $session.stateCounterInARow ++
-                
                 if: $session.stateCounterInARow < 3
                     script:
                         var answers = ["Извините, не совсем понял вас. Хотите отправить эту заявку?",
@@ -492,7 +477,6 @@ theme: /
                     
                 else:
                     script: 
-                        $session.stateCounterInARow = 0;
                         $session.country = null;
                         $session.numberOfPeople = null;
                         $session.startDate = null;

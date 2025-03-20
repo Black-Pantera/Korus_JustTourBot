@@ -58,17 +58,7 @@ init:
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskStartDate") {
-            $context.session.stateCounter = 0;
-            $context.session.stateCounterInARow = 0;
-        }
-        
         if ($context.session.lastState == "/TravelRequest/AskStartDate/DontKnow") {
-            $context.session.stateCounter = 0;
-            $context.session.stateCounterInARow = 0;
-        }
-        
-        if ($context.session.lastState == "/TravelRequest/AskDuration") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
@@ -78,7 +68,7 @@ init:
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskServices") {
+        if ($context.session.lastState == "/TravelRequest/") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
