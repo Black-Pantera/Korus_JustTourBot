@@ -30,9 +30,7 @@ init:
             $context.session.stateCounter = 0;
         }
         
-            
-        
-        if (!$context.session.stateCounterInARow) {
+        шf (!$context.session.stateCounterInARow) {
             $context.session.stateCounterInARow = 0;
         }
     });
