@@ -374,7 +374,7 @@ theme: /
             script: 
                 $session.userName = $request.query;
             q: * $noWant * || toState = "/TravelRequest/AskName", onlyThisState = true
-            q: (* $yesWant *|* @namesRu *) || toState = "/TravelRequest/AskName/Name", onlyThisState = true
+            q: (* $yesWant *|* @pymorphy.name *) || toState = "/TravelRequest/AskName/Name", onlyThisState = true
             event: noMatch || toState = "/TravelRequest/AskName/Name", onlyThisState = true
             
         state: AskPhone
