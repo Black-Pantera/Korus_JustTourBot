@@ -17,8 +17,6 @@ theme: /
         q!: * погода * $City *
         q!: * будет * @duckling.date * в * $City * (дождь|солнечно|пасмурно) *
         script:
-            //$session.stateCounter = 0;
-            
             if ($parseTree._City && $parseTree["_duckling.date"]) {
                 $session.userCity = $parseTree._City.name;
                 $session.lon = $parseTree._City.lon;
@@ -300,8 +298,6 @@ theme: /
                     go!: /Goodbye
         
         state: OfferTour
-            script:
-                //$session.stateCounter = 0;
             random:
                 a: Хотите оставить заявку на подбор тура в {{ capitalize($nlp.inflect($session.country, "accs")) }}?
                 a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
