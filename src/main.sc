@@ -48,6 +48,7 @@ init:
         }
          
         if ($context.session.lastState == "/WeatherForecast/SomethingElseForWeather") { 
+            $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
        
