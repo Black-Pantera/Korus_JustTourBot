@@ -59,8 +59,6 @@ theme: /
             state: UserCity
                 q: * $City *
                 script:
-                    $session.stateCounterInARow = 0;
-                    
                     if ($parseTree._City) {
                         $session.userCity = $parseTree._City.name;
                         $session.lon = $parseTree._City.lon;
@@ -99,8 +97,6 @@ theme: /
             state: UserDate
                 q: * @duckling.date *
                 script:
-                    $session.stateCounterInARow = 0;
-                   
                     if ($parseTree["_duckling.date"]) {
                         $session.userDate = getUserDate($parseTree["_duckling.date"]);
                         $reactions.transition("/WeatherForecast/CheсkDate");
@@ -231,8 +227,6 @@ theme: /
                     go!: /SomethingElse
                 
         state: SomethingElseForWeather
-            script:
-                $session.stateCounterInARow = 0;
             random:
                 a: Хотите спросить что-то ещё?
                 a: Могу ли я помочь чем-то ещё?

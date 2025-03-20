@@ -29,6 +29,10 @@ init:
         if (!$context.session.stateCounter) {
             $context.session.stateCounter = 0;
         }
+        
+        if (!$context.session.stateCounterInARow) {
+            $context.session.stateCounterInARow = 0;
+        }
     });
         
     bind("postProcess", function($context) {
