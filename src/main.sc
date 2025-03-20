@@ -33,14 +33,16 @@ init:
         if (!$context.session.stateCounterInARow) {
             $context.session.stateCounterInARow = 0;
         }
+        
+        log("///////// MY LOG preProcess"+$context.currentState);
     });
         
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
         
-        log("///////// MY LOG "+$context.session.lastState);
+        log("///////// MY LOG postProcess"+$context.session.lastState);
         
-        if ($context.session.lastState == "/WeatherForecast/ThisDayHasPassed") { 
+        if ($context.session.lastState == "/WeatherForecast/GetDate") { 
             if ($context.session.stateCounter > 3) {
                 $context.session.stateCounter = 0;
             }
