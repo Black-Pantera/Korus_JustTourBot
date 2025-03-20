@@ -29,7 +29,7 @@ function getUserDate(dt){
     return new Date(dt.year + "/"+ dt.month + "/"+ dt.day);
 }
 
-function WhatIsIncluded(pc) {
+function whatIsIncluded(pc) {
     if (pc) {
         var answer = "В пакет услуг \""+pc.name+"\" входят следующие опции: "+ pc.consists +".";
         return answer;
