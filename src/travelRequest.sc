@@ -24,9 +24,8 @@ theme: /
             q: * @CodeCounties *
             q: * $yesWant * || fromState = "/TravelRequest", onlyThisState = true
             script: 
-                $session.stateCounterInARow = 0;
                 if ($parseTree._CodeCounties) {
-                $session.country = $parseTree._CodeCounties.name;   
+                    $session.country = $parseTree._CodeCounties.name;   
                 }
                     
             if: $session.country
