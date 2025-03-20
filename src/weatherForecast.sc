@@ -198,8 +198,8 @@ theme: /
                 openWeatherMapCurrent("metric","ru",$session.lat, $session.lon).then(function (res) {
                     
                     var answers = [
-                        "У меня получилось уточнить: на "+ $temp.userFormatDate + " в "+ capitalize($nlp.inflect($session.userCity, "loct")) + " температура воздуха составит "+ setTemperature(res),
-                        "Смог узнать для вас прогноз: на "+ $temp.userFormatDate + " в "+ capitalize($nlp.inflect($session.userCity, "loct")) + " будет " + setTemperature(res)
+                        "У меня получилось уточнить: на " + setDateCity($temp.userFormatDate) + " температура воздуха составит "+ setTemperature(res),
+                        "Смог узнать для вас прогноз: на " + setDateCity($temp.userFormatDate) + " будет " + setTemperature(res)
                     ];
                     var randomAnswer = answers[$reactions.random(answers.length)];
                     $reactions.answer(randomAnswer);
