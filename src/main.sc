@@ -24,11 +24,15 @@ init:
            
         $reactions.buttons({ text: "В главное меню", transition: "/Start" })
     }); 
+    
+    bind("preProcess", function($context) {
+        if (!$context.session.stateCounter) {
+            $context.session.stateCounter = 0;
+        }
+    });
         
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
-        
-        $context.session.stateCounter = 0;
     });
   
 theme: /
