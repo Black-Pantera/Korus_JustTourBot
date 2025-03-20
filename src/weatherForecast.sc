@@ -75,7 +75,6 @@ theme: /
                 event: noMatch
                 script:
                     $session.stateCounterInARow++
-                
                 if: $session.stateCounterInARow < 3
                     random: 
                         a: Извините, не совсем понял вас. Напишите, пожалуйста, название города, чтобы я смог узнать прогноз погоды для него.
@@ -105,7 +104,6 @@ theme: /
                 event: noMatch
                 script:
                     $session.stateCounterInARow ++
-                
                 if: $session.stateCounterInARow < 3
                     random: 
                         a: Извините, не совсем понял вас. Напишите, пожалуйста, нужную вам дату.
@@ -139,7 +137,6 @@ theme: /
         state: ThisDayHasPassed
             script:
                 $session.stateCounter ++
-                
             if: $session.stateCounter < 3
                 script:
                     $session.userDate = null;
@@ -209,7 +206,6 @@ theme: /
             state: Error
                 script:
                     $session.stateCounter++
-                
                 if: $session.stateCounter < 3
                     go!: /WeatherForecast/TellWeather
                 else:
@@ -272,7 +268,6 @@ theme: /
                 event: noMatch
                 script:
                     $session.stateCounterInARow ++;
-                
                 if: $session.stateCounterInARow < 3
                     random:
                         a: Извините, не совсем понял. Пожалуйста, подскажите, могу ли я ещё чем-то помочь?
