@@ -29,6 +29,21 @@ function getUserDate(dt){
     return new Date(dt.year + "/"+ dt.month + "/"+ dt.day);
 }
 
+function WhatIsIncluded(pc) {
+    if (pc) {
+        var answer = "В пакет услуг \""+pc.name+"\" входят следующие опции: "+ pc.consists +".";
+        return answer;
+    }
+    else {
+        var pk1 = JSON.parse($caila.entitiesLookup("эконом", true).entities[0].value);
+        var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);
+        var pk3 = JSON.parse($caila.entitiesLookup("vip", true).entities[0].value);
+                    
+        var answer = "Пакет \""+pk1.name+"\" включает следующие опции: " +pk1.consists +". В пакет \""+pk2.name+"\" входят: " +pk2.consists +". И, наконец, \""+pk3.name+"\" предполагает " +pk3.consists +".";
+        return answer;
+    }
+}
+
 function getCountryByCode(code){
     var country = null;
     if ($caila.entitiesLookup(code, true) != null) {

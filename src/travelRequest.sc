@@ -247,6 +247,10 @@ theme: /
             state: WhatIsIncluded
                 intent: /included
                 script:
+                    
+                    var answer = ;
+                    $reactions.answer(answer);
+                    
                     if ($parseTree._Packages) {
                         var answer = "В пакет услуг \""+$parseTree._Packages.name+"\" входят следующие опции: "+ $parseTree._Packages.consists +".";
                         $reactions.answer(answer);
