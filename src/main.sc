@@ -40,8 +40,14 @@ init:
         
         log("///////// MY LOG "+$context.session.lastState);
         
-        if ($context.session.lastState != "/WeatherForecast/OfferTour/LocalCatchAll")
-            $context.session.stateCounter = 0;
+        if ($context.session.lastState == "/WeatherForecast/ThisDayHasPassed") { 
+            if ($context.session.stateCounter > 3) {
+                $context.session.stateCounter = 0;
+            }
+            else {
+                $context.session.stateCounter = +1;
+                }
+        }
     });
   
 theme: /
