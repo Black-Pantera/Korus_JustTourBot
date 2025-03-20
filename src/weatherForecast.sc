@@ -307,7 +307,6 @@ theme: /
                     $session.lat = null;
                     $session.lon = null;
                     $session.country = null;
-                    //$session.stateCounterDisagree = 0;
                 a: В таком случае, желаете узнать погоду в другом городе мира?
                 q: * $yesWant * || toState = "/WeatherForecast", onlyThisState = true
                 q: * $noWant * || toState = "/SomethingElse", onlyThisState = true
