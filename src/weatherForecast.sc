@@ -177,7 +177,7 @@ theme: /
                 a: Простите! Кажется, я пока не умею узнавать прогноз погоды с такими параметрами, но постараюсь поскорее научиться.
                 
                 script: 
-                    $session.stateCounter = 0;
+                   //$session.stateCounter = 0;
                     $session.userDate = null;
                     $session.userCity = null;
                     $session.lat = null;
