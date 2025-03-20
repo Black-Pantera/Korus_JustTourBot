@@ -110,4 +110,6 @@ function confirmation() {
     }
     
     confirmation += "."
+    
+    return confirmation;
 }
