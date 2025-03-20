@@ -247,24 +247,8 @@ theme: /
             state: WhatIsIncluded
                 intent: /included
                 script:
-                    
-                    var answer = ;
+                    var answer = whatIsIncluded($parseTree._Packages);
                     $reactions.answer(answer);
-                    
-                    if ($parseTree._Packages) {
-                        var answer = "В пакет услуг \""+$parseTree._Packages.name+"\" входят следующие опции: "+ $parseTree._Packages.consists +".";
-                        $reactions.answer(answer);
-                        }
-                    else {
-                    
-                        var pk1 = JSON.parse($caila.entitiesLookup("эконом", true).entities[0].value);
-                        var pk2 = JSON.parse($caila.entitiesLookup("стандарт", true).entities[0].value);
-                        var pk3 = JSON.parse($caila.entitiesLookup("vip", true).entities[0].value);
-                    
-                        var answer = "Пакет \""+pk1.name+"\" включает следующие опции: " +pk1.consists +". В пакет \""+pk2.name+"\" входят: " +pk2.consists +". И, наконец, \""+pk3.name+"\" предполагает " +pk3.consists +".";
-                        $reactions.answer(answer);
-                        }
-            
                 go!:  /TravelRequest/AskServices
             
             state: Price
