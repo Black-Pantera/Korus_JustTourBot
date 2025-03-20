@@ -163,7 +163,6 @@ theme: /
                             }
                 else:
                     script: 
-                        $session.stateCounterInARow = 0;
                         $reactions.transition("/TravelRequest/AskStartDate/DontKnow");
                     
         state: AskDuration
