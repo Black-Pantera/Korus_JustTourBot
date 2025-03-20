@@ -301,7 +301,7 @@ theme: /
         
         state: OfferTour
             script:
-                $session.stateCounter = 0;
+                //$session.stateCounter = 0;
             random:
                 a: Хотите оставить заявку на подбор тура в {{ capitalize($nlp.inflect($session.country, "accs")) }}?
                 a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
