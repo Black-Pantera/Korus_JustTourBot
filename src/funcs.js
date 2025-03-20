@@ -29,6 +29,15 @@ function getUserDate(dt){
     return new Date(dt.year + "/"+ dt.month + "/"+ dt.day);
 }
 
+function setTemperature(res) {
+    return Math.floor(res.main.temp)+ " "+ $nlp.conform("градус", Math.floor(res.main.temp)) +" по Цельсию.";
+}
+
+function setDateCity(dt) {
+    var $session = $jsapi.context().session;
+    return dt + " в "+ capitalize($nlp.inflect($session.userCity, "loct"))
+}
+
 function whatIsIncluded(pc) {
     if (pc) {
         var answer = "В пакет услуг \""+pc.name+"\" входят следующие опции: "+ pc.consists +".";
