@@ -40,7 +40,7 @@ init:
         
         log("///////// MY LOG "+$context.session.lastState);
         
-        if ($context.session.lastState != "LocalCatchAll")
+        if ($context.session.lastState != "/WeatherForecast/OfferTour/LocalCatchAll")
             $context.session.stateCounter = 0;
     });
   
