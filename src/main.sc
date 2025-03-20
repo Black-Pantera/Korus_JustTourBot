@@ -67,9 +67,9 @@ theme: /
     state: GlobalCatchAll || noContext = true
         event!: noMatch
         script:
-            $session.stateGlobalCounter++
+            $session.stateCounterInARow++
                 
-        if: $session.stateGlobalCounter < 3
+        if: $session.stateCounterInARow < 3
             random: 
                 a: Прошу прощения, не совсем вас понял. Попробуйте, пожалуйста, переформулировать ваш вопрос.
                 a: Простите, не совсем понял. Что именно вас интересует?
@@ -79,7 +79,7 @@ theme: /
             a: Кажется, этот вопрос не в моей компетенции. Но я постоянно учусь новому, и, надеюсь скоро научусь отвечать и на него.
                 
             script: 
-                $session.stateGlobalCounter = 0
+                $session.stateCounterInARow = 0
                     
             go!: /SomethingElse
             
