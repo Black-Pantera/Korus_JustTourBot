@@ -44,6 +44,7 @@ init:
         
         if ($context.session.lastState == "/SomethingElse") { 
             $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
         }
          
        
