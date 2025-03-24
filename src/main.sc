@@ -40,7 +40,7 @@ init:
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
         
-        if (checkState($context.session.lastState)) { 
+        if (checkState($context.currentState)) { 
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
