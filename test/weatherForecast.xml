@@ -41,7 +41,6 @@
     
     <test-case id="WeatherForecast3">
         <mockData>
-            <dateTime>2025-03-20 11:00:00</dateTime>
             <query method="get">http://api.openweathermap.org/data/2.5/weather?APPID=${appid}&amp;units=${units}&amp;lang=${lang}&amp;lat=${lat}&amp;lon=${lon}</query>
             <parameters>
                 <appid>106ad0548ad7d7b7eb02682ec63886b4</appid> 
@@ -55,7 +54,8 @@
             </response>
         </mockData>
         
-        <q>погода в Самаре на 20 марта 2025 года</q>
+        <dateTime>2025-03-20 11:00:00</dateTime>
+       
         <random>0</random>
         <a>У меня получилось уточнить: на 20 марта 2025 г. в Самаре температура воздуха составит -10 градусов по Цельсию.</a>
         <random>0</random>
