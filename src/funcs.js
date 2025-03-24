@@ -3,7 +3,7 @@ function checkState(st) {
     "/TravelRequest/AskNumberOfPeople/DontKnow", "/TravelRequest/AskStartDate", "/TravelRequest/AskStartDate/DontKnow", "/TravelRequest/AskDuration",
     "/TravelRequest/AskDuration/DontKnow", "/TravelRequest/AskServices", "/TravelRequest/AskName", "/TravelRequest/AskPhone", 
     "/TravelRequest/AskComment", "/TravelRequest/UnusualName", "/TravelRequest/Confirmation", "/TravelRequest/Confirmation/Agree", "/TravelRequest/Confirmation/Agree/Error"];
-    return states.includes(st);
+    return (states.indexOf(st) > -1);  
 }
 
 function getWeekNumber(d) {
