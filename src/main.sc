@@ -58,7 +58,17 @@ init:
             $context.session.stateCounterInARow = 0;
         }
         
+        if ($context.session.lastState == "/TravelRequest/AskStartDate") {
+            $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
+        }
+        
         if ($context.session.lastState == "/TravelRequest/AskStartDate/DontKnow") {
+            $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
+        }
+        
+        if ($context.session.lastState == "/TravelRequest/AskDuration") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
@@ -68,7 +78,12 @@ init:
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/") {
+        if ($context.session.lastState == "/TravelRequest/AskServices") {
+            $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
+        }
+        
+        if ($context.session.lastState == "/TravelRequest/AskName") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
