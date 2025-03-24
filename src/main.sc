@@ -87,7 +87,21 @@ init:
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
+        
+        if ($context.session.lastState == "/TravelRequest/AskPhone") {
+            $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
+        }
        
+        if ($context.session.lastState == "/TravelRequest/UnusualName") {
+            $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
+        }
+        
+        if ($context.session.lastState == "/TravelRequest/AskComment") {
+            $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
+        }
     });
   
 theme: /
