@@ -131,7 +131,7 @@ theme: /
                 
                 $temp.date = new Date($jsapi.dateForZone($session.timezone, "YYYY/MM/dd"));
                 
-                if (DatesDiff($temp.date, date) == 0) {
+                if (DatesDiff($temp.date, userDate) == 0) {
                     $session.userDate = $temp.date;
                     $reactions.transition("/WeatherForecast/TellWeather");
                 }
