@@ -6,7 +6,9 @@ require: city/city.sc
 require: name/name.sc
     module = sys.zb-common
 require: dateTime/moment.min.js
-    module = sys.zb-common    
+    module = sys.zb-common   
+require: common.js
+    module = common
   
 require: funcs.js
 require: patterns.sc
