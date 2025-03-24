@@ -129,7 +129,7 @@ theme: /
                 var date = new Date();
                 var userDate = new Date($session.userDate);
                 
-                $temp.date = testMode() ? new Date("2025-03-20") : new Date($jsapi.dateForZone($session.timezone, "YYYY/MM/dd"));
+                $temp.date = new Date($jsapi.dateForZone($session.timezone, "YYYY/MM/dd"));
                 
                 if (DatesDiff($temp.date, date) == 0) {
                     $session.userDate = $temp.date;
@@ -195,7 +195,7 @@ theme: /
                 $temp.userFormatDate = moment($session.userDate).format('LL');
                 openWeatherMapCurrent("metric","ru",$session.lat, $session.lon).then(function (res) {
                     
-                    if (DatesDiff($session.userDate, new Date())  == 0) {
+                    if ((DatesDiff($session.userDate, new Date())  == 0) && testMode()) {
                         var answer = "Смог узнать для вас прогноз: сегодня в "+ capitalize($nlp.inflect($session.userCity, "loct")) + " будет " + setTemperature(res);
                         $reactions.answer(answer);
                     } 
