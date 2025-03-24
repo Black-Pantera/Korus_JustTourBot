@@ -154,7 +154,6 @@ theme: /
                             $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите актуальную дату - она не должна быть в прошедшем периоде.");
                             }
                         else {
-                            $reactions.answer($session.stateCounterInARow);
                             var answers = ["Извините, не совсем понял вас. Какого числа предполагаете выезд?",
                             "К сожалению, не понял вас. На какую дату планируете отправление?"];
                             var randomAnswer = answers[$reactions.random(answers.length)];
