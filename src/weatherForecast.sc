@@ -127,7 +127,7 @@ theme: /
                 var userDate = new Date($session.userDate);
                 
                 var timestamp = $jsapi.currentTime();
-                log("!!!///////// MY LOG "+ moment($jsapi.currentTime()) );
+                log("!!!///////// MY LOG "+ getUserDate(moment($jsapi.currentTime().toDate())));
             
                 if (userDatePassed(userDate, date)) {
                     $reactions.transition("/WeatherForecast/ThisDayHasPassed");
