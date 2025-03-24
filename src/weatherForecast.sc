@@ -65,6 +65,7 @@ theme: /
                         $session.lon = $parseTree._City.lon;
                         $session.lat = $parseTree._City.lat;
                         $session.country = getCountryByCode($parseTree._City.country);
+                        $session.timezone = $parseTree._City.timezone;
                     }
                     
                     if ($session.userDate)
@@ -126,8 +127,8 @@ theme: /
                 var date = new Date();
                 var userDate = new Date($session.userDate);
                 
-                var timestamp = $jsapi.currentTime();
-                log("!!!///////// MY LOG "+ moment($jsapi.currentTime().toDate()) );
+                $temp.date = $jsapi.dateForZone($session.timezone, "YYYY/MM/dd");
+                log("!!!///////// MY LOG "+ $temp.date );
             
                 if (userDatePassed(userDate, date)) {
                     $reactions.transition("/WeatherForecast/ThisDayHasPassed");
