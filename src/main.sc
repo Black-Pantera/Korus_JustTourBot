@@ -8,7 +8,7 @@ require: name/name.sc
 require: dateTime/moment.min.js
     module = sys.zb-common   
 require: common.js
-    module = common
+    module = sys.zb-common
   
 require: funcs.js
 require: patterns.sc
