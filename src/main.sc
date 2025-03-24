@@ -40,87 +40,87 @@ init:
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
         
-        if ($context.session.lastState == "/SomethingElse") { 
+        if ($context.session.lastState == "") { 
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/GoodBye") { 
+        if ($context.session.lastState == "") { 
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
          
-        if ($context.session.lastState == "/WeatherForecast/SomethingElseForWeather") { 
+        if ($context.session.lastState == "") { 
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskNumberOfPeople") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskNumberOfPeople/DontKnow") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskStartDate") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskStartDate/DontKnow") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskDuration") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskDuration/DontKnow") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskServices") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskName") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskPhone") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
        
-        if ($context.session.lastState == "/TravelRequest/UnusualName") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/AskComment") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/Confirmation") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/Confirmation/Agree") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
         
-        if ($context.session.lastState == "/TravelRequest/Confirmation/Agree/Error") {
+        if ($context.session.lastState == "") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }

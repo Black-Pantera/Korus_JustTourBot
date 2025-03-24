@@ -1,3 +1,11 @@
+function checkState(st) {
+    const states = ["/SomethingElse", "/GoodBye", "/WeatherForecast/SomethingElseForWeather", "/TravelRequest/AskNumberOfPeople", "",
+    "/TravelRequest/AskNumberOfPeople/DontKnow", "/TravelRequest/AskStartDate", "/TravelRequest/AskStartDate/DontKnow", "/TravelRequest/AskDuration",
+    "/TravelRequest/AskDuration/DontKnow", "/TravelRequest/AskServices", "/TravelRequest/AskName", "/TravelRequest/AskPhone", 
+    "/TravelRequest/AskComment", "/TravelRequest/UnusualName", "/TravelRequest/Confirmation", "/TravelRequest/Confirmation/Agree", "/TravelRequest/Confirmation/Agree/Error"];
+    return states.includes(st);
+}
+
 function getWeekNumber(d) {
     d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
     d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
