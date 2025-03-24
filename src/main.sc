@@ -42,6 +42,11 @@ init:
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
+        
+        if ($context.session.lastState == "/GoodBye") { 
+            $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
+        }
          
         if ($context.session.lastState == "/WeatherForecast/SomethingElseForWeather") { 
             $context.session.stateCounter = 0;
@@ -104,6 +109,16 @@ init:
         }
         
         if ($context.session.lastState == "/TravelRequest/Confirmation") {
+            $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
+        }
+        
+        if ($context.session.lastState == "/TravelRequest/Confirmation/Agree") {
+            $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
+        }
+        
+        if ($context.session.lastState == "/TravelRequest/Confirmation/Agree/Error") {
             $context.session.stateCounter = 0;
             $context.session.stateCounterInARow = 0;
         }
