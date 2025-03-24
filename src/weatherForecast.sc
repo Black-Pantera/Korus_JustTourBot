@@ -134,8 +134,10 @@ theme: /
                 log("2!!!///////// MY LOG "+ date );
                 log("3!!!///////// MY LOG "+ DatesDiff($temp.date, date));
                 
-                if (DatesDiff($temp.date, date) == 0)
+                if (DatesDiff($temp.date, date) == 0) {
+                    $session.userDate = $temp.date;
                     $reactions.transition("/WeatherForecast/TellWeather");
+                }
             
                 if (userDatePassed(userDate, date)) {
                     $reactions.transition("/WeatherForecast/ThisDayHasPassed");
