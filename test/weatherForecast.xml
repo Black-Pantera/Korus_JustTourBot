@@ -41,7 +41,6 @@
     
     <test-case id="WeatherForecast3">
         <dateTime>2025-03-20 11:00:00</dateTime>
-        <state>/WeatherForecast/TellWeather></state>
         <mockData>
             <query method="get">http://api.openweathermap.org/data/2.5/weather?APPID=${appid}&amp;units=${units}&amp;lang=${lang}&amp;lat=${lat}&amp;lon=${lon}</query>
             <parameters>
@@ -55,6 +54,7 @@
             {"coord":{"lon":50.22,"lat":53.24},"weather":[{"id":804,"main":"Clouds","description":"пасмурно","icon":"04d"}],"base":"stations","main":{"temp":-9.99,"feels_like":-16.35,"temp_min":-9.99,"temp_max":-9.99,"pressure":1031,"humidity":90,"sea_level":1031,"grnd_level":1020},"visibility":2253,"wind":{"speed":3.79,"deg":200,"gust":6.12},"clouds":{"all":100},"dt":1739961277,"sys":{"type":1,"id":9051,"country":"RU","sunrise":1739936946,"sunset":1739973428},"timezone":14400,"id":499099,"name":"Самара","cod":200}
             </response>
         </mockData>
+        <state>/WeatherForecast/TellWeather></state>
         <random>0</random>
         <a>У меня получилось уточнить: на 20 марта 2025 г. в Самаре температура воздуха составит -10 градусов по Цельсию.</a>
         <random>0</random>
