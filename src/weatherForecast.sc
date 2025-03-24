@@ -196,7 +196,7 @@ theme: /
                 openWeatherMapCurrent("metric","ru",$session.lat, $session.lon).then(function (res) {
                     
                     if (DatesDiff($session.userDate, new Date())  == 0) {
-                        var answer = "Смог узнать для вас прогноз: на сегодня в "+ capitalize($nlp.inflect($session.userCity, "loct")) + " будет " + setTemperature(res);
+                        var answer = "Смог узнать для вас прогноз: сегодня в "+ capitalize($nlp.inflect($session.userCity, "loct")) + " будет " + setTemperature(res);
                         $reactions.answer(answer);
                     } 
                     else {
