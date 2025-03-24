@@ -195,12 +195,19 @@ theme: /
                 $temp.userFormatDate = moment($session.userDate).format('LL');
                 openWeatherMapCurrent("metric","ru",$session.lat, $session.lon).then(function (res) {
                     
-                    var answers = [
-                        "У меня получилось уточнить: на " + setDateCity($temp.userFormatDate) + " температура воздуха составит "+ setTemperature(res),
-                        "Смог узнать для вас прогноз: на " + setDateCity($temp.userFormatDate) + " будет " + setTemperature(res)
-                    ];
-                    var randomAnswer = answers[$reactions.random(answers.length)];
-                    $reactions.answer(randomAnswer);
+                    if (DatesDiff($session.userDate, new Date())  == 0) {
+                        var answer = "Смог узнать для вас прогноз: на сегодня в "+ capitalize($nlp.inflect($session.userCity, "loct")) + " будет " + setTemperature(res);
+                        $reactions.answer(answer);
+                    } 
+                    else {
+                    
+                        var answers = [
+                            "У меня получилось уточнить: на " + setDateCity($temp.userFormatDate) + " температура воздуха составит "+ setTemperature(res),
+                            "Смог узнать для вас прогноз: на " + setDateCity($temp.userFormatDate) + " будет " + setTemperature(res)
+                        ];
+                        var randomAnswer = answers[$reactions.random(answers.length)];
+                        $reactions.answer(randomAnswer);
+                    }
                     
                 }).catch(function (err) {
                      $reactions.transition("/WeatherForecast/TellWeather/Error");
