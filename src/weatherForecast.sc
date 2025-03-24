@@ -13,9 +13,9 @@ theme: /
 
     state: WeatherForecast
         intent: /weather
-        q!: * (погода|прогноз погоды) * {$City * * @duckling.date} *
-        q!: * погода * $City *
-        q!: * будет * @duckling.date * в * $City * (дождь|солнечно|пасмурно) *
+        q!: * (погода|прогноз погоды) * [в] {$City * * @duckling.date} *
+        q!: * погода * [в] $City *
+        q!: * будет * @duckling.date * [в] $City * (дождь|солнечно|пасмурно) *
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
             if ($parseTree._City && $parseTree["_duckling.date"]) {
@@ -130,9 +130,6 @@ theme: /
                 var userDate = new Date($session.userDate);
                 
                 $temp.date = new Date($jsapi.dateForZone($session.timezone, "YYYY/MM/dd"));
-                log("1!!!///////// MY LOG "+ new Date($temp.date) );
-                log("2!!!///////// MY LOG "+ date );
-                log("3!!!///////// MY LOG "+ DatesDiff($temp.date, date));
                 
                 if (DatesDiff($temp.date, date) == 0) {
                     $session.userDate = $temp.date;
