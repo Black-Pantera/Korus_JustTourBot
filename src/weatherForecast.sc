@@ -130,7 +130,8 @@ theme: /
                 var userDate = new Date($session.userDate);
                 
                 $temp.date = $jsapi.dateForZone($session.timezone, "YYYY/MM/dd");
-                log("!!!///////// MY LOG "+ $temp.date );
+                log("1!!!///////// MY LOG "+ $temp.date );
+                log("2!!!///////// MY LOG "+ $date );
             
                 if (userDatePassed(userDate, date)) {
                     $reactions.transition("/WeatherForecast/ThisDayHasPassed");
