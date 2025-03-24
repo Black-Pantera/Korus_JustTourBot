@@ -129,10 +129,13 @@ theme: /
                 var date = new Date();
                 var userDate = new Date($session.userDate);
                 
-                $temp.date = $jsapi.dateForZone($session.timezone, "YYYY/MM/dd");
+                $temp.date = new Date($jsapi.dateForZone($session.timezone, "YYYY/MM/dd"));
                 log("1!!!///////// MY LOG "+ new Date($temp.date) );
                 log("2!!!///////// MY LOG "+ date );
-                log("3!!!///////// MY LOG "+ DatesDiff(new Date($temp.date), date) == 0);
+                log("3!!!///////// MY LOG "+ DatesDiff($temp.date, date) == 0);
+                
+                if (DatesDiff($temp.date, date) == 0)
+                    $reactions.transition("/WeatherForecast/TellWeather");
             
                 if (userDatePassed(userDate, date)) {
                     $reactions.transition("/WeatherForecast/ThisDayHasPassed");
@@ -140,7 +143,7 @@ theme: /
                     else if (DatesDiff(userDate, date) > 5) {
                         $reactions.transition("/WeatherForecast/ThisDayIsNotComingSoon");
                         } else {
-                            $reactions.transition("/WeatherForecast/TellWeather") 
+                            $reactions.transition("/WeatherForecast/TellWeather"); 
                             };
         
         state: ThisDayHasPassed
