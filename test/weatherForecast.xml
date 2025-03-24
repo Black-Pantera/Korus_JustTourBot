@@ -54,8 +54,8 @@
             </response>
         </mockData>
         
+        <a state="/WeatherForecast/TellWeather" />
         <dateTime>2025-03-20 11:00:00</dateTime>
-       
         <random>0</random>
         <a>У меня получилось уточнить: на 20 марта 2025 г. в Самаре температура воздуха составит -10 градусов по Цельсию.</a>
         <random>0</random>
