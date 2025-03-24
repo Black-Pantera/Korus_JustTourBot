@@ -1,5 +1,5 @@
 function checkState(st) {
-    const states = ["/SomethingElse", "/GoodBye", "/WeatherForecast/SomethingElseForWeather", "/TravelRequest/AskNumberOfPeople",
+    var states = ["/SomethingElse", "/GoodBye", "/WeatherForecast/SomethingElseForWeather", "/TravelRequest/AskNumberOfPeople",
     "/TravelRequest/AskNumberOfPeople/DontKnow", "/TravelRequest/AskStartDate", "/TravelRequest/AskStartDate/DontKnow", "/TravelRequest/AskDuration",
     "/TravelRequest/AskDuration/DontKnow", "/TravelRequest/AskServices", "/TravelRequest/AskName", "/TravelRequest/AskPhone", 
     "/TravelRequest/AskComment", "/TravelRequest/UnusualName", "/TravelRequest/Confirmation", "/TravelRequest/Confirmation/Agree", "/TravelRequest/Confirmation/Agree/Error"];
