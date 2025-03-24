@@ -24,6 +24,7 @@ theme: /
                 $session.lat = $parseTree._City.lat;
                 $session.country = getCountryByCode($parseTree._City.country);
                 $session.userDate = getUserDate($parseTree["_duckling.date"]); 
+                $session.timezone = $parseTree._City.timezone;
                 $reactions.transition("/WeatherForecast/CheсkDate");
             }
             else 
@@ -43,6 +44,7 @@ theme: /
                         $session.lon = $parseTree._City.lon;
                         $session.lat = $parseTree._City.lat;
                         $session.country = getCountryByCode($parseTree._City.country);
+                        $session.timezone = $parseTree._City.timezone;
                         $reactions.transition("/WeatherForecast/GetDate");
                     }
                     else 
