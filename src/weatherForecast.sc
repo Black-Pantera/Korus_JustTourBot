@@ -132,7 +132,7 @@ theme: /
                 $temp.date = new Date($jsapi.dateForZone($session.timezone, "YYYY/MM/dd"));
                 log("1!!!///////// MY LOG "+ new Date($temp.date) );
                 log("2!!!///////// MY LOG "+ date );
-                log("3!!!///////// MY LOG "+ DatesDiff($temp.date, date) == 0);
+                log("3!!!///////// MY LOG "+ DatesDiff($temp.date, date));
                 
                 if (DatesDiff($temp.date, date) == 0)
                     $reactions.transition("/WeatherForecast/TellWeather");
