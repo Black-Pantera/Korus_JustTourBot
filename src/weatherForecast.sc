@@ -129,7 +129,7 @@ theme: /
                 var date = new Date();
                 var userDate = new Date($session.userDate);
                 
-                $temp.date = new Date($jsapi.dateForZone($session.timezone, "YYYY/MM/dd"));
+                $temp.date =  testMode() ? new Date("2025-03-25") : new Date($jsapi.dateForZone($session.timezone, "YYYY/MM/dd"));
                 
                 if (DatesDiff($temp.date, date) == 0) {
                     $session.userDate = $temp.date;

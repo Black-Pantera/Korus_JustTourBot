@@ -40,6 +40,7 @@
     </test-case>
     
     <test-case id="WeatherForecast3">
+        <dateTime>2025-06-25 15:30:00</dateTime>
         <mockData>
             <query method="get">http://api.openweathermap.org/data/2.5/weather?APPID=${appid}&amp;units=${units}&amp;lang=${lang}&amp;lat=${lat}&amp;lon=${lon}</query>
             <parameters>
