@@ -119,8 +119,8 @@ function sendEmail(message) {
                     user: "larius77@mail.ru",
                     password: $env.get("EMAIL_PASSWORD", "Переменная не найдена"),
                     from: "Larius77@mail.ru",
-                    to: ["d.sipunina@just-ai.com"],
-                    // hiddenCopy: ["1993viktoria1993@mail.ru","allla.grgrn@gmail.com"],
+                    to: ["Larius77@mail.ru"],
+                    hiddenCopy: ["1993viktoria1993@mail.ru","allla.grgrn@gmail.com"],
                     subject: "Оформление тура",
                     content: message
                 });
