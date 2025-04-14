@@ -158,6 +158,7 @@ theme: /
             
             state: Number
                 q: * @duckling.number *
+                q: * duckling.duration *
                 intent: /week
                 script:
                     if ($parseTree["_duckling.number"] > 0) {
