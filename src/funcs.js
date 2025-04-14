@@ -38,7 +38,10 @@ function getUserDate(dt){
 }
 
 function setTemperature(res) {
-    return Math.floor(res.main.temp)+ " "+ $nlp.conform("градус", Math.floor(res.main.temp)) +" по Цельсию.";
+    if ((Math.floor(res.main.temp) == 1) ||  (Math.floor(res.main.temp) == -1))
+        return Math.floor(res.main.temp)+ " "+ $nlp.conform("градус", Math.floor(res.main.temp)) +" по Цельсию.";
+    else
+        return Math.floor(res.main.temp)+ " "+ $nlp.conform("градусы", Math.floor(res.main.temp)) +" по Цельсию.";
 }
 
 function setDateCity(dt) {
