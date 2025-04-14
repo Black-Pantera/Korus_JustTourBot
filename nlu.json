@@ -99,7 +99,7 @@
     } ],
     "priority" : 0
   }, {
-    "path" : "/tour",
+    "path" : "/selectTour",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {

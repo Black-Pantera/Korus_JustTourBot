@@ -1,7 +1,7 @@
 
 theme: /
     state: TravelRequest
-        intent!: /tour
+        intent!: /selectTour
         q!: *(заявка на тур|тур) * [в|на] * @CodeCounties *
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
