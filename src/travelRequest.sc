@@ -161,6 +161,7 @@ theme: /
                 q: * @duckling.duration *
                 intent: /week
                 script:
+                    log("///////// MY LOG "+toPrettyString($parseTree));
                     if ($parseTree["_duckling.number"] > 0) {
                         $session.countDays = $parseTree["_duckling.number"];
                         $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
