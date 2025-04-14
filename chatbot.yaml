@@ -17,6 +17,6 @@ nlp:
     enabled: true
     timeout: 20000
   intentNoMatchThresholds:
-    phrases: 0.2
-    patterns: 0.2
+    phrases: 0.6
+    patterns: 0.6
     

@@ -137,6 +137,7 @@
       "refs" : [ ]
     },
     "patterns" : [ ],
+    "slots" : [ ],
     "priority" : 0
   }, {
     "path" : "/robot",
