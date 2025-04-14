@@ -162,15 +162,19 @@ theme: /
                 intent: /week
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
-                    if ($parseTree["_duckling.number"] > 0) {
+                    
+                    if ($parseTree["_duckling.duration"]){
+                        log("///////// MY LOG "+$parseTree[_duckling.duration].value.normalized.value);
+                        
+                        } else if ($parseTree["_duckling.number"] > 0) {
                         $session.countDays = $parseTree["_duckling.number"];
                         $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
                         $reactions.transition("/TravelRequest/AskServices");
-                    } else if ($parseTree["pattern"]) {
-                        $session.countDays = 7;
-                        $session.endDate = addDays($session.startDate, 7);
-                        $reactions.transition("/TravelRequest/AskServices");
-                        } 
+                        } else if ($parseTree["pattern"]) {
+                            $session.countDays = 7;
+                            $session.endDate = addDays($session.startDate, 7);
+                            $reactions.transition("/TravelRequest/AskServices");
+                            } 
                         
                     if ($parseTree["_duckling.number"] < 0)    
                         $reactions.transition("/TravelRequest/AskDuration/LocalCatchAll");
