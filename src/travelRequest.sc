@@ -4,6 +4,7 @@ theme: /
         intent!: /tour
         q!: *(заявка на тур|тур) * [в|на] * @CodeCounties *
         script:
+            log("///////// MY LOG "+toPrettyString($parseTree));
             if ($parseTree._CodeCounties) {
                 $reactions.transition("/TravelRequest/Agree");
                 }
