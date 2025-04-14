@@ -322,7 +322,7 @@ theme: /
                 script:
                     $session.stateCounter ++;
                 if: $session.stateCounter < 2
-                    a: Извините, не совсем понял вас, вы желаете оставить запрос на подбор путевки в {{$session.country}}?
+                    a: Извините, не совсем понял вас, вы желаете оставить запрос на подбор путевки в {{ capitalize($nlp.inflect($session.country, "accs"))}}?
                 else:
                     script:
                         $session.userCity = null;
