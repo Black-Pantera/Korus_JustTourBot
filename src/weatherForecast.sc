@@ -94,7 +94,7 @@ theme: /
                         $reactions.transition("/WeatherForecast/CheсkDate");
                     }
                     
-            state: LocalCatchAll || noContex = true
+            state: LocalCatchAll 
                 event: noMatch
                 script:
                     $session.stateCounterInARow ++
