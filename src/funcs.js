@@ -33,6 +33,11 @@ function userDatePassed(date1, date2){
     return userDate < date;
 }
 
+function calcDays(dt) {
+    var sec = dt.normalized.value;
+    return Math.floor(sec/86400);
+}
+
 function getUserDate(dt){
     return new Date(dt.year + "/"+ dt.month + "/"+ dt.day);
 }

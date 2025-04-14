@@ -164,8 +164,8 @@ theme: /
                     log("///////// MY LOG "+toPrettyString($parseTree));
                     
                     if ($parseTree["_duckling.duration"]){
-                        log("///////// MY LOG "+$parseTree["_duckling.duration"].normalized.value);
-                        
+                        var days = calcDays(+$parseTree["_duckling.duration"]);
+                        $session.endDate = addDays($session.startDate, days);
                         } else if ($parseTree["_duckling.number"] > 0) {
                         $session.countDays = $parseTree["_duckling.number"];
                         $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
