@@ -5,7 +5,6 @@ require: city/city.sc
 require: name/name.sc
     module = sys.zb-common
 
-require: funcs.js
 
 theme: /
     state: TravelRequest
