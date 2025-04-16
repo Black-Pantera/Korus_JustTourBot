@@ -296,7 +296,7 @@ theme: /
             
             state: Disagree 
                 q: * $noWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
-                q: *$offerreject* || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
+                q: * $offerreject * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
                 a: Понял вас!
                 script:
                     $session.userCity = null;
