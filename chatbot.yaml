@@ -19,4 +19,5 @@ nlp:
   intentNoMatchThresholds:
     phrases: 0.6
     patterns: 0.6
+  patternNoMatchThreshold: 0.5
     
