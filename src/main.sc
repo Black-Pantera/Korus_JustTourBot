@@ -65,6 +65,7 @@ theme: /
             $context.session = {};
             $temp = {};
             $jsapi.startSession();
+            $session.userHasTour = false;
             
         if: $client.name
             random:
