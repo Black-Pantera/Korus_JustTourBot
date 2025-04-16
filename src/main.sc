@@ -176,6 +176,8 @@ theme: /
               
     state: GoodBye
         intent!: /goodBye
+        script:
+            $jsapi.stopSession();
         random:
             a: Всего доброго!
             a: Всего вам доброго!
