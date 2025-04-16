@@ -16,6 +16,8 @@ require: weatherForecast.sc
 require: travelRequest.sc
 
 init: 
+    var SESSION_TIMEOUT_MS = 86400000; // Один день
+    
     bind("onAnyError", function($context) {
         var answers = [
             "Извините, произошла техническая ошибка. Специалисты обязательно изучат её и возьмут в работу. Пожалуйста, напишите в чат позже.",
@@ -35,10 +37,16 @@ init:
         if (!$context.session.stateCounterInARow) {
             $context.session.stateCounterInARow = 0;
         }
+        
+        if ($context.session.lastActiveTime) {
+            var interval = $jsapi.currentTime() - $context.session.lastActiveTime;
+            if (interval > SESSION_TIMEOUT_MS) $jsapi.startSession();
+        }
     });
         
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
+        $context.session.lastActiveTime = $jsapi.currentTime();
         
         if (checkState($context.currentState)) { 
             $context.session.stateCounter = 0;
