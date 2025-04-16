@@ -307,6 +307,7 @@ theme: /
                 a: В таком случае, желаете узнать погоду в другом городе мира?
                 q: * $yesWant * || toState = "/WeatherForecast", onlyThisState = true
                 q: * $noWant * || toState = "/SomethingElse", onlyThisState = true
+                q: * $offerreject * || toState = "/SomethingElse", onlyThisState = true
             
                 state: LocalCatchAll || noContext = true 
                     event: noMatch || fromState = "/WeatherForecast/OfferTour/Disagree", onlyThisState = true
