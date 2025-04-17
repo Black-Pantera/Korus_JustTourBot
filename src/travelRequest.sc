@@ -220,7 +220,7 @@ theme: /
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
                     
-                    $session.services = $parseTree._Packages; // $request.query;
+                    $session.services = $parseTree._Packages.name; // $request.query;
                 go!:  /TravelRequest/AskName
                 
             state: WhatIsIncluded
