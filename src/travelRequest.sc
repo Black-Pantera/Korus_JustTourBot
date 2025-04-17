@@ -219,6 +219,7 @@ theme: /
                 q: *[(давай|можно|хоч*|выбир*)]* @Packages *
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
+                    log("///////// MY LOG "+$request.query);
                     $session.services = $parseTree._Packages.name; // $request.query;
                 go!:  /TravelRequest/AskName
                 
