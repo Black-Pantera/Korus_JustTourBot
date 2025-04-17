@@ -220,7 +220,14 @@ theme: /
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
                     log("///////// MY LOG "+$request.query);
-                    $session.services = $parseTree._Packages.name; // $request.query;
+                    
+                    if ($parseTree._Packages) {
+                        $session.services = $parseTree._Packages.name; // $request.query;
+                    }
+                    else {
+                        $session.services = $request.query;
+                    }
+                    
                 go!:  /TravelRequest/AskName
                 
             state: WhatIsIncluded
