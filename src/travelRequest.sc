@@ -216,7 +216,7 @@ theme: /
                 "VIP" -> /TravelRequest/AskServices/Package
             
             state: Package
-                q: * @Packages *
+                q: *[(давай|можно|хоч*|выбир*)]* @Packages *
                 script:
                     $session.services = $request.query;
                 go!:  /TravelRequest/AskName
