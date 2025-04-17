@@ -219,7 +219,8 @@ theme: /
                 q: *[(давай|можно|хоч*|выбир*)]* @Packages *
                 script:
                     log("///////// MY LOG "+toPrettyString($parseTree));
-                    $session.services = $request.query;
+                    
+                    $session.services = $parseTree._Packages; // $request.query;
                 go!:  /TravelRequest/AskName
                 
             state: WhatIsIncluded
