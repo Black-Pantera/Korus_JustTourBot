@@ -14,7 +14,7 @@
         <q>Казань</q>
         <a state = "/WeatherForecast/TellWeather/Error"/>
         <random>0</random>
-        <a>Хотите спросить что-то ещё?</a>
+        <a>Хотите спросить что-то еще?</a>
     </test-case>
     
     <test-case id="WeatherForecast_ThisDayHasPassed">
