@@ -3,7 +3,7 @@ theme: /
 
     state: WeatherForecast
         q!: * (погода|прогноз погоды) * [в] * {$City * * @duckling.date} *
-        q!: * погода * [будет] * [в] * $City *
+        q!: * погода * [будет|ожидается|намечается|следует ожидать] * [в] * $City *
         q!: * будет * @duckling.date * [в] * $City * (дождь|солнечно|пасмурно) *
         intent: /weather
         script:
