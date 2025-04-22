@@ -2,9 +2,9 @@
 theme: /
 
     state: WeatherForecast
-        q!: * (погода|прогноз погоды) * [в] {$City * * @duckling.date} *
-        q!: * погода * [в] $City *
-        q!: * будет * @duckling.date * [в] $City * (дождь|солнечно|пасмурно) *
+        q!: * (погода|прогноз погоды) * [в] * {$City * * @duckling.date} *
+        q!: * погода * [в] * $City *
+        q!: * будет * @duckling.date * [в] * $City * (дождь|солнечно|пасмурно) *
         intent: /weather
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
