@@ -166,21 +166,16 @@ theme: /
                 q: * @duckling.number *
                 q: * @duckling.duration *
                 script:
-                    log("///////// MY LOG "+toPrettyString($parseTree));
                     if ($parseTree["_duckling.duration"]){
                         var days = calcDays($parseTree["_duckling.duration"]);
-                        log("!///////// MY LOG "+days);
                         $session.endDate = addDays($session.startDate, days);
+                        $session.countDays = days;
                         $reactions.transition("/TravelRequest/AskServices");
                         } else if ($parseTree["_duckling.number"] > 0) {
                         $session.countDays = $parseTree["_duckling.number"];
                         $session.endDate = addDays($session.startDate, $parseTree["_duckling.number"]);
                         $reactions.transition("/TravelRequest/AskServices");
-                        } else if ($parseTree["pattern"]) {
-                            $session.countDays = 7;
-                            $session.endDate = addDays($session.startDate, 7);
-                            $reactions.transition("/TravelRequest/AskServices");
-                            } 
+                        } 
                         
                     if ($parseTree["_duckling.number"] < 0)    
                         $reactions.transition("/TravelRequest/AskDuration/LocalCatchAll");
