@@ -2,7 +2,7 @@
 theme: /
     state: TravelRequest
         intent!: /selectTour
-        q!: *(заявка на тур|тур) * [в|на] * @CodeCounties *
+        q!: * (заявка на тур|тур) * [в|на] * @CodeCounties *
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
             if ($parseTree._CodeCounties) {
