@@ -169,6 +169,7 @@ theme: /
                     log("///////// MY LOG "+toPrettyString($parseTree));
                     if ($parseTree["_duckling.duration"]){
                         var days = calcDays($parseTree["_duckling.duration"]);
+                        log("!///////// MY LOG "+days);
                         $session.endDate = addDays($session.startDate, days);
                         $reactions.transition("/TravelRequest/AskServices");
                         } else if ($parseTree["_duckling.number"] > 0) {
