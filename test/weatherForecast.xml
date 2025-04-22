@@ -4,7 +4,7 @@
         <state>AreYouRobot</state>
         <random>0</random>
         <q>Ты робот?</q>
-        <a>Я Артур - бот-помощник компании Just Tour, всегда готов отвечать на ваши вопросы.</a>
+        <a>Я Артур — бот-помощник компании Just Tour, всегда готов отвечать на ваши вопросы.</a>
         <a state="/SomethingElse" />
     </test-case>
     
