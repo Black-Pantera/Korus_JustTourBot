@@ -28,7 +28,7 @@ theme: /
                 a: Отлично, я передам консультанту, что местом пребывания станет {{$session.country}}. А теперь давайте перейдем к указанию оставшихся параметров.
                 go!: /TravelRequest/AskNumberOfPeople
             else:
-                a: Введите название страны
+                a: Введите название страны.
                     
             state: Country
                 q: * @CodeCounties *
