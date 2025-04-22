@@ -132,6 +132,12 @@
       "text" : "Какие экскурсионные туры у вас есть"
     }, {
       "text" : "заявку на тур"
+    }, {
+      "text" : "заявка на тур в @CodeCounties"
+    }, {
+      "text" : "тур в @CodeCounties"
+    }, {
+      "text" : "тур на @CodeCounties"
     } ],
     "classificationRules" : {
       "refs" : [ ]

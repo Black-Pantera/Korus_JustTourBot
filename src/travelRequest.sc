@@ -166,6 +166,7 @@ theme: /
                 q: * @duckling.number *
                 q: * @duckling.duration *
                 script:
+                    log("///////// MY LOG "+toPrettyString($parseTree));
                     if ($parseTree["_duckling.duration"]){
                         var days = calcDays($parseTree["_duckling.duration"]);
                         $session.endDate = addDays($session.startDate, days);
