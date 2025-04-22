@@ -121,12 +121,6 @@ theme: /
             "Оформить заявку на подбор тура" -> /TravelRequest
         q: * $noQuestions * || toState = "/DontHaveQuestions", onlyThisState = true
                 
-        state: CatchCallbackButton
-            event: telegramCallbackQuery
-            script:
-                $temp.goTo = $request.query
-            go!: {{$temp.goTo}}
-                
         state: LocalCatchAll || noContex = true
             event: noMatch
             
