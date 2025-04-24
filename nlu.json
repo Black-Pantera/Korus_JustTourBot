@@ -96,6 +96,11 @@
       "entity" : "duckling.date",
       "required" : false,
       "prompts" : [ ]
+    }, {
+      "name" : "City",
+      "entity" : "Cities",
+      "required" : false,
+      "prompts" : [ ]
     } ],
     "priority" : 0
   }, {
@@ -1608,6 +1613,25 @@
       "type" : "synonyms",
       "rule" : [ "с текущей даты", "дата, начиная с текущей" ],
       "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "name" : "Cities",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Воронеж" ],
+      "value" : "{\n  \"country\": \"Россия\"\n}"
     } ]
   } ],
   "enabledSystemEntities" : [ "pymorphy.name", "pymorphy.surn", "duckling.number", "duckling.time", "duckling.date", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
