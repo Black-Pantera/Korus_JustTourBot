@@ -6,7 +6,7 @@ theme: /
         q!: * {(~погода|прогноз погоды) * @duckling.date} *
         q!: * (~погода * [(будет|ожидается|намечается|следует ожидать|прогнозируется|ждать|обещают)]) * {[@duckling.date] * [в] * [$City] } *
         q!: * (будет|ожидается|намечается|следует ожидать|прогнозируется|обещают) * [@duckling.date] * { [в] * $City * (дождь|солнечно|пасмурно|снег|туман) } *
-        intent: /weather
+        intent!: /weather
         script:
             log("///////// MY LOG "+toPrettyString($parseTree));
             if ($parseTree._City && $parseTree["_duckling.date"]) {
