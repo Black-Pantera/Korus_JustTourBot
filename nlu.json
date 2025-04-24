@@ -84,6 +84,8 @@
       "text" : "Прогноз погоды на @duckling.date"
     }, {
       "text" : "Что там @duckling.date с погодой"
+    }, {
+      "text" : "какую погоду обещают синоптики"
     } ],
     "classificationRules" : {
       "refs" : [ ]
