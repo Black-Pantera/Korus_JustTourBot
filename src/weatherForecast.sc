@@ -52,6 +52,7 @@ theme: /
             
             state: UserCity
                 q: * $City *
+                q: * @Cities *
                 script:
                     if ($parseTree._City) {
                         $session.userCity = $parseTree._City.name;
