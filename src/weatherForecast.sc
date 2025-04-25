@@ -239,7 +239,6 @@ theme: /
             
             state: AnotherOne
                 q: * $somethingElseForWeather *
-                intent!: /weather
                 script:
                     if (($parseTree._City) && ($parseTree["_duckling.date"])) {
                         $session.userCity = $parseTree._City.name;
@@ -296,6 +295,7 @@ theme: /
                 a: Можем составить заявку на подбор идеального тура в {{ capitalize($nlp.inflect($session.country, "accs"))}}. Хотите?
             q: * $yesWant * || toState = "/TravelRequest", onlyThisState = true
             q: * $somethingElseForWeather * || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne" , onlyThisState = true 
+            intent: /weather || toState = "/WeatherForecast/SomethingElseForWeather/AnotherOne" , onlyThisState = true 
             
             state: Disagree 
                 q: * $noWant * || fromState = "/WeatherForecast/OfferTour", onlyThisState = true
