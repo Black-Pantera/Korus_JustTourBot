@@ -215,9 +215,6 @@ theme: /
             state: Package
                 q: *[(давай|можно|хоч*|выбир*)]* @Packages *
                 script:
-                    //log("///////// MY LOG "+toPrettyString($parseTree));
-                   // log("///////// MY LOG "+$request.query);
-                    
                     if ($parseTree._Packages) {
                         $session.services = $parseTree._Packages.name; 
                     }

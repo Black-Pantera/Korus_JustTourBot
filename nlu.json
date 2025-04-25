@@ -306,11 +306,23 @@
       "text" : "Где можно посмотреть цены на пакет"
     }, {
       "text" : "Из чего складывается цена пакета"
+    }, {
+      "text" : "сколько  стоит @Packages"
+    }, {
+      "text" : "сколько  стоит пакет услуг @Packages"
+    }, {
+      "text" : "сколько  стоит пакет @Packages"
     } ],
     "classificationRules" : {
       "refs" : [ ]
     },
     "patterns" : [ ],
+    "slots" : [ {
+      "name" : "Packages",
+      "entity" : "Packages",
+      "required" : true,
+      "prompts" : [ ]
+    } ],
     "priority" : 0
   }, {
     "path" : "/doNotWantToIndicate",

@@ -239,6 +239,7 @@ theme: /
             
             state: AnotherOne
                 q: * $somethingElseForWeather *
+                intent!: /weather
                 script:
                     if (($parseTree._City) && ($parseTree["_duckling.date"])) {
                         $session.userCity = $parseTree._City.name;
