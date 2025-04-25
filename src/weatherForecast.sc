@@ -310,6 +310,10 @@ theme: /
                 q: * $yesWant * || toState = "/WeatherForecast", onlyThisState = true
                 q: * $noWant * || toState = "/SomethingElse", onlyThisState = true
                 q: * $offerreject * || toState = "/SomethingElse", onlyThisState = true
+                q: * (~погода|прогноз погоды) * [в] * {$City * * @duckling.date} * || toState = "/WeatherForecast" , onlyThisState = true 
+                q: * {(~погода|прогноз погоды) * @duckling.date} * || toState = "/WeatherForecast" , onlyThisState = true 
+                q: * (~погода * [(будет|ожидается|намечается|следует ожидать|прогнозируется|ждать|обещают)]) * {[@duckling.date] * [в] * [$City] } * || toState = "/WeatherForecast" , onlyThisState = true 
+                q: * (будет|ожидается|намечается|следует ожидать|прогнозируется|обещают) * [@duckling.date] * { [в] * $City * (дождь|солнечно|пасмурно|снег|туман) } * || toState = "/WeatherForecast" , onlyThisState = true 
                 intent: /weather || toState = "/WeatherForecast" , onlyThisState = true 
             
             
