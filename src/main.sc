@@ -16,7 +16,7 @@ require: weatherForecast.sc
 require: travelRequest.sc
 
 init: 
-    var SESSION_TIMEOUT_MS = 86400000; // Один день
+    var SESSION_TIMEOUT_MS = 20200000;    //86400000; // Один день
     
     bind("onAnyError", function($context) {
         var answers = [
