@@ -564,6 +564,20 @@
     },
     "patterns" : [ ],
     "priority" : 0
+  }, {
+    "path" : "/ПереводНаОператора",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "оператор"
+    }, {
+      "text" : "мне нужен оператор"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {

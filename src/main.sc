@@ -183,4 +183,14 @@ theme: /
             a: Всего вам доброго!
             a: Всего доброго, до свидания!
     
-    
+    state: Operator
+        intent!: /ПереводНаОператора
+        TransferToOperator:
+            titleOfCloseButton = Переключить обратно на бота
+            messageBeforeTransfer = Подождите немного. Соединяю вас со специалистом.
+            ignoreOffline = true
+            messageForWaitingOperator = Вам ответит первый освободившийся оператор.
+            noOperatorsOnlineState = /Switch/Error
+            dialogCompletedState = /AnythingElse
+            sendMessageHistoryAmount = 5
+            sendMessagesToOperator = true
