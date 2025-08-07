@@ -194,3 +194,8 @@ theme: /
             dialogCompletedState = /AnythingElse
             sendMessageHistoryAmount = 5
             sendMessagesToOperator = true
+            prechatAttributes =
+                {
+                    "Link1": "[Текст ссылки 1](https://example.com/1)",
+                    "Link2": "[Текст ссылки 2](https://example.com/2)"
+                }
