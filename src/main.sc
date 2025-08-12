@@ -191,7 +191,11 @@ theme: /
             ignoreOffline = true
             messageForWaitingOperator = Вам ответит первый освободившийся оператор.
             noOperatorsOnlineState = /Switch/Error
-            dialogCompletedState = /AnythingElse
+            dialogCompletedState = /SomethingElse
             sendMessageHistoryAmount = 5
             sendMessagesToOperator = true
+            
+        state: Error
+            a: К сожалению, все операторы сейчас заняты. Мы обязательно свяжемся с вами позже.
+            go!: /SomethingElse
             
