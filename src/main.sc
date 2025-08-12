@@ -185,7 +185,6 @@ theme: /
             
     state: Operator
         intent!: /ПереводНаОператора
-        a: Подождите немного. Соединяю вас со специалистом.
         script:
             $response.replies = $response.replies || [];
             $response.replies.push({
