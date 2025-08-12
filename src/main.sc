@@ -190,7 +190,7 @@ theme: /
             messageBeforeTransfer = Подождите немного. Соединяю вас со специалистом.
             ignoreOffline = true
             messageForWaitingOperator = Вам ответит первый освободившийся оператор.
-            noOperatorsOnlineState = /Switch/Error
+            noOperatorsOnlineState = /Operator/Error
             dialogCompletedState = /SomethingElse
             sendMessageHistoryAmount = 5
             sendMessagesToOperator = true
