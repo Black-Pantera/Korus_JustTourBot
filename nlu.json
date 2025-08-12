@@ -578,6 +578,16 @@
     },
     "patterns" : [ ],
     "priority" : 0
+  }, {
+    "path" : "/KnowledgeBase",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {

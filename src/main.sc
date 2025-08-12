@@ -182,7 +182,7 @@ theme: /
             a: Всего доброго!
             a: Всего вам доброго!
             a: Всего доброго, до свидания!
-    
+            
     state: Operator
         intent!: /ПереводНаОператора
         TransferToOperator:
