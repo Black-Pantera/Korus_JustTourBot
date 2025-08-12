@@ -185,12 +185,13 @@ theme: /
             
     state: Operator
         intent!: /ПереводНаОператора
-        script:
-            $response.replies = $response.replies || [];
-            $response.replies.push({
-                "type": "switch",
-                "destination": "8981", //Иддентификатор группы в Aimychat
-                "messageBeforeTransfer" = "Подождите немного. Соединяю вас со специалистом",
-                "ignoreOffline" = "true"
-                });
+        TransferToOperator:
+            titleOfCloseButton = Переключить обратно на бота
+            messageBeforeTransfer = Подождите немного. Соединяю вас со специалистом.
+            ignoreOffline = true
+            messageForWaitingOperator = Вам ответит первый освободившийся оператор.
+            noOperatorsOnlineState = /Switch/Error
+            dialogCompletedState = /AnythingElse
+            sendMessageHistoryAmount = 5
+            sendMessagesToOperator = true
             
