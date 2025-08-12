@@ -183,6 +183,12 @@ theme: /
             a: Всего вам доброго!
             a: Всего доброго, до свидания!
             
+    state: Match
+        intentGroup!: /KnowledgeBase
+        event!: match
+        script:
+            $prompter.pushReply();        
+            
     state: Operator
         intent!: /ПереводНаОператора
         script:
